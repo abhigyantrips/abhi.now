@@ -1,25 +1,15 @@
-import mdx from '@astrojs/mdx';
-import tailwind from '@astrojs/tailwind';
+// @ts-check
 import { defineConfig } from 'astro/config';
 
-import solidJs from '@astrojs/solid-js';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://www.abhigyantrips.dev',
-	integrations: [
-		tailwind({
-			applyBaseStyles: false,
-		}),
-		mdx({
-			shikiConfig: {
-				themes: {
-					light: 'vitesse-dark',
-					dark: 'vitesse-dark',
-				},
-			},
-			gfm: true,
-		}),
-		solidJs(),
-	],
+  adapter: cloudflare({
+    platformProxy: {
+      enabled: true
+    },
+
+    imageService: "cloudflare"
+  })
 });

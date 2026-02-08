@@ -5,16 +5,27 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "useTabs": true,
-  "plugins": ["prettier-plugin-astro"],
+  "plugins": [
+    "prettier-plugin-astro",
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "overrides": [
     {
-      "files": [".*", "*.md", "*.toml", "*.yml"],
+      "files": [
+        ".*",
+        "*.md",
+        "*.toml",
+        "*.yml"
+      ],
       "options": {
         "useTabs": false
       }
     },
     {
-      "files": ["**/*.astro"],
+      "files": [
+        "**/*.astro"
+      ],
       "options": {
         "parser": "astro"
       }
