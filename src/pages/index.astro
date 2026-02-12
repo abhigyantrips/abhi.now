@@ -1,5 +1,7 @@
 ---
+import { ROUTES, SOCIALS } from '@/consts';
 
+import '@/styles/global.css';
 ---
 
 <html lang='en'>
@@ -15,10 +17,34 @@
 		/>
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>abhi <i>bole toh</i> now.</h1>
-		<p>whoami blog snippets projects anti-vision photos reviews</p>
-		<h2>socials</h2>
-		<p>linkedin discord</p>
+	<body class='flex min-h-screen flex-col items-center justify-center gap-4 p-4 font-serif'>
+		<div class='grid grid-cols-2 gap-2 md:grid-cols-4'>
+			{
+				ROUTES.map((ROUTE) => (
+					<a
+						href={ROUTE.PATH}
+						class='text-center hover:underline'
+					>
+						{ROUTE.NAME}
+					</a>
+				))
+			}
+		</div>
+		<footer class='flex items-center justify-center p-4'>
+			<p class='font-serif font-bold'>abhi <i>bole toh</i> now.</p>
+		</footer>
+		<div class='flex gap-2'>
+			<p class='font-semibold'>socials:</p>
+			{
+				SOCIALS.map((SOCIAL) => (
+					<a
+						href={SOCIAL.HREF}
+						class='hover:underline'
+					>
+						{SOCIAL.TEXT}
+					</a>
+				))
+			}
+		</div>
 	</body>
 </html>
