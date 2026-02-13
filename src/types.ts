@@ -17,7 +17,7 @@ export type Route = {
 
 export type Social = {
 	NAME: string;
-	ICON: string;
 	TEXT: string;
+	COLOR: string;
 	HREF: string;
 };

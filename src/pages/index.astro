@@ -15,43 +15,107 @@ import '@/styles/global.css';
 			name='generator'
 			content={Astro.generator}
 		/>
+
+		<link
+			rel='preconnect'
+			href='https://fonts.googleapis.com'
+		/>
+		<link
+			rel='preconnect'
+			href='https://fonts.gstatic.com'
+			crossorigin
+		/>
+		<link
+			href='https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap'
+			rel='stylesheet'
+		/>
+
+		<style>
+			.font-serif {
+				font-family: 'Noto Serif JP', serif;
+			}
+
+			.font-gummy {
+				font-family: 'Sour Gummy', sans-serif;
+				font-optical-sizing: auto;
+				font-weight: <weight>;
+				font-style: normal;
+				font-variation-settings: 'wdth' 400;
+			}
+		</style>
+
 		<title>{SITE.TITLE}</title>
 	</head>
-	<body class='flex min-h-screen flex-col items-center justify-center gap-4 p-4 font-serif'>
-		<div class='grid grid-cols-2 gap-8 md:grid-cols-4'>
-			{
-				ROUTES.map((ROUTE) => (
-					<a
-						href={ROUTE.PATH}
-						class='route-link flex flex-col items-center gap-2 text-center underline-offset-2 transition-colors duration-100'
-						style={`--hover-color: ${ROUTE.COLOR}; --icon-url: url(${ROUTE.ICON});`}
-					>
-						<span class='route-icon size-10' role='img' aria-label={ROUTE.NAME} />
-						{ROUTE.NAME}
-					</a>
-				))
-			}
-		</div>
-		<footer class='flex items-center justify-center p-4'>
-			<p class='font-serif font-bold'>abhi <i>bole toh</i> now.</p>
+	<body class='relative min-h-screen font-serif'>
+		<main class='flex min-h-screen flex-col items-center justify-center gap-12 p-4'>
+			<!-- Name -->
+			<h1 class='font-gummy text-2xl'>abhi {''} <i>bole toh</i> {''} now.</h1>
+
+			<!-- Routes content -->
+			<div class='grid grid-cols-2 gap-12 md:grid-cols-4'>
+				{
+					ROUTES.map((ROUTE) => (
+						<a
+							href={ROUTE.PATH}
+							class='route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-2'
+							style={`--hover-color: ${ROUTE.COLOR}; --icon-url: url(${ROUTE.ICON});`}
+						>
+							<span
+								class='route-icon size-10 group-hover:scale-110'
+								role='img'
+								aria-label={ROUTE.NAME}
+							/>
+							{ROUTE.NAME}
+						</a>
+					))
+				}
+			</div>
+		</main>
+		<footer class='absolute right-0 bottom-0 left-0 flex flex-col items-center gap-2 p-8'>
+			<!-- Social icons -->
+			<div class='flex gap-5'>
+				{
+					SOCIALS.map((SOCIAL) => (
+						<a
+							href={SOCIAL.HREF}
+							class='font-gummy route-link decoration-2! underline-offset-2 hover:underline'
+							style={`--hover-color: ${SOCIAL.COLOR};`}
+						>
+							{SOCIAL.TEXT}
+						</a>
+					))
+				}
+			</div>
 		</footer>
-		<div class='flex gap-2'>
-			<p class='font-semibold'>socials:</p>
-			{
-				SOCIALS.map((SOCIAL) => (
-					<a
-						href={SOCIAL.HREF}
-						class='hover:underline underline-offset-2'
-					>
-						{SOCIAL.TEXT}
-					</a>
-				))
-			}
-		</div>
 	</body>
 </html>
 
 <style>
+	@keyframes doodle-wobble {
+		0%,
+		100% {
+			transform: rotate(2deg);
+		}
+		14% {
+			transform: rotate(-5deg);
+		}
+		28% {
+			transform: rotate(4deg);
+		}
+		42% {
+			transform: rotate(-3deg);
+		}
+		57% {
+			transform: rotate(6deg);
+		}
+		71% {
+			transform: rotate(-4deg);
+		}
+		85% {
+			transform: rotate(5deg);
+		}
+	}
+
 	.route-icon {
 		display: inline-block;
 		background-color: currentColor;
@@ -64,6 +128,10 @@ import '@/styles/global.css';
 		-webkit-mask-position: center;
 		mask-position: center;
 		transition: background-color 0.1s;
+	}
+
+	.group:hover .route-icon {
+		animation: doodle-wobble 3.33s steps(1) infinite;
 	}
 
 	.route-link:hover {
