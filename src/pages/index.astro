@@ -1,5 +1,5 @@
 ---
-import { ROUTES, SOCIALS } from '@/consts';
+import { ROUTES, SITE, SOCIALS } from '@/consts';
 
 import '@/styles/global.css';
 ---
@@ -15,16 +15,18 @@ import '@/styles/global.css';
 			name='generator'
 			content={Astro.generator}
 		/>
-		<title>Astro</title>
+		<title>{SITE.TITLE}</title>
 	</head>
 	<body class='flex min-h-screen flex-col items-center justify-center gap-4 p-4 font-serif'>
-		<div class='grid grid-cols-2 gap-2 md:grid-cols-4'>
+		<div class='grid grid-cols-2 gap-8 md:grid-cols-4'>
 			{
 				ROUTES.map((ROUTE) => (
 					<a
 						href={ROUTE.PATH}
-						class='text-center hover:underline'
+						class='route-link flex flex-col items-center gap-2 text-center underline-offset-2 transition-colors duration-100'
+						style={`--hover-color: ${ROUTE.COLOR}; --icon-url: url(${ROUTE.ICON});`}
 					>
+						<span class='route-icon size-10' role='img' aria-label={ROUTE.NAME} />
 						{ROUTE.NAME}
 					</a>
 				))
@@ -39,7 +41,7 @@ import '@/styles/global.css';
 				SOCIALS.map((SOCIAL) => (
 					<a
 						href={SOCIAL.HREF}
-						class='hover:underline'
+						class='hover:underline underline-offset-2'
 					>
 						{SOCIAL.TEXT}
 					</a>
@@ -48,3 +50,24 @@ import '@/styles/global.css';
 		</div>
 	</body>
 </html>
+
+<style>
+	.route-icon {
+		display: inline-block;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		transition: background-color 0.1s;
+	}
+
+	.route-link:hover {
+		color: var(--hover-color);
+		text-decoration: underline;
+	}
+</style>
