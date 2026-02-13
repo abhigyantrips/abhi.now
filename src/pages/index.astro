@@ -69,7 +69,11 @@ import '@/styles/global.css';
 				}
 			</div>
 		</main>
-		<footer class='absolute right-0 bottom-0 left-0 flex flex-col items-center gap-2 p-8'>
+		<footer
+			class='absolute right-0 bottom-0 left-0 flex items-center justify-between gap-2 p-8 lg:p-4'
+		>
+			<div class='hidden lg:block'></div>
+
 			<!-- Social icons -->
 			<div class='flex gap-5'>
 				{
@@ -88,7 +92,7 @@ import '@/styles/global.css';
 			<!-- Theme toggle -->
 			<button
 				id='theme-toggle'
-				class='theme-toggle fixed right-4 bottom-4 flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110'
+				class='theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110'
 				aria-label='Toggle Theme'
 			>
 				<span
