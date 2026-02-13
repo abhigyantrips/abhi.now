@@ -9,19 +9,20 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://abhi.now',
+	site: 'https://abhi.now',
+	output: 'static',
 
-  adapter: cloudflare({
-      platformProxy: {
-          enabled: true,
-      },
+	adapter: cloudflare({
+		platformProxy: {
+			enabled: true,
+		},
 
-      imageService: 'cloudflare',
+		imageService: 'cloudflare',
 	}),
 
-  integrations: [sitemap()],
+	integrations: [sitemap()],
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });

@@ -11,7 +11,7 @@ export const ROUTES: Route[] = [
 	{ NAME: 'whoami', PATH: '/whoami', ICON: '/icons/question.svg', COLOR: '#689D6A' },
 	{ NAME: 'blog', PATH: '/blog', ICON: '/icons/note.svg', COLOR: '#076678' },
 	{ NAME: 'snippets', PATH: '/snippets', ICON: '/icons/photo.svg', COLOR: '#79740E' },
-	{ NAME: 'projects', PATH: '/projects', ICON: '/icons/automation.svg', COLOR: 'darkblue' },
+	{ NAME: 'projects', PATH: '/projects', ICON: '/icons/automation.svg', COLOR: '#458588' },
 	{ NAME: 'anti-vision', PATH: '/anti-vision', ICON: '/icons/hide.svg', COLOR: '#CC241D' },
 	{ NAME: 'people', PATH: '/people', ICON: '/icons/crown.svg', COLOR: 'orange' },
 	{ NAME: 'media', PATH: '/media', ICON: '/icons/movie-clapper.svg', COLOR: '#B16286' },

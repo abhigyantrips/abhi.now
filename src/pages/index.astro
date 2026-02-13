@@ -30,21 +30,19 @@ import '@/styles/global.css';
 			rel='stylesheet'
 		/>
 
-		<style>
-			.font-serif {
-				font-family: 'Noto Serif JP', serif;
-			}
-
-			.font-gummy {
-				font-family: 'Sour Gummy', sans-serif;
-				font-optical-sizing: auto;
-				font-weight: <weight>;
-				font-style: normal;
-				font-variation-settings: 'wdth' 400;
-			}
-		</style>
-
 		<title>{SITE.TITLE}</title>
+
+		<!-- Inline script to prevent flash of wrong theme -->
+		<script is:inline>
+			const getThemePreference = () => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			};
+			const isDark = getThemePreference() === 'dark';
+			document.documentElement.classList.toggle('dark', isDark);
+		</script>
 	</head>
 	<body class='relative min-h-screen font-serif'>
 		<main class='flex min-h-screen flex-col items-center justify-center gap-12 p-4'>
@@ -86,6 +84,22 @@ import '@/styles/global.css';
 					))
 				}
 			</div>
+
+			<!-- Theme toggle -->
+			<button
+				id='theme-toggle'
+				class='theme-toggle fixed right-4 bottom-4 flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110'
+				aria-label='Toggle Theme'
+			>
+				<span
+					class='sun-icon size-5'
+					style='--icon-url: url(/icons/sunny.svg);'
+				></span>
+				<span
+					class='moon-icon size-5'
+					style='--icon-url: url(/icons/night.svg);'
+				></span>
+			</button>
 		</footer>
 	</body>
 </html>
@@ -116,6 +130,18 @@ import '@/styles/global.css';
 		}
 	}
 
+	.font-serif {
+		font-family: 'Noto Serif JP', serif;
+	}
+
+	.font-gummy {
+		font-family: 'Sour Gummy', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: <weight>;
+		font-style: normal;
+		font-variation-settings: 'wdth' 400;
+	}
+
 	.route-icon {
 		display: inline-block;
 		background-color: currentColor;
@@ -138,4 +164,64 @@ import '@/styles/global.css';
 		color: var(--hover-color);
 		text-decoration: underline;
 	}
+
+	/* Theme toggle styles */
+	.theme-toggle .sun-icon,
+	.theme-toggle .moon-icon {
+		display: inline-block;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
+	.theme-toggle .sun-icon {
+		display: block;
+	}
+	.theme-toggle .moon-icon {
+		display: none;
+	}
+	:global(.dark) .theme-toggle .sun-icon {
+		display: none;
+	}
+	:global(.dark) .theme-toggle .moon-icon {
+		display: block;
+	}
 </style>
+
+<script>
+	const toggle = document.getElementById('theme-toggle');
+
+	const getThemePreference = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+	};
+
+	const updateTheme = () => {
+		const isDark = getThemePreference() === 'dark';
+		document.documentElement.classList.toggle('dark', isDark);
+	};
+
+	toggle?.addEventListener('click', () => {
+		const isDark = document.documentElement.classList.contains('dark');
+		const newTheme = isDark ? 'light' : 'dark';
+		localStorage.setItem('theme', newTheme);
+		document.documentElement.classList.toggle('dark', !isDark);
+	});
+
+	// Listen for system preference changes
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+		if (!localStorage.getItem('theme')) {
+			document.documentElement.classList.toggle('dark', e.matches);
+		}
+	});
+
+	// Handle View Transitions (Astro)
+	document.addEventListener('astro:after-swap', updateTheme);
+</script>
