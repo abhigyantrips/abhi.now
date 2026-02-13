@@ -7,15 +7,22 @@
 	"name": "website",
 	"main": "./dist/_worker.js/index.js",
 	"compatibility_date": "2025-09-27",
-	"compatibility_flags": [
-		"nodejs_compat",
-		"global_fetch_strictly_public"
-	],
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"workers_dev": false,
+	"preview_urls": false,
+
 	"assets": {
 		"binding": "ASSETS",
-		"directory": "./dist"
+		"directory": "./dist",
 	},
 	"observability": {
-		"enabled": true
-	}
+		"enabled": true,
+	},
+	"routes": [
+		{
+			"pattern": "abhi.now",
+			"zone_name": "abhi.now",
+			"custom_domain": true,
+		},
+	],
 }
