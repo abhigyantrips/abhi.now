@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 interface Props {
 	title: string;
 	description: string;
@@ -116,14 +118,27 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 	href={`${Astro.site}rss.xml`}
 />
 
+<ClientRouter />
+
 <!-- Global Theme Script -->
 <script is:inline>
-	const getThemePreference = () => {
+	function getThemePreference() {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
 			return localStorage.getItem('theme');
 		}
 		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-	const isDark = getThemePreference() === 'dark';
-	document.documentElement.classList.toggle('dark', isDark);
+	}
+
+	function applyTheme(doc) {
+		const isDark = getThemePreference() === 'dark';
+		doc.documentElement.classList.toggle('dark', isDark);
+	}
+
+	// Apply theme immediately on initial load
+	applyTheme(document);
+
+	// Apply theme to new document BEFORE swap to prevent flash
+	document.addEventListener('astro:before-swap', (e) => {
+		applyTheme(e.newDocument);
+	});
 </script>

@@ -10,6 +10,7 @@
 
 /* Light theme (default) */
 :root {
+	color-scheme: light;
 	--color-bg: #fffaed;
 	--color-text: #3c3836;
 	--color-text-muted: #665c54;
@@ -17,9 +18,15 @@
 
 /* Dark theme */
 :root.dark {
+	color-scheme: dark;
 	--color-bg: #1d2021;
 	--color-text: #ebdbb2;
 	--color-text-muted: #a89984;
+}
+
+/* Prevent flash during view transitions */
+html {
+	background-color: var(--color-bg);
 }
 
 body {
