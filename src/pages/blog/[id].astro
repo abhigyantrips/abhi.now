@@ -1,0 +1,33 @@
+---
+import ReadingLayout from '@/layouts/reading-layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<ReadingLayout
+	route='/blog'
+	postTitle={post.data.title}
+	postDescription={post.data.description}
+	postDate={post.data.date.toDateString()}
+>
+	<article
+		class:list={[
+			'prose lg:prose-lg dark:prose-invert text-justify font-serif text-(--color-text)',
+			'prose-blockquote:text-(--color-text)/75 prose-blockquote:border-l-4 prose-blockquote:border-(--color-text) prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none',
+			'prose-strong:text-(--color-text) prose-em:text-(--color-text) prose-a:text-(--color-text) prose-a:underline-offset-2 prose-a:decoration-2 prose-a:decoration-[#e0e0e0] prose-a:hover:decoration-[#e0e0e0]',
+			'prose-hr:border-t-2 prose-hr:border-(--color-text-muted)/20 prose-hr:my-8',
+		]}
+	>
+		<Content />
+	</article>
+</ReadingLayout>

@@ -1,5 +1,21 @@
 ---
 import PageLayout from '@/layouts/page-layout.astro';
+import { getCollection } from 'astro:content';
+
+const entries = await getCollection('blog');
 ---
 
-<PageLayout route='/blog' />
+<PageLayout route='/blog'>
+	{
+		entries.map((post: any) => (
+			<li class='list-inside'>
+				<a
+					href={`/blog/${post.id}`}
+					class='decoration-2 underline-offset-4 hover:underline'
+				>
+					{post.data.title}
+				</a>
+			</li>
+		))
+	}
+</PageLayout>

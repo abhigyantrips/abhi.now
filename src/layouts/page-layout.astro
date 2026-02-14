@@ -15,6 +15,38 @@ const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 if (!currentRoute) {
 	throw new Error(`Route "${route}" not found in ROUTES`);
 }
+
+// Custom slide-from-bottom transition
+const slideFromBottom = {
+	forwards: {
+		old: {
+			name: 'slideToTop',
+			duration: '0.3s',
+			easing: 'ease-in-out',
+			fillMode: 'forwards',
+		},
+		new: {
+			name: 'slideInFromBottom',
+			duration: '0.3s',
+			easing: 'ease-in-out',
+			fillMode: 'forwards',
+		},
+	},
+	backwards: {
+		old: {
+			name: 'slideOutToBottom',
+			duration: '0.3s',
+			easing: 'ease-in-out',
+			fillMode: 'forwards',
+		},
+		new: {
+			name: 'slideInFromTop',
+			duration: '0.3s',
+			easing: 'ease-in-out',
+			fillMode: 'forwards',
+		},
+	},
+};
 ---
 
 <!doctype html>
@@ -41,7 +73,10 @@ if (!currentRoute) {
 	</head>
 	<body class='font-gummy'>
 		<Header section={currentRoute.NAME} />
-		<main class='bg-background flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col'>
+		<main
+			class='bg-background flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col'
+			transition:animate={slideFromBottom}
+		>
 			<Container size='md'>
 				<div class='flex flex-col pt-48'>
 					<div class='flex space-x-8'>
@@ -71,3 +106,49 @@ if (!currentRoute) {
 		</main>
 	</body>
 </html>
+
+<style is:global>
+	@keyframes slideInFromBottom {
+		from {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideToTop {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+	}
+
+	@keyframes slideOutToBottom {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+	}
+
+	@keyframes slideInFromTop {
+		from {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
