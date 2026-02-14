@@ -1,4 +1,5 @@
 ---
+import BaseHead from '@/components/base-head.astro';
 import { ROUTES, SITE, SOCIALS } from '@/consts';
 
 import '@/styles/global.css';
@@ -6,43 +7,10 @@ import '@/styles/global.css';
 
 <html lang='en'>
 	<head>
-		<meta charset='utf-8' />
-		<meta
-			name='viewport'
-			content='width=device-width'
+		<BaseHead
+			title={SITE.TITLE}
+			description={SITE.DESCRIPTION}
 		/>
-		<meta
-			name='generator'
-			content={Astro.generator}
-		/>
-
-		<link
-			rel='preconnect'
-			href='https://fonts.googleapis.com'
-		/>
-		<link
-			rel='preconnect'
-			href='https://fonts.gstatic.com'
-			crossorigin
-		/>
-		<link
-			href='https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap'
-			rel='stylesheet'
-		/>
-
-		<title>{SITE.TITLE}</title>
-
-		<!-- Inline script to prevent flash of wrong theme -->
-		<script is:inline>
-			const getThemePreference = () => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme');
-				}
-				return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-			};
-			const isDark = getThemePreference() === 'dark';
-			document.documentElement.classList.toggle('dark', isDark);
-		</script>
 	</head>
 	<body class='relative min-h-screen font-serif'>
 		<main class='flex min-h-screen flex-col items-center justify-center gap-12 p-4'>

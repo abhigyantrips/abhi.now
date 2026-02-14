@@ -1,0 +1,70 @@
+---
+import BaseHead from '@/components/base-head.astro';
+import Container from '@/components/container.astro';
+import Header from '@/components/header.astro';
+import { ROUTES, SITE } from '@/consts';
+import '@/styles/global.css';
+
+type Props = {
+	route: string;
+};
+
+const { route } = Astro.props;
+const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
+
+if (!currentRoute) {
+	throw new Error(`Route "${route}" not found in ROUTES`);
+}
+---
+
+<!doctype html>
+<html lang='en'>
+	<head>
+		<BaseHead
+			title={`${currentRoute.NAME} | ${SITE.TITLE}`}
+			description={currentRoute.DESCRIPTION}
+		/>
+
+		<style>
+			.font-serif {
+				font-family: 'Noto Serif JP', serif;
+			}
+
+			.font-gummy {
+				font-family: 'Sour Gummy', sans-serif;
+				font-optical-sizing: auto;
+				font-weight: <weight>;
+				font-style: normal;
+				font-variation-settings: 'wdth' 400;
+			}
+		</style>
+	</head>
+	<body class='font-gummy'>
+		<Header section={currentRoute.NAME} />
+		<main class='bg-background flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col'>
+			<Container size='md'>
+				<div class='flex flex-col pt-48'>
+					<div class='flex space-x-8'>
+						<div
+							class='size-16 -rotate-12'
+							style={`background-color: ${currentRoute.COLOR}; -webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+							role='img'
+							aria-label={currentRoute.NAME}
+						>
+						</div>
+						<div class='flex flex-col'>
+							<h1
+								class='text-3xl font-bold'
+								style={`color: ${currentRoute.COLOR};`}
+							>
+								{currentRoute.NAME}
+							</h1>
+							<p class='text-(--color-text)'>{currentRoute.DESCRIPTION}</p>
+						</div>
+					</div>
+				</div>
+				<slot />
+			</Container>
+		</main>
+	</body>
+</html>

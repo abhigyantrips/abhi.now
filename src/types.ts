@@ -13,6 +13,7 @@ export type Route = {
 	PATH: string;
 	ICON: string;
 	COLOR: string;
+	DESCRIPTION: string;
 };
 
 export type Social = {

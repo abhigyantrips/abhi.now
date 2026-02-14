@@ -8,14 +8,63 @@ export const SITE: Site = {
 };
 
 export const ROUTES: Route[] = [
-	{ NAME: 'whoami', PATH: '/whoami', ICON: '/icons/question.svg', COLOR: '#689D6A' },
-	{ NAME: 'blog', PATH: '/blog', ICON: '/icons/note.svg', COLOR: '#076678' },
-	{ NAME: 'snippets', PATH: '/snippets', ICON: '/icons/photo.svg', COLOR: '#79740E' },
-	{ NAME: 'projects', PATH: '/projects', ICON: '/icons/automation.svg', COLOR: '#458588' },
-	{ NAME: 'anti-vision', PATH: '/anti-vision', ICON: '/icons/hide.svg', COLOR: '#CC241D' },
-	{ NAME: 'people', PATH: '/people', ICON: '/icons/crown.svg', COLOR: 'orange' },
-	{ NAME: 'media', PATH: '/media', ICON: '/icons/movie-clapper.svg', COLOR: '#B16286' },
-	{ NAME: 'now', PATH: '/now', ICON: '/icons/point-down.svg', COLOR: 'darkorange' },
+	{
+		NAME: 'whoami',
+		PATH: '/whoami',
+		ICON: '/icons/question.svg',
+		COLOR: '#689D6A',
+		DESCRIPTION: 'a little bit about who i am and what i do.',
+	},
+	{
+		NAME: 'blog',
+		PATH: '/blog',
+		ICON: '/icons/note.svg',
+		COLOR: '#076678',
+		DESCRIPTION: 'thoughts, ideas, and random musings.',
+	},
+	{
+		NAME: 'snippets',
+		PATH: '/snippets',
+		ICON: '/icons/photo.svg',
+		COLOR: '#79740E',
+		DESCRIPTION: 'sticky notes from my life i wanna document.',
+	},
+	{
+		NAME: 'projects',
+		PATH: '/projects',
+		ICON: '/icons/automation.svg',
+		COLOR: '#458588',
+		DESCRIPTION: 'things i have built and that people found cool.',
+	},
+	{
+		NAME: 'anti-vision',
+		PATH: '/anti-vision',
+		ICON: '/icons/hide.svg',
+		COLOR: '#CC241D',
+		DESCRIPTION: "my vision? pfft, that's too broad. i gotta start with what i *don't* want.",
+	},
+	{
+		NAME: 'people',
+		PATH: '/people',
+		ICON: '/icons/crown.svg',
+		COLOR: 'orange',
+		DESCRIPTION: "people from my life who're doing crazy and cool things.",
+	},
+	{
+		NAME: 'media',
+		PATH: '/media',
+		ICON: '/icons/movie-clapper.svg',
+		COLOR: '#B16286',
+		DESCRIPTION: 'media i consumed and cannot stop talking about.',
+	},
+	{
+		NAME: 'now',
+		PATH: '/now',
+		ICON: '/icons/point-down.svg',
+		COLOR: 'darkorange',
+		DESCRIPTION:
+			"hahahah see how the site is called 'abhi.now' and this page is called '/now' and-",
+	},
 ];
 
 export const SOCIALS: Social[] = [
