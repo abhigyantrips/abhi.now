@@ -24,5 +24,10 @@ export default defineConfig({
 
 	vite: {
 		plugins: [tailwindcss()],
+		build: {
+			rollupOptions: {
+				external: ['node:crypto', 'node:fs/promises', 'node:path', 'node:url'],
+			},
+		},
 	},
 });
