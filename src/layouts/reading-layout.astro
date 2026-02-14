@@ -13,7 +13,7 @@ type Props = {
 	postDate?: string;
 };
 
-const { route, postTitle, postDescription } = Astro.props;
+const { route, postTitle, postDescription, postDate } = Astro.props;
 const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 
 if (!currentRoute) {
@@ -84,6 +84,7 @@ const slideFromBottom = {
 			<Container size='md'>
 				<div class='flex flex-col pt-24 md:pt-48'>
 					<div class='flex flex-col gap-2'>
+						{postDate && <p class='text-sm text-(--color-text-muted) uppercase'>{postDate}</p>}
 						<h1 class='text-3xl font-semibold'>
 							{postTitle}
 						</h1>

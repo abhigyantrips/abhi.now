@@ -4,7 +4,7 @@ description: 'A story about finding the right place for food in the city that ne
 date: 2026-02-07
 ---
 
-> This post was written as a part of IndieWebClub Meetup #17, where the prompt I chose to write about was, "Write about your favorite local food joint."
+> This post was written as a part of [IndieWebClub Meetup #17](https://blr.indiewebclub.org), where the prompt I chose to write about was, "Write about your favorite local food joint."
 
 It was 2AM on a certain Friday in Bombay. I was out with my family on a very unplanned, very long drive. It was at this moment when my mom declared that she wanted to have _“bisleri wale golgappe”_.
 
@@ -26,7 +26,7 @@ It’s very weird to remember a place that had such an impact on you, but someho
 
 What helped in finding the place was surprisingly sophisticated. I went through Google Photos to look at the pictures I’d taken that night. After somehow not taking any pictures at the actual _panipuri_ place (I was engrossed by the food, apparently), I found the last picture I’d taken before reaching there, of a guy selling _bhel puri_. I had somehow (for the first time I can remember) left my Location History on while taking the picture, and found the exact location of the _bhel puri_ dude. After a lot of reverse-searching and going “_golgappe — i mean, panipuri places in this area_”, I found it. The _right_ place.
 
-No, genuinely, it was called “Right Place”.
+No, genuinely, it was called "[Right Place](https://share.google/N0I3eztmj6tMfEGmw)".
 
 I stared at my screen for what felt like an hour, and burst out in laughter before I decided to share the universe’s joke with my family.
 
