@@ -166,35 +166,4 @@ import '@/styles/global.css';
 	}
 </style>
 
-<script>
-	const toggle = document.getElementById('theme-toggle');
 
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-
-	const updateTheme = () => {
-		const isDark = getThemePreference() === 'dark';
-		document.documentElement.classList.toggle('dark', isDark);
-	};
-
-	toggle?.addEventListener('click', () => {
-		const isDark = document.documentElement.classList.contains('dark');
-		const newTheme = isDark ? 'light' : 'dark';
-		localStorage.setItem('theme', newTheme);
-		document.documentElement.classList.toggle('dark', !isDark);
-	});
-
-	// Listen for system preference changes
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-		if (!localStorage.getItem('theme')) {
-			document.documentElement.classList.toggle('dark', e.matches);
-		}
-	});
-
-	// Handle View Transitions (Astro)
-	document.addEventListener('astro:after-swap', updateTheme);
-</script>

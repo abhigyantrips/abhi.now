@@ -8,7 +8,7 @@ const { section } = Astro.props;
 
 <header
 	id='header'
-	class='flex w-full items-center justify-between px-8 py-6'
+	class='flex w-full items-center justify-between px-6 lg:px-8 py-6'
 >
 	<div class='font-gummy flex items-center space-x-0.5'>
 		<a
@@ -85,35 +85,4 @@ const { section } = Astro.props;
 	}
 </style>
 
-<script>
-	const toggle = document.getElementById('theme-toggle');
 
-	const getThemePreference = () => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-	};
-
-	const updateTheme = () => {
-		const isDark = getThemePreference() === 'dark';
-		document.documentElement.classList.toggle('dark', isDark);
-	};
-
-	toggle?.addEventListener('click', () => {
-		const isDark = document.documentElement.classList.contains('dark');
-		const newTheme = isDark ? 'light' : 'dark';
-		localStorage.setItem('theme', newTheme);
-		document.documentElement.classList.toggle('dark', !isDark);
-	});
-
-	// Listen for system preference changes
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-		if (!localStorage.getItem('theme')) {
-			document.documentElement.classList.toggle('dark', e.matches);
-		}
-	});
-
-	// Handle View Transitions (Astro)
-	document.addEventListener('astro:after-swap', updateTheme);
-</script>

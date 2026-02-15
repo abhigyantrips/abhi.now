@@ -28,12 +28,10 @@
 /* Prevent flash during view transitions */
 html {
 	background-color: var(--color-bg);
+	transition: background-color 0.3s ease;
 }
 
 body {
-	background-color: var(--color-bg);
 	color: var(--color-text);
-	transition:
-		background-color 0.3s ease,
-		color 0.3s ease;
+	transition: color 0.3s ease;
 }

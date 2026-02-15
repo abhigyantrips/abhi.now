@@ -142,3 +142,25 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 		applyTheme(e.newDocument);
 	});
 </script>
+
+<!-- Theme Toggle Script (module, runs once, re-binds on every navigation) -->
+<script>
+	function setupThemeToggle() {
+		const toggle = document.getElementById('theme-toggle');
+
+		toggle?.addEventListener('click', () => {
+			const isDark = document.documentElement.classList.contains('dark');
+			const newTheme = isDark ? 'light' : 'dark';
+			localStorage.setItem('theme', newTheme);
+			document.documentElement.classList.toggle('dark', !isDark);
+		});
+	}
+
+	document.addEventListener('astro:page-load', setupThemeToggle);
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+		if (!localStorage.getItem('theme')) {
+			document.documentElement.classList.toggle('dark', e.matches);
+		}
+	});
+</script>
