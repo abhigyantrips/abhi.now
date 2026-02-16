@@ -6,53 +6,29 @@ interface Props {
 const { section } = Astro.props;
 ---
 
-<header
-	id='header'
-	class='flex w-full items-center justify-between px-6 lg:px-8 py-6'
->
-	<div class='font-gummy flex items-center space-x-0.5'>
-		<a
-			href={Astro.site}
-			rel='noopener noreferrer'
-			class='text-2xl'
-			>abhi</a
-		>
-		<svg
-			height='32'
-			role='separator'
-			viewBox='0 0 32 32'
-			width='32'
-		>
+<header id="header" class="flex w-full items-center justify-between px-6 py-6 lg:px-8">
+	<div class="font-gummy flex items-center space-x-0.5">
+		<a href={Astro.site} rel="noopener noreferrer" class="text-2xl">abhi</a>
+		<svg height="32" role="separator" viewBox="0 0 32 32" width="32">
 			<path
-				d='M22 5L9 28'
-				stroke-linecap='round'
-				stroke-linejoin='round'
-				class='stroke-(--color-text)/75'
-			></path>
+				d="M22 5L9 28"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="stroke-(--color-text)/75"></path>
 		</svg>
-		<a
-			href={`/${section}`}
-			rel='noopener noreferrer'
-			class='text-2xl'
-		>
+		<a href={`/${section}`} rel="noopener noreferrer" class="text-2xl">
 			{section}.
 		</a>
 	</div>
 
 	<!-- Theme toggle -->
 	<button
-		id='theme-toggle'
-		class='theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110'
-		aria-label='Toggle Theme'
+		id="theme-toggle"
+		class="theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110"
+		aria-label="Toggle Theme"
 	>
-		<span
-			class='sun-icon size-5'
-			style='--icon-url: url(/icons/sunny.svg);'
-		></span>
-		<span
-			class='moon-icon size-5'
-			style='--icon-url: url(/icons/night.svg);'
-		></span>
+		<span class="sun-icon size-5" style="--icon-url: url(/icons/sunny.svg);"></span>
+		<span class="moon-icon size-5" style="--icon-url: url(/icons/night.svg);"></span>
 	</button>
 </header>
 
@@ -84,5 +60,3 @@ const { section } = Astro.props;
 		display: block;
 	}
 </style>
-
-

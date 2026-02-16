@@ -54,12 +54,9 @@ const slideFromBottom = {
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 	<head>
-		<BaseHead
-			title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
-			description={postDescription}
-		/>
+		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
 
 		<style>
 			.font-serif {
@@ -75,23 +72,23 @@ const slideFromBottom = {
 			}
 		</style>
 	</head>
-	<body class='font-gummy'>
+	<body class="font-gummy">
 		<Header section={currentRoute.NAME} />
 		<main
-			class='flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36'
+			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
 			transition:animate={slideFromBottom}
 		>
-			<Container size='md'>
-				<div class='flex flex-col pt-24 md:pt-48'>
-					<div class='flex flex-col gap-2'>
-						{postDate && <p class='text-sm text-(--color-text-muted) uppercase'>{postDate}</p>}
-						<h1 class='text-3xl font-semibold'>
+			<Container size="md">
+				<div class="flex flex-col pt-24 md:pt-48">
+					<div class="flex flex-col gap-2">
+						{postDate && <p class="text-sm text-(--color-text-muted) uppercase">{postDate}</p>}
+						<h1 class="text-3xl font-semibold">
 							{postTitle}
 						</h1>
-						<p class='text-(--color-text-muted)'>{postDescription}</p>
+						<p class="text-(--color-text-muted)">{postDescription}</p>
 					</div>
 				</div>
-				<hr class='my-12 border-t border-(--color-text)/75' />
+				<hr class="my-12 border-t border-(--color-text)/75" />
 				<slot />
 			</Container>
 		</main>

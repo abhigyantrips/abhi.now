@@ -6,25 +6,17 @@ import { slideFromBottom } from '@/lib/transitions';
 import { ROUTES, SITE } from '@/consts';
 import '@/styles/global.css';
 
-type Props = {
-	route: string;
-};
+const aboutRoute = ROUTES.find((r) => r.PATH === '/whoami' || r.NAME === 'whoami');
 
-const { route } = Astro.props;
-const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
-
-if (!currentRoute) {
-	throw new Error(`Route "${route}" not found in ROUTES`);
+if (!aboutRoute) {
+	throw new Error(`Route "/whoami" not found in ROUTES`);
 }
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={`${currentRoute.NAME} | ${SITE.TITLE}`}
-			description={currentRoute.DESCRIPTION}
-		/>
+		<BaseHead title={`${aboutRoute.NAME} | ${SITE.TITLE}`} description={aboutRoute.DESCRIPTION} />
 
 		<style>
 			.font-serif {
@@ -41,7 +33,7 @@ if (!currentRoute) {
 		</style>
 	</head>
 	<body class="font-gummy">
-		<Header section={currentRoute.NAME} />
+		<Header section={aboutRoute.NAME} />
 		<main
 			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col"
 			transition:animate={slideFromBottom}
@@ -51,18 +43,18 @@ if (!currentRoute) {
 					<div class="flex space-x-8">
 						<div
 							class="size-16 -rotate-12"
-							style={`background-color: ${currentRoute.COLOR}; -webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+							style={`background-color: ${aboutRoute.COLOR}; -webkit-mask: url(${aboutRoute.ICON}) no-repeat center; mask: url(${aboutRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
 							role="img"
-							aria-label={currentRoute.NAME}
-							transition:name={`icon-${currentRoute.NAME}`}
+							aria-label={aboutRoute.NAME}
+							transition:name={`icon-${aboutRoute.NAME}`}
 							transition:persist
 						>
 						</div>
 						<div class="flex flex-col">
-							<h1 class="text-3xl font-bold" style={`color: ${currentRoute.COLOR};`}>
-								{currentRoute.NAME}
+							<h1 class="text-3xl font-bold" style={`color: ${aboutRoute.COLOR};`}>
+								{aboutRoute.NAME}
 							</h1>
-							<p class="text-(--color-text)">{currentRoute.DESCRIPTION}</p>
+							<p class="text-(--color-text)">{aboutRoute.DESCRIPTION}</p>
 						</div>
 					</div>
 				</div>

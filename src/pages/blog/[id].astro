@@ -13,32 +13,32 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const tags = await getEntries(post.data.tags || [])
+const tags = await getEntries(post.data.tags || []);
 ---
 
 <ReadingLayout
-	route='/blog'
+	route="/blog"
 	postTitle={post.data.title}
 	postDescription={post.data.description}
 	postDate={post.data.date.toDateString()}
 >
 	<article
 		class:list={[
-			'prose lg:prose-lg dark:prose-invert text-justify font-serif text-(--color-text) max-w-none',
+			'prose lg:prose-lg dark:prose-invert max-w-none text-justify font-serif text-(--color-text)',
 			'prose-blockquote:text-(--color-text)/75 prose-blockquote:border-l-4 prose-blockquote:border-(--color-text) prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none',
 			'prose-strong:text-(--color-text) prose-em:text-(--color-text) prose-a:text-(--color-text) prose-a:underline-offset-2 prose-a:decoration-1 prose-a:decoration-(--color-text-muted) prose-a:hover:bg-(--color-text) prose-a:hover:text-(--color-bg) prose-a:hover:decoration-transparent',
 			'prose-hr:border-t-2 prose-hr:border-(--color-text-muted)/20 prose-hr:my-8',
 		]}
 	>
 		<Content />
-		<div class="not-prose font-gummy tracking-wider flex items-center justify-start gap-2">
-			{tags.map((tag) => (
-				<span
-					class='text-xs bg-(--color-text-muted)/20 text-(--color-text-muted) px-2 py-1 rounded'
-				>
-					{tag.data.name}
-				</span>
-			))}
+		<div class="not-prose font-gummy flex items-center justify-start gap-2 tracking-wider">
+			{
+				tags.map((tag) => (
+					<span class="rounded bg-(--color-text-muted)/20 px-2 py-1 text-xs text-(--color-text-muted)">
+						{tag.data.name}
+					</span>
+				))
+			}
 		</div>
 	</article>
 </ReadingLayout>
