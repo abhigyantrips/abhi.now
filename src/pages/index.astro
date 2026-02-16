@@ -13,7 +13,7 @@ import '@/styles/global.css';
 		/>
 	</head>
 	<body class='relative min-h-screen font-serif'>
-		<main class='flex min-h-screen flex-col items-center justify-center gap-12 p-4'>
+		<main class='flex min-h-[calc(100vh-(--spacing(18)))] md:min-h-screen flex-col items-center justify-center gap-12 p-4'>
 			<!-- Name -->
 			<h1 class='font-gummy text-2xl'>abhi {''} <i>bole toh</i> {''} now.</h1>
 
@@ -49,7 +49,7 @@ import '@/styles/global.css';
 					SOCIALS.map((SOCIAL) => (
 						<a
 							href={SOCIAL.HREF}
-							class='font-gummy route-link decoration-2! underline-offset-2 hover:underline'
+							class='font-gummy footer-link decoration-2! underline-offset-2 hover:underline'
 							style={`--hover-color: ${SOCIAL.COLOR};`}
 						>
 							{SOCIAL.TEXT}
@@ -133,10 +133,25 @@ import '@/styles/global.css';
 		animation: doodle-wobble 3.33s steps(1) infinite;
 	}
 
-	.route-link:hover {
-		color: var(--hover-color);
-		text-decoration: underline;
+	/* On mobile: always show colored labels/icons */
+	@media (max-width: 767px) {
+		.route-link {
+			color: var(--hover-color);
+		}
 	}
+
+	/* On larger screens: color only on hover */
+	@media (min-width: 768px) {
+		.route-link:hover {
+			color: var(--hover-color);
+			text-decoration: underline;
+		}
+	}
+
+	.footer-link:hover {
+			color: var(--hover-color);
+			text-decoration: underline;
+		}
 
 	/* Theme toggle styles */
 	.theme-toggle .sun-icon,
