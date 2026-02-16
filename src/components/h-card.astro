@@ -1,0 +1,214 @@
+---
+import { SITE, SOCIALS } from '@/consts';
+---
+
+<!-- HCard trigger button -->
+<button
+	id="hcard-toggle"
+	class="hcard-toggle font-gummy flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-text) px-3 py-2 text-(--color-bg) hover:scale-110"
+	aria-label="HCard"
+	onclick="document.getElementById('hcard-dialog').showModal()"
+>
+	h-card
+</button>
+
+<!-- HCard dialog -->
+<dialog
+	id="hcard-dialog"
+	class="hcard-dialog font-gummy m-auto w-full max-w-md rounded-3xl border border-(--color-text)/15 bg-(--color-bg) p-0 text-(--color-text) backdrop:bg-black/50 backdrop:backdrop-blur-sm"
+>
+	<div class="h-card relative p-6">
+		<!-- Close button -->
+		<div class="absolute top-6 right-6">
+			<form method="dialog">
+				<button
+					class="flex size-8 cursor-pointer items-center justify-center rounded-full bg-(--color-text)/10 text-(--color-text) transition-colors hover:bg-(--color-text)/20"
+					aria-label="Close HCard"
+				>
+					<svg
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<path d="M18 6L6 18"></path>
+						<path d="M6 6l12 12"></path>
+					</svg>
+				</button>
+			</form>
+		</div>
+
+		<!-- Avatar & Name -->
+		<div class="mb-6 flex items-center gap-4">
+			<img
+				class="u-photo size-16 rounded-full border-2 border-(--color-text)/20 object-cover"
+				src="https://github.com/abhigyantrips.png"
+				alt={SITE.AUTHOR}
+			/>
+			<div>
+				<h2 class="p-name text-xl font-bold text-(--color-text)">
+					{SITE.AUTHOR}
+				</h2>
+				<a
+					class="u-url text-sm text-(--color-text-muted) underline decoration-dotted underline-offset-4 hover:text-(--color-text)"
+					href={SITE.URL}
+					rel="me"
+				>
+					{SITE.URL.replace('https://', '')}
+				</a>
+			</div>
+		</div>
+
+		<!-- Note / Bio -->
+		<p class="p-note mb-6 text-sm leading-relaxed text-(--color-text-muted)">
+			{SITE.DESCRIPTION}
+		</p>
+
+		<!-- Details -->
+		<div class="mb-6 space-y-2 text-sm">
+			<div class="flex items-center text-(--color-text-muted)">
+				<svg
+					class="mr-2 size-4 shrink-0"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+					<circle cx="12" cy="10" r="3"></circle>
+				</svg>
+				<span class="p-locality">Bengaluru</span>,
+				<span class="p-country-name pl-1">India</span>
+			</div>
+			<div class="flex items-center gap-2 text-(--color-text-muted)">
+				<svg
+					class="size-4 shrink-0"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<rect width="20" height="16" x="2" y="4" rx="2"></rect>
+					<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+				</svg>
+				<a
+					class="u-email underline decoration-dotted underline-offset-4 hover:text-(--color-text)"
+					href="mailto:contact@abhi.now"
+				>
+					contact@abhi.now
+				</a>
+			</div>
+		</div>
+
+		<!-- Socials -->
+		<div class="flex items-center justify-between">
+			<div class="flex flex-wrap gap-2">
+				{
+					SOCIALS.map((social) => (
+						<a
+							class="u-url inline-flex items-center rounded-full bg-(--color-text) px-3 py-1.5 text-xs font-medium text-(--color-bg) transition-colors hover:bg-(--color-text-muted)"
+							href={social.HREF}
+							rel={'noopener noreferrer' + (social.NAME === 'Discord' ? '' : ' me')}
+							target="_blank"
+						>
+							{social.TEXT}
+						</a>
+					))
+				}
+			</div>
+			<!-- IndieWeb h-card Link -->
+			<div class="flex items-center justify-center gap-1.5 text-xs text-(--color-text-muted)/60">
+				<svg class="size-3" viewBox="0 0 24 24" fill="currentColor">
+					<path
+						d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+				<a
+					href="https://indieweb.org/h-card"
+					rel="noopener noreferrer"
+					target="_blank"
+					class="decoration-1.5 underline-offset-2 hover:underline">what&apos;s this?</a
+				>
+			</div>
+		</div>
+	</div>
+</dialog>
+
+<style>
+	.font-serif {
+		font-family: 'Noto Serif JP', serif;
+	}
+
+	.font-gummy {
+		font-family: 'Sour Gummy', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: <weight>;
+		font-style: normal;
+		font-variation-settings: 'wdth' 400;
+	}
+
+	.hcard-toggle .hcard-icon {
+		display: inline-block;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
+
+	.hcard-dialog[open] {
+		animation: hcard-pop 0.2s ease-out;
+	}
+
+	.hcard-dialog[open]::backdrop {
+		animation: hcard-backdrop 0.2s ease-out;
+	}
+
+	@keyframes hcard-pop {
+		from {
+			opacity: 0;
+			transform: scale(0.95) translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+
+	@keyframes hcard-backdrop {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+</style>
+
+<script>
+	function initHCard() {
+		const dialog = document.getElementById('hcard-dialog') as HTMLDialogElement;
+		dialog?.addEventListener('click', (e) => {
+			if (e.target === dialog) dialog.close();
+		});
+	}
+
+	initHCard();
+	document.addEventListener('astro:after-swap', initHCard);
+</script>

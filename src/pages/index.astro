@@ -1,34 +1,34 @@
 ---
 import BaseHead from '@/components/base-head.astro';
+import HCard from '@/components/h-card.astro';
 import { ROUTES, SITE, SOCIALS } from '@/consts';
 
 import '@/styles/global.css';
 ---
 
-<html lang='en'>
+<html lang="en">
 	<head>
-		<BaseHead
-			title={SITE.TITLE}
-			description={SITE.DESCRIPTION}
-		/>
+		<BaseHead title={SITE.TITLE} description={SITE.DESCRIPTION} />
 	</head>
-	<body class='relative min-h-screen font-serif'>
-		<main class='flex min-h-[calc(100vh-(--spacing(18)))] md:min-h-screen flex-col items-center justify-center gap-12 p-4'>
+	<body class="relative min-h-screen font-serif">
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(18)))] flex-col items-center justify-center gap-12 p-4 md:min-h-screen"
+		>
 			<!-- Name -->
-			<h1 class='font-gummy text-2xl'>abhi {''} <i>bole toh</i> {''} now.</h1>
+			<h1 class="font-gummy text-2xl">abhi {''} <i>bole toh</i> {''} now.</h1>
 
 			<!-- Routes content -->
-			<div class='grid grid-cols-2 gap-12 md:grid-cols-4'>
+			<div class="grid grid-cols-2 gap-12 md:grid-cols-4">
 				{
 					ROUTES.map((ROUTE) => (
 						<a
 							href={ROUTE.PATH}
-							class='route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-2'
+							class="route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-2"
 							style={`--hover-color: ${ROUTE.COLOR}; --icon-url: url(${ROUTE.ICON});`}
 						>
 							<span
-								class='route-icon size-10 group-hover:scale-110'
-								role='img'
+								class="route-icon size-10 group-hover:scale-110"
+								role="img"
 								aria-label={ROUTE.NAME}
 								transition:name={`icon-${ROUTE.NAME}`}
 							/>
@@ -39,17 +39,19 @@ import '@/styles/global.css';
 			</div>
 		</main>
 		<footer
-			class='absolute right-0 bottom-0 left-0 flex items-center justify-between gap-2 p-8 lg:p-4'
+			class="absolute right-0 bottom-0 left-0 flex items-center justify-between gap-2 p-8 lg:p-4"
 		>
-			<div class='hidden lg:block'></div>
+			<div class="hidden lg:block">
+				<HCard />
+			</div>
 
 			<!-- Social icons -->
-			<div class='flex gap-5'>
+			<div class="flex gap-5">
 				{
 					SOCIALS.map((SOCIAL) => (
 						<a
 							href={SOCIAL.HREF}
-							class='font-gummy footer-link decoration-2! underline-offset-2 hover:underline'
+							class="font-gummy footer-link decoration-2! underline-offset-2 hover:underline"
 							style={`--hover-color: ${SOCIAL.COLOR};`}
 						>
 							{SOCIAL.TEXT}
@@ -60,18 +62,12 @@ import '@/styles/global.css';
 
 			<!-- Theme toggle -->
 			<button
-				id='theme-toggle'
-				class='theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110'
-				aria-label='Toggle Theme'
+				id="theme-toggle"
+				class="theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110"
+				aria-label="Toggle Theme"
 			>
-				<span
-					class='sun-icon size-5'
-					style='--icon-url: url(/icons/sunny.svg);'
-				></span>
-				<span
-					class='moon-icon size-5'
-					style='--icon-url: url(/icons/night.svg);'
-				></span>
+				<span class="sun-icon size-5" style="--icon-url: url(/icons/sunny.svg);"></span>
+				<span class="moon-icon size-5" style="--icon-url: url(/icons/night.svg);"></span>
 			</button>
 		</footer>
 	</body>
@@ -149,9 +145,9 @@ import '@/styles/global.css';
 	}
 
 	.footer-link:hover {
-			color: var(--hover-color);
-			text-decoration: underline;
-		}
+		color: var(--hover-color);
+		text-decoration: underline;
+	}
 
 	/* Theme toggle styles */
 	.theme-toggle .sun-icon,
@@ -180,5 +176,3 @@ import '@/styles/global.css';
 		display: block;
 	}
 </style>
-
-
