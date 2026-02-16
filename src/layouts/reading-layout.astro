@@ -11,9 +11,10 @@ type Props = {
 	postTitle: string;
 	postDescription: string;
 	postDate?: string;
+	postUrl?: string;
 };
 
-const { route, postTitle, postDescription, postDate } = Astro.props;
+const { route, postTitle, postDescription, postDate, postUrl } = Astro.props;
 const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 
 if (!currentRoute) {
@@ -79,17 +80,21 @@ const slideFromBottom = {
 			transition:animate={slideFromBottom}
 		>
 			<Container size="md">
-				<div class="flex flex-col pt-24 md:pt-48">
+				<div class="h-entry flex flex-col pt-24 md:pt-48">
 					<div class="flex flex-col gap-2">
-						{postDate && <p class="text-sm text-(--color-text-muted) uppercase">{postDate}</p>}
-						<h1 class="text-3xl font-semibold">
+						{postDate && <time class="dt-published text-sm text-(--color-text-muted) uppercase" datetime={postDate}>{postDate}</time>}
+						<h1 class="p-name text-3xl font-semibold">
 							{postTitle}
 						</h1>
-						<p class="text-(--color-text-muted)">{postDescription}</p>
+						<p class="p-summary text-(--color-text-muted)">{postDescription}</p>
+						{postUrl && <a class="u-url hidden" href={postUrl}>{postTitle}</a>}
+						<span class="p-author h-card hidden">
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+						</span>
 					</div>
+					<hr class="my-12 border-t border-(--color-text)/75" />
+					<slot />
 				</div>
-				<hr class="my-12 border-t border-(--color-text)/75" />
-				<slot />
 			</Container>
 		</main>
 

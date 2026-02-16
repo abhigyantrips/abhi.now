@@ -6,13 +6,21 @@ const entries = await getCollection('blog');
 ---
 
 <PageLayout route="/blog">
-	{
-		entries.map((post: any) => (
-			<li class="list-inside">
-				<a href={`/blog/${post.id}`} class="decoration-2 underline-offset-4 hover:underline">
-					{post.data.title}
-				</a>
-			</li>
-		))
-	}
+	<div class="h-feed">
+		<span class="p-name hidden">abhigyan trips's blog</span>
+		{
+			entries.map((post: any) => (
+				<li class="h-entry list-inside">
+					<a class="p-name u-url" href={`/blog/${post.id}`}>
+						<span class="decoration-2 underline-offset-4 hover:underline">
+							{post.data.title}
+						</span>
+					</a>
+					<time class="dt-published hidden" datetime={post.data.date.toISOString()}>
+						{post.data.date.toDateString()}
+					</time>
+				</li>
+			))
+		}
+	</div>
 </PageLayout>
