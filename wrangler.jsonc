@@ -21,7 +21,6 @@
 	"routes": [
 		{
 			"pattern": "abhi.now",
-			"zone_name": "abhi.now",
 			"custom_domain": true,
 		},
 	],
