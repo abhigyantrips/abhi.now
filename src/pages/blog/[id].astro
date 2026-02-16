@@ -1,5 +1,6 @@
 ---
 import ReadingLayout from '@/layouts/reading-layout.astro';
+import { getEntries } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -12,6 +13,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const tags = await getEntries(post.data.tags || [])
 ---
 
 <ReadingLayout
@@ -29,5 +31,24 @@ const { Content } = await render(post);
 		]}
 	>
 		<Content />
+		<div class="not-prose font-gummy tracking-wider flex items-center justify-start gap-2">
+			{tags.map((tag) => (
+				<span
+					class='text-xs bg-(--color-text-muted)/20 text-(--color-text-muted) px-2 py-1 rounded'
+				>
+					{tag.data.name}
+				</span>
+			))}
+		</div>
 	</article>
 </ReadingLayout>
+
+<style>
+	.font-gummy {
+		font-family: 'Sour Gummy', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: <weight>;
+		font-style: normal;
+		font-variation-settings: 'wdth' 400;
+	}
+</style>

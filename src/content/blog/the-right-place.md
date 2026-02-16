@@ -2,6 +2,8 @@
 title: 'The Right Place'
 description: 'A story about finding the right place for food in the city that never sleeps.'
 date: 2026-02-07
+tags:
+    - indie-web-club
 ---
 
 > This post was written as a part of [IndieWebClub Meetup #17](https://blr.indiewebclub.org), where the prompt I chose to write about was, "Write about your favorite local food joint."

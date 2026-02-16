@@ -17,10 +17,11 @@ const blog = defineCollection({
 const tags = defineCollection({
 	loader: glob({
 		base: './src/content/tags',
-		pattern: '**/*.json',
+		pattern: '**/[^_]*.json',
 	}),
 	schema: z.object({
 		name: z.string(),
+		description: z.string().optional(),
 		color: z.string(),
 	}),
 });
