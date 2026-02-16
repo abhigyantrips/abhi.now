@@ -20,7 +20,7 @@
 	},
 	"routes": [
 		{
-			"pattern": "site.abhi.now",
+			"pattern": "abhi.now",
 			"zone_name": "abhi.now",
 			"custom_domain": true,
 		},
