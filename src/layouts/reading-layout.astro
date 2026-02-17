@@ -82,12 +82,27 @@ const slideFromBottom = {
 			<Container size="md">
 				<div class="h-entry flex flex-col pt-24 md:pt-48">
 					<div class="flex flex-col gap-2">
-						{postDate && <time class="dt-published text-sm text-(--color-text-muted) uppercase" datetime={postDate}>{postDate}</time>}
+						{
+							postDate && (
+								<time
+									class="dt-published text-sm text-(--color-text-muted) uppercase"
+									datetime={postDate}
+								>
+									{postDate}
+								</time>
+							)
+						}
 						<h1 class="p-name text-3xl font-semibold">
 							{postTitle}
 						</h1>
 						<p class="p-summary text-(--color-text-muted)">{postDescription}</p>
-						{postUrl && <a class="u-url hidden" href={postUrl}>{postTitle}</a>}
+						{
+							postUrl && (
+								<a class="u-url hidden" href={postUrl}>
+									{postTitle}
+								</a>
+							)
+						}
 						<span class="p-author h-card hidden">
 							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
 						</span>

@@ -3,39 +3,34 @@ import HCard from '@/components/h-card.astro';
 ---
 
 <div
-	class='font-gummy flex items-end justify-center px-6 py-6 text-(--color-text-muted) lg:justify-between lg:px-8'
+	class="font-gummy flex items-end justify-center px-6 py-6 text-(--color-text-muted) lg:justify-between lg:px-8"
 >
-	<div class='hidden lg:block'>
+	<div class="hidden lg:block">
 		<HCard />
 	</div>
-	<div class='flex flex-col items-center gap-2'>
-		<div class='webring flex items-center gap-2'>
+	<div class="flex flex-col items-center gap-2">
+		<div class="webring flex items-center gap-2">
 			<a
-				href='https://blr.indiewebclub.org/webring/previous.html'
-				aria-label='Previous site in webring'
-				class='size-4 text-(--color-text-muted) hover:scale-110'
+				href="https://blr.indiewebclub.org/webring/previous.html"
+				aria-label="Previous site in webring"
+				class="size-4 text-(--color-text-muted) hover:scale-110"
 			>
-				<span
-					class='chevron-icon size-4'
-					style='--icon-url: url(/icons/chevrons-left.svg);'
-				></span>
+				<span class="chevron-icon size-4" style="--icon-url: url(/icons/chevrons-left.svg);"></span>
 			</a>
 			<a
-				href='https://blr.indiewebclub.org/'
-				target='_blank'
-				rel='noopener noreferrer'
-				class='underline decoration-dashed underline-offset-4 hover:decoration-solid'
+				href="https://blr.indiewebclub.org/"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="underline decoration-dashed underline-offset-4 hover:decoration-solid"
 			>
 				IndieWebClub Bangalore
 			</a>
 			<a
-				href='https://blr.indiewebclub.org/webring/next.html'
-				aria-label='Next site in webring'
-				class='size-4 text-(--color-text-muted) hover:scale-110'
+				href="https://blr.indiewebclub.org/webring/next.html"
+				aria-label="Next site in webring"
+				class="size-4 text-(--color-text-muted) hover:scale-110"
 			>
-				<span
-					class='chevron-icon size-4'
-					style='--icon-url: url(/icons/chevrons-right.svg);'
+				<span class="chevron-icon size-4" style="--icon-url: url(/icons/chevrons-right.svg);"
 				></span>
 			</a>
 		</div>
@@ -43,14 +38,11 @@ import HCard from '@/components/h-card.astro';
 		<p>copyright &copy; 2026, abhigyan trips.</p>
 	</div>
 	<button
-		id='scroll-to-top'
-		class='hidden size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110 lg:flex'
-		aria-label='Scroll to top'
+		id="scroll-to-top"
+		class="hidden size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110 lg:flex"
+		aria-label="Scroll to top"
 	>
-		<span
-			class='scroll-icon size-5'
-			style='--icon-url: url(/icons/chevrons-up.svg);'
-		></span>
+		<span class="scroll-icon size-5" style="--icon-url: url(/icons/chevrons-up.svg);"></span>
 	</button>
 </div>
 

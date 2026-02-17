@@ -4,9 +4,9 @@ import { SITE, SOCIALS } from '@/consts';
 
 <!-- HCard trigger button -->
 <button
-	id='hcard-toggle'
-	class='hcard-toggle font-gummy flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-text) px-3 py-2 text-(--color-bg) hover:scale-110'
-	aria-label='HCard'
+	id="hcard-toggle"
+	class="hcard-toggle font-gummy flex cursor-pointer items-center justify-center gap-2 rounded-full bg-(--color-text) px-3 py-2 text-(--color-bg) hover:scale-110"
+	aria-label="HCard"
 	onclick="document.getElementById('hcard-dialog').showModal()"
 >
 	h-card
@@ -14,49 +14,49 @@ import { SITE, SOCIALS } from '@/consts';
 
 <!-- HCard dialog -->
 <dialog
-	id='hcard-dialog'
-	class='hcard-dialog font-gummy m-auto w-full max-w-md rounded-3xl border border-(--color-text)/15 bg-(--color-bg) p-0 text-(--color-text) backdrop:bg-black/50 backdrop:backdrop-blur-sm'
+	id="hcard-dialog"
+	class="hcard-dialog font-gummy m-auto w-full max-w-md rounded-3xl border border-(--color-text)/15 bg-(--color-bg) p-0 text-(--color-text) backdrop:bg-black/50 backdrop:backdrop-blur-sm"
 >
-	<div class='h-card relative p-6'>
+	<div class="h-card relative p-6">
 		<!-- Close button -->
-		<div class='absolute top-6 right-6'>
-			<form method='dialog'>
+		<div class="absolute top-6 right-6">
+			<form method="dialog">
 				<button
-					class='flex size-8 cursor-pointer items-center justify-center rounded-full bg-(--color-text)/10 text-(--color-text) transition-colors hover:bg-(--color-text)/20'
-					aria-label='Close HCard'
+					class="flex size-8 cursor-pointer items-center justify-center rounded-full bg-(--color-text)/10 text-(--color-text) transition-colors hover:bg-(--color-text)/20"
+					aria-label="Close HCard"
 				>
 					<svg
-						width='16'
-						height='16'
-						viewBox='0 0 24 24'
-						fill='none'
-						stroke='currentColor'
-						stroke-width='2'
-						stroke-linecap='round'
-						stroke-linejoin='round'
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 					>
-						<path d='M18 6L6 18'></path>
-						<path d='M6 6l12 12'></path>
+						<path d="M18 6L6 18"></path>
+						<path d="M6 6l12 12"></path>
 					</svg>
 				</button>
 			</form>
 		</div>
 
 		<!-- Avatar & Name -->
-		<div class='mb-6 flex items-center gap-4'>
+		<div class="mb-6 flex items-center gap-4">
 			<img
-				class='u-photo size-16 rounded-full border-2 border-(--color-text)/20 object-cover'
-				src='/favicon.png'
+				class="u-photo size-16 rounded-full border-2 border-(--color-text)/20 object-cover"
+				src="/favicon.png"
 				alt={SITE.AUTHOR}
 			/>
 			<div>
-				<h2 class='p-name text-xl font-bold text-(--color-text)'>
+				<h2 class="p-name text-xl font-bold text-(--color-text)">
 					{SITE.AUTHOR}
 				</h2>
 				<a
-					class='u-url text-sm text-(--color-text-muted) underline decoration-dotted underline-offset-4 hover:text-(--color-text)'
+					class="u-url text-sm text-(--color-text-muted) underline decoration-dotted underline-offset-4 hover:text-(--color-text)"
 					href={SITE.URL}
-					rel='me'
+					rel="me"
 				>
 					{SITE.URL.replace('https://', '')}
 				</a>
@@ -64,54 +64,44 @@ import { SITE, SOCIALS } from '@/consts';
 		</div>
 
 		<!-- Note / Bio -->
-		<p class='p-note mb-6 text-sm leading-relaxed text-(--color-text-muted)'>
+		<p class="p-note mb-6 text-sm leading-relaxed text-(--color-text-muted)">
 			{SITE.DESCRIPTION}
 		</p>
 
 		<!-- Details -->
-		<div class='mb-6 space-y-2 text-sm'>
-			<div class='flex items-center text-(--color-text-muted)'>
+		<div class="mb-6 space-y-2 text-sm">
+			<div class="flex items-center text-(--color-text-muted)">
 				<svg
-					class='mr-2 size-4 shrink-0'
-					viewBox='0 0 24 24'
-					fill='none'
-					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					class="mr-2 size-4 shrink-0"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
 				>
-					<path d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'></path>
-					<circle
-						cx='12'
-						cy='10'
-						r='3'
-					></circle>
+					<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+					<circle cx="12" cy="10" r="3"></circle>
 				</svg>
-				<span class='p-locality'>Bengaluru</span>,
-				<span class='p-country-name pl-1'>India</span>
+				<span class="p-locality">Bengaluru</span>,
+				<span class="p-country-name pl-1">India</span>
 			</div>
-			<div class='flex items-center gap-2 text-(--color-text-muted)'>
+			<div class="flex items-center gap-2 text-(--color-text-muted)">
 				<svg
-					class='size-4 shrink-0'
-					viewBox='0 0 24 24'
-					fill='none'
-					stroke='currentColor'
-					stroke-width='2'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					class="size-4 shrink-0"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
 				>
-					<rect
-						width='20'
-						height='16'
-						x='2'
-						y='4'
-						rx='2'
-					></rect>
-					<path d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'></path>
+					<rect width="20" height="16" x="2" y="4" rx="2"></rect>
+					<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
 				</svg>
 				<a
-					class='u-email underline decoration-dotted underline-offset-4 hover:text-(--color-text)'
-					href='mailto:contact@abhi.now'
+					class="u-email underline decoration-dotted underline-offset-4 hover:text-(--color-text)"
+					href="mailto:contact@abhi.now"
 				>
 					contact@abhi.now
 				</a>
@@ -119,15 +109,15 @@ import { SITE, SOCIALS } from '@/consts';
 		</div>
 
 		<!-- Socials -->
-		<div class='flex items-center justify-between'>
-			<div class='flex flex-wrap gap-2'>
+		<div class="flex items-center justify-between">
+			<div class="flex flex-wrap gap-2">
 				{
 					SOCIALS.map((social) => (
 						<a
-							class='u-url inline-flex items-center rounded-full bg-(--color-text) px-3 py-1.5 text-xs font-medium text-(--color-bg) transition-colors hover:bg-(--color-text-muted)'
+							class="u-url inline-flex items-center rounded-full bg-(--color-text) px-3 py-1.5 text-xs font-medium text-(--color-bg) transition-colors hover:bg-(--color-text-muted)"
 							href={social.HREF}
 							rel={'noopener noreferrer' + (social.NAME === 'GitHub' ? ' me' : '')}
-							target='_blank'
+							target="_blank"
 						>
 							{social.TEXT}
 						</a>
@@ -135,27 +125,21 @@ import { SITE, SOCIALS } from '@/consts';
 				}
 			</div>
 			<!-- IndieWeb h-card Link -->
-			<div class='flex items-center justify-center gap-1.5 text-xs text-(--color-text-muted)/60'>
-				<svg
-					class='size-3'
-					viewBox='0 0 24 24'
-					fill='currentColor'
-				>
+			<div class="flex items-center justify-center gap-1.5 text-xs text-(--color-text-muted)/60">
+				<svg class="size-3" viewBox="0 0 24 24" fill="currentColor">
 					<path
-						d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'
-						fill='none'
-						stroke='currentColor'
-						stroke-width='2'
-						stroke-linecap='round'
-						stroke-linejoin='round'
-					></path>
+						d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
 				</svg>
 				<a
-					href='https://indieweb.org/h-card'
-					rel='noopener noreferrer'
-					target='_blank'
-					class='decoration-1.5 underline-offset-2 hover:underline'
-					>what&apos;s this?</a
+					href="https://indieweb.org/h-card"
+					rel="noopener noreferrer"
+					target="_blank"
+					class="decoration-1.5 underline-offset-2 hover:underline">what&apos;s this?</a
 				>
 			</div>
 		</div>
