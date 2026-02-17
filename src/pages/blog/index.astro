@@ -5,20 +5,24 @@ import { getCollection } from 'astro:content';
 const entries = await getCollection('blog');
 ---
 
-<PageLayout route="/blog">
-	<div class="h-feed">
-		<span class="p-name hidden">abhigyan trips's blog</span>
+<PageLayout route='/blog'>
+	<div class='h-feed'>
+		<span class='p-name hidden'>abhigyan trips's blog</span>
 		{
 			entries.map((post: any) => (
-				<li class="h-entry list-inside">
-					<a class="p-name u-url" href={`/blog/${post.id}`}>
-						<span class="decoration-2 underline-offset-4 hover:underline">
-							{post.data.title}
-						</span>
-					</a>
-					<time class="dt-published hidden" datetime={post.data.date.toISOString()}>
-						{post.data.date.toDateString()}
+				<li class='h-entry flex list-inside items-center gap-4'>
+					<time
+						class='dt-published text-sm text-(--color-text-muted)'
+						datetime={post.data.date.toISOString()}
+					>
+						{post.data.date.toISOString().slice(0, 10)}
 					</time>
+					<a
+						class='p-name u-url'
+						href={`/blog/${post.id}`}
+					>
+						<span class='decoration-2 underline-offset-4 hover:underline'>{post.data.title}</span>
+					</a>
 				</li>
 			))
 		}
