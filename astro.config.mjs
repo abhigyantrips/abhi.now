@@ -1,23 +1,23 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import cloudflare from '@astrojs/cloudflare';
+import cloudflare from "@astrojs/cloudflare";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://abhi.now',
-	output: 'static',
+	site: "https://abhi.now",
+	output: "static",
 
 	adapter: cloudflare({
 		platformProxy: {
 			enabled: true,
 		},
 
-		imageService: 'cloudflare',
+		imageService: "cloudflare",
 	}),
 
 	integrations: [sitemap()],
@@ -26,7 +26,7 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 		build: {
 			rollupOptions: {
-				external: ['node:crypto', 'node:fs/promises', 'node:path', 'node:url'],
+				external: ["node:crypto", "node:fs/promises", "node:path", "node:url"],
 			},
 		},
 	},

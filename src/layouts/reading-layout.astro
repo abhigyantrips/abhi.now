@@ -1,10 +1,10 @@
 ---
-import BaseHead from '@/components/base-head.astro';
-import Container from '@/components/container.astro';
-import Footer from '@/components/footer.astro';
-import Header from '@/components/header.astro';
-import { ROUTES, SITE } from '@/consts';
-import '@/styles/global.css';
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import { ROUTES, SITE } from "@/consts";
+import "@/styles/global.css";
 
 type Props = {
 	route: string;
@@ -25,30 +25,30 @@ if (!currentRoute) {
 const slideFromBottom = {
 	forwards: {
 		old: {
-			name: 'slideToTop',
-			duration: '0.3s',
-			easing: 'ease-in-out',
-			fillMode: 'forwards',
+			name: "slideToTop",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
 		},
 		new: {
-			name: 'slideInFromBottom',
-			duration: '0.3s',
-			easing: 'ease-in-out',
-			fillMode: 'forwards',
+			name: "slideInFromBottom",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
 		},
 	},
 	backwards: {
 		old: {
-			name: 'slideOutToBottom',
-			duration: '0.3s',
-			easing: 'ease-in-out',
-			fillMode: 'forwards',
+			name: "slideOutToBottom",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
 		},
 		new: {
-			name: 'slideInFromTop',
-			duration: '0.3s',
-			easing: 'ease-in-out',
-			fillMode: 'forwards',
+			name: "slideInFromTop",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
 		},
 	},
 };
@@ -60,16 +60,12 @@ const slideFromBottom = {
 		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
 
 		<style>
-			.font-serif {
-				font-family: 'Noto Serif JP', serif;
-			}
-
 			.font-gummy {
-				font-family: 'Sour Gummy', sans-serif;
+				font-family: "Sour Gummy", sans-serif;
 				font-optical-sizing: auto;
 				font-weight: <weight>;
 				font-style: normal;
-				font-variation-settings: 'wdth' 400;
+				font-variation-settings: "wdth" 400;
 			}
 		</style>
 	</head>

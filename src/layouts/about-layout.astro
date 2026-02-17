@@ -1,12 +1,12 @@
 ---
-import BaseHead from '@/components/base-head.astro';
-import Container from '@/components/container.astro';
-import Header from '@/components/header.astro';
-import { slideFromBottom } from '@/lib/transitions';
-import { ROUTES, SITE } from '@/consts';
-import '@/styles/global.css';
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Header from "@/components/header.astro";
+import { slideFromBottom } from "@/lib/transitions";
+import { ROUTES, SITE } from "@/consts";
+import "@/styles/global.css";
 
-const aboutRoute = ROUTES.find((r) => r.PATH === '/whoami' || r.NAME === 'whoami');
+const aboutRoute = ROUTES.find((r) => r.PATH === "/whoami" || r.NAME === "whoami");
 
 if (!aboutRoute) {
 	throw new Error(`Route "/whoami" not found in ROUTES`);
@@ -19,16 +19,12 @@ if (!aboutRoute) {
 		<BaseHead title={`${aboutRoute.NAME} | ${SITE.TITLE}`} description={aboutRoute.DESCRIPTION} />
 
 		<style>
-			.font-serif {
-				font-family: 'Noto Serif JP', serif;
-			}
-
 			.font-gummy {
-				font-family: 'Sour Gummy', sans-serif;
+				font-family: "Sour Gummy", sans-serif;
 				font-optical-sizing: auto;
 				font-weight: <weight>;
 				font-style: normal;
-				font-variation-settings: 'wdth' 400;
+				font-variation-settings: "wdth" 400;
 			}
 		</style>
 	</head>

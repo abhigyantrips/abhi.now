@@ -1,8 +1,8 @@
 ---
-import PageLayout from '@/layouts/page-layout.astro';
-import { getCollection } from 'astro:content';
+import PageLayout from "@/layouts/page-layout.astro";
+import { getCollection } from "astro:content";
 
-const entries = await getCollection('blog');
+const entries = await getCollection("blog");
 ---
 
 <PageLayout route="/blog">

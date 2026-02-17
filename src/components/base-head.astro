@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title: string;
@@ -9,7 +9,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/og-image.png' } = Astro.props;
+const { title, description, image = "/og-image.png" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -22,7 +22,7 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-	href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
 	rel="stylesheet"
 />
 
@@ -66,7 +66,7 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 	rel="alternate"
 	type="application/rss+xml"
 	title="abhigyan trips's blog."
-	href={new URL('/blog/rss.xml', Astro.site)}
+	href={new URL("/blog/rss.xml", Astro.site)}
 />
 
 <ClientRouter />
@@ -74,22 +74,22 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 <!-- Global Theme Script -->
 <script is:inline>
 	function getThemePreference() {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
+		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+			return localStorage.getItem("theme");
 		}
-		return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 	}
 
 	function applyTheme(doc) {
-		const isDark = getThemePreference() === 'dark';
-		doc.documentElement.classList.toggle('dark', isDark);
+		const isDark = getThemePreference() === "dark";
+		doc.documentElement.classList.toggle("dark", isDark);
 	}
 
 	// Apply theme immediately on initial load
 	applyTheme(document);
 
 	// Apply theme to new document BEFORE swap to prevent flash
-	document.addEventListener('astro:before-swap', (e) => {
+	document.addEventListener("astro:before-swap", (e) => {
 		applyTheme(e.newDocument);
 	});
 </script>
@@ -97,21 +97,21 @@ const { title, description, image = '/og-image.png' } = Astro.props;
 <!-- Theme Toggle Script (module, runs once, re-binds on every navigation) -->
 <script>
 	function setupThemeToggle() {
-		const toggle = document.getElementById('theme-toggle');
+		const toggle = document.getElementById("theme-toggle");
 
-		toggle?.addEventListener('click', () => {
-			const isDark = document.documentElement.classList.contains('dark');
-			const newTheme = isDark ? 'light' : 'dark';
-			localStorage.setItem('theme', newTheme);
-			document.documentElement.classList.toggle('dark', !isDark);
+		toggle?.addEventListener("click", () => {
+			const isDark = document.documentElement.classList.contains("dark");
+			const newTheme = isDark ? "light" : "dark";
+			localStorage.setItem("theme", newTheme);
+			document.documentElement.classList.toggle("dark", !isDark);
 		});
 	}
 
-	document.addEventListener('astro:page-load', setupThemeToggle);
+	document.addEventListener("astro:page-load", setupThemeToggle);
 
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-		if (!localStorage.getItem('theme')) {
-			document.documentElement.classList.toggle('dark', e.matches);
+	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+		if (!localStorage.getItem("theme")) {
+			document.documentElement.classList.toggle("dark", e.matches);
 		}
 	});
 </script>

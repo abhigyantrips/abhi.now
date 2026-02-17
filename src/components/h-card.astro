@@ -1,5 +1,5 @@
 ---
-import { SITE, SOCIALS } from '@/consts';
+import { SITE, SOCIALS } from "@/consts";
 ---
 
 <!-- HCard trigger button -->
@@ -58,7 +58,7 @@ import { SITE, SOCIALS } from '@/consts';
 					href={SITE.URL}
 					rel="me"
 				>
-					{SITE.URL.replace('https://', '')}
+					{SITE.URL.replace("https://", "")}
 				</a>
 			</div>
 		</div>
@@ -116,7 +116,7 @@ import { SITE, SOCIALS } from '@/consts';
 						<a
 							class="u-url inline-flex items-center rounded-full bg-(--color-text) px-3 py-1.5 text-xs font-medium text-(--color-bg) transition-colors hover:bg-(--color-text-muted)"
 							href={social.HREF}
-							rel={'noopener noreferrer' + (social.NAME === 'GitHub' ? ' me' : '')}
+							rel={"noopener noreferrer" + (social.NAME === "GitHub" ? " me" : "")}
 							target="_blank"
 						>
 							{social.TEXT}
@@ -147,16 +147,12 @@ import { SITE, SOCIALS } from '@/consts';
 </dialog>
 
 <style>
-	.font-serif {
-		font-family: 'Noto Serif JP', serif;
-	}
-
 	.font-gummy {
-		font-family: 'Sour Gummy', sans-serif;
+		font-family: "Sour Gummy", sans-serif;
 		font-optical-sizing: auto;
 		font-weight: <weight>;
 		font-style: normal;
-		font-variation-settings: 'wdth' 400;
+		font-variation-settings: "wdth" 400;
 	}
 
 	.hcard-toggle .hcard-icon {
@@ -203,12 +199,12 @@ import { SITE, SOCIALS } from '@/consts';
 
 <script>
 	function initHCard() {
-		const dialog = document.getElementById('hcard-dialog') as HTMLDialogElement;
-		dialog?.addEventListener('click', (e) => {
+		const dialog = document.getElementById("hcard-dialog") as HTMLDialogElement;
+		dialog?.addEventListener("click", (e) => {
 			if (e.target === dialog) dialog.close();
 		});
 	}
 
 	initHCard();
-	document.addEventListener('astro:after-swap', initHCard);
+	document.addEventListener("astro:after-swap", initHCard);
 </script>

@@ -1,6 +1,6 @@
 ---
 type Props = {
-	size: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+	size: "sm" | "md" | "lg" | "xl" | "2xl";
 };
 
 const { size } = Astro.props;
@@ -8,12 +8,12 @@ const { size } = Astro.props;
 
 <div
 	class:list={[
-		'mx-auto h-full w-full px-5',
-		size === 'sm' && 'max-w-screen-sm',
-		size === 'md' && 'max-w-3xl',
-		size === 'lg' && 'max-w-5xl',
-		size === 'xl' && 'max-w-7xl',
-		size === '2xl' && 'max-w-screen-2xl',
+		"mx-auto h-full w-full px-5",
+		size === "sm" && "max-w-screen-sm",
+		size === "md" && "max-w-3xl",
+		size === "lg" && "max-w-5xl",
+		size === "xl" && "max-w-7xl",
+		size === "2xl" && "max-w-screen-2xl",
 	]}
 >
 	<slot />

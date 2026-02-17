@@ -1,11 +1,11 @@
 ---
-import BaseHead from '@/components/base-head.astro';
-import Container from '@/components/container.astro';
-import Header from '@/components/header.astro';
-import { slideFromBottom } from '@/lib/transitions';
-import { ROUTES, SITE } from '@/consts';
-import '@/styles/global.css';
-import Footer from '@/components/footer.astro';
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Header from "@/components/header.astro";
+import { slideFromBottom } from "@/lib/transitions";
+import { ROUTES, SITE } from "@/consts";
+import "@/styles/global.css";
+import Footer from "@/components/footer.astro";
 
 type Props = {
 	route: string;
@@ -28,16 +28,12 @@ if (!currentRoute) {
 		/>
 
 		<style>
-			.font-serif {
-				font-family: 'Noto Serif JP', serif;
-			}
-
 			.font-gummy {
-				font-family: 'Sour Gummy', sans-serif;
+				font-family: "Sour Gummy", sans-serif;
 				font-optical-sizing: auto;
 				font-weight: <weight>;
 				font-style: normal;
-				font-variation-settings: 'wdth' 400;
+				font-variation-settings: "wdth" 400;
 			}
 		</style>
 	</head>

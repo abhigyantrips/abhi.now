@@ -1,6 +1,6 @@
 ---
-title: 'The Right Place'
-description: 'A story about finding the right place for food in the city that never sleeps.'
+title: "The Right Place"
+description: "A story about finding the right place for food in the city that never sleeps."
 date: 2026-02-07
 tags:
   - indie-web-club

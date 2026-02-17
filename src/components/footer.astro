@@ -1,5 +1,5 @@
 ---
-import HCard from '@/components/h-card.astro';
+import HCard from "@/components/h-card.astro";
 ---
 
 <div
@@ -64,15 +64,15 @@ import HCard from '@/components/h-card.astro';
 
 <script>
 	function setupScrollToTop() {
-		const scrollBtn = document.getElementById('scroll-to-top');
+		const scrollBtn = document.getElementById("scroll-to-top");
 
-		scrollBtn?.addEventListener('click', () => {
+		scrollBtn?.addEventListener("click", () => {
 			window.scrollTo({
 				top: 0,
-				behavior: 'smooth',
+				behavior: "smooth",
 			});
 		});
 	}
 
-	document.addEventListener('astro:page-load', setupScrollToTop);
+	document.addEventListener("astro:page-load", setupScrollToTop);
 </script>
