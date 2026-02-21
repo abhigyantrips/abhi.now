@@ -61,14 +61,33 @@ const snippets = defineCollection({
 });
 
 const befores = defineCollection({
-	loader: glob({
+	loader: globWithParser({
 		base: "./src/content/befores",
 		pattern: "**/*.md",
+		parser: async (entry) => {
+			const { id, data }: { id: string; data: { title?: string; date?: string } } = entry;
+
+			// Use the filename (id) as the epoch timestamp
+			data.title = id;
+			// If the id is an epoch timestamp, convert it to a Date
+			const epochMatch = id.match(/^(\d{10})$/);
+			if (epochMatch) {
+				const epoch = parseInt(epochMatch[1], 10);
+				// Convert to local timezone string
+				data.date = new Date(epoch * 1000).toLocaleString();
+			} else {
+				// fallback: try ISO date or default
+				data.date = id.match(/(\d{4}-\d{2}-\d{2})/)?.[0] ?? new Date().toString();
+			}
+
+			return entry;
+		},
 	}),
 	schema: z.object({
-		title: z.string().default(Math.floor(new Date().getTime() / 1000).toString()),
-		description: z.string(),
-		date: z.coerce.date(),
+		title: z.string().default(""),
+		description: z.string().default("a sticky note to remember."),
+		date: z.coerce.date().optional(),
+		tags: z.array(reference("tags")).optional(),
 	}),
 });
 
