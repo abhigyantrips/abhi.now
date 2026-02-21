@@ -4,17 +4,17 @@ import type { AstroSharedContext } from "astro";
 import { getCollection } from "astro:content";
 
 export async function GET(context: AstroSharedContext) {
-	const blog = await getCollection("blog");
+	const snippets = await getCollection("snippets");
 
 	return rss({
-		title: "abhigyan trips's blog.",
+		title: "abhigyan trips's sticky notes.",
 		description: "tiny tiny documentation from a kid who likes chai.",
 		site: context.site || SITE.URL,
-		items: blog.map((post) => ({
+		items: snippets.map((post) => ({
 			title: post.data.title,
 			description: post.data.description,
 			pubDate: post.data.date,
-			link: `/blog/${post.id}/`,
+			link: `/snippets/#${post.id}/`,
 		})),
 	});
 }

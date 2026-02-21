@@ -10,41 +10,55 @@ entries = entries.sort((a, b) => {
 	const dateB = new Date(b.data.date!);
 	return dateB.getTime() - dateA.getTime();
 });
+
+// Helper function to format date
+function formatDate(date: Date | string) {
+	const isoString = typeof date === "string" ? date : date.toISOString();
+	return isoString.slice(0, 10);
+}
+
+// Helper function to extract time
+function formatTime(date: Date | string) {
+	if (date && typeof date === "object" && "toISOString" in date) {
+		return date.toISOString().slice(11, 16);
+	}
+	if (typeof date === "string") {
+		const match = date.match(/T(\d{2}:\d{2})/);
+		return match ? match[1] : "";
+	}
+	return "";
+}
 ---
 
-<PageLayout route='/snippets'>
-	<div class='h-feed flex flex-col gap-6'>
-		<span class='p-name hidden'>abhigyan trips's sticky notes</span>
+<PageLayout route="/snippets">
+	<div class="h-feed flex flex-col gap-4">
+		<span class="p-name hidden">abhigyan trips's sticky notes</span>
 		{
 			entries.map(async (post: any) => {
 				const { Content } = await render(post);
+				const dateStr = formatDate(post.data.date);
+				const timeStr = formatTime(post.data.date);
+
 				return (
-					<div id={post.id} class='h-entry flex flex-row items-start rounded-lg bg-(--color-text)/10 p-6'>
-						<div class='flex flex-1 flex-col gap-2'>
-							<div class='e-content prose max-w-none text-(--color-text)'>
+					<div
+						id={post.id}
+						class="h-entry flex flex-row items-start rounded-lg bg-(--color-text)/10 p-6"
+					>
+						<div class="flex flex-1 flex-col gap-2">
+							<div class="e-content prose prose-strong:text-(--color-text) prose-strong:font-semibold max-w-none text-(--color-text)">
 								<Content />
 							</div>
-							<div class='flex justify-between'>
+							<div class="flex justify-between">
 								<time
-									class='dt-published min-w-22.5 pt-2 text-left text-sm text-(--color-text-muted)'
-									datetime={post.data.date?.toISOString?.() || post.data.date}
+									class="dt-published pt-2 text-left text-sm text-(--color-text-muted)"
+									datetime={post.data.date}
 								>
-									{(post.data.date?.toISOString?.() || post.data.date)?.slice(0, 10)}
-									{', '}
-									{(() => {
-										const d = post.data.date;
-										if (d && typeof d.toISOString === 'function') {
-											const iso = d.toISOString();
-											return iso.slice(11, 16); // HH:MM
-										} else if (typeof d === 'string') {
-											const match = d.match(/T(\d{2}:\d{2})/);
-											return match ? match[1] : '';
-										}
-										return '';
-									})()}
+									{dateStr}
+									{", "}
+									{timeStr}
 								</time>
 								<a
-									class='p-name px-2 py-1 text-(--color-text-muted) cursor-pointer hover:underline underline-offset-2 decoration-2'
+									class="p-name cursor-pointer px-2 py-1 text-(--color-text-muted) decoration-2 underline-offset-2 hover:underline"
 									href={`/snippets/#${post.id}`}
 								>
 									#{post.data.title || post.id}
