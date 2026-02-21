@@ -6,7 +6,7 @@ tags:
   - indie-web-club
 ---
 
-> This post was written as a part of [IndieWebClub Meetup #17](https://blr.indiewebclub.org), where the prompt I chose to write about was, "Write about your favorite local food joint."
+> This post was written as a part of [IndieWebClub Meetup #19](https://blr.indiewebclub.org), where the prompt I chose was, "Write about your favorite local food joint."
 
 It was 2AM on a certain Friday in Bombay. I was out with my family on a very unplanned, very long drive. It was at this moment when my mom declared that she wanted to have _“bisleri wale golgappe”_.
 

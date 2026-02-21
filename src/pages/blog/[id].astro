@@ -18,7 +18,7 @@ const tags = await getEntries(post.data.tags || []);
 ---
 
 <ReadingLayout
-	route="/blog"
+	route='/blog'
 	postTitle={post.data.title}
 	postDescription={post.data.description}
 	postDate={post.data.date.toDateString()}
@@ -33,10 +33,10 @@ const tags = await getEntries(post.data.tags || []);
 		]}
 	>
 		<Content />
-		<div class="not-prose font-gummy flex items-center justify-start gap-2 tracking-wider">
+		<div class='not-prose font-gummy flex items-center justify-start gap-2 tracking-wider'>
 			{
 				tags.map((tag) => (
-					<span class="p-category rounded bg-(--color-text-muted)/20 px-2 py-1 text-xs text-(--color-text-muted)">
+					<span class='p-category rounded bg-(--color-text-muted)/20 px-2 py-1 text-xs text-(--color-text-muted)'>
 						{tag.data.name}
 					</span>
 				))

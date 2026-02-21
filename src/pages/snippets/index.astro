@@ -1,5 +1,59 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+let entries = await getCollection("snippets");
+// Sort by publish date descending
+entries = entries.sort((a, b) => {
+	const dateA = new Date(a.data.date!);
+	const dateB = new Date(b.data.date!);
+	return dateB.getTime() - dateA.getTime();
+});
 ---
 
-<PageLayout route="/snippets" />
+<PageLayout route='/snippets'>
+	<div class='h-feed flex flex-col gap-6'>
+		<span class='p-name hidden'>abhigyan trips's sticky notes</span>
+		{
+			entries.map(async (post: any) => {
+				const { Content } = await render(post);
+				return (
+					<div id={post.id} class='h-entry flex flex-row items-start rounded-lg bg-(--color-text)/10 p-6'>
+						<div class='flex flex-1 flex-col gap-2'>
+							<div class='e-content prose max-w-none text-(--color-text)'>
+								<Content />
+							</div>
+							<div class='flex justify-between'>
+								<time
+									class='dt-published min-w-22.5 pt-2 text-left text-sm text-(--color-text-muted)'
+									datetime={post.data.date?.toISOString?.() || post.data.date}
+								>
+									{(post.data.date?.toISOString?.() || post.data.date)?.slice(0, 10)}
+									{', '}
+									{(() => {
+										const d = post.data.date;
+										if (d && typeof d.toISOString === 'function') {
+											const iso = d.toISOString();
+											return iso.slice(11, 16); // HH:MM
+										} else if (typeof d === 'string') {
+											const match = d.match(/T(\d{2}:\d{2})/);
+											return match ? match[1] : '';
+										}
+										return '';
+									})()}
+								</time>
+								<a
+									class='p-name px-2 py-1 text-(--color-text-muted) cursor-pointer hover:underline underline-offset-2 decoration-2'
+									href={`/snippets/#${post.id}`}
+								>
+									#{post.data.title || post.id}
+								</a>
+							</div>
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
+</PageLayout>
