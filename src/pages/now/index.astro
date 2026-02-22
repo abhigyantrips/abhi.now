@@ -1,5 +1,48 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("before");
+
+const latestEntry = entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
+const { Content } = await render(latestEntry);
 ---
 
-<PageLayout route="/now" />
+<PageLayout route="/now">
+	<article
+		class:list={[
+			"prose lg:prose-lg dark:prose-invert max-w-none text-justify text-(--color-text) marker:text-(--color-text)/75",
+			"prose-blockquote:text-(--color-text)/75 prose-blockquote:border-l-4 prose-blockquote:border-(--color-text) prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none",
+			"prose-strong:text-(--color-text) prose-em:text-(--color-text) prose-a:text-(--color-text) prose-a:underline-offset-2 prose-a:decoration-1 prose-a:decoration-(--color-text-muted) prose-a:hover:bg-(--color-text) prose-a:hover:text-(--color-bg) prose-a:hover:decoration-transparent",
+			"prose-headings:text-(--color-text) prose-headings:font-semibold prose-headings:tracking-wide",
+			"prose-hr:border-t-2 prose-hr:border-(--color-text-muted)/20 prose-hr:my-8",
+		]}
+	>
+		<span><strong>Last Updated:</strong> {latestEntry.data.date.toLocaleString("en-IN")}</span>
+		<Content />
+		<h2>before</h2>
+		<div class="not-prose">
+			{
+				entries.length > 1 ? (
+					entries.slice(1).map((entry) => (
+						<div class="rounded bg-(--color-text-muted)/20 p-4">
+							<h3 class="font-semibold tracking-wide">{entry.data.title}</h3>
+							<time
+								class="text-sm text-(--color-text-muted)"
+								datetime={entry.data.date.toISOString()}
+							>
+								{entry.data.date.toDateString()}
+							</time>
+							<p class="mt-2 text-sm text-(--color-text)">{entry.data.description}</p>
+						</div>
+					))
+				) : (
+					<p class="text-(--color-text-muted) italic">
+						looks like the only moment that exists is the current one.
+					</p>
+				)
+			}
+		</div>
+	</article>
+</PageLayout>

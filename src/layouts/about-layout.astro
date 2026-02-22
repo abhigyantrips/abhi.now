@@ -5,6 +5,7 @@ import Header from "@/components/header.astro";
 import { slideFromBottom } from "@/lib/transitions";
 import { ROUTES, SITE } from "@/consts";
 import "@/styles/global.css";
+import Footer from "@/components/footer.astro";
 
 const aboutRoute = ROUTES.find((r) => r.PATH === "/whoami" || r.NAME === "whoami");
 
@@ -58,6 +59,7 @@ if (!aboutRoute) {
 				<slot />
 			</Container>
 		</main>
+		<Footer />
 	</body>
 </html>
 

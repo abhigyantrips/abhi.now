@@ -1,0 +1,1 @@
+- i don't wanna end up being complacent to the world's wrongs and struggle to stay afloat while "Big Corpo" tries to markup everything i need to survive until i can't live anymore.

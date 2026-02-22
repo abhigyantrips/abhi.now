@@ -1,10 +1,9 @@
 ---
 import ReadingLayout from "@/layouts/reading-layout.astro";
-import { getEntries } from "astro:content";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog");
+	const posts = await getCollection("before");
 	return posts.map((post) => ({
 		params: { id: post.id },
 		props: { post },
@@ -13,15 +12,14 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const tags = await getEntries(post.data.tags || []);
 ---
 
 <ReadingLayout
 	route="/blog"
-	postTitle={post.data.title}
+	postTitle={`Archive #${post.id}`}
 	postDescription={post.data.description}
 	postDate={post.data.date.toDateString()}
-	postUrl={`/blog/${post.id}`}
+	postUrl={`/before/${post.id}`}
 >
 	<article
 		class:list={[
@@ -32,16 +30,8 @@ const tags = await getEntries(post.data.tags || []);
 			"prose-hr:border-t-2 prose-hr:border-(--color-text-muted)/20 prose-hr:my-8",
 		]}
 	>
+		<span><strong>Written On:</strong> {post.data.date.toLocaleString("en-IN")}</span>
 		<Content />
-		<div class="not-prose font-gummy flex items-center justify-start gap-2 tracking-wider">
-			{
-				tags.map((tag) => (
-					<span class="p-category rounded bg-(--color-text-muted)/20 px-2 py-1 text-xs text-(--color-text-muted)">
-						{tag.data.name}
-					</span>
-				))
-			}
-		</div>
 	</article>
 </ReadingLayout>
 
