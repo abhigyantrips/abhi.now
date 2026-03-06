@@ -12,7 +12,10 @@ export type Route = {
 	NAME: string;
 	PATH: string;
 	ICON: string;
-	COLOR: string;
+	COLOR: {
+		LIGHT: string;
+		DARK: string;
+	};
 	DESCRIPTION: string;
 };
 

@@ -44,11 +44,11 @@ if (!currentRoute) {
 			transition:animate={slideFromBottom}
 		>
 			<Container size="md">
-				<div class="flex flex-col pt-48">
+				<div class="flex flex-col pt-48" style={`--route-color-light: ${currentRoute.COLOR.LIGHT}; --route-color-dark: ${currentRoute.COLOR.DARK};`}>
 					<div class="flex space-x-8 px-2 md:px-0">
 						<div
-							class="size-16 -rotate-12"
-							style={`background-color: ${currentRoute.COLOR}; -webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+							class="route-icon-display size-16 -rotate-12"
+							style={`-webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
 							role="img"
 							aria-label={currentRoute.NAME}
 							transition:name={`icon-${currentRoute.NAME}`}
@@ -56,7 +56,7 @@ if (!currentRoute) {
 						>
 						</div>
 						<div class="flex flex-col">
-							<h1 class="text-3xl font-bold" style={`color: ${currentRoute.COLOR};`}>
+							<h1 class="route-title text-3xl font-bold">
 								{currentRoute.NAME}
 							</h1>
 							<p class="text-(--color-text)">{currentRoute.DESCRIPTION}</p>
@@ -70,6 +70,24 @@ if (!currentRoute) {
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.route-icon-display {
+		background-color: var(--route-color-light);
+	}
+
+	.route-title {
+		color: var(--route-color-light);
+	}
+
+	:global(.dark) .route-icon-display {
+		background-color: var(--route-color-dark);
+	}
+
+	:global(.dark) .route-title {
+		color: var(--route-color-dark);
+	}
+</style>
 
 <style is:global>
 	@keyframes slideInFromBottom {

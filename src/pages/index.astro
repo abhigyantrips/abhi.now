@@ -24,7 +24,7 @@ import "@/styles/global.css";
 						<a
 							href={ROUTE.PATH}
 							class="route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-2"
-							style={`--hover-color: ${ROUTE.COLOR}; --icon-url: url(${ROUTE.ICON});`}
+							style={`--hover-color-light: ${ROUTE.COLOR.LIGHT}; --hover-color-dark: ${ROUTE.COLOR.DARK}; --icon-url: url(${ROUTE.ICON});`}
 						>
 							<span
 								class="route-icon size-10 group-hover:scale-110"
@@ -63,7 +63,7 @@ import "@/styles/global.css";
 			<!-- Theme toggle -->
 			<button
 				id="theme-toggle"
-				class="theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110"
+				class="theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full border-2 border-(--color-text) text-(--color-text) hover:scale-110"
 				aria-label="Toggle Theme"
 			>
 				<span class="sun-icon size-5" style="--icon-url: url(/icons/sunny.svg);"></span>
@@ -123,6 +123,14 @@ import "@/styles/global.css";
 
 	.group:hover .route-icon {
 		animation: doodle-wobble 3.33s steps(1) infinite;
+	}
+
+	.route-link {
+		--hover-color: var(--hover-color-light);
+	}
+
+	:global(.dark) .route-link {
+		--hover-color: var(--hover-color-dark);
 	}
 
 	/* On mobile: always show colored labels/icons */
