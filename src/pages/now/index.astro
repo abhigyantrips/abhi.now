@@ -38,11 +38,27 @@ const weeknotesSince = weeknotes.filter(
 			)
 		}
 		<Content />
-		<h2>weeknotes since.</h2>
+		<div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-0">
+			<h2>weeknotes since.</h2>
+			<a
+				href="/weeknotes"
+				class="not-prose text-sm text-(--color-text-muted) hover:decoration-solid underline decoration-(--color-text-muted) decoration-dotted decoration-2 underline-offset-4 hover:text-(--color-text)"
+			>
+				view all
+			</a>
+		</div>
 		<div class="not-prose">
 			<WeeknotesView entries={weeknotesSince} />
 		</div>
-		<h2>before.</h2>
+		<div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-0">
+			<h2>before.</h2>
+			<a
+				href="/before"
+				class="not-prose text-sm text-(--color-text-muted) hover:decoration-solid underline decoration-(--color-text-muted) decoration-dotted decoration-2 underline-offset-4 hover:text-(--color-text)"
+			>
+				view all
+			</a>
+		</div>
 		<div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-3">
 			{
 				entries.length > 1 ? (
@@ -77,16 +93,6 @@ const weeknotesSince = weeknotes.filter(
 			}
 		</div>
 		{
-			entries.length > 4 && (
-				<p class="not-prose mt-4">
-					<a
-						href="/before"
-						class="text-sm text-(--color-text-muted) underline decoration-(--color-text-muted) decoration-1 underline-offset-4 hover:text-(--color-text)"
-					>
-						see all archives →
-					</a>
-				</p>
-			)
-		}
+
 	</article>
 </PageLayout>
