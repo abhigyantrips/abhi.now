@@ -1,0 +1,150 @@
+---
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import { ROUTES, SITE } from "@/consts";
+import "@/styles/global.css";
+
+type Props = {
+	title: string;
+	description: string;
+	fromDate: Date;
+	toDate: Date;
+	postUrl: string;
+};
+
+const { title, description, fromDate, toDate, postUrl } = Astro.props;
+
+const formatDate = (d: Date) =>
+	d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
+const slideFromBottom = {
+	forwards: {
+		old: {
+			name: "slideToTop",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
+		},
+		new: {
+			name: "slideInFromBottom",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
+		},
+	},
+	backwards: {
+		old: {
+			name: "slideOutToBottom",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
+		},
+		new: {
+			name: "slideInFromTop",
+			duration: "0.3s",
+			easing: "ease-in-out",
+			fillMode: "forwards",
+		},
+	},
+};
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
+
+		<style>
+			.font-gummy {
+				font-family: "Sour Gummy", sans-serif;
+				font-optical-sizing: auto;
+				font-weight: <weight>;
+				font-style: normal;
+				font-variation-settings: "wdth" 400;
+			}
+		</style>
+	</head>
+	<body class="font-gummy">
+		<Header section='weeknotes' />
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
+			transition:animate={slideFromBottom}
+		>
+			<Container size="md">
+				<div class="h-entry flex flex-col pt-24 md:pt-48">
+					<div class="flex flex-col gap-2">
+						<h1 class="p-name text-3xl font-semibold">
+							{title}
+						</h1>
+						<p class="p-summary text-(--color-text-muted)">
+							{description}
+						</p>
+						<time class="dt-start hidden" datetime={fromDate.toISOString()}>
+							{formatDate(fromDate)}
+						</time>
+						<time class="dt-end hidden" datetime={toDate.toISOString()}>
+							{formatDate(toDate)}
+						</time>
+						<a class="u-url hidden" href={postUrl}>
+							{title}
+						</a>
+						<span class="p-author h-card hidden">
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+						</span>
+					</div>
+					<slot />
+				</div>
+			</Container>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	@keyframes slideInFromBottom {
+		from {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideToTop {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+	}
+
+	@keyframes slideOutToBottom {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+	}
+
+	@keyframes slideInFromTop {
+		from {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

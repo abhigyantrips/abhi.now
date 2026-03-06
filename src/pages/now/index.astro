@@ -1,12 +1,18 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
+import WeeknotesView from "@/components/weeknotes-view.astro";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 
 const entries = await getCollection("before");
+const weeknotes = await getCollection("weeknotes");
 
 const latestEntry = entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())[0];
 const { Content } = await render(latestEntry);
+
+const weeknotesSince = weeknotes.filter(
+	(note) => note.data.fromDate.getTime() >= latestEntry.data.date.getTime(),
+);
 ---
 
 <PageLayout route="/now">
@@ -23,26 +29,7 @@ const { Content } = await render(latestEntry);
 		<Content />
 		<h2>weeknotes since.</h2>
 		<div class="not-prose">
-			{
-				entries.length > 1 ? (
-					entries.slice(1).map((entry) => (
-						<div class="rounded bg-(--color-text-muted)/20 p-4">
-							<h3 class="font-semibold tracking-wide">{entry.data.title}</h3>
-							<time
-								class="text-sm text-(--color-text-muted)"
-								datetime={entry.data.date.toISOString()}
-							>
-								{entry.data.date.toDateString()}
-							</time>
-							<p class="mt-2 text-sm text-(--color-text)">{entry.data.description}</p>
-						</div>
-					))
-				) : (
-					<p class="text-(--color-text-muted) italic">
-						looks like the only moment that exists is the current one.
-					</p>
-				)
-			}
+			<WeeknotesView entries={weeknotesSince} />
 		</div>
 		<h2>before.</h2>
 		<div class="not-prose">
@@ -62,7 +49,7 @@ const { Content } = await render(latestEntry);
 					))
 				) : (
 					<p class="text-(--color-text-muted) italic">
-						looks like the only moment that exists is the current one.
+						looks like the only moment that exists is now.
 					</p>
 				)
 			}

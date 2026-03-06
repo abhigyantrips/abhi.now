@@ -7,7 +7,7 @@ export const SITE: Site = {
 	URL: "https://abhi.now",
 };
 
-export const ROUTES: Route[] = [
+export const MAIN_ROUTES: Route[] = [
 	{
 		NAME: "whoami",
 		PATH: "/whoami",
@@ -66,6 +66,17 @@ export const ROUTES: Route[] = [
 			"hahahah see how the site is called 'abhi.now' and this page is called '/now' and-",
 	},
 ];
+
+export const ROUTES: Route[] = [
+	...MAIN_ROUTES,
+	{
+		NAME: 'weeknotes',
+		PATH: '/weeknotes',
+		ICON: '/icons/camera.svg',
+		COLOR: 'turquoise',
+		DESCRIPTION: 'history of weeks in the life.',
+	}
+]
 
 export const SOCIALS: Social[] = [
 	{

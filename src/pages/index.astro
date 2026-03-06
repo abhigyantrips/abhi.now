@@ -1,7 +1,7 @@
 ---
 import BaseHead from "@/components/base-head.astro";
 import HCard from "@/components/h-card.astro";
-import { ROUTES, SITE, SOCIALS } from "@/consts";
+import { MAIN_ROUTES, SITE, SOCIALS } from "@/consts";
 
 import "@/styles/global.css";
 ---
@@ -20,7 +20,7 @@ import "@/styles/global.css";
 			<!-- Routes content -->
 			<div class="grid grid-cols-2 gap-12 md:grid-cols-4">
 				{
-					ROUTES.map((ROUTE) => (
+					MAIN_ROUTES.map((ROUTE) => (
 						<a
 							href={ROUTE.PATH}
 							class="route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-2"

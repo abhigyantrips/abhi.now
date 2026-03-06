@@ -92,12 +92,31 @@ const snippets = defineCollection({
 });
 
 const weeknotes = defineCollection({
-	loader: glob({
+	loader: globWithParser({
 		base: "./src/content/weeknotes",
 		pattern: "**/*.md",
+		parser: async (entry) => {
+			const { data }: { data: { title?: string; description?: string; fromDate?: string; toDate?: string } } = entry;
+
+			const from = new Date(data.fromDate!);
+			const to = new Date(data.toDate!);
+
+			const firstDayOfYear = new Date(from.getFullYear(), 0, 1);
+			const pastDays = (from.getTime() - firstDayOfYear.getTime()) / 86400000;
+			const week = Math.ceil((pastDays + firstDayOfYear.getDay() + 1) / 7);
+
+			const formatDate = (d: Date) =>
+				d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+
+			data.title = `(#${from.getFullYear()}-W${week}) ${data.title}`;
+			data.description = `This weeknote covers the week of ${formatDate(from)} – ${formatDate(to)}.`;
+
+			return entry;
+		},
 	}),
 	schema: z.object({
 		title: z.string(),
+		description: z.string().default(""),
 		fromDate: z.coerce.date(),
 		toDate: z.coerce.date(),
 	}),
