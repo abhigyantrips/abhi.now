@@ -21,7 +21,30 @@ const { Content } = await render(latestEntry);
 	>
 		<span><strong>Last Updated:</strong> {latestEntry.data.date.toLocaleString("en-IN")}</span>
 		<Content />
-		<h2>before</h2>
+		<h2>weeknotes since.</h2>
+		<div class="not-prose">
+			{
+				entries.length > 1 ? (
+					entries.slice(1).map((entry) => (
+						<div class="rounded bg-(--color-text-muted)/20 p-4">
+							<h3 class="font-semibold tracking-wide">{entry.data.title}</h3>
+							<time
+								class="text-sm text-(--color-text-muted)"
+								datetime={entry.data.date.toISOString()}
+							>
+								{entry.data.date.toDateString()}
+							</time>
+							<p class="mt-2 text-sm text-(--color-text)">{entry.data.description}</p>
+						</div>
+					))
+				) : (
+					<p class="text-(--color-text-muted) italic">
+						looks like the only moment that exists is the current one.
+					</p>
+				)
+			}
+		</div>
+		<h2>before.</h2>
 		<div class="not-prose">
 			{
 				entries.length > 1 ? (

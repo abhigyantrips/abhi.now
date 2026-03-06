@@ -91,4 +91,16 @@ const snippets = defineCollection({
 	}),
 });
 
-export const collections = { blog, tags, snippets, before };
+const weeknotes = defineCollection({
+	loader: glob({
+		base: "./src/content/weeknotes",
+		pattern: "**/*.md",
+	}),
+	schema: z.object({
+		title: z.string(),
+		fromDate: z.coerce.date(),
+		toDate: z.coerce.date(),
+	}),
+});
+
+export const collections = { before, blog, snippets, tags, weeknotes };
