@@ -1,0 +1,41 @@
+---
+import PageLayout from "@/layouts/page-layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const entries = (await getCollection("before")).sort(
+	(a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<PageLayout route="/before">
+	<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+		{
+			entries.map((entry) => (
+				<a
+					href={`/before/${entry.id}`}
+					class="group relative block aspect-video overflow-hidden rounded-lg"
+				>
+					{entry.data.heroImage ? (
+						<Image
+							src={entry.data.heroImage}
+							alt={`Hero image for archive #${entry.id}`}
+							class="absolute inset-0 h-full w-full object-cover opacity-20 transition-opacity duration-200 group-hover:opacity-30"
+						/>
+					) : (
+						<div class="absolute inset-0 bg-(--color-text-muted)/20" />
+					)}
+					<div class="relative z-10 p-4">
+						<h3 class="font-semibold tracking-wide text-(--color-text)">#{entry.data.title}</h3>
+						<time
+							class="text-sm text-(--color-text-muted)"
+							datetime={entry.data.date.toISOString()}
+						>
+							{entry.data.date.toDateString()}
+						</time>
+					</div>
+				</a>
+			))
+		}
+	</div>
+</PageLayout>

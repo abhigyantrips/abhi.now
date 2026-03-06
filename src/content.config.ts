@@ -25,12 +25,14 @@ const before = defineCollection({
 			return entry;
 		},
 	}),
-	schema: z.object({
-		title: z.string().default(""),
-		description: z.string().default("a snapshot in time of what i'm doing."),
-		date: z.coerce.date(),
-		tags: z.array(reference("tags")).optional(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string().default(""),
+			description: z.string().default("a snapshot in time of what i'm doing."),
+			date: z.coerce.date(),
+			heroImage: image().optional(),
+			tags: z.array(reference("tags")).optional(),
+		}),
 });
 
 const blog = defineCollection({
@@ -96,7 +98,10 @@ const weeknotes = defineCollection({
 		base: "./src/content/weeknotes",
 		pattern: "**/*.md",
 		parser: async (entry) => {
-			const { data }: { data: { title?: string; description?: string; fromDate?: string; toDate?: string } } = entry;
+			const {
+				data,
+			}: { data: { title?: string; description?: string; fromDate?: string; toDate?: string } } =
+				entry;
 
 			const from = new Date(data.fromDate!);
 			const to = new Date(data.toDate!);

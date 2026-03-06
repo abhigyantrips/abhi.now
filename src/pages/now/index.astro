@@ -1,6 +1,7 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
 import WeeknotesView from "@/components/weeknotes-view.astro";
+import { Image } from "astro:assets";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -11,7 +12,7 @@ const latestEntry = entries.sort((a, b) => b.data.date.getTime() - a.data.date.g
 const { Content } = await render(latestEntry);
 
 const weeknotesSince = weeknotes.filter(
-	(note) => note.data.fromDate.getTime() >= latestEntry.data.date.getTime(),
+	(note) => note.data.fromDate.getTime() >= latestEntry.data.date.getTime()
 );
 ---
 
@@ -23,36 +24,69 @@ const weeknotesSince = weeknotes.filter(
 			"prose-strong:text-(--color-text) prose-em:text-(--color-text) prose-a:text-(--color-text) prose-a:underline-offset-2 prose-a:decoration-1 prose-a:decoration-(--color-text-muted) prose-a:hover:bg-(--color-text) prose-a:hover:text-(--color-bg) prose-a:hover:decoration-transparent",
 			"prose-headings:text-(--color-text) prose-headings:font-semibold prose-headings:tracking-wide",
 			"prose-hr:border-t-2 prose-hr:border-(--color-text-muted)/20 prose-hr:my-8",
+			"prose-img:rounded-xl prose-img:border prose-img:border-(--color-text-muted)/20",
 		]}
 	>
 		<span><strong>Last Updated:</strong> {latestEntry.data.date.toLocaleString("en-IN")}</span>
+		{
+			latestEntry.data.heroImage && (
+				<Image
+					src={latestEntry.data.heroImage}
+					alt={`Hero image for archive #${latestEntry.id}`}
+					class="w-full rounded-xl border border-(--color-text-muted)/20"
+				/>
+			)
+		}
 		<Content />
 		<h2>weeknotes since.</h2>
 		<div class="not-prose">
 			<WeeknotesView entries={weeknotesSince} />
 		</div>
 		<h2>before.</h2>
-		<div class="not-prose">
+		<div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-3">
 			{
 				entries.length > 1 ? (
-					entries.slice(1).map((entry) => (
-						<div class="rounded bg-(--color-text-muted)/20 p-4">
-							<h3 class="font-semibold tracking-wide">{entry.data.title}</h3>
-							<time
-								class="text-sm text-(--color-text-muted)"
-								datetime={entry.data.date.toISOString()}
-							>
-								{entry.data.date.toDateString()}
-							</time>
-							<p class="mt-2 text-sm text-(--color-text)">{entry.data.description}</p>
-						</div>
+					entries.slice(1, 4).map((entry) => (
+						<a href={`/before/${entry.id}`} class="group relative block overflow-hidden rounded-lg">
+							{entry.data.heroImage ? (
+								<Image
+									src={entry.data.heroImage}
+									alt={`Hero image for archive #${entry.id}`}
+									class="absolute inset-0 h-full w-full object-cover opacity-20 transition-opacity duration-200 group-hover:opacity-30"
+								/>
+							) : (
+								<div class="absolute inset-0 bg-(--color-text-muted)/20" />
+							)}
+							<div class="relative z-10 p-4">
+								<h3 class="font-semibold tracking-wide text-(--color-text)">#{entry.data.title}</h3>
+								<time
+									class="text-sm text-(--color-text-muted)"
+									datetime={entry.data.date.toISOString()}
+								>
+									{entry.data.date.toDateString()}
+								</time>
+								<p class="mt-2 text-sm text-(--color-text)">{entry.data.description}</p>
+							</div>
+						</a>
 					))
 				) : (
-					<p class="text-(--color-text-muted) italic">
+					<p class="col-span-3 text-(--color-text-muted) italic">
 						looks like the only moment that exists is now.
 					</p>
 				)
 			}
 		</div>
+		{
+			entries.length > 4 && (
+				<p class="not-prose mt-4">
+					<a
+						href="/before"
+						class="text-sm text-(--color-text-muted) underline decoration-(--color-text-muted) decoration-1 underline-offset-4 hover:text-(--color-text)"
+					>
+						see all archives →
+					</a>
+				</p>
+			)
+		}
 	</article>
 </PageLayout>
