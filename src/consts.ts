@@ -70,13 +70,20 @@ export const MAIN_ROUTES: Route[] = [
 export const ROUTES: Route[] = [
 	...MAIN_ROUTES,
 	{
-		NAME: 'weeknotes',
-		PATH: '/weeknotes',
-		ICON: '/icons/calendar.svg',
-		COLOR: { LIGHT: '#3C3836', DARK: '#EBDBB2' },
-		DESCRIPTION: 'history of weeks in the life.',
-	}
-]
+		NAME: "weeknotes",
+		PATH: "/weeknotes",
+		ICON: "/icons/calendar.svg",
+		COLOR: { LIGHT: "#3C3836", DARK: "#EBDBB2" },
+		DESCRIPTION: "history of weeks in the life.",
+	},
+	{
+		NAME: "before",
+		PATH: "/before",
+		ICON: "/icons/point-down.svg",
+		COLOR: { LIGHT: "#B57035", DARK: "#FF9838" },
+		DESCRIPTION: "snapshots from a time before now.",
+	},
+];
 
 export const SOCIALS: Social[] = [
 	{

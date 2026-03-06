@@ -11,7 +11,7 @@ const { entries } = Astro.props;
 const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
 
 const sortedEntries = [...entries].sort(
-	(a, b) => b.data.fromDate.getTime() - a.data.fromDate.getTime(),
+	(a, b) => a.data.fromDate.getTime() - b.data.fromDate.getTime()
 );
 
 function formatShortDate(d: Date) {
@@ -41,23 +41,30 @@ function getMonthColor(date: Date) {
 
 <div class="weeknotes-view relative flex flex-col gap-0">
 	<!-- Weekday header row -->
-	<div class="hidden md:flex justify-around border-b border-(--color-text-muted)/20 pb-3">
-		{days.map((day) => (
-			<span class="w-10 text-center text-xs font-semibold uppercase tracking-widest text-(--color-text-muted)">
-				{day}
-			</span>
-		))}
+	<div class="hidden justify-around border-b border-(--color-text-muted)/20 pb-3 md:flex">
+		{
+			days.map((day) => (
+				<span class="w-10 text-center text-xs font-semibold tracking-widest text-(--color-text-muted) uppercase">
+					{day}
+				</span>
+			))
+		}
 	</div>
 
 	<!-- Timeline + cards area -->
 	<div class="relative">
 		<!-- Vertical lines (hidden on mobile) -->
-		<div class="pointer-events-none absolute inset-0 hidden md:flex justify-around" aria-hidden="true">
-			{days.map(() => (
-				<div class="flex w-10 justify-center">
-					<div class="h-full w-px border-l border-dashed border-(--color-text-muted)/20" />
-				</div>
-			))}
+		<div
+			class="pointer-events-none absolute inset-0 hidden justify-around md:flex"
+			aria-hidden="true"
+		>
+			{
+				days.map(() => (
+					<div class="flex w-10 justify-center">
+						<div class="h-full w-px border-l border-dashed border-(--color-text-muted)/20" />
+					</div>
+				))
+			}
 		</div>
 
 		<!-- Cards -->
@@ -77,18 +84,20 @@ function getMonthColor(date: Date) {
 						return (
 							<a
 								href={href}
-								class="group block rounded-lg bg-(--color-text)/10 p-4 md:px-6 md:py-5 transition-colors duration-100 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)]"
+								class="group block rounded-lg bg-(--color-text)/10 p-4 transition-colors duration-100 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)] md:px-6 md:py-5"
 								style={`--month-color: ${monthColor};`}
 							>
-								<h3 class="flex items-baseline justify-between gap-4 font-semibold tracking-wide text-(--color-text) underline-offset-4 decoration-2">
-									<span class="text-sm" style={`color: ${monthColor};`}>{noteId}</span>
+								<h3 class="flex items-center justify-between gap-4 font-semibold tracking-wide text-(--color-text) decoration-2 underline-offset-4">
+									<span class="text-sm" style={`color: ${monthColor};`}>
+										{noteId}
+									</span>
 									{noteTitle && <span class="text-right">{noteTitle}</span>}
 								</h3>
 								<div class="mt-2 flex items-center gap-2 text-sm text-(--color-text-muted)">
 									<time datetime={note.data.fromDate.toISOString()}>
 										{formatShortDate(note.data.fromDate)}
 									</time>
-									<span class="h-0.5 rounded-full flex-1 bg-(--color-text-muted)/40 transition-colors duration-100 group-hover:bg-(--month-color)" />
+									<span class="h-0.5 flex-1 rounded-full bg-(--color-text-muted)/40 transition-colors duration-100 group-hover:bg-(--month-color)" />
 									<time datetime={note.data.toDate.toISOString()}>
 										{formatShortDate(note.data.toDate)}
 									</time>
@@ -97,9 +106,7 @@ function getMonthColor(date: Date) {
 						);
 					})
 				) : (
-					<p class="text-(--color-text-muted) italic py-4">
-						no weeknotes yet. check back soon!
-					</p>
+					<p class="py-4 text-(--color-text-muted) italic">no weeknotes yet. check back soon!</p>
 				)
 			}
 		</div>
