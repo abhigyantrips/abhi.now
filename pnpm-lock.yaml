@@ -33,9 +33,6 @@ importers:
       '@types/node':
         specifier: ^25.2.1
         version: 25.2.1
-      picscrub:
-        specifier: ^1.1.0
-        version: 1.1.0
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -2005,11 +2002,6 @@ packages:
   picomatch@4.0.3:
     resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
     engines: {node: '>=12'}
-
-  picscrub@1.1.0:
-    resolution: {integrity: sha512-+D6gpQdc4WPYz4jAYaBeHgLqGlj/0VNV2W1ZoKUYrv2r0TAMQyhTSF69COl1ULYQOcwfuGhYibSdy3ZNQw+S/w==}
-    engines: {node: '>=18.0.0'}
-    hasBin: true
 
   postcss-selector-parser@6.0.10:
     resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}
@@ -4456,8 +4448,6 @@ snapshots:
   picomatch@2.3.1: {}
 
   picomatch@4.0.3: {}
-
-  picscrub@1.1.0: {}
 
   postcss-selector-parser@6.0.10:
     dependencies:
