@@ -1,5 +1,4 @@
 ---
-import { getWeekNumber } from "@/lib/utils";
 import type { CollectionEntry } from "astro:content";
 
 type Props = {
@@ -72,9 +71,7 @@ function getMonthColor(date: Date) {
 			{
 				sortedEntries.length > 0 ? (
 					sortedEntries.map((note) => {
-						const year = note.data.fromDate.getFullYear();
-						const week = getWeekNumber(note.data.fromDate);
-						const href = `/weeknotes/${year}/${week}`;
+						const href = `/weeknotes/${note.id}`;
 
 						const match = note.data.title.match(/^(\([^)]+\))\s*(.*)$/);
 						const noteId = match ? match[1] : note.data.title;

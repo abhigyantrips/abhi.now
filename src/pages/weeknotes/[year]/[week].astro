@@ -1,17 +1,16 @@
 ---
 import { getCollection, render } from "astro:content";
-import { getWeekNumber } from "@/lib/utils";
 import WeeknoteLayout from "@/layouts/weeknote-layout.astro";
 
 export async function getStaticPaths() {
 	const notes = await getCollection("weeknotes");
-	return notes.map((note) => ({
-		params: {
-			year: note.data.fromDate.getFullYear().toString(),
-			week: getWeekNumber(note.data.fromDate).toString(),
-		},
-		props: { note },
-	}));
+	return notes.map((note) => {
+		const [year, week] = note.id.split("/");
+		return {
+			params: { year, week },
+			props: { note },
+		};
+	});
 }
 
 const { note } = Astro.props;
@@ -23,7 +22,7 @@ const { Content } = await render(note);
 	description={note.data.description}
 	fromDate={note.data.fromDate}
 	toDate={note.data.toDate}
-	postUrl={`/weeknotes/${note.data.fromDate.getFullYear()}/${getWeekNumber(note.data.fromDate)}`}
+	postUrl={`/weeknotes/${note.id}`}
 >
 	<article
 		class:list={[
