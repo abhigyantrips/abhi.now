@@ -26,16 +26,6 @@ if (!currentRoute) {
 			title={`${currentRoute.NAME} | ${SITE.TITLE}`}
 			description={currentRoute.DESCRIPTION}
 		/>
-
-		<style>
-			.font-gummy {
-				font-family: "Sour Gummy", sans-serif;
-				font-optical-sizing: auto;
-				font-weight: <weight>;
-				font-style: normal;
-				font-variation-settings: "wdth" 400;
-			}
-		</style>
 	</head>
 	<body class="font-gummy">
 		<Header section={currentRoute.NAME} />
@@ -44,7 +34,10 @@ if (!currentRoute) {
 			transition:animate={slideFromBottom}
 		>
 			<Container size="md">
-				<div class="flex flex-col pt-48" style={`--route-color-light: ${currentRoute.COLOR.LIGHT}; --route-color-dark: ${currentRoute.COLOR.DARK};`}>
+				<div
+					class="flex flex-col pt-48"
+					style={`--route-color-light: ${currentRoute.COLOR.LIGHT}; --route-color-dark: ${currentRoute.COLOR.DARK};`}
+				>
 					<div class="flex space-x-8 px-2 md:px-0">
 						<div
 							class="route-icon-display size-16 -rotate-12"

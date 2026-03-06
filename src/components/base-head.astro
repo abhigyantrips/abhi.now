@@ -25,6 +25,15 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 	href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
 	rel="stylesheet"
 />
+<style is:global>
+	.font-gummy {
+		font-family: "Sour Gummy", sans-serif;
+		font-optical-sizing: auto;
+		font-weight: <weight>;
+		font-style: normal;
+		font-variation-settings: "wdth" 400;
+	}
+</style>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
