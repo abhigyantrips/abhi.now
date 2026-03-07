@@ -74,8 +74,26 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 <link
 	rel="alternate"
 	type="application/rss+xml"
+	title="abhigyan trips's 'now' archives."
+	href={new URL("/before/feed.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
 	title="abhigyan trips's blog."
-	href={new URL("/blog/rss.xml", Astro.site)}
+	href={new URL("/blog/feed.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's sticky notes."
+	href={new URL("/snippets/feed.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's weeknotes."
+	href={new URL("/weeknotes/feed.xml", Astro.site)}
 />
 
 <ClientRouter />
