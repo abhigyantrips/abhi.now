@@ -79,8 +79,8 @@ export const ROUTES: Route[] = [
 	{
 		NAME: "before",
 		PATH: "/before",
-		ICON: "/icons/point-down.svg",
-		COLOR: { LIGHT: "#B57035", DARK: "#FF9838" },
+		ICON: "/icons/clock.svg",
+		COLOR: { LIGHT: "#3C3836", DARK: "#EBDBB2" },
 		DESCRIPTION: "snapshots from a time before now.",
 	},
 ];

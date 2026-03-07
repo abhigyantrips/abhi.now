@@ -14,21 +14,23 @@ const entries = (await getCollection("before")).sort(
 			entries.map((entry) => (
 				<a
 					href={`/before/${entry.id}`}
-					class="group relative block aspect-video overflow-hidden rounded-lg"
+					class="group relative block aspect-video overflow-hidden rounded-lg bg-(--color-text) shadow-md hover:scale-105 hover:shadow-2xl dark:bg-(--color-bg)"
 				>
 					{entry.data.heroImage ? (
 						<Image
 							src={entry.data.heroImage}
 							alt={`Hero image for archive #${entry.id}`}
-							class="absolute inset-0 h-full w-full object-cover opacity-20 transition-opacity duration-200 group-hover:opacity-30"
+							class="absolute inset-0 h-full w-full object-cover opacity-50 dark:opacity-30"
 						/>
 					) : (
 						<div class="absolute inset-0 bg-(--color-text-muted)/20" />
 					)}
-					<div class="relative z-10 p-4">
-						<h3 class="font-semibold tracking-wide text-(--color-text)">#{entry.data.title}</h3>
+					<div class="relative z-10 flex h-full flex-col justify-between p-4">
+						<h3 class="text-2xl font-semibold tracking-wide text-(--color-bg) dark:text-(--color-text)">
+							#{entry.data.title}
+						</h3>
 						<time
-							class="text-sm text-(--color-text-muted)"
+							class="flex justify-end text-sm text-(--color-bg)/70 dark:text-(--color-text-muted)"
 							datetime={entry.data.date.toISOString()}
 						>
 							{entry.data.date.toDateString()}
