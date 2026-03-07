@@ -2,7 +2,7 @@
 import PageLayout from "@/layouts/page-layout.astro";
 import { getCollection } from "astro:content";
 
-const entries = await getCollection("blog");
+const entries = await getCollection("blog", ({ data }) => data.published);
 ---
 
 <PageLayout route="/blog">
@@ -17,7 +17,10 @@ const entries = await getCollection("blog");
 					>
 						{post.data.date.toISOString().slice(0, 10)}
 					</time>
-					<a class="p-name u-url" href={`/blog/${post.id}`}>
+					<a
+						class="p-name u-url"
+						href={`/blog/${post.id}`}
+					>
 						<span class="decoration-2 underline-offset-4 hover:underline">{post.data.title}</span>
 					</a>
 				</div>

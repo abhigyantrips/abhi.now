@@ -1,4 +1,5 @@
 ---
+published: false
 title: "Cubing Servers and Discord Testers"
 description: "A."
 date: 2026-02-21

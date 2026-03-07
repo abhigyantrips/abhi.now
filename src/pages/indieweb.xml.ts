@@ -4,7 +4,7 @@ import type { AstroSharedContext } from "astro";
 import { getCollection } from "astro:content";
 
 export async function GET(context: AstroSharedContext) {
-	const blog = await getCollection("blog");
+	const blog = await getCollection("blog", ({ data }) => data.published);
 	const weeknotes = await getCollection("weeknotes");
 	const before = await getCollection("before");
 

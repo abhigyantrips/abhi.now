@@ -44,6 +44,7 @@ const blog = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		date: z.coerce.date(),
+		published: z.boolean().default(true),
 		tags: z.array(reference("tags")).optional(),
 	}),
 });
