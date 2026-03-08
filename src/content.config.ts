@@ -10,7 +10,7 @@ const before = defineCollection({
 			const { id, data }: { id: string; data: { title?: string; date?: string } } = entry;
 
 			// Use the filename (id) as the epoch timestamp
-			data.title = id;
+			data.title = `life snapshot #${id}`;
 			// If the id is an epoch timestamp, convert it to a Date
 			const epochMatch = id.match(/^(\d{10})$/);
 			if (epochMatch) {

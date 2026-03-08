@@ -51,11 +51,11 @@ export const MAIN_ROUTES: Route[] = [
 		DESCRIPTION: "people from my life who're doing crazy and cool things.",
 	},
 	{
-		NAME: "media",
-		PATH: "/media",
-		ICON: "/icons/movie-clapper.svg",
+		NAME: "opinions",
+		PATH: "/opinions",
+		ICON: "/icons/message.svg",
 		COLOR: { LIGHT: "#904A72", DARK: "#F07EB8" },
-		DESCRIPTION: "media i consumed and cannot stop talking about.",
+		DESCRIPTION: "everything that you can start discussions/arguments with me on.",
 	},
 	{
 		NAME: "now",

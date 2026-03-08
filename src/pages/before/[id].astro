@@ -16,8 +16,8 @@ const { Content } = await render(post);
 ---
 
 <ReadingLayout
-	route="/blog"
-	postTitle={`Archive #${post.id}`}
+	route="/before"
+	postTitle={post.data.title}
 	postDescription={post.data.description}
 	postDate={post.data.date.toDateString()}
 	postUrl={`/before/${post.id}`}
