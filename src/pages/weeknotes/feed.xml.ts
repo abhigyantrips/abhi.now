@@ -14,6 +14,7 @@ export async function GET(context: AstroSharedContext) {
 			title: note.data.title,
 			description: note.data.description,
 			pubDate: note.data.fromDate,
+			categories: ["weeknotes"],
 			link: `/weeknotes/${note.id}/`,
 		})),
 	});
