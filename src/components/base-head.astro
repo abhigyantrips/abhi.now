@@ -38,11 +38,12 @@ const { title, description, image = "/og-image.png" } = Astro.props;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- RelMeAuth Tags -->
+<!-- RelMeAuth/IndieAuth Tags -->
 <link href="mailto:contact@abhi.now" rel="me" />
 <link href="mailto:hire@abhi.now" rel="me" />
 <link href="https://github.com/abhigyantrips" rel="me" />
 <link href="https://gitlab.com/abhigyantrips" rel="me" />
+<link href="https://indieauth.com/auth" rel="authorization_endpoint" />
 
 <!-- WebMention Tags -->
 <link rel="pingback" href="https://webmention.io/abhi.now/xmlrpc" />
