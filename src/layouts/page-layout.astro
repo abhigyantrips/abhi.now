@@ -40,11 +40,11 @@ const isMainRoute = MAIN_ROUTES.includes(currentRoute);
 					class="flex flex-col pt-48"
 					style={`--route-color-light: ${currentRoute.COLOR.LIGHT}; --route-color-dark: ${currentRoute.COLOR.DARK};`}
 				>
-					<div class="flex space-x-6 px-2 md:px-0">
+					<div class="flex flex-col space-x-6 md:flex-row">
 						{
 							isMainRoute ? (
 								<div
-									class="route-icon-display size-16 -rotate-12"
+									class="route-icon-display mb-2 size-14 -rotate-12 md:mb-0 md:size-16"
 									style={`-webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
 									role="img"
 									aria-label={currentRoute.NAME}
@@ -52,7 +52,7 @@ const isMainRoute = MAIN_ROUTES.includes(currentRoute);
 								/>
 							) : (
 								<div
-									class="route-icon-display size-16 -rotate-12"
+									class="route-icon-display mb-2 size-14 -rotate-12 md:mb-0 md:size-16"
 									style={`-webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
 									role="img"
 									aria-label={currentRoute.NAME}
@@ -67,7 +67,7 @@ const isMainRoute = MAIN_ROUTES.includes(currentRoute);
 						</div>
 					</div>
 				</div>
-				<hr class="my-12 border-t border-(--color-text)/75" />
+				<hr class="my-8 border-t border-(--color-text)/75 md:my-12" />
 				<slot />
 			</Container>
 		</main>
@@ -90,51 +90,5 @@ const isMainRoute = MAIN_ROUTES.includes(currentRoute);
 
 	:global(.dark) .route-title {
 		color: var(--route-color-dark);
-	}
-</style>
-
-<style is:global>
-	@keyframes slideInFromBottom {
-		from {
-			opacity: 0;
-			transform: translateY(30%);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes slideToTop {
-		from {
-			opacity: 1;
-			transform: translateY(0);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(-30%);
-		}
-	}
-
-	@keyframes slideOutToBottom {
-		from {
-			opacity: 1;
-			transform: translateY(0);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(30%);
-		}
-	}
-
-	@keyframes slideInFromTop {
-		from {
-			opacity: 0;
-			transform: translateY(-30%);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
 	}
 </style>

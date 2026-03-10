@@ -26,7 +26,10 @@ if (!currentRoute) {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
+		<BaseHead
+			title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
+			description={postDescription}
+		/>
 	</head>
 	<body class="font-gummy">
 		<Header section={currentRoute.NAME} />
@@ -53,13 +56,21 @@ if (!currentRoute) {
 						<p class="p-summary text-(--color-text-muted)">{postDescription}</p>
 						{
 							postUrl && (
-								<a class="u-url hidden" href={postUrl}>
+								<a
+									class="u-url hidden"
+									href={postUrl}
+								>
 									{postTitle}
 								</a>
 							)
 						}
 						<span class="p-author h-card hidden">
-							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+							<a
+								class="p-name u-url"
+								href={SITE.URL}
+								rel="author"
+								>{SITE.AUTHOR}</a
+							>
 						</span>
 					</div>
 					<hr class="my-12 border-t border-(--color-text)/75" />
@@ -71,49 +82,3 @@ if (!currentRoute) {
 		<Footer />
 	</body>
 </html>
-
-<style is:global>
-	@keyframes slideInFromBottom {
-		from {
-			opacity: 0;
-			transform: translateY(30%);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes slideToTop {
-		from {
-			opacity: 1;
-			transform: translateY(0);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(-30%);
-		}
-	}
-
-	@keyframes slideOutToBottom {
-		from {
-			opacity: 1;
-			transform: translateY(0);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(30%);
-		}
-	}
-
-	@keyframes slideInFromTop {
-		from {
-			opacity: 0;
-			transform: translateY(-30%);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-</style>

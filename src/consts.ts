@@ -33,7 +33,7 @@ export const MAIN_ROUTES: Route[] = [
 		NAME: "projects",
 		PATH: "/projects",
 		ICON: "/icons/automation.svg",
-		COLOR: { LIGHT: "#60B0B5", DARK: "#5DC4AC" },
+		COLOR: { LIGHT: "#6AB0B5", DARK: "#5DC4AC" },
 		DESCRIPTION: "things i have built and that people found cool.",
 	},
 	{

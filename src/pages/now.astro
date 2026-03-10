@@ -38,7 +38,7 @@ const weeknotesSince = weeknotes.filter(
 			)
 		}
 		<Content />
-		<div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-0">
+		<div class="flex items-baseline justify-between">
 			<h2>weeknotes since.</h2>
 			<a
 				href="/weeknotes"
@@ -50,7 +50,7 @@ const weeknotesSince = weeknotes.filter(
 		<div class="not-prose">
 			<WeeknotesView entries={weeknotesSince} />
 		</div>
-		<div class="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-0">
+		<div class="flex items-baseline justify-between">
 			<h2>before.</h2>
 			<a
 				href="/before"
@@ -63,7 +63,10 @@ const weeknotesSince = weeknotes.filter(
 			{
 				entries.length > 1 ? (
 					entries.slice(1, 4).map((entry) => (
-						<a href={`/before/${entry.id}`} class="group relative block overflow-hidden rounded-lg">
+						<a
+							href={`/before/${entry.id}`}
+							class="group relative block overflow-hidden rounded-lg"
+						>
 							{entry.data.heroImage ? (
 								<Image
 									src={entry.data.heroImage}
