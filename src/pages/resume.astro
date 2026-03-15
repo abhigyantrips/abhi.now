@@ -1,0 +1,16 @@
+---
+import BaseHead from "@/components/base-head.astro";
+import { SITE } from "@/consts";
+
+return Astro.redirect("/resume.pdf", 302);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Resume | ${SITE.TITLE}`}
+			description="Abhigyan Tripathi is an enthusiast for software development, design and cybersecurity. He is currently a student at Manipal Institute of Technology, Bengaluru, pursuing a degree in Computer Sciecne."
+		/>
+	</head>
+</html>

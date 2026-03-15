@@ -24,10 +24,7 @@ const formatDate = (d: Date) =>
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={`${title} | ${SITE.TITLE}`}
-			description={description}
-		/>
+		<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
 	</head>
 	<body class="font-gummy">
 		<Header section="weeknotes" />
@@ -44,31 +41,17 @@ const formatDate = (d: Date) =>
 						<p class="p-summary text-(--color-text-muted)">
 							{description}
 						</p>
-						<time
-							class="dt-start hidden"
-							datetime={fromDate.toISOString()}
-						>
+						<time class="dt-start hidden" datetime={fromDate.toISOString()}>
 							{formatDate(fromDate)}
 						</time>
-						<time
-							class="dt-end hidden"
-							datetime={toDate.toISOString()}
-						>
+						<time class="dt-end hidden" datetime={toDate.toISOString()}>
 							{formatDate(toDate)}
 						</time>
-						<a
-							class="u-url hidden"
-							href={postUrl}
-						>
+						<a class="u-url hidden" href={postUrl}>
 							{title}
 						</a>
 						<span class="p-author h-card hidden">
-							<a
-								class="p-name u-url"
-								href={SITE.URL}
-								rel="author"
-								>{SITE.AUTHOR}</a
-							>
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
 						</span>
 					</div>
 					<slot />

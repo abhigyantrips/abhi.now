@@ -3,7 +3,7 @@ import type { TransitionAnimationValue } from "astro";
 export const slideFromBottom: TransitionAnimationValue = {
 	forwards: {
 		old: {
-			name: "slideToTop",
+			name: "fadeScaleDown",
 			duration: "0.3s",
 			easing: "ease-in-out",
 			fillMode: "forwards",
@@ -17,7 +17,7 @@ export const slideFromBottom: TransitionAnimationValue = {
 	},
 	backwards: {
 		old: {
-			name: "slideOutToBottom",
+			name: "fadeScaleDown",
 			duration: "0.3s",
 			easing: "ease-in-out",
 			fillMode: "forwards",
