@@ -49,19 +49,47 @@ const blog = defineCollection({
 	}),
 });
 
-const tags = defineCollection({
-	loader: glob({
-		base: "./src/content/tags",
-		pattern: "**/[^_]*.json",
+const opinions = defineCollection({
+	loader: globWithParser({
+		base: "./src/content/opinions",
+		pattern: "**/*.md",
+		parser: async (entry) => {
+			const {
+				id,
+				data,
+				filePath,
+			}: { id: string; data: { title?: string; lastUpdated?: string | Date }; filePath?: string } =
+				entry;
+
+			// Add 'On' to title
+			data.title = `On ${data.title ?? id}`;
+
+			if (filePath) {
+				const fs = await import("node:fs/promises");
+				const stats = await fs.stat(filePath);
+				data.lastUpdated = stats.mtime;
+			} else {
+				// If the id is an epoch timestamp, convert it to a Date
+				const epochMatch = id.match(/^(\d{10})$/);
+				if (epochMatch) {
+					const epoch = parseInt(epochMatch[1], 10);
+					// Convert to local timezone string
+					data.lastUpdated = new Date(epoch * 1000).toLocaleString();
+				} else {
+					// fallback: try ISO date or default
+					data.lastUpdated = id.match(/(\d{4}-\d{2}-\d{2})/)?.[0] ?? new Date().toString();
+				}
+			}
+
+			return entry;
+		},
 	}),
 	schema: z.object({
-		name: z.string(),
-		description: z.string().optional(),
-		color: z.string(),
+		title: z.string(),
+		description: z.string().default(""),
+		lastUpdated: z.coerce.date(),
 	}),
 });
-
-const projects = defineCollection({});
 
 const snippets = defineCollection({
 	loader: globWithParser({
@@ -91,6 +119,18 @@ const snippets = defineCollection({
 		description: z.string().default("a sticky note to remember."),
 		date: z.coerce.date().optional(),
 		tags: z.array(reference("tags")).optional(),
+	}),
+});
+
+const tags = defineCollection({
+	loader: glob({
+		base: "./src/content/tags",
+		pattern: "**/[^_]*.json",
+	}),
+	schema: z.object({
+		name: z.string(),
+		description: z.string().optional(),
+		color: z.string(),
 	}),
 });
 
@@ -128,4 +168,4 @@ const weeknotes = defineCollection({
 	}),
 });
 
-export const collections = { before, blog, snippets, tags, weeknotes };
+export const collections = { before, blog, opinions, snippets, tags, weeknotes };
