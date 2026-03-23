@@ -1,6 +1,7 @@
 import { globWithParser } from "@/lib/parsers";
 import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
+import { stat } from "node:fs/promises";
 
 const before = defineCollection({
 	loader: globWithParser({
@@ -65,8 +66,7 @@ const opinions = defineCollection({
 			data.title = `On ${data.title ?? id}`;
 
 			if (filePath) {
-				const fs = await import("node:fs/promises");
-				const stats = await fs.stat(filePath);
+				const stats = await stat(filePath);
 				data.lastUpdated = stats.mtime;
 			} else {
 				// If the id is an epoch timestamp, convert it to a Date

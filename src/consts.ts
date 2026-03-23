@@ -37,11 +37,11 @@ export const MAIN_ROUTES: Route[] = [
 		DESCRIPTION: "things i have built and that people found cool.",
 	},
 	{
-		NAME: "anti-vision",
-		PATH: "/anti-vision",
-		ICON: "/icons/hide.svg",
+		NAME: "opinions",
+		PATH: "/opinions",
+		ICON: "/icons/message.svg",
 		COLOR: { LIGHT: "#B84848", DARK: "#FF6B6B" },
-		DESCRIPTION: "my vision? pfft, that's too broad. i gotta start with what i *don't* want.",
+		DESCRIPTION: "everything that you can start discussions/arguments with me on.",
 	},
 	{
 		NAME: "people",
@@ -51,11 +51,11 @@ export const MAIN_ROUTES: Route[] = [
 		DESCRIPTION: "people from my life who're doing crazy and cool things.",
 	},
 	{
-		NAME: "opinions",
-		PATH: "/opinions",
-		ICON: "/icons/message.svg",
+		NAME: "weeknotes",
+		PATH: "/weeknotes",
+		ICON: "/icons/calendar.svg",
 		COLOR: { LIGHT: "#904A72", DARK: "#F07EB8" },
-		DESCRIPTION: "everything that you can start discussions/arguments with me on.",
+		DESCRIPTION: "history of weeks in the life.",
 	},
 	{
 		NAME: "now",
@@ -69,12 +69,13 @@ export const MAIN_ROUTES: Route[] = [
 
 export const ROUTES: Route[] = [
 	...MAIN_ROUTES,
+	
 	{
-		NAME: "weeknotes",
-		PATH: "/weeknotes",
-		ICON: "/icons/calendar.svg",
+		NAME: "anti-vision",
+		PATH: "/anti-vision",
+		ICON: "/icons/hide.svg",
 		COLOR: { LIGHT: "#3C3836", DARK: "#EBDBB2" },
-		DESCRIPTION: "history of weeks in the life.",
+		DESCRIPTION: "my vision? pfft, that's too broad. i gotta start with what i *don't* want.",
 	},
 	{
 		NAME: "before",
