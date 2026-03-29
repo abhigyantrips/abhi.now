@@ -18,7 +18,7 @@ export async function GET(context: AstroSharedContext) {
 	const weeknoteItems = weeknotes.map((note) => ({
 		title: note.data.title,
 		description: note.data.description,
-		pubDate: note.data.fromDate,
+		pubDate: note.data.toDate,
 		categories: ["weeknotes"],
 		link: `/weeknotes/${note.id}/`,
 	}));
