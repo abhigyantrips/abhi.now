@@ -54,7 +54,7 @@ export const MAIN_ROUTES: Route[] = [
 		NAME: "weeknotes",
 		PATH: "/weeknotes",
 		ICON: "/icons/calendar.svg",
-		COLOR: { LIGHT: "#904A72", DARK: "#F07EB8" },
+		COLOR: { LIGHT: "#8C5473", DARK: "#DF84B5" },
 		DESCRIPTION: "history of weeks in the life.",
 	},
 	{
@@ -69,7 +69,6 @@ export const MAIN_ROUTES: Route[] = [
 
 export const ROUTES: Route[] = [
 	...MAIN_ROUTES,
-	
 	{
 		NAME: "anti-vision",
 		PATH: "/anti-vision",
