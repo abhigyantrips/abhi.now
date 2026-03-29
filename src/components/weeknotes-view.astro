@@ -3,15 +3,20 @@ import type { CollectionEntry } from "astro:content";
 
 type Props = {
 	entries: CollectionEntry<"weeknotes">[];
+	isDescending?: boolean;
 };
 
-const { entries } = Astro.props;
+const { entries, isDescending = false } = Astro.props;
 
 const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
 
 const sortedEntries = [...entries].sort(
 	(a, b) => a.data.fromDate.getTime() - b.data.fromDate.getTime()
 );
+
+if (isDescending) {
+	sortedEntries.reverse();
+}
 
 function formatShortDate(d: Date) {
 	return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
