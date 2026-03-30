@@ -9,14 +9,10 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	site: import.meta.env.DEV ? "http://localhost:4321" : "https://abhi.now",
+	site: process.env.DEV ? "http://localhost:4321" : "https://abhi.now",
 	output: "static",
 
 	adapter: cloudflare({
-		platformProxy: {
-			enabled: true,
-		},
-
 		imageService: "cloudflare",
 	}),
 
