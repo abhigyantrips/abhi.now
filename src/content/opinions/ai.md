@@ -3,6 +3,11 @@ title: AI
 description: How I use AI in my day-to-day life.
 ---
 
+<div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted)">
+  <span><i>"The real danger is not that computers will begin to think like men, but that men will begin to think like computers."</i></span><br>
+  <p class="text-right mt-0!"><b>&ndash; Sydney J. Harris</b></p>
+</div>
+
 If there's one line to summarize my usage of AI, it would be, "It's a tool, not a mask".
 
 ## Writing
