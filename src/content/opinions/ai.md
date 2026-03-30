@@ -8,21 +8,33 @@ description: How I use AI in my day-to-day life.
   <p class="text-right mt-0!"><b>&ndash; Sydney J. Harris</b></p>
 </div>
 
-If there's one line to summarize my usage of AI, it would be, "It's a tool, not a mask".
+I'm grateful to be a part of what [Hank Green](https://www.youtube.com/@hankschannel/videos) would call the "medium-young generation". My one hobby throughout high school was coding, and I got just good enough before _The Great AI Wave_ that I can understand code without using LLMs as a crutch.
+
+There's so much to think about when mentioning Artificial Intelligence; the environmental impact, the hype chain, the race for the "token economy" and the sweet promise of mass surveillance at the end of it all.
+
+It becomes hard for me to focus on the positives of rapidly-generated, semi-coherent text when every week there's someone telling me software engineering (and most jobs) will be dead in six months. I like the idea that I can plainly explain a problem statement in words and receive something close to an answer. But I'm not willing to trade off humanity for it.
+
+The omnipresence and variety of AI usage can make it difficult to know whether the people you're talking to (or even the content you're consuming) comes from an authentic human or a token vending machine. That's why I've created this page in the footsteps of [Derek Sivers](https://sive.rs/ai) and [many other people on the Internet](https://slashai.page), to disclose how I use LLM-based tools in my day-to-day life.
 
 ## Writing
 
-Absolutely not.
+I'll never write with AI.
 
-I see writing as one of the most raw forms of expression. It's a ritual, a form of organized thinking
+I see writing as one of the most raw forms of expression. It's a ritual, a form of organized thinking that pushes out abstract ideas into a physical form that can be consumed and visualized by other people. I love that the words I put onto paper (physical or digital) with my train of thought might mean something completely different to another person.
+
+I don't write with a word limit. A junior of mine in college once called my writing "idiosyncratic", and I've held that as a compliment ever since.
 
 I come from a family of "hobbyist" poets -- my dad and _nannoo_ saving their
 
 ## Learning
 
-I wouldn't call myself a chaotic/unorganized thinker, but I love the cascade of rabbit-holes that come with trying to learn something new.
+Probably not. I'd be anxious about the confidence with which an LLM would give me the wrong answers. I would also hate receiving answers to my questions without putting in much effort.
+
+I wouldn't call myself a chaotic/unorganized thinker, but I love the cascade of rabbit-holes that come with trying to learn something new. It can be exhausting -- and you definitely need to develop a sense of when the intricacy goes too far -- but that's the kind of exploration that leads to knowing why...
 
 ## Specifications
+
+This is where I'll probably use AI the most.
 
 When building software, I've gotten into a habit of fleshing out the requirements and frameworks to be used fairly decently. This spans to both tiny side projects and extensive public/private applications. I've gotten good at asking questions about edge cases, but I still definitely miss the mark on some important clarifications sometimes.
 
@@ -32,18 +44,42 @@ One important part here is steering the LLM with some information about the "use
 
 ## Programming
 
-This is more complicated. I started coding because I genuinely love building things, and software seemed like the best way to make something that could reach a lot of people. I like how I basically _type out_ building blocks -- one on top of the other -- and suddenly have something very cool.
+This one is weird.
+
+I started coding because I genuinely love building things, and software seemed like the best way to make something that could reach a lot of people. I like how I basically _type out_ building blocks -- one on top of the other -- and suddenly have something very cool. That definition of "suddenly" has now changed drastically.
+
+I can get away with balancing AI use on my personal projects, but what makes it weird is that I also code for a living. Corporate timelines have sped up under the notion that LLM-based tools are highly efficient and accurate and can exponentially multiply your productivity, instantly. With the investment into agentic IDEs and third-party services, AI usage can become more of an obligation than a choice.
+
+At the same time, there is an understanding that code generation won't be this cheap for long. We are already seeing headlines like [GitHub removing premium models from its Student Plan](https://github.com/orgs/community/discussions/189268), and [Anthropic clamping down on subscription usage with third-party services like OpenCode](https://x.com/thdxr/status/2034730036759339100). I don't want to lose my edge by depending on these tools completely, but I also want to leverage the subsidized cost of code generation to create tools that are important to me.
+
+I don't know. It's a balancing act, really.
 
 ## Scripting
+
+This is where AI-generated code shines for me.
 
 This, is the one thing I use LLMs for more than anything else. There can be a lot of one-time transformations or short-term automations, which I either have to work out manually, or figure out the abstract logic (and third-party libraries) to create a script that can handle it for me.
 
 I definitely don't trust LLMs to complete the actions themselves without hallucinating, but if I can figure out the core of the required changes and prompt for a script that carries it out, that solves a majority of my work. Another great thing about this is that you usually don't need reasoning models for this, and the generation (for smaller tasks) can be carried out on-device as well.
 
+Some good practices here from my end include asking for a "dry run" flag -- to test out the actual processing part without the final actions to be taken -- and ask for global variables for basic config options I can tweak myself without re-prompting.
+
 ## Communication
 
-No. I don't use AI to re-phrase what I want to say, or write out my thoughts for me. I also don't appreciate it when _you_ try to mask your intention behind an LLM spewing corpo-speak at me. I'm here to listen to _you_ -- not a liason that can use nothing but the same three writing structures.
+No.
+
+I don't use AI to re-phrase what I want to say, or write out my thoughts for me. I also don't appreciate it when _you_ try to mask your intention behind an LLM spewing corpo-speak at me. I'm here to listen to _you_ -- not a liason that can use nothing but the same three writing structures.
 
 ## Social Media
 
-My usage of social media is limited to [Instagram](https://www.instagram.com/abhidotnow) and [LinkedIn](https://linkedin.com/in/abhigyantrips). I can say for sure that all content I've posted so far is
+My usage of social media is limited to Instagram (as a photo-gallery/time-capsule) and LinkedIn (as a log of my professional life). I can say for sure that all content I've posted so far on both platforms is written by me, through and through.
+
+I think there were a couple times I tried to write a LinkedIn post through an LLM. The text was well-structured, split into paragraphs, and read like a story. But everything about it just seemed a little _wrong_. What felt worse was copying the content and pasting it into LinkedIn to just click "Post". I kept asking myself, "On whose behalf am I taking this action?".
+
+There are a lot of people that would argue, "If you built the project yourself, and gave in that context as a prompt, then it's technically coming from you! You're the one directing the LLM!". I believe this is the sort of thought process that leads down the road of handing over your words, then your work, and then your thoughts to the machine. What starts with a, "Why don't I just ask it to write my article?" then turns into, "Why can't it just implement this feature for me?" which, lastly, leads to
+
+---
+
+At the end of it all, to me: AI is a tool, not a mask. I can ask LLMs to take up the brunt of a tedious task and be happy with it. I can ask them to act as an external opinion to fill out the gaps of my project specs. But I absolutely hate it when they speak on my behalf. I hate it even more when someone uses AI to hide true words behind tokens and em dashes.
+
+I want to speak to you, learn about you, understand your gaps so I can fill in with my own strengths, and I want to expect the same from you.
