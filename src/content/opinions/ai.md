@@ -1,18 +1,18 @@
 ---
 title: AI
-description: How I use AI in my day-to-day life.
+description: How I use AI and LLM-based tools in my day-to-day life.
 ---
 
 <div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted)">
   <span><i>"The real danger is not that computers will begin to think like men, but that men will begin to think like computers."</i></span><br>
-  <p class="text-right mt-0!"><b>&ndash; Sydney J. Harris</b></p>
+  <p class="text-right mt-0!"><b>&ndash; <a class="text-(--color-text-muted)! hover:text-(--color-bg)!" href="https://www.goodreads.com/quotes/235559-the-real-danger-is-not-that-computers-will-begin-to">Sydney J. Harris</a></b></p>
 </div>
 
-I'm grateful to be a part of what [Hank Green](https://www.youtube.com/@hankschannel/videos) would call the "medium-young generation". My one hobby throughout high school was coding, and I got just good enough before _The Great AI Wave_ that I can understand code without using LLMs as a crutch.
+I'm grateful to be a part of what [Hank Green](https://www.youtube.com/@hankschannel/videos) would call the "medium-young generation". My one hobby throughout high school was coding, and I got _just_ good enough before **The Great AI Wave** that I can understand code without using LLMs as a crutch.
 
-There's so much to think about when mentioning Artificial Intelligence; the environmental impact, the hype chain, the race for the "token economy" and the sweet promise of mass surveillance at the end of it all.
+There's so much to think about when mentioning Artificial Intelligence; the environmental impact, the hype chain, the simultaneous bloat and dip in the job market, the race for the bubbled "token economy" and the sweet, _sweet_ promise of mass surveillance at the end of it all...
 
-It becomes hard for me to focus on the positives of rapidly-generated, semi-coherent text when every week there's someone telling me software engineering (and most jobs) will be dead in six months. I like the idea that I can plainly explain a problem statement in words and receive something close to an answer. But I'm not willing to trade off humanity for it.
+It becomes hard for me to focus on the positives of rapidly-generated, semi-coherent text when every week there's someone telling me that software engineering (and most jobs) will be dead in six months. I like the idea that I can plainly explain a problem statement in words and quickly receive something close to an answer. But I'm not willing to trade off my humanity for it.
 
 The omnipresence and variety of AI usage can make it difficult to know whether the people you're talking to (or even the content you're consuming) comes from an authentic human or a token vending machine. That's why I've created this page in the footsteps of [Derek Sivers](https://sive.rs/ai) and [many other people on the Internet](https://slashai.page), to disclose how I use LLM-based tools in my day-to-day life.
 
@@ -22,7 +22,7 @@ I'll never write with AI.
 
 I see writing as one of the most raw forms of expression. It's a ritual, a form of organized thinking that pushes out abstract ideas into a physical form that can be consumed and visualized by other people. I love that the words I put onto paper (physical or digital) with my train of thought might mean something completely different to another person.
 
-I don't write with a word limit. A junior of mine in college once called my writing "idiosyncratic", and I've held that as a compliment ever since.
+I don't write with a word limit. A junior of mine in college once called my writing "idiosyncratic", and I've held that as a compliment ever since. I'm kinda proud of my writing being so rambly that even LLMs find it hard to reproduce the amount of free spirit (or rather, free _time_) I'm writing with.
 
 I come from a family of "hobbyist" poets -- my dad and _nannoo_ saving their
 
@@ -30,11 +30,15 @@ I come from a family of "hobbyist" poets -- my dad and _nannoo_ saving their
 
 Probably not. I'd be anxious about the confidence with which an LLM would give me the wrong answers. I would also hate receiving answers to my questions without putting in much effort.
 
-I wouldn't call myself a chaotic/unorganized thinker, but I love the cascade of rabbit-holes that come with trying to learn something new. It can be exhausting -- and you definitely need to develop a sense of when the intricacy goes too far -- but that's the kind of exploration that leads to knowing why...
+I wouldn't call myself a chaotic/unorganized thinker, but I love the cascade of rabbit-holes that come with trying to learn something new. It can be exhausting -- and you definitely need to develop a sense of when the intricacy goes too far -- but that's the kind of exploration that leads to knowing [why Astro with Cloudflare gives weird errors after changing the config. file](https://github.com/withastro/astro/issues/15524), or [how you can auto-mount partitions in Arch Linux](https://computingforgeeks.com/how-to-auto-mount-usb-and-external-storage-devices-with-rw-in-arch-linux/), or [why Flutter gives a "hero error" on having mutiple Floating Action Buttons](https://stackoverflow.com/questions/49964192/flutter-exception-when-having-2-floatingactionbutton). The trivial details can sometimes save a project from coming to an abrupt halt.
+
+If I was learning through an LLM instead, I'd never come face-to-face with a lot of this information. It's a level of abstraction that I don't _want_ to interface with. This answer might change if models start utilizing search grounding more effectively, but I'd like to limit my usage even then.
+
+To summarize, if I make a mistake or say something incorrect during a conversation, I'll blame random users on the Internet rather than AI hallucinations. And if I know the exact solution to a very random problem you're facing, I'd thank the same random users on the Internet.
 
 ## Specifications
 
-This is where I'll probably use AI the most.
+This is where the conversational nature of AI tools shines for me.
 
 When building software, I've gotten into a habit of fleshing out the requirements and frameworks to be used fairly decently. This spans to both tiny side projects and extensive public/private applications. I've gotten good at asking questions about edge cases, but I still definitely miss the mark on some important clarifications sometimes.
 
@@ -48,21 +52,21 @@ This one is weird.
 
 I started coding because I genuinely love building things, and software seemed like the best way to make something that could reach a lot of people. I like how I basically _type out_ building blocks -- one on top of the other -- and suddenly have something very cool. That definition of "suddenly" has now changed drastically.
 
-I can get away with balancing AI use on my personal projects, but what makes it weird is that I also code for a living. Corporate timelines have sped up under the notion that LLM-based tools are highly efficient and accurate and can exponentially multiply your productivity, instantly. With the investment into agentic IDEs and third-party services, AI usage can become more of an obligation than a choice.
+I can get away with balancing AI use on my personal projects, but what makes it weird is that I also code for a living. Corporate timelines have sped up under the notion that LLM-based tools are highly efficient and accurate and can exponentially multiply your productivity, instantly. With the investment into agentic IDEs and third-party services, AI usage can become more of an obligation than a choice. The project timelines expect you to use it.
 
 At the same time, there is an understanding that code generation won't be this cheap for long. We are already seeing headlines like [GitHub removing premium models from its Student Plan](https://github.com/orgs/community/discussions/189268), and [Anthropic clamping down on subscription usage with third-party services like OpenCode](https://x.com/thdxr/status/2034730036759339100). I don't want to lose my edge by depending on these tools completely, but I also want to leverage the subsidized cost of code generation to create tools that are important to me.
 
-I don't know. It's a balancing act, really.
+I don't know. I just wanna build things and have fun.
 
 ## Scripting
 
-This is where AI-generated code shines for me.
+This, is the one thing I use LLMs for more than anything else.
 
-This, is the one thing I use LLMs for more than anything else. There can be a lot of one-time transformations or short-term automations, which I either have to work out manually, or figure out the abstract logic (and third-party libraries) to create a script that can handle it for me.
+There can be a lot of one-time transformations or short-term automations, which I either have to work out manually, or figure out the abstract logic (and third-party libraries) to create a script that can handle it for me.
 
 I definitely don't trust LLMs to complete the actions themselves without hallucinating, but if I can figure out the core of the required changes and prompt for a script that carries it out, that solves a majority of my work. Another great thing about this is that you usually don't need reasoning models for this, and the generation (for smaller tasks) can be carried out on-device as well.
 
-Some good practices here from my end include asking for a "dry run" flag -- to test out the actual processing part without the final actions to be taken -- and ask for global variables for basic config options I can tweak myself without re-prompting.
+Some good practices here from my end include asking for a "dry run" flag -- to test out the actual processing part without the final actions to be taken -- and ask for global variables for basic config. options I can tweak myself without re-prompting. This, paired with some pretext on which third-party libraries were used and how safe they are, makes the scripting process much faster for me.
 
 ## Communication
 
