@@ -1,6 +1,7 @@
 ---
 title: AI
 description: How I use (or don't use) AI and LLM-based tools in my day-to-day life.
+iconUrl: /icons/bot.svg
 ---
 
 <div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted)">
@@ -86,7 +87,7 @@ But all that aside, my social media pages are my place to tell my own story. Tho
 
 ---
 
-At the end of it all, to me: AI is a tool, not a mask. I can ask LLMs to take up the brunt of a tedious task and be happy with it. I can ask them to act as an external opinion to fill out the gaps of my project specs. But I absolutely hate it when they speak on my behalf. I hate it even more when someone uses AI to hide true words behind tokens and em dashes.
+At the end of it all, to me: AI is a tool, not a mask. I can ask LLMs to take up the brunt of a tedious task and be happy with it. I can ask them to act as an external opinion to fill out the gaps of my project specs. But I absolutely hate it when they speak on my behalf. I hate it even more when someone uses AI to hide their true selves behind tokens and em dashes.
 
 I want to speak to you, learn about you, understand your gaps so I can fill in with my own strengths, and I want to expect the same from you. I want to hear _your_ stories -- the challenges you faced, the "stupid questions" you asked, the hours/days/months you spent looking for answers, the compromises you made, and the rewards you received.
 

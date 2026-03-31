@@ -1,5 +1,5 @@
 ---
-import ReadingLayout from "@/layouts/reading-layout.astro";
+import OpinionLayout from "@/layouts/opinion-layout.astro";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -14,8 +14,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<ReadingLayout
-	route="/opinions"
+<OpinionLayout
 	postTitle={post.data.title}
 	postDescription={post.data.description}
 	postDate={post.data.lastUpdated.toLocaleString("en-IN", {
@@ -23,7 +22,8 @@ const { Content } = await render(post);
 		month: "long",
 		day: "numeric",
 	})}
-	postUrl={`/before/${post.id}`}
+	postIcon={post.data.iconUrl}
+	postUrl={`/on/${post.id}`}
 >
 	<article
 		class:list={[
@@ -35,16 +35,6 @@ const { Content } = await render(post);
 			"prose-img:rounded-xl prose-img:border prose-img:border-(--color-text-muted)/20",
 		]}
 	>
-		<span
-			><strong>Last Updated:</strong>
-			{
-				post.data.lastUpdated.toLocaleString("en-IN", {
-					year: "numeric",
-					month: "long",
-					day: "numeric",
-				})
-			}</span
-		>
 		<Content />
 	</article>
 </ReadingLayout>

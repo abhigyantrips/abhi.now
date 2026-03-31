@@ -1,0 +1,107 @@
+---
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import { slideFromBottom } from "@/lib/transitions";
+import { ROUTES, SITE } from "@/consts";
+import "@/styles/global.css";
+
+type Props = {
+	postTitle: string;
+	postDescription: string;
+	postDate: string;
+    postIcon: string;
+	postUrl?: string;
+};
+
+const { postTitle, postDescription, postDate, postIcon, postUrl } = Astro.props;
+const opinionsRoute = ROUTES.find((r) => r.PATH === "/opinions" || r.NAME === "/opinions");
+
+if (!opinionsRoute) {
+	throw new Error(`Route "/opinions" not found in ROUTES`);
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
+	</head>
+	<body class="font-gummy">
+		<Header section={opinionsRoute.NAME} />
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
+			transition:animate={slideFromBottom}
+		>
+			<Container size="md">
+				<div class="h-entry flex flex-col pt-24 md:pt-48">
+                    <div
+					class="flex flex-col"
+					style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
+				>
+					<div class="flex flex-col space-x-6 md:flex-row">
+						<div
+							class="route-icon-display mb-2 size-14 -rotate-12 md:mb-0 md:size-16"
+							style={`-webkit-mask: url(${postIcon}) no-repeat center; mask: url(${postIcon}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+							role="img"
+							aria-label={postTitle}
+							transition:name={`icon-${postTitle.toLowerCase().split(" ").join("-")}`}
+							transition:persist
+						>
+						</div>
+						<div class="flex flex-col">
+							<h1 class="p-name route-title text-3xl font-semibold">
+								{postTitle}
+							</h1>
+							<p class="p-summary text-(--color-text)">{postDescription}</p>
+                            {
+							postUrl && (
+								<a class="u-url hidden" href={postUrl}>
+									{postTitle}
+								</a>
+							)
+						}
+						<span class="p-author h-card hidden">
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+						</span>
+						</div>
+					</div>
+				</div>
+					<hr class="my-8 border-t border-(--color-text)/75  md:my-12" />
+					<span
+			><strong>Last Updated:</strong>
+			{
+				new Date(postDate).toLocaleString("en-IN", {
+					year: "numeric",
+					month: "long",
+					day: "numeric",
+				})
+			}</span
+		>
+					<slot />
+				</div>
+			</Container>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.route-icon-display {
+		background-color: var(--route-color-light);
+	}
+
+	.route-title {
+		color: var(--route-color-light);
+	}
+
+	:global(.dark) .route-icon-display {
+		background-color: var(--route-color-dark);
+	}
+
+	:global(.dark) .route-title {
+		color: var(--route-color-dark);
+	}
+</style>

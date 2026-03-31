@@ -1,6 +1,7 @@
 import { globWithParser } from "@/lib/parsers";
 import { glob } from "astro/loaders";
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, reference } from "astro:content";
+import { z } from "astro/zod";
 import { stat } from "node:fs/promises";
 
 const before = defineCollection({
@@ -88,6 +89,7 @@ const opinions = defineCollection({
 		title: z.string(),
 		description: z.string().default(""),
 		lastUpdated: z.coerce.date(),
+		iconUrl: z.string(),
 	}),
 });
 
