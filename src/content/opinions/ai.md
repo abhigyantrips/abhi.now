@@ -24,7 +24,7 @@ I see writing as one of the most raw forms of expression. It's a ritual, a form 
 
 I don't write with a word limit. A junior of mine in college once called my writing "idiosyncratic", and I've held that as a compliment ever since. I'm kinda proud of my writing being so rambly that even LLMs find it hard to reproduce the amount of free spirit (or rather, free _time_) I'm writing with.
 
-I come from a family of "hobbyist" poets -- my dad and _nannoo_ saving their
+I come from a family of "hobbyist" poets -- my dad and _nannoo_ saving their _kavitas_ and _dohe_ in old notebooks and pieces of paper. They have not pursued these interests professionally, but it prides me to have family members in the pursuit of expression, just because they can. I want to honour that practice and continue embodying my thoughts in ink and pixels.
 
 ## Learning
 
