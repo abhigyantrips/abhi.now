@@ -41,15 +41,15 @@ body {
 /* Remove Tailwind Typography's default before/after pseudo-elements for code */
 .prose code::before,
 .prose code::after {
-  content: none !important;
+	content: none !important;
 }
 
 /* Style the inline code elements */
 .prose code {
-  font-size: 0.85em !important;
-  font-weight: 500;
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  background-color: rgba(150, 150, 150, 0.2); /* Adjust this for light/dark themes */
-  color: inherit; /* Inherit prose color or specify a distinct color like #d946ef */
+	font-size: 0.85em !important;
+	font-weight: 500;
+	padding: 0.2em 0.4em;
+	border-radius: 0.25rem;
+	background-color: rgba(150, 150, 150, 0.2); /* Adjust this for light/dark themes */
+	color: inherit; /* Inherit prose color or specify a distinct color like #d946ef */
 }

@@ -1,7 +1,7 @@
 import { globWithParser } from "@/lib/parsers";
 import { glob } from "astro/loaders";
-import { defineCollection, reference } from "astro:content";
 import { z } from "astro/zod";
+import { defineCollection, reference } from "astro:content";
 import { stat } from "node:fs/promises";
 
 const before = defineCollection({
