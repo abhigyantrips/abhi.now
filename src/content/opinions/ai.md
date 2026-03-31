@@ -80,7 +80,9 @@ My usage of social media is limited to Instagram (as a photo-gallery/time-capsul
 
 I think there were a couple times I tried to write a LinkedIn post through an LLM. The text was well-structured, split into paragraphs, and read like a story. But everything about it just seemed a little _wrong_. What felt worse was copying the content and pasting it into LinkedIn to just click "Post". I kept asking myself, "On whose behalf am I taking this action?".
 
-There are a lot of people that would argue, "If you built the project yourself, and gave in that context as a prompt, then it's technically coming from you! You're the one directing the LLM!". I believe this is the sort of thought process that leads down the road of handing over your words, then your work, and then your thoughts to the machine. What starts with a, "Why don't I just ask it to write my article?" then turns into, "Why can't it just implement this feature for me?" which, lastly, leads to
+There are a lot of people that would argue, "If you built the project yourself, and gave in that context as a prompt, then it's technically coming from you! You're the one directing the LLM!". I believe this is the sort of mindset that leads down the road of handing over your words, then your work, and then your thoughts to the machine. What starts with a, "Why don't I just ask it to write my article?" then turns into, "Why can't it just implement this feature for me?" which, lastly, leads to, "This product is my brainchild because I told Claude to build a SaaS that is profitable."
+
+But all that aside, my social media pages are my place to tell my own story. Those stories deserve better than to be distilled down to bullet points, which AI elaborates on with no context of the actual events that occured. Those stories deserve to be told by the person who experienced them.
 
 ---
 
