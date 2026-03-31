@@ -1,6 +1,6 @@
 ---
 title: AI
-description: How I use AI and LLM-based tools in my day-to-day life.
+description: How I use (or don't use) AI and LLM-based tools in my day-to-day life.
 ---
 
 <div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted)">
@@ -88,4 +88,10 @@ But all that aside, my social media pages are my place to tell my own story. Tho
 
 At the end of it all, to me: AI is a tool, not a mask. I can ask LLMs to take up the brunt of a tedious task and be happy with it. I can ask them to act as an external opinion to fill out the gaps of my project specs. But I absolutely hate it when they speak on my behalf. I hate it even more when someone uses AI to hide true words behind tokens and em dashes.
 
-I want to speak to you, learn about you, understand your gaps so I can fill in with my own strengths, and I want to expect the same from you.
+I want to speak to you, learn about you, understand your gaps so I can fill in with my own strengths, and I want to expect the same from you. I want to hear _your_ stories -- the challenges you faced, the "stupid questions" you asked, the hours/days/months you spent looking for answers, the compromises you made, and the rewards you received.
+
+I want to learn your dog's name. I want to know where you came from, and what you think about this city. I want to know why you hold the spoon that way, or why you like the color blue. I want to know what kind of _chai_ you like, and want to be shocked when you say you don't like _chai_ at all.
+
+I want to learn so much, that I hold an image of you in my head. One that I recall when I find something that reminds me of you. I want that level of depth about my knowledge of a person, while not doing it for everyone because I'm naturally an introvert and have a social limit.
+
+But that's okay, I guess. Humans are paradoxical that way. :)
