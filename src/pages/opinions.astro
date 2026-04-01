@@ -7,16 +7,16 @@ const opinions: CollectionEntry<"opinions">[] = await getCollection("opinions");
 ---
 
 <PageLayout route="/opinions">
-	<div class="h-feed grid grid-cols-2 items-baseline gap-4">
+	<div class="h-feed grid grid-cols-1 items-baseline gap-4 md:grid-cols-2">
 		<span class="p-name col-span-2 hidden">abhigyan trips's blog</span>
 		{
 			opinions.map((opinion) => (
 				<a
-					class="h-entry group flex flex-col items-center gap-2 rounded-2xl bg-(--color-text)/10 p-4 hover:scale-105"
+					class="h-entry group flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 hover:scale-105 md:gap-2"
 					style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
 					href={`/on/${opinion.id}`}
 				>
-					<div class="flex w-full items-center gap-3">
+					<div class="flex w-full items-start gap-3 md:items-center">
 						<div
 							class="route-icon-display mb-2 size-14 shrink-0 -rotate-12 md:mb-0"
 							style={`-webkit-mask: url(${opinion.data.iconUrl}) no-repeat center; mask: url(${opinion.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${opinion.data.iconSize}); mask-size: calc(var(--spacing) * ${opinion.data.iconSize});`}
@@ -24,7 +24,7 @@ const opinions: CollectionEntry<"opinions">[] = await getCollection("opinions");
 							aria-label={opinion.data.title}
 							transition:name={`icon-${opinion.data.title.toLowerCase().split(" ").join("-")}`}
 						/>
-						<div class="gap-0.4 flex flex-col items-start">
+						<div class="flex flex-col items-start pt-1 md:pt-0">
 							<span class="p-name u-url decoration-2 underline-offset-4 hover:underline">
 								{opinion.data.title}
 							</span>
