@@ -90,6 +90,7 @@ const opinions = defineCollection({
 		description: z.string().default(""),
 		lastUpdated: z.coerce.date(),
 		iconUrl: z.string(),
+		iconSize: z.number().optional().default(14),
 	}),
 });
 

@@ -1,5 +1,70 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+const opinions: CollectionEntry<"opinions">[] = await getCollection("opinions");
 ---
 
-<PageLayout route="/opinions" />
+<PageLayout route="/opinions">
+	<div class="h-feed grid grid-cols-2 items-baseline gap-4">
+		<span class="p-name col-span-2 hidden">abhigyan trips's blog</span>
+		{
+			opinions.map((opinion) => (
+				<a
+					class="h-entry group flex flex-col items-center gap-2 rounded-2xl bg-(--color-text)/10 p-4 hover:scale-105"
+					style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
+					href={`/on/${opinion.id}`}
+				>
+					<div class="flex w-full items-center gap-3">
+						<div
+							class="route-icon-display mb-2 size-14 shrink-0 -rotate-12 md:mb-0"
+							style={`-webkit-mask: url(${opinion.data.iconUrl}) no-repeat center; mask: url(${opinion.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${opinion.data.iconSize}); mask-size: calc(var(--spacing) * ${opinion.data.iconSize});`}
+							role="img"
+							aria-label={opinion.data.title}
+							transition:name={`icon-${opinion.data.title.toLowerCase().split(" ").join("-")}`}
+						/>
+						<div class="gap-0.4 flex flex-col items-start">
+							<span class="p-name u-url decoration-2 underline-offset-4 hover:underline">
+								{opinion.data.title}
+							</span>
+							<time
+								class="dt-published text-sm text-(--color-text-muted)"
+								datetime={opinion.data.lastUpdated.toISOString()}
+							>
+								{opinion.data.lastUpdated.toLocaleString("en-IN", {
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								})}
+							</time>
+						</div>
+					</div>
+					<div>
+						<span class="line-clamp-2 text-sm text-(--color-text-muted)">
+							{opinion.data.description}
+						</span>
+					</div>
+				</a>
+			))
+		}
+	</div>
+</PageLayout>
+
+<style>
+	.route-icon-display {
+		background-color: var(--route-color-light);
+	}
+
+	.route-title {
+		color: var(--route-color-light);
+	}
+
+	:global(.dark) .route-icon-display {
+		background-color: var(--route-color-dark);
+	}
+
+	:global(.dark) .route-title {
+		color: var(--route-color-dark);
+	}
+</style>

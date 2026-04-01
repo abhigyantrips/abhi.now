@@ -12,10 +12,11 @@ type Props = {
 	postDescription: string;
 	postDate: string;
 	postIcon: string;
+	postIconSize?: number;
 	postUrl?: string;
 };
 
-const { postTitle, postDescription, postDate, postIcon, postUrl } = Astro.props;
+const { postTitle, postDescription, postDate, postIcon, postIconSize = 16, postUrl } = Astro.props;
 const opinionsRoute = ROUTES.find((r) => r.PATH === "/opinions" || r.NAME === "/opinions");
 
 if (!opinionsRoute) {
@@ -42,8 +43,8 @@ if (!opinionsRoute) {
 					>
 						<div class="flex flex-col space-x-6 md:flex-row">
 							<div
-								class="route-icon-display mb-2 size-14 -rotate-12 md:mb-0 md:size-16"
-								style={`-webkit-mask: url(${postIcon}) no-repeat center; mask: url(${postIcon}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+								class="route-icon-display mb-2 size-16 shrink-0 -rotate-12 md:mb-0"
+								style={`-webkit-mask: url(${postIcon}) no-repeat center; mask: url(${postIcon}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${postIconSize + 2}); mask-size: calc(var(--spacing) * ${postIconSize + 2});`}
 								role="img"
 								aria-label={postTitle}
 								transition:name={`icon-${postTitle.toLowerCase().split(" ").join("-")}`}
@@ -68,7 +69,7 @@ if (!opinionsRoute) {
 							</div>
 						</div>
 					</div>
-					<hr class="my-8 border-t border-(--color-text)/75 md:my-12" />
+					<hr class="my-8 border-t border-(--color-text-muted)/50 md:my-12" />
 					<span class="mb-6"
 						><strong>Last Updated:</strong>
 						{
