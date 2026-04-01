@@ -16,7 +16,7 @@ const people: CollectionEntry<"people">[] = await getCollection("people");
 							<img
 								src={person.data.image}
 								alt={person.data.name}
-								class="size-full rounded-full border-2 border-(--color-text-muted)/20 object-cover"
+								class="size-full rounded-full border-2 border-(--color-text)/30 object-cover"
 							/>
 							{person.data.thing && person.data.thing.image && (
 								<img
@@ -110,7 +110,9 @@ const people: CollectionEntry<"people">[] = await getCollection("people");
 							</div>
 						</div>
 						{person.data.description && (
-							<p class="text-sm text-(--color-text-muted)">{person.data.description}</p>
+							<p class="text-justify text-sm text-(--color-text-muted)">
+								{person.data.description}
+							</p>
 						)}
 					</div>
 				</div>
