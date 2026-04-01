@@ -49,6 +49,7 @@ const isMainRoute = MAIN_ROUTES.includes(currentRoute);
 									role="img"
 									aria-label={currentRoute.NAME}
 									transition:name={`icon-${currentRoute.NAME}`}
+									transition:animate={slideFromBottom}
 								/>
 							) : (
 								<div

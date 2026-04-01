@@ -1,5 +1,130 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+const people: CollectionEntry<"people">[] = await getCollection("people");
 ---
 
-<PageLayout route="/people" />
+<PageLayout route="/people">
+	<div class="flex flex-col gap-4">
+		{
+			people.map((person) => (
+				<div class="flex flex-col gap-4 rounded-2xl bg-(--color-text)/10 p-5 sm:flex-row sm:items-start">
+					<div class="flex items-start justify-between sm:w-auto sm:shrink-0">
+						<div class="relative size-44 shrink-0 md:size-22">
+							<img
+								src={person.data.image}
+								alt={person.data.name}
+								class="size-full rounded-full border-2 border-(--color-text-muted)/20 object-cover"
+							/>
+							{person.data.thing && person.data.thing.image && (
+								<img
+									src={person.data.thing.image}
+									alt={person.data.thing.description || "Cool Thing"}
+									title={person.data.thing.description}
+									class="absolute -top-1 -right-1 size-16 rounded-full border-2 border-(--color-text-muted)/50 bg-(--color-text-muted)/50 object-cover md:size-8"
+								/>
+							)}
+						</div>
+						<div class="flex flex-col gap-2 sm:hidden">
+							{person.data.url && (
+								<a
+									href={person.data.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									title="Person Profile"
+									class="flex size-12 items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
+									style={`--route-color-light: #EBDBB2; --route-color-dark: #3C3836;`}
+								>
+									<div
+										class="route-icon-display size-6 shrink-0"
+										style={`-webkit-mask: url(/icons/user-male.svg) no-repeat center; mask: url(/icons/user-male.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+										role="img"
+										aria-label={person.data.name}
+									/>
+								</a>
+							)}
+							{person.data.thing.url && (
+								<a
+									href={person.data.thing.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									title="Related Project"
+									class="flex size-12 items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
+									style={`--route-color-light: #EBDBB2; --route-color-dark: #3C3836;`}
+								>
+									<div
+										class="route-icon-display size-6 shrink-0"
+										style={`-webkit-mask: url(/icons/link.svg) no-repeat center; mask: url(/icons/link.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+										role="img"
+										aria-label={person.data.thing.description}
+									/>
+								</a>
+							)}
+						</div>
+					</div>
+					<div class="flex w-full flex-col">
+						<div class="flex w-full items-start justify-between">
+							<div class="flex flex-col">
+								<span class="text-lg font-semibold">{person.data.name}</span>
+								<span class="mb-2 text-xs text-(--color-text-muted)">
+									{person.data.thing.description}
+								</span>
+							</div>
+							<div class="hidden gap-2 sm:flex">
+								{person.data.url && (
+									<a
+										href={person.data.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										title="Person Profile"
+										class="flex size-9 items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
+										style={`--route-color-light: #EBDBB2; --route-color-dark: #3C3836;`}
+									>
+										<div
+											class="route-icon-display size-5 shrink-0"
+											style={`-webkit-mask: url(/icons/user-male.svg) no-repeat center; mask: url(/icons/user-male.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+											role="img"
+											aria-label={person.data.name}
+										/>
+									</a>
+								)}
+								{person.data.thing.url && (
+									<a
+										href={person.data.thing.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										title="Related Project"
+										class="flex size-9 items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
+										style={`--route-color-light: #EBDBB2; --route-color-dark: #3C3836;`}
+									>
+										<div
+											class="route-icon-display size-5 shrink-0"
+											style={`-webkit-mask: url(/icons/link.svg) no-repeat center; mask: url(/icons/link.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+											role="img"
+											aria-label={person.data.thing.description}
+										/>
+									</a>
+								)}
+							</div>
+						</div>
+						{person.data.description && (
+							<p class="text-sm text-(--color-text-muted)">{person.data.description}</p>
+						)}
+					</div>
+				</div>
+			))
+		}
+	</div>
+</PageLayout>
+
+<style>
+	.route-icon-display {
+		background-color: var(--route-color-light);
+	}
+
+	:global(.dark) .route-icon-display {
+		background-color: var(--route-color-dark);
+	}
+</style>

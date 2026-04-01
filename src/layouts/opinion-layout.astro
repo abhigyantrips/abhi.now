@@ -27,7 +27,10 @@ if (!opinionsRoute) {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
+		<BaseHead
+			title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
+			description={postDescription}
+		/>
 	</head>
 	<body class="font-gummy">
 		<Header section={opinionsRoute.NAME} />
@@ -47,8 +50,6 @@ if (!opinionsRoute) {
 								style={`-webkit-mask: url(${postIcon}) no-repeat center; mask: url(${postIcon}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${postIconSize + 2}); mask-size: calc(var(--spacing) * ${postIconSize + 2});`}
 								role="img"
 								aria-label={postTitle}
-								transition:name={`icon-${postTitle.toLowerCase().split(" ").join("-")}`}
-								transition:persist
 							>
 							</div>
 							<div class="flex flex-col">
@@ -58,13 +59,21 @@ if (!opinionsRoute) {
 								<p class="p-summary text-(--color-text)">{postDescription}</p>
 								{
 									postUrl && (
-										<a class="u-url hidden" href={postUrl}>
+										<a
+											class="u-url hidden"
+											href={postUrl}
+										>
 											{postTitle}
 										</a>
 									)
 								}
 								<span class="p-author h-card hidden">
-									<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+									<a
+										class="p-name u-url"
+										href={SITE.URL}
+										rel="author"
+										>{SITE.AUTHOR}</a
+									>
 								</span>
 							</div>
 						</div>

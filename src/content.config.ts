@@ -94,6 +94,24 @@ const opinions = defineCollection({
 	}),
 });
 
+const people = defineCollection({
+	loader: glob({
+		base: "./src/content/people",
+		pattern: "**/[^_]*.json",
+	}),
+	schema: z.object({
+		name: z.string(),
+		description: z.string().optional(),
+		image: z.string().optional(),
+		url: z.string().optional(),
+		thing: z.object({
+			description: z.string().optional(),
+			image: z.string().optional(),
+			url: z.string().optional(),
+		}),
+	}),
+});
+
 const snippets = defineCollection({
 	loader: globWithParser({
 		base: "./src/content/snippets",
@@ -171,4 +189,4 @@ const weeknotes = defineCollection({
 	}),
 });
 
-export const collections = { before, blog, opinions, snippets, tags, weeknotes };
+export const collections = { before, blog, opinions, people, snippets, tags, weeknotes };

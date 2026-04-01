@@ -22,7 +22,6 @@ const opinions: CollectionEntry<"opinions">[] = await getCollection("opinions");
 							style={`-webkit-mask: url(${opinion.data.iconUrl}) no-repeat center; mask: url(${opinion.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${opinion.data.iconSize}); mask-size: calc(var(--spacing) * ${opinion.data.iconSize});`}
 							role="img"
 							aria-label={opinion.data.title}
-							transition:name={`icon-${opinion.data.title.toLowerCase().split(" ").join("-")}`}
 						/>
 						<div class="flex flex-col items-start pt-1 md:pt-0">
 							<span class="p-name u-url decoration-2 underline-offset-4 hover:underline">
@@ -56,15 +55,7 @@ const opinions: CollectionEntry<"opinions">[] = await getCollection("opinions");
 		background-color: var(--route-color-light);
 	}
 
-	.route-title {
-		color: var(--route-color-light);
-	}
-
 	:global(.dark) .route-icon-display {
 		background-color: var(--route-color-dark);
-	}
-
-	:global(.dark) .route-title {
-		color: var(--route-color-dark);
 	}
 </style>
