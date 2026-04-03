@@ -1,0 +1,11 @@
+---
+import PageLayout from "@/layouts/page-layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+const projects: CollectionEntry<"projects">[] = await getCollection("projects");
+---
+
+<PageLayout route="/projects">
+	{projects.map((project) => <div>{project.data.title}</div>)}
+</PageLayout>

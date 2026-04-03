@@ -112,6 +112,37 @@ const people = defineCollection({
 	}),
 });
 
+const projects = defineCollection({
+	loader: glob({
+		base: "./src/content/projects",
+		pattern: "**/*.md",
+	}),
+	schema: z.object({
+		title: z.string(),
+		description: z.string().default(""),
+		startDate: z.coerce.date(),
+		endDate: z.coerce.date(),
+		category: z.array(z.enum(["personal", "university", "work", "open-source", "other"])),
+		links: z
+			.array(
+				z.object({
+					label: z.string(),
+					url: z.string(),
+					icon: z.string().optional(),
+				})
+			)
+			.optional(),
+		attachments: z
+			.array(
+				z.object({
+					src: z.string(),
+					alt: z.string().optional(),
+				})
+			)
+			.optional(),
+	}),
+});
+
 const snippets = defineCollection({
 	loader: globWithParser({
 		base: "./src/content/snippets",
@@ -189,4 +220,4 @@ const weeknotes = defineCollection({
 	}),
 });
 
-export const collections = { before, blog, opinions, people, snippets, tags, weeknotes };
+export const collections = { before, blog, opinions, people, projects, snippets, tags, weeknotes };
