@@ -117,30 +117,31 @@ const projects = defineCollection({
 		base: "./src/content/projects",
 		pattern: "**/*.md",
 	}),
-	schema: z.object({
-		title: z.string(),
-		description: z.string().default(""),
-		startDate: z.coerce.date(),
-		endDate: z.coerce.date(),
-		categories: z.array(z.enum(["personal", "university", "work", "open-source", "other"])),
-		links: z
-			.array(
-				z.object({
-					label: z.string(),
-					url: z.string(),
-					icon: z.string().optional(),
-				})
-			)
-			.optional(),
-		attachments: z
-			.array(
-				z.object({
-					src: z.string(),
-					alt: z.string().optional(),
-				})
-			)
-			.optional(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string().default(""),
+			startDate: z.coerce.date(),
+			endDate: z.coerce.date(),
+			categories: z.array(z.enum(["personal", "university", "work", "open-source", "other"])),
+			links: z
+				.array(
+					z.object({
+						label: z.string(),
+						url: z.string(),
+						icon: z.string().optional(),
+					})
+				)
+				.optional(),
+			attachments: z
+				.array(
+					z.object({
+						src: image(),
+						alt: z.string().optional(),
+					})
+				)
+				.optional(),
+		}),
 });
 
 const snippets = defineCollection({

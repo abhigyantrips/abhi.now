@@ -24,9 +24,7 @@ const opinions: CollectionEntry<"opinions">[] = await getCollection("opinions");
 							aria-label={opinion.data.title}
 						/>
 						<div class="flex flex-col items-start pt-1 md:pt-0">
-							<span class="p-name u-url decoration-2 underline-offset-4 hover:underline">
-								{opinion.data.title}
-							</span>
+							<span class="p-name u-url">{opinion.data.title}</span>
 							<time
 								class="dt-published text-sm text-(--color-text-muted)"
 								datetime={opinion.data.lastUpdated.toISOString()}

@@ -10,64 +10,135 @@ const categories: string[] = [
 ---
 
 <PageLayout route="/projects">
-	<div class="flex flex-col gap-12">
-		<div class="flex flex-wrap gap-1.5" id="category-filters">
+	<div class="flex flex-col gap-8">
+		<div class="flex flex-wrap items-center gap-1.5" id="category-filters">
 			{
 				categories.map((category) => (
-					<label class="inline-flex items-center cursor-pointer">
-						<input autocomplete="off" type="checkbox" value={category} class="sr-only peer category-checkbox" />
-						<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)"><i class="mr-0.5">#</i>{category}</span>
+					<label class="inline-flex cursor-pointer items-center">
+						<input
+							autocomplete="off"
+							type="checkbox"
+							value={category}
+							class="category-checkbox peer sr-only"
+						/>
+						<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-200 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
+							<i>#</i>
+							{category}
+						</span>
 					</label>
 				))
 			}
+			<button
+				id="clear-filters"
+				class="hidden cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
+				><span class="text-lg leading-0">/</span>clear-all</button
+			>
 		</div>
 		<div class="flex flex-col gap-4" id="projects-list">
 			{
 				projects.map((project) => (
-					<div class="rounded-2xl bg-(--color-text)/10 p-4 project-card" data-categories={JSON.stringify(project.data.categories || [])}>
-						{project.data.title}
+					<div
+						class="project-card space-y-1 rounded-2xl bg-(--color-text)/10 p-4"
+						data-categories={JSON.stringify(project.data.categories || [])}
+					>
+						{project.data.attachments && project.data.attachments.length > 0 && (
+							<img
+								src={project.data.attachments[0].src.src}
+								width={project.data.attachments[0].src.width}
+								height={project.data.attachments[0].src.height}
+								alt={project.data.attachments[0].alt || project.data.title}
+								class="mb-4 aspect-video w-full rounded-xl object-cover"
+							/>
+						)}
+						<div class="flex items-center justify-between">
+							<h1 class="text-lg tracking-wide">{project.data.title}</h1>
+							<div class="flex gap-2">
+								{project.data.links?.map((link) => (
+									<a
+										href={link.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										title="Person Profile"
+										class="flex size-8 items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
+										style={`--route-color-light: #EBDBB2; --route-color-dark: #3C3836;`}
+									>
+										<div
+											class="route-icon-display size-4 shrink-0"
+											style={`-webkit-mask: url(${link.icon || "/icons/link.svg"}) no-repeat center; mask: url(${link.icon || "/icons/link.svg"}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+											role="img"
+											aria-label={link.label}
+										/>
+									</a>
+								))}
+							</div>
+						</div>
+						<p class="text-sm text-(--color-text)/60">{project.data.description}</p>
 					</div>
 				))
 			}
-			
-			<div id="empty-state" class="hidden rounded-2xl border border-dashed border-(--color-text)/20 p-8 text-center text-(--color-text)/60">
-				Your project filters are too ambitious, my friend.<br>Try selecting fewer categories (or none at all) to see some projects!
+
+			<div
+				id="empty-state"
+				class="hidden rounded-2xl border border-dashed border-(--color-text)/20 p-8 text-center text-(--color-text)/60"
+			>
+				Your project filters are too ambitious, my friend.<br />Try selecting fewer categories (or
+				none at all) to see some projects!
 			</div>
 		</div>
 	</div>
 </PageLayout>
 
+<style>
+	.route-icon-display {
+		background-color: var(--route-color-light);
+	}
+
+	:global(.dark) .route-icon-display {
+		background-color: var(--route-color-dark);
+	}
+</style>
+
 <script>
-	const checkboxes = document.querySelectorAll<HTMLInputElement>('.category-checkbox');
-	const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
-	const emptyState = document.getElementById('empty-state');
+	const checkboxes = document.querySelectorAll<HTMLInputElement>(".category-checkbox");
+	const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
+	const emptyState = document.getElementById("empty-state");
+	const clearFiltersBtn = document.getElementById("clear-filters");
 
 	function updateProjects() {
 		const selectedCategories = Array.from(checkboxes)
-			.filter(cb => cb.checked)
-			.map(cb => cb.value);
+			.filter((cb) => cb.checked)
+			.map((cb) => cb.value);
+
+		if (clearFiltersBtn) {
+			if (selectedCategories.length > 0) {
+				clearFiltersBtn.classList.remove("hidden");
+			} else {
+				clearFiltersBtn.classList.add("hidden");
+			}
+		}
 
 		let visibleCount = 0;
 
 		projectCards.forEach((project) => {
-			const projectCategories = JSON.parse(project.dataset.categories || '[]');
-			
-			const isVisible = selectedCategories.length === 0 || 
-				selectedCategories.every(cat => projectCategories.includes(cat));
+			const projectCategories = JSON.parse(project.dataset.categories || "[]");
+
+			const isVisible =
+				selectedCategories.length === 0 ||
+				selectedCategories.every((cat) => projectCategories.includes(cat));
 
 			if (isVisible) {
-				project.style.display = '';
+				project.style.display = "";
 				visibleCount++;
 			} else {
-				project.style.display = 'none';
+				project.style.display = "none";
 			}
 		});
 
 		if (emptyState) {
 			if (visibleCount === 0) {
-				emptyState.classList.remove('hidden');
+				emptyState.classList.remove("hidden");
 			} else {
-				emptyState.classList.add('hidden');
+				emptyState.classList.add("hidden");
 			}
 		}
 	}
@@ -75,4 +146,13 @@ const categories: string[] = [
 	checkboxes.forEach((checkbox) => {
 		checkbox.addEventListener("change", updateProjects);
 	});
+
+	if (clearFiltersBtn) {
+		clearFiltersBtn.addEventListener("click", () => {
+			checkboxes.forEach((cb) => {
+				cb.checked = false;
+			});
+			updateProjects();
+		});
+	}
 </script>
