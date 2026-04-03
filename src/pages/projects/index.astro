@@ -4,8 +4,75 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
 const projects: CollectionEntry<"projects">[] = await getCollection("projects");
+const categories: string[] = [
+	...new Set(projects.flatMap((project) => project.data.categories || [])),
+];
 ---
 
 <PageLayout route="/projects">
-	{projects.map((project) => <div>{project.data.title}</div>)}
+	<div class="flex flex-col gap-12">
+		<div class="flex flex-wrap gap-1.5" id="category-filters">
+			{
+				categories.map((category) => (
+					<label class="inline-flex items-center cursor-pointer">
+						<input autocomplete="off" type="checkbox" value={category} class="sr-only peer category-checkbox" />
+						<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)"><i class="mr-0.5">#</i>{category}</span>
+					</label>
+				))
+			}
+		</div>
+		<div class="flex flex-col gap-4" id="projects-list">
+			{
+				projects.map((project) => (
+					<div class="rounded-2xl bg-(--color-text)/10 p-4 project-card" data-categories={JSON.stringify(project.data.categories || [])}>
+						{project.data.title}
+					</div>
+				))
+			}
+			
+			<div id="empty-state" class="hidden rounded-2xl border border-dashed border-(--color-text)/20 p-8 text-center text-(--color-text)/60">
+				Your project filters are too ambitious, my friend.<br>Try selecting fewer categories (or none at all) to see some projects!
+			</div>
+		</div>
+	</div>
 </PageLayout>
+
+<script>
+	const checkboxes = document.querySelectorAll<HTMLInputElement>('.category-checkbox');
+	const projectCards = document.querySelectorAll<HTMLElement>('.project-card');
+	const emptyState = document.getElementById('empty-state');
+
+	function updateProjects() {
+		const selectedCategories = Array.from(checkboxes)
+			.filter(cb => cb.checked)
+			.map(cb => cb.value);
+
+		let visibleCount = 0;
+
+		projectCards.forEach((project) => {
+			const projectCategories = JSON.parse(project.dataset.categories || '[]');
+			
+			const isVisible = selectedCategories.length === 0 || 
+				selectedCategories.every(cat => projectCategories.includes(cat));
+
+			if (isVisible) {
+				project.style.display = '';
+				visibleCount++;
+			} else {
+				project.style.display = 'none';
+			}
+		});
+
+		if (emptyState) {
+			if (visibleCount === 0) {
+				emptyState.classList.remove('hidden');
+			} else {
+				emptyState.classList.add('hidden');
+			}
+		}
+	}
+
+	checkboxes.forEach((checkbox) => {
+		checkbox.addEventListener("change", updateProjects);
+	});
+</script>

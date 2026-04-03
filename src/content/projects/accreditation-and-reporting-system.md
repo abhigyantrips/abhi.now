@@ -1,10 +1,10 @@
 ---
-title: TAPMI-BLR HelpDesk System
+title: Accreditation and Reporting System, MIT-BLR
 description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
 startDate: 2024-10-01
 endDate: 2025-02-01
 categories:
-  - open-source
+  - university
 links:
   - label: Website GitHub Repository
     url: https://github.com/YCN-club/helpdesk-website

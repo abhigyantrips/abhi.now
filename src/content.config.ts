@@ -122,7 +122,7 @@ const projects = defineCollection({
 		description: z.string().default(""),
 		startDate: z.coerce.date(),
 		endDate: z.coerce.date(),
-		category: z.array(z.enum(["personal", "university", "work", "open-source", "other"])),
+		categories: z.array(z.enum(["personal", "university", "work", "open-source", "other"])),
 		links: z
 			.array(
 				z.object({

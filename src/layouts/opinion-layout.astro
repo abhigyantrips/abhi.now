@@ -27,10 +27,7 @@ if (!opinionsRoute) {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
-			description={postDescription}
-		/>
+		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
 	</head>
 	<body class="font-gummy">
 		<Header section={opinionsRoute.NAME} />
@@ -59,21 +56,13 @@ if (!opinionsRoute) {
 								<p class="p-summary text-(--color-text)">{postDescription}</p>
 								{
 									postUrl && (
-										<a
-											class="u-url hidden"
-											href={postUrl}
-										>
+										<a class="u-url hidden" href={postUrl}>
 											{postTitle}
 										</a>
 									)
 								}
 								<span class="p-author h-card hidden">
-									<a
-										class="p-name u-url"
-										href={SITE.URL}
-										rel="author"
-										>{SITE.AUTHOR}</a
-									>
+									<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
 								</span>
 							</div>
 						</div>
