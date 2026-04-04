@@ -17,7 +17,10 @@ if (!aboutRoute) {
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${aboutRoute.NAME} | ${SITE.TITLE}`} description={aboutRoute.DESCRIPTION} />
+		<BaseHead
+			title={`${aboutRoute.NAME} | ${SITE.TITLE}`}
+			description={aboutRoute.DESCRIPTION}
+		/>
 	</head>
 	<body class="font-gummy">
 		<Header section={aboutRoute.NAME} />
@@ -48,7 +51,7 @@ if (!aboutRoute) {
 						</div>
 					</div>
 				</div>
-				<hr class="my-8 border-t border-(--color-text-muted)/50 md:my-12" />
+				<hr class="my-8 border-t border-(--color-text-muted)/50" />
 				<slot />
 			</Container>
 		</main>
