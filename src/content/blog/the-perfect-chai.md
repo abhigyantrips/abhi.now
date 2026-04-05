@@ -44,7 +44,7 @@ Now we come to the tea leaves. Remove any _malai_ that has formed at the top wit
 
 Lastly, we'll take our _elaichi_, and once again break each one in two with our own hands. Drop the whole thing in, skin and all. We'll use two _elaichis_ for every cup of chai.
 
-Let the mixture sit for two minutes, while stirring a little bit from time to time to remove the _malai_ at the top. You should start smelling the rich texture of the chai and craving for it.
+Let the mixture sit for two minutes, while stirring a little bit from time to time to remove the _malai_ at the top. You should start smelling the rich texture of the chai and craving for it. Before turning the heat off, turn it up to high one last time to make the mixture bubble. This helps a lot, I swear.
 
 Finally, when pouring into the cup with a hand sieve on top, move the pot in a circular motion as you pour (the same way you would move a teapot when pouring over a coffee filter). This will make sure to pass through as much of the brew as possible without going through residual tea leaves. Strain it as you usually would with chai. :)
 
