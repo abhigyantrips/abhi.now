@@ -6,22 +6,33 @@ pseudonyms:
   - gyaani baba
 ---
 
-I'm Abhigyan Tripathi. I also go by,
+I'm Abhigyan Tripathi. I go by many names and do many things, which this page will try to outline. If you're here for professional reasons, you'd probably prefer to go straight to my [resume](/resume).
 
-- **Trips:** My dad's call-sign in the Army that I took over.
-- **Butternaan:** Because it rhymes with Abhigyan.
-- **Abhi:** Sometimes, it doesn't always end up sticking.
+### Pseudonyms
+
+Here are some nicknames I've picked up along the way, and how they came to be.
+
+- **Trips:** My dad's call-sign in the Army Aviation, that I absorbed as a part of my Internet personality.
+- **Butternaan:** Because it rhymes with Abhigyan. Zero other reasons.
+- **Abhi:** Everyone tries to start with this and then gives up on it. Good thing I don't use it anywhere myself, eh?
 - **Gyaani Baba:** I don't even know what to say.
-- **Baadmein-Gyan:** The joke here is that _abhi_ means now, and _baadmein_ means later.
+- **Baadmein-Gyan:** The joke here is that _abhi_ means "now", and _baadmein_ means "later". The people using this one find it extremely funny.
 
-Some ways to define me:
-
-- I'm a kid in college just passing out into the real (corpo) world.
-- I'm an army brat who's travelled around the country a lot.
-- I'm a software developer who got into computer science because I've loved coding since school.
-- I'm a person who's frazzled by the world generally not doing well, and wants to try and improve that state.
+### Facets
 
 > TODO: Show a graph here to expand on each of these parts, with links to the subheadings and stuff.
+
+#### As A College Kid
+
+I'm currently a student studying Computer Science at Manipal Institute of Technology, Bengaluru.
+
+#### As A Software Developer
+
+I've been coding since I was in 8th Grade, and found it to be my main source of joy.
+
+#### As An Army Brat
+
+#### As a Chai Lover
 
 ### Thank You's
 
