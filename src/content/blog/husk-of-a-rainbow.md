@@ -5,8 +5,9 @@ date: 2026-04-25
 tags:
   - poems
 ---
+
 > I wrote this poem as a part of the [Margins of Fire](https://underline.center/t/margins-of-fire-a-workshop-on-writing-dissent-poetry/755) workshop, which was a practice of Dissent Poetry. You can think of it as a writing form that embodies something you can’t remain quiet about; as an individual or a community.
-> 
+>
 > This poem is supposed to represent “The Right to Be”, though I’m not sure how well it envelopes that thought. For now, I’ll leave this here as a snapshot of something I did rather than editing it further.
 
 <p class="italic">
