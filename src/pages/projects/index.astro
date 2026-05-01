@@ -1,79 +1,117 @@
 ---
 import PageLayout from "@/layouts/page-layout.astro";
 import type { CollectionEntry } from "astro:content";
+import { getEntries } from "astro:content";
 import { getCollection } from "astro:content";
 
 const projects: CollectionEntry<"projects">[] = await getCollection("projects");
-const categories: string[] = [
-	...new Set(projects.flatMap((project) => project.data.categories || [])),
+const places: string[] = [...new Set(projects.flatMap((project) => project.data.place || []))];
+const tags: CollectionEntry<"tags">[] = [
+	...new Map(
+		(await getEntries(projects.flatMap((project) => project.data.tags || []))).map((tag) => [
+			tag.id,
+			tag,
+		])
+	).values(),
 ];
+
+function formatShortDate(d: Date) {
+	return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
 ---
 
 <PageLayout route="/projects">
-	<div class="flex flex-col gap-8">
-		<div class="flex flex-wrap items-center gap-1.5" id="category-filters">
-			{
-				categories.map((category) => (
-					<label class="inline-flex cursor-pointer items-center">
-						<input
-							autocomplete="off"
-							type="checkbox"
-							value={category}
-							class="category-checkbox peer sr-only"
-						/>
-						<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-200 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
-							<i>#</i>
-							{category}
-						</span>
-					</label>
-				))
-			}
-			<button
-				id="clear-filters"
-				class="hidden cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
-				><span class="text-lg leading-0">/</span>clear-all</button
-			>
+	<div class="flex flex-col gap-6">
+		<div class="flex flex-col gap-1.5">
+			<p class="text-sm text-(--color-text-muted) uppercase">Places</p>
+			<div class="flex flex-wrap items-center gap-1.5" id="place-filter">
+				{
+					places.map((place) => (
+						<label class="inline-flex cursor-pointer items-center">
+							<input
+								autocomplete="off"
+								type="radio"
+								name="place"
+								value={place}
+								class="place-option peer sr-only"
+							/>
+							<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-200 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
+								<span>@</span>
+								{place}
+							</span>
+						</label>
+					))
+				}
+				<button
+					id="clear-place-filter"
+					class="hidden cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
+					><span class="text-lg leading-0">/</span>clear-place</button
+				>
+			</div>
+		</div>
+		<div class="flex flex-col gap-1.5">
+			<p class="text-sm text-(--color-text-muted) uppercase">Tags</p>
+			<div class="flex flex-wrap items-center gap-1.5" id="tags-filter">
+				{
+					tags.map((tag) => (
+						<label class="inline-flex cursor-pointer items-center">
+							<input
+								autocomplete="off"
+								type="checkbox"
+								value={tag.id}
+								class="tag-checkbox peer sr-only"
+							/>
+							<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-200 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
+								<i>#</i>
+								{tag.id.split("/")[1]}
+							</span>
+						</label>
+					))
+				}<button
+					id="clear-tags-filter"
+					class="hidden cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
+					><span class="text-lg leading-0">/</span>clear-tags</button
+				>
+			</div>
 		</div>
 		<div class="flex flex-col gap-4" id="projects-list">
 			{
 				projects.map((project) => (
-					<div
-						class="project-card space-y-1 rounded-2xl bg-(--color-text)/10 p-4"
-						data-categories={JSON.stringify(project.data.categories || [])}
+					<a
+						class="project-card group flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 hover:scale-105 md:gap-2"
+						style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
+						data-place={project.data.place}
+						data-tags={JSON.stringify(project.data.tags?.map((t) => t.id) ?? [])}
+						href={`/projects/${project.id}`}
 					>
-						{project.data.attachments && project.data.attachments.length > 0 && (
-							<img
-								src={project.data.attachments[0].src.src}
-								width={project.data.attachments[0].src.width}
-								height={project.data.attachments[0].src.height}
-								alt={project.data.attachments[0].alt || project.data.title}
-								class="mb-4 aspect-video w-full rounded-xl object-cover"
-							/>
-						)}
-						<div class="flex items-center justify-between">
-							<h1 class="text-lg tracking-wide">{project.data.title}</h1>
-							<div class="flex gap-2">
-								{project.data.links?.map((link) => (
-									<a
-										href={link.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										title="Person Profile"
-										class="flex size-8 items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
-										style={`--route-color-light: #EBDBB2; --route-color-dark: #3C3836;`}
-									>
-										<div
-											class="route-icon-display size-4 shrink-0"
-											style={`-webkit-mask: url(${link.icon || "/icons/link.svg"}) no-repeat center; mask: url(${link.icon || "/icons/link.svg"}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
-											role="img"
-											aria-label={link.label}
-										/>
-									</a>
-								))}
+						<div class="flex w-full items-start gap-3">
+							<div class="aspect-square rounded-lg bg-(--color-text) p-1">
+								<div
+									class="route-icon-display mb-2 size-10 shrink-0 -rotate-12 group-hover:rotate-0 md:mb-0"
+									style={`-webkit-mask: url(${project.data.iconUrl}) no-repeat center; mask: url(${project.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${project.data.iconSize}); mask-size: calc(var(--spacing) * ${project.data.iconSize});`}
+									role="img"
+									aria-label={project.data.title}
+								/>
+							</div>
+							<div class="flex flex-col items-start pt-1 md:pt-0">
+								<span class="p-name u-url">{project.data.title}</span>
+								<div class="flex items-center gap-1 text-(--color-text-muted)">
+									<time datetime={project.data.startDate.toISOString()}>
+										{formatShortDate(project.data.startDate)}
+									</time>
+									<span>&mdash;</span>
+									<time datetime={project.data.endDate.toISOString()}>
+										{formatShortDate(project.data.endDate)}
+									</time>
+								</div>
 							</div>
 						</div>
-						<p class="text-sm text-(--color-text)/60">{project.data.description}</p>
-					</div>
+						<div>
+							<span class="line-clamp-2 text-sm text-(--color-text-muted)">
+								{project.data.description}
+							</span>
+						</div>
+					</a>
 				))
 			}
 
@@ -90,69 +128,64 @@ const categories: string[] = [
 
 <style>
 	.route-icon-display {
-		background-color: var(--route-color-light);
+		background-color: var(--route-color-dark);
 	}
 
 	:global(.dark) .route-icon-display {
-		background-color: var(--route-color-dark);
+		background-color: var(--route-color-light);
 	}
 </style>
 
 <script>
-	const checkboxes = document.querySelectorAll<HTMLInputElement>(".category-checkbox");
+	const places = document.querySelectorAll<HTMLInputElement>(".place-option");
+	const tags = document.querySelectorAll<HTMLInputElement>(".tag-checkbox");
 	const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
 	const emptyState = document.getElementById("empty-state");
-	const clearFiltersBtn = document.getElementById("clear-filters");
+	const clearPlaceFilterBtn = document.getElementById("clear-place-filter");
+	const clearTagsFilterBtn = document.getElementById("clear-tags-filter");
+
+	const checked = (inputs: NodeListOf<HTMLInputElement>) =>
+		Array.from(inputs)
+			.filter((i) => i.checked)
+			.map((i) => i.value);
 
 	function updateProjects() {
-		const selectedCategories = Array.from(checkboxes)
-			.filter((cb) => cb.checked)
-			.map((cb) => cb.value);
+		const selectedPlace = checked(places)[0] ?? "";
+		const selectedTags = checked(tags);
 
-		if (clearFiltersBtn) {
-			if (selectedCategories.length > 0) {
-				clearFiltersBtn.classList.remove("hidden");
-			} else {
-				clearFiltersBtn.classList.add("hidden");
-			}
-		}
+		clearPlaceFilterBtn?.classList.toggle("hidden", !selectedPlace);
+		clearTagsFilterBtn?.classList.toggle("hidden", selectedTags.length === 0);
 
 		let visibleCount = 0;
-
-		projectCards.forEach((project) => {
-			const projectCategories = JSON.parse(project.dataset.categories || "[]");
-
+		projectCards.forEach((card) => {
+			const cardPlace = card.dataset.place || "";
+			const cardTags: string[] = JSON.parse(card.dataset.tags || "[]");
 			const isVisible =
-				selectedCategories.length === 0 ||
-				selectedCategories.every((cat) => projectCategories.includes(cat));
+				(!selectedPlace || selectedPlace === cardPlace) &&
+				(selectedTags.length === 0 || selectedTags.every((tag) => cardTags.includes(tag)));
 
-			if (isVisible) {
-				project.style.display = "";
-				visibleCount++;
-			} else {
-				project.style.display = "none";
-			}
+			card.style.display = isVisible ? "" : "none";
+			if (isVisible) visibleCount++;
 		});
 
-		if (emptyState) {
-			if (visibleCount === 0) {
-				emptyState.classList.remove("hidden");
-			} else {
-				emptyState.classList.add("hidden");
-			}
-		}
+		emptyState?.classList.toggle("hidden", visibleCount > 0);
 	}
 
-	checkboxes.forEach((checkbox) => {
+	places.forEach((option) => {
+		option.addEventListener("change", updateProjects);
+	});
+
+	tags.forEach((checkbox) => {
 		checkbox.addEventListener("change", updateProjects);
 	});
 
-	if (clearFiltersBtn) {
-		clearFiltersBtn.addEventListener("click", () => {
-			checkboxes.forEach((cb) => {
-				cb.checked = false;
-			});
-			updateProjects();
-		});
-	}
+	clearPlaceFilterBtn?.addEventListener("click", () => {
+		places.forEach((option) => (option.checked = false));
+		updateProjects();
+	});
+
+	clearTagsFilterBtn?.addEventListener("click", () => {
+		tags.forEach((checkbox) => (checkbox.checked = false));
+		updateProjects();
+	});
 </script>

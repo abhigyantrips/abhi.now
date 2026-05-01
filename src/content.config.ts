@@ -123,7 +123,16 @@ const projects = defineCollection({
 			description: z.string().default(""),
 			startDate: z.coerce.date(),
 			endDate: z.coerce.date(),
-			categories: z.array(z.enum(["personal", "university", "work", "open-source", "other"])),
+			iconUrl: z.string(),
+			iconSize: z.number().optional().default(10),
+			place: z.enum([
+				"personal",
+				"university",
+				"peacefulfoundation.org",
+				"anti.consumptive.tech",
+				"others",
+			]),
+			tags: z.array(reference("tags")).optional(),
 			links: z
 				.array(
 					z.object({
