@@ -8,7 +8,6 @@ iconSize: 7
 place: university
 tags:
   - projects/full-stack
-  - projects/class-project
 links:
   - label: Website GitHub Repository
     url: https://github.com/YCN-club/helpdesk-website

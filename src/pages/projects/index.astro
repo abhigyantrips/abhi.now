@@ -15,8 +15,17 @@ const tags: CollectionEntry<"tags">[] = [
 	).values(),
 ];
 
+const now = new Date();
+
+projects.sort((a, b) => {
+	const aEnd = a.data.endDate ?? now;
+	const bEnd = b.data.endDate ?? now;
+	if (aEnd.getTime() !== bEnd.getTime()) return bEnd.getTime() - aEnd.getTime();
+	return (b.data.startDate?.getTime() ?? 0) - (a.data.startDate?.getTime() ?? 0);
+});
+
 function formatShortDate(d: Date) {
-	return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+	return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }
 ---
 
@@ -24,7 +33,10 @@ function formatShortDate(d: Date) {
 	<div class="flex flex-col gap-6">
 		<div class="flex flex-col gap-1.5">
 			<p class="text-sm text-(--color-text-muted) uppercase">Places</p>
-			<div class="flex flex-wrap items-center gap-1.5" id="place-filter">
+			<div
+				class="flex flex-wrap items-center gap-1.5"
+				id="place-filter"
+			>
 				{
 					places.map((place) => (
 						<label class="inline-flex cursor-pointer items-center">
@@ -36,8 +48,7 @@ function formatShortDate(d: Date) {
 								class="place-option peer sr-only"
 							/>
 							<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-200 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
-								<span>@</span>
-								{place}
+								@{place}
 							</span>
 						</label>
 					))
@@ -51,7 +62,10 @@ function formatShortDate(d: Date) {
 		</div>
 		<div class="flex flex-col gap-1.5">
 			<p class="text-sm text-(--color-text-muted) uppercase">Tags</p>
-			<div class="flex flex-wrap items-center gap-1.5" id="tags-filter">
+			<div
+				class="flex flex-wrap items-center gap-1.5"
+				id="tags-filter"
+			>
 				{
 					tags.map((tag) => (
 						<label class="inline-flex cursor-pointer items-center">
@@ -62,8 +76,9 @@ function formatShortDate(d: Date) {
 								class="tag-checkbox peer sr-only"
 							/>
 							<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-200 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
-								<i>#</i>
-								{tag.id.split("/")[1]}
+								<i>
+									#&thinsp;<span class="not-italic">{tag.id.split("/")[1]}</span>
+								</i>
 							</span>
 						</label>
 					))
@@ -74,50 +89,86 @@ function formatShortDate(d: Date) {
 				>
 			</div>
 		</div>
-		<div class="flex flex-col gap-4" id="projects-list">
+		<div
+			class="flex flex-col gap-4"
+			id="projects-list"
+		>
 			{
 				projects.map((project) => (
-					<a
-						class="project-card group flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 hover:scale-105 md:gap-2"
+					<div
+						class="project-card group flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 md:gap-2"
 						style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
 						data-place={project.data.place}
 						data-tags={JSON.stringify(project.data.tags?.map((t) => t.id) ?? [])}
-						href={`/projects/${project.id}`}
 					>
-						<div class="flex w-full items-start gap-3">
-							<div class="aspect-square rounded-lg bg-(--color-text) p-1">
-								<div
-									class="route-icon-display mb-2 size-10 shrink-0 -rotate-12 group-hover:rotate-0 md:mb-0"
-									style={`-webkit-mask: url(${project.data.iconUrl}) no-repeat center; mask: url(${project.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${project.data.iconSize}); mask-size: calc(var(--spacing) * ${project.data.iconSize});`}
-									role="img"
-									aria-label={project.data.title}
-								/>
-							</div>
-							<div class="flex flex-col items-start pt-1 md:pt-0">
-								<span class="p-name u-url">{project.data.title}</span>
-								<div class="flex items-center gap-1 text-(--color-text-muted)">
-									<time datetime={project.data.startDate.toISOString()}>
-										{formatShortDate(project.data.startDate)}
-									</time>
-									<span>&mdash;</span>
-									<time datetime={project.data.endDate.toISOString()}>
-										{formatShortDate(project.data.endDate)}
-									</time>
+						<div class="flex w-full items-start justify-between">
+							<div class="flex w-full items-start gap-3">
+								<div class="aspect-square rounded-lg bg-(--color-text)/90 p-1">
+									<div
+										class="route-icon-display size-10 shrink-0 rotate-0 group-odd:group-hover:-rotate-12 group-even:group-hover:rotate-12"
+										style={`-webkit-mask: url(${project.data.iconUrl}) no-repeat center; mask: url(${project.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${project.data.iconSize}); mask-size: calc(var(--spacing) * ${project.data.iconSize});`}
+										role="img"
+										aria-label={project.data.title}
+									/>
+								</div>
+								<div class="flex flex-col items-start pt-1 md:pt-0">
+									<span class="p-name u-url">{project.data.title}</span>
+									<div class="flex items-center gap-1 text-(--color-text-muted)">
+										<time datetime={project.data.startDate.toISOString()}>
+											{formatShortDate(project.data.startDate)}
+										</time>
+										<span>&mdash;</span>
+										<time datetime={project.data.endDate.toISOString()}>
+											{formatShortDate(project.data.endDate)}
+										</time>
+									</div>
 								</div>
 							</div>
+							<div class="flex gap-2">
+								{project.data.links?.map((link) => (
+									<a
+										href={link.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										title="Person Profile"
+										class="flex items-center justify-center rounded-full bg-(--color-text) p-2 hover:scale-110"
+									>
+										<div
+											class="route-icon-display size-4 shrink-0"
+											style={`-webkit-mask: url(${link.icon || "/icons/folder-empty.svg"}) no-repeat center; mask: url(${link.icon || "/icons/folder-empty.svg"}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+											role="img"
+											aria-label={link.label}
+										/>
+									</a>
+								))}
+							</div>
 						</div>
+
 						<div>
 							<span class="line-clamp-2 text-sm text-(--color-text-muted)">
 								{project.data.description}
 							</span>
 						</div>
-					</a>
+
+						<div class="flex w-full items-center justify-start gap-1 select-none">
+							<span class="rounded-full bg-(--color-bg)/50 px-2 pt-0.5 pb-1 text-sm text-(--color-text)/70">
+								@{project.data.place}
+							</span>
+							{project.data.tags?.map((tag) => (
+								<span class="rounded-full bg-(--color-bg)/50 px-2 pt-0.5 pb-1 text-sm text-(--color-text)/70">
+									<i>
+										#&thinsp;<span class="not-italic">{tag.id.split("/")[1]}</span>
+									</i>
+								</span>
+							))}
+						</div>
+					</div>
 				))
 			}
 
 			<div
 				id="empty-state"
-				class="hidden rounded-2xl border border-dashed border-(--color-text)/20 p-8 text-center text-(--color-text)/60"
+				class="hidden rounded-2xl border border-dashed border-(--color-text)/60 p-8 text-center text-(--color-text)/60"
 			>
 				Your project filters are too ambitious, my friend.<br />Try selecting fewer categories (or
 				none at all) to see some projects!

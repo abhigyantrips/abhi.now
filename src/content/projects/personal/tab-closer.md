@@ -1,18 +1,19 @@
 ---
-title: NSS Mobile Application, MIT-BLR
+title: Tab Closer
 description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
-startDate: 2024-08-01
-endDate: 2025-03-01
-iconUrl: /icons/phone-setting.svg
+startDate: 2024-04-01
+endDate: 2024-06-01
+iconUrl: /icons/cross.svg
 iconSize: 7
-place: university
+place: personal
 tags:
-  - projects/full-stack
+  - projects/browser-extension
 links:
-  - label: Website GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-website
-  - label: API GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-api
+  - label: GitHub Repository
+    url: https://github.com/abhigyantrips/tab-closer
+  - label: Chrome Extension
+    icon: /icons/google.svg
+    url: https://chromewebstore.google.com/detail/tab-closer/nmdhmjebjhcfbjnmdidhngldanikalje
 attachments:
   - src: ../images/tapmi-login.png
     alt: Portal Login Page

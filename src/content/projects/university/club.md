@@ -1,14 +1,13 @@
 ---
-title: ZenGram
+title: The ".club" Ecosystem
 description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
-startDate: 2024-10-01
-endDate: 2025-02-01
-iconUrl: /icons/instagram.svg
-iconSize: 7
-place: personal
+startDate: 2022-10-01
+endDate: 2024-02-01
+iconUrl: /icons/globe.svg
+iconSize: 8
+place: university
 tags:
   - projects/full-stack
-  - projects/class-project
 links:
   - label: Website GitHub Repository
     url: https://github.com/YCN-club/helpdesk-website

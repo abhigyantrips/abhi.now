@@ -1,11 +1,11 @@
 ---
 title: VisualCSS
 description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
-startDate: 2024-10-01
-endDate: 2025-02-01
+startDate: 2025-03-01
+endDate: 2025-03-01
 iconUrl: /icons/paint-bucket.svg
 iconSize: 8
-place: personal
+place: university
 tags:
   - projects/class-project
 links:

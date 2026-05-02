@@ -1,9 +1,9 @@
 ---
-title: NSS Mobile Application, MIT-BLR
+title: MAHE Open House Website
 description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
-startDate: 2024-08-01
-endDate: 2025-03-01
-iconUrl: /icons/phone-setting.svg
+startDate: 2025-04-01
+endDate: 2025-04-01
+iconUrl: /icons/list.svg
 iconSize: 7
 place: university
 tags:
@@ -14,12 +14,8 @@ links:
   - label: API GitHub Repository
     url: https://github.com/YCN-club/helpdesk-api
 attachments:
-  - src: ../images/tapmi-login.png
-    alt: Portal Login Page
-  - src: ../images/tapmi-portal.png
-    alt: Portal Main Tickets Page
-  - src: ../images/tapmi-arch.png
-    alt: Project Architecture
+  - src: ../images/visualcss.png
+    alt: VisualCSS Demo Screenshot
 ---
 
 This is a test.
