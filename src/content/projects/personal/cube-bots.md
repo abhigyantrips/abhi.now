@@ -1,9 +1,9 @@
 ---
-title: Cube Manager, Other Bots
+title: Cubing Café Manager/Security
 description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
 startDate: 2024-04-01
 endDate: 2024-06-01
-iconUrl: /icons/cross.svg
+iconUrl: /icons/heart.svg
 iconSize: 7
 place: personal
 tags:

@@ -13,6 +13,9 @@ links:
     url: https://github.com/YCN-club/helpdesk-website
   - label: API GitHub Repository
     url: https://github.com/YCN-club/helpdesk-api
+collaborators:
+  - name: Raghav Gupta
+    url: https://alphaspiderman.dev
 attachments:
   - src: ../images/visualcss.png
     alt: VisualCSS Demo Screenshot
