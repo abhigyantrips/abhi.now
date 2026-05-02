@@ -142,6 +142,14 @@ const projects = defineCollection({
 					})
 				)
 				.optional(),
+			collaborators: z
+				.array(
+					z.object({
+						name: z.string(),
+						url: z.string().optional(),
+					})
+				)
+				.optional(),
 			attachments: z
 				.array(
 					z.object({

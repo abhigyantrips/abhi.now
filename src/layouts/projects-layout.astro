@@ -1,0 +1,83 @@
+---
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import { slideFromBottom } from "@/lib/transitions";
+import { ROUTES, SITE } from "@/consts";
+import "@/styles/global.css";
+
+type Props = {
+	postTitle: string;
+	postDescription: string;
+	postDate?: string;
+	postUrl?: string;
+};
+
+const { postTitle, postDescription, postDate, postUrl } = Astro.props;
+const projectsRoute = ROUTES.find((r) => r.PATH === "/projects" || r.NAME === "/projects");
+
+if (!projectsRoute) {
+	throw new Error(`Route "/projects" not found in ROUTES`);
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
+			description={postDescription}
+		/>
+	</head>
+	<body class="font-gummy">
+		<Header section={projectsRoute.NAME} />
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
+			transition:animate={slideFromBottom}
+		>
+			<Container size="md">
+				<div class="h-entry flex flex-col pt-24 md:pt-48">
+					<div class="flex flex-col gap-2">
+						{
+							postDate && (
+								<time
+									class="dt-published text-sm text-(--color-text-muted) uppercase"
+									datetime={postDate}
+								>
+									{postDate}
+								</time>
+							)
+						}
+						<h1 class="p-name text-3xl font-semibold">
+							{postTitle}
+						</h1>
+						<p class="p-summary text-(--color-text-muted)">{postDescription}</p>
+						{
+							postUrl && (
+								<a
+									class="u-url hidden"
+									href={postUrl}
+								>
+									{postTitle}
+								</a>
+							)
+						}
+						<span class="p-author h-card hidden">
+							<a
+								class="p-name u-url"
+								href={SITE.URL}
+								rel="author"
+								>{SITE.AUTHOR}</a
+							>
+						</span>
+					</div>
+					<hr class="my-8 border-t border-(--color-text-muted)/50" />
+					<slot />
+				</div>
+			</Container>
+		</main>
+
+		<Footer />
+	</body>
+</html>
