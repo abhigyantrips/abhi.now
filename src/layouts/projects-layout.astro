@@ -10,15 +10,20 @@ import "@/styles/global.css";
 type Props = {
 	postTitle: string;
 	postDescription: string;
-	postDate?: string;
+	postStartDate?: Date;
+	postEndDate?: Date;
 	postUrl?: string;
 };
 
-const { postTitle, postDescription, postDate, postUrl } = Astro.props;
+const { postTitle, postDescription, postStartDate, postEndDate, postUrl } = Astro.props;
 const projectsRoute = ROUTES.find((r) => r.PATH === "/projects" || r.NAME === "/projects");
 
 if (!projectsRoute) {
 	throw new Error(`Route "/projects" not found in ROUTES`);
+}
+
+function formatDateToMonth(d: Date) {
+	return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 }
 ---
 
@@ -40,13 +45,14 @@ if (!projectsRoute) {
 				<div class="h-entry flex flex-col pt-24 md:pt-48">
 					<div class="flex flex-col gap-2">
 						{
-							postDate && (
-								<time
-									class="dt-published text-sm text-(--color-text-muted) uppercase"
-									datetime={postDate}
-								>
-									{postDate}
-								</time>
+							postStartDate && postEndDate && (
+								<span class="text-sm text-(--color-text-muted) uppercase">
+									<time datetime={postStartDate.toISOString()}>
+										{formatDateToMonth(postStartDate)}
+									</time>
+									&#8594;
+									<time datetime={postEndDate.toISOString()}>{formatDateToMonth(postEndDate)}</time>
+								</span>
 							)
 						}
 						<h1 class="p-name text-3xl font-semibold">

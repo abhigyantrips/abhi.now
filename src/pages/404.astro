@@ -1,0 +1,45 @@
+---
+import BaseHead from "@/components/base-head.astro";
+import { SITE } from "@/consts";
+import "@/styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`not found | ${SITE.TITLE}`}
+			description="your hunt for the right page was too ambitious."
+		/>
+	</head>
+	<body class="font-gummy flex min-h-screen flex-col items-center justify-between">
+		<div></div>
+		<div class="flex flex-col items-center gap-4 text-center">
+			<span
+				class="text-(--color-text-muted) italic"
+				style="font-size: 10rem;"
+				>404!&thinsp;
+			</span>
+			<p class="text-xl font-medium">
+				couldn't find that page :P<br />
+				<span
+					style="color: var(--color-text-muted);"
+					class="text-sm font-normal"
+				>
+					your hunt was too ambitious, my friend.<br />
+					<a
+						href="/"
+						class="underline decoration-dashed decoration-1 underline-offset-2 hover:bg-(--color-text) hover:text-(--color-bg) hover:decoration-transparent"
+						>wanna go back home?</a
+					>
+				</span>
+			</p>
+		</div>
+		<footer class="flex flex-col items-center gap-2 p-6 md:flex-row">
+			<span>you looked for</span>
+			<code class="rounded-lg bg-(--color-text)/10 px-2 py-1 text-xs font-semibold"
+				>{Astro.url.pathname}</code
+			>
+		</footer>
+	</body>
+</html>

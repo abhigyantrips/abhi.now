@@ -18,11 +18,8 @@ const { Content } = await render(project);
 <ProjectsLayout
 	postTitle={project.data.title}
 	postDescription={project.data.description}
-	postDate={project.data.startDate.toLocaleString("en-IN", {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	})}
+	postStartDate={project.data.startDate}
+	postEndDate={project.data.endDate}
 	postUrl={`/projects/${project.id}`}
 >
 	<article

@@ -24,7 +24,7 @@ projects.sort((a, b) => {
 	return (b.data.startDate?.getTime() ?? 0) - (a.data.startDate?.getTime() ?? 0);
 });
 
-function formatShortDate(d: Date) {
+function formatDateToMonth(d: Date) {
 	return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
 }
 ---
@@ -115,11 +115,11 @@ function formatShortDate(d: Date) {
 									<span class="p-name u-url">{project.data.title}</span>
 									<div class="flex items-center gap-1 text-(--color-text-muted)">
 										<time datetime={project.data.startDate.toISOString()}>
-											{formatShortDate(project.data.startDate)}
+											{formatDateToMonth(project.data.startDate)}
 										</time>
 										<span>&mdash;</span>
 										<time datetime={project.data.endDate.toISOString()}>
-											{formatShortDate(project.data.endDate)}
+											{formatDateToMonth(project.data.endDate)}
 										</time>
 									</div>
 								</div>
