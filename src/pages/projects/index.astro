@@ -123,7 +123,7 @@ function numberToWords(n: number): string {
 							<div class="flex w-full items-start gap-3">
 								<div class="aspect-square rounded-lg bg-(--color-text)/90 p-1">
 									<div
-										class="route-icon-display size-10 shrink-0 rotate-0 group-odd:group-hover:-rotate-12 group-even:group-hover:rotate-12"
+										class="route-icon-display size-10 shrink-0"
 										style={`-webkit-mask: url(${project.data.iconUrl}) no-repeat center; mask: url(${project.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${project.data.iconSize}); mask-size: calc(var(--spacing) * ${project.data.iconSize});`}
 										role="img"
 										aria-label={project.data.title}
@@ -250,12 +250,41 @@ function numberToWords(n: number): string {
 </PageLayout>
 
 <style>
+	@keyframes doodle-wobble {
+		0%,
+		100% {
+			transform: rotate(2deg);
+		}
+		14% {
+			transform: rotate(-5deg);
+		}
+		28% {
+			transform: rotate(4deg);
+		}
+		42% {
+			transform: rotate(-3deg);
+		}
+		57% {
+			transform: rotate(6deg);
+		}
+		71% {
+			transform: rotate(-4deg);
+		}
+		85% {
+			transform: rotate(5deg);
+		}
+	}
+
 	.route-icon-display {
 		background-color: var(--route-color-dark);
 	}
 
 	:global(.dark) .route-icon-display {
 		background-color: var(--route-color-light);
+	}
+
+	.group:hover .route-icon-display {
+		animation: doodle-wobble 3.33s steps(1) infinite;
 	}
 
 	.chevron-icon {
@@ -301,6 +330,8 @@ function numberToWords(n: number): string {
 </style>
 
 <script>
+	import { navigate } from "astro:transitions/client";
+
 	const places = document.querySelectorAll<HTMLInputElement>(".place-option");
 	const tags = document.querySelectorAll<HTMLInputElement>(".tag-checkbox");
 	const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
@@ -371,7 +402,7 @@ function numberToWords(n: number): string {
 		card.addEventListener("click", (e) => {
 			if ((e.target as HTMLElement).closest("a, button, dialog")) return;
 			const href = card.dataset.href;
-			if (href) window.location.href = href;
+			if (href) navigate(href);
 		});
 	});
 </script>
