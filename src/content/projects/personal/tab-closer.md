@@ -1,6 +1,6 @@
 ---
 title: Tab Closer
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: A browser extension that, quite literally, closes the tab when you try to visit a website you blocked.
 startDate: 2024-04-01
 endDate: 2024-06-01
 iconUrl: /icons/cross.svg

@@ -1,6 +1,6 @@
 ---
 title: NSS Mobile Application, MIT-BLR
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: A volunteer management system for the National Service Scheme Unit of MIT Bengaluru. Who said you should calculate volunteer hours manually?
 startDate: 2024-08-01
 endDate: 2025-03-01
 iconUrl: /icons/phone-setting.svg
@@ -8,11 +8,12 @@ iconSize: 7
 place: university
 tags:
   - projects/full-stack
+  - projects/leadership
 links:
-  - label: Website GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-website
+  - label: App GitHub Repository
+    url: https://github.com/YCN-club/nss-app
   - label: API GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-api
+    url: https://github.com/YCN-club/nss-api
 collaborators:
   - name: Satyajitsinh Jhala
     url: https://www.linkedin.com/in/satyajitsinh-jhala-634057257

@@ -1,6 +1,6 @@
 ---
 title: VisualCSS
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: Just a live code editor that can help you visually debug HTML/CSS. Showcases outlines and subsequent element overflows through JavaScript.
 startDate: 2025-03-01
 endDate: 2025-03-01
 iconUrl: /icons/paint-bucket.svg
@@ -10,9 +10,9 @@ tags:
   - projects/class-project
 links:
   - label: Website GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-website
-  - label: API GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-api
+    url: https://github.com/abhigyantrips/VisualCSS
+  - label: Live "Demo"
+    url: https://visualcss.abhigyantrips.dev
 attachments:
   - src: ../images/visualcss.png
     alt: VisualCSS Demo Screenshot

@@ -11,6 +11,9 @@ tags:
 links:
   - label: GitHub Repository
     url: https://github.com/abhigyantrips/uwuifier
+  - label: Discord Server (New)
+    icon: /icons/message.svg
+    url: https://discord.gg/zdVnRaQVzn
 attachments:
   - src: ../images/tapmi-login.png
     alt: Portal Login Page

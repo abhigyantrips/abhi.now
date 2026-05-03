@@ -34,17 +34,28 @@ const { Content } = await render(project);
 	>
 		{
 			project.data.links && (
-				<div class="prose-a:font-normal prose-a:decoration-dashed">
+				project.data.links.length < 3 ? (
+				<div class="prose-a:font-normal prose-a:decoration-dashed prose-a:underline-offset-3">
 					<span class="font-semibold">Links:</span>
 					{project.data.links?.map((link, i) => (
 						<a href={link.url}>{link.label}</a><span>{i < project.data.links!.length - 1 ? ", " : ""}</span>
 					))}
 				</div>
+			) : (
+				<div>
+					<span class="font-semibold">Links:</span>
+					<ul class="list-disc list-inside ml-6 not-prose marker:text-(--color-text-muted)/75">
+						{project.data.links?.map((link, i) => (
+						<li><a class="underline underline-offset-3 decoration-1 decoration-dashed hover:bg-(--color-text) hover:text-(--color-bg) decoration-(--color-text-muted) hover:decoration-transparent" href={link.url}>{link.label}</a></li>
+					))}
+					</ul>
+				</div>
+			)
 			)
 		}
 		{
 			project.data.collaborators && (
-				<div class="prose-a:font-normal prose-a:decoration-dashed">
+				<div class="prose-a:font-normal prose-a:decoration-dashed prose-a:underline-offset-3">
 					<span class="font-semibold">Collaborators:</span>
 					{project.data.collaborators?.map((person, i) => (
 						<a href={person.url}>{person.name}</a><span>{i < project.data.collaborators!.length - 1 ? ", " : ""}</span>

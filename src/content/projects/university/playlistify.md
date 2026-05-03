@@ -1,6 +1,6 @@
 ---
 title: Playlistify
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: A mock UI project to show "music playlist analysis", but mostly to mess around with a retro UI library.
 startDate: 2025-03-01
 endDate: 2025-03-01
 iconUrl: /icons/pie.svg
@@ -11,9 +11,7 @@ tags:
   - projects/class-project
 links:
   - label: Website GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-website
-  - label: API GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-api
+    url: https://github.com/abhigyantrips/Playlistify
 attachments:
   - src: ../images/visualcss.png
     alt: VisualCSS Demo Screenshot

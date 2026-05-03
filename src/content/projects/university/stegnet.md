@@ -1,6 +1,6 @@
 ---
 title: StegNet
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: A Python library that showcases covert communication through network packets. Probably the most cybersecurity-oriented thing I've ever done, though it's only for educational purposes.
 startDate: 2025-03-01
 endDate: 2025-03-01
 iconUrl: /icons/shield.svg
@@ -9,10 +9,10 @@ place: university
 tags:
   - projects/class-project
 links:
-  - label: Website GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-website
-  - label: API GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-api
+  - label: GitHub Repository
+    url: https://github.com/Srujansgit/StegNet
+  - label: PyPI Module
+    url: https://pypi.org/project/stegnet
 collaborators:
   - name: Chilveri Srujan Kumar
     url: https://www.linkedin.com/in/srujan-chilveri-95aa27247

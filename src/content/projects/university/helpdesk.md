@@ -1,6 +1,6 @@
 ---
 title: Student HelpDesk System, TAPMI-BLR
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: A ticket management system built for three-way communication between faculty, administration, and students. Something just extensive enough for admins, while being just simple enough for students.
 startDate: 2024-10-01
 endDate: 2025-02-01
 iconUrl: /icons/ok.svg
@@ -8,6 +8,7 @@ iconSize: 7
 place: university
 tags:
   - projects/full-stack
+  - projects/large-scale
 links:
   - label: Website GitHub Repository
     url: https://github.com/YCN-club/helpdesk-website

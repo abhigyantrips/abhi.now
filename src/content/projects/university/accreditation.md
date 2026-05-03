@@ -1,6 +1,6 @@
 ---
 title: Accreditation and Reporting System, MIT-BLR
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: An end-to-end portal to convert human-friendly university data into extensive accreditation-friendly reports. Supports national accreditations like NAAC and NIRF.
 startDate: 2024-09-01
 endDate: 2025-03-01
 iconUrl: /icons/file-list.svg
@@ -8,11 +8,13 @@ iconSize: 6
 place: university
 tags:
   - projects/full-stack
+  - projects/leadership
+  - projects/large-scale
 links:
   - label: Frontend GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-website
+    url: https://github.com/YCN-club/accreditation-website
   - label: API/Backend GitHub Repository
-    url: https://github.com/YCN-club/helpdesk-api
+    url: https://github.com/YCN-club/accreditation-api
 collaborators:
   - name: Satyajitsinh Jhala
     url: https://www.linkedin.com/in/satyajitsinh-jhala-634057257
@@ -23,9 +25,9 @@ collaborators:
   - name: Nived Mohan
     url: https://nivedmohan.com
   - name: Rishabh Yadav
-    url: https://www.linkedin.com/in/rishabh-yadav-625559275
+    url: https://rishabh-portfolioo.vercel.app
   - name: Sohan Venkatesh
-    url: https://www.linkedin.com/in/sohan-venkatesh
+    url: https://sohv.github.io
 attachments:
   - src: ../images/accreditation.png
     alt: Accreditation and Reporting System Demo Screenshot

@@ -1,6 +1,6 @@
 ---
 title: ZenGram
-description: An administrative ticket management system built for three-way communication between faculty, administration, and students.
+description: A browser extension that blocks selective elements from Instagram to create a more focused experience. Built for people that actually just want to use the platform for family and friends.
 startDate: 2024-10-01
 endDate: 2025-02-01
 iconUrl: /icons/instagram.svg
