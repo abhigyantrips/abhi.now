@@ -113,12 +113,17 @@ function numberToWords(n: number): string {
 			{
 				projects.map((project) => (
 					<div
-						class="project-card group flex cursor-zoom-in flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 md:gap-2"
+						class="project-card group relative flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 md:gap-2"
 						style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
 						data-place={project.data.place}
 						data-tags={JSON.stringify(project.data.tags?.map((t) => t.id) ?? [])}
-						data-href={`/projects/${project.id}`}
 					>
+						<a
+							href={`/projects/${project.id}`}
+							aria-label={project.data.title}
+							data-astro-prefetch
+							class="absolute inset-0 z-0 cursor-zoom-in rounded-2xl focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:outline-none"
+						/>
 						<div class="flex w-full items-start justify-between">
 							<div class="flex w-full items-start gap-3">
 								<div class="aspect-square rounded-lg bg-(--color-text)/90 p-1">
@@ -330,79 +335,76 @@ function numberToWords(n: number): string {
 </style>
 
 <script>
-	import { navigate } from "astro:transitions/client";
+	function setupProjectsPage() {
+		const places = document.querySelectorAll<HTMLInputElement>(".place-option");
+		const tags = document.querySelectorAll<HTMLInputElement>(".tag-checkbox");
+		const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
+		const emptyState = document.getElementById("empty-state");
+		const clearPlaceFilterBtn = document.getElementById("clear-place-filter");
+		const clearTagsFilterBtn = document.getElementById("clear-tags-filter");
 
-	const places = document.querySelectorAll<HTMLInputElement>(".place-option");
-	const tags = document.querySelectorAll<HTMLInputElement>(".tag-checkbox");
-	const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
-	const emptyState = document.getElementById("empty-state");
-	const clearPlaceFilterBtn = document.getElementById("clear-place-filter");
-	const clearTagsFilterBtn = document.getElementById("clear-tags-filter");
+		if (projectCards.length === 0) return;
 
-	const checked = (inputs: NodeListOf<HTMLInputElement>) =>
-		Array.from(inputs)
-			.filter((i) => i.checked)
-			.map((i) => i.value);
+		const checked = (inputs: NodeListOf<HTMLInputElement>) =>
+			Array.from(inputs)
+				.filter((i) => i.checked)
+				.map((i) => i.value);
 
-	function updateProjects() {
-		const selectedPlace = checked(places)[0] ?? "";
-		const selectedTags = checked(tags);
+		function updateProjects() {
+			const selectedPlace = checked(places)[0] ?? "";
+			const selectedTags = checked(tags);
 
-		clearPlaceFilterBtn?.classList.toggle("hidden", !selectedPlace);
-		clearTagsFilterBtn?.classList.toggle("hidden", selectedTags.length === 0);
+			clearPlaceFilterBtn?.classList.toggle("hidden", !selectedPlace);
+			clearTagsFilterBtn?.classList.toggle("hidden", selectedTags.length === 0);
 
-		let visibleCount = 0;
-		projectCards.forEach((card) => {
-			const cardPlace = card.dataset.place || "";
-			const cardTags: string[] = JSON.parse(card.dataset.tags || "[]");
-			const isVisible =
-				(!selectedPlace || selectedPlace === cardPlace) &&
-				(selectedTags.length === 0 || selectedTags.every((tag) => cardTags.includes(tag)));
+			let visibleCount = 0;
+			projectCards.forEach((card) => {
+				const cardPlace = card.dataset.place || "";
+				const cardTags: string[] = JSON.parse(card.dataset.tags || "[]");
+				const isVisible =
+					(!selectedPlace || selectedPlace === cardPlace) &&
+					(selectedTags.length === 0 || selectedTags.every((tag) => cardTags.includes(tag)));
 
-			card.style.display = isVisible ? "" : "none";
-			if (isVisible) visibleCount++;
+				card.style.display = isVisible ? "" : "none";
+				if (isVisible) visibleCount++;
+			});
+
+			emptyState?.classList.toggle("hidden", visibleCount > 0);
+		}
+
+		places.forEach((option) => {
+			option.addEventListener("change", updateProjects);
 		});
 
-		emptyState?.classList.toggle("hidden", visibleCount > 0);
+		tags.forEach((checkbox) => {
+			checkbox.addEventListener("change", updateProjects);
+		});
+
+		clearPlaceFilterBtn?.addEventListener("click", () => {
+			places.forEach((option) => (option.checked = false));
+			updateProjects();
+		});
+
+		clearTagsFilterBtn?.addEventListener("click", () => {
+			tags.forEach((checkbox) => (checkbox.checked = false));
+			updateProjects();
+		});
+
+		document.querySelectorAll<HTMLButtonElement>(".open-links-btn").forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				const dialog = document.getElementById(btn.dataset.dialog!) as HTMLDialogElement;
+				dialog?.showModal();
+			});
+		});
+
+		document.querySelectorAll<HTMLDialogElement>(".links-dialog").forEach((dialog) => {
+			dialog.addEventListener("click", (e) => {
+				if (e.target === dialog) dialog.close();
+			});
+		});
 	}
 
-	places.forEach((option) => {
-		option.addEventListener("change", updateProjects);
-	});
-
-	tags.forEach((checkbox) => {
-		checkbox.addEventListener("change", updateProjects);
-	});
-
-	clearPlaceFilterBtn?.addEventListener("click", () => {
-		places.forEach((option) => (option.checked = false));
-		updateProjects();
-	});
-
-	clearTagsFilterBtn?.addEventListener("click", () => {
-		tags.forEach((checkbox) => (checkbox.checked = false));
-		updateProjects();
-	});
-
-	document.querySelectorAll<HTMLButtonElement>(".open-links-btn").forEach((btn) => {
-		btn.addEventListener("click", (e) => {
-			e.preventDefault();
-			const dialog = document.getElementById(btn.dataset.dialog!) as HTMLDialogElement;
-			dialog?.showModal();
-		});
-	});
-
-	document.querySelectorAll<HTMLDialogElement>(".links-dialog").forEach((dialog) => {
-		dialog.addEventListener("click", (e) => {
-			if (e.target === dialog) dialog.close();
-		});
-	});
-
-	document.querySelectorAll<HTMLElement>(".project-card").forEach((card) => {
-		card.addEventListener("click", (e) => {
-			if ((e.target as HTMLElement).closest("a, button, dialog")) return;
-			const href = card.dataset.href;
-			if (href) navigate(href);
-		});
-	});
+	document.addEventListener("astro:page-load", setupProjectsPage);
 </script>
