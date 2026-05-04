@@ -50,7 +50,7 @@ function numberToWords(n: number): string {
 	<div class="flex flex-col gap-6">
 		<div class="flex flex-col gap-1.5">
 			<p class="text-sm text-(--color-text-muted) uppercase">Places</p>
-			<div
+			<form
 				class="flex flex-wrap items-center gap-1.5"
 				id="place-filter"
 			>
@@ -71,15 +71,16 @@ function numberToWords(n: number): string {
 					))
 				}
 				<button
+					type="reset"
 					id="clear-place-filter"
-					class="hidden cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
+					class="cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
 					><span class="text-lg leading-0">/</span>clear-place</button
 				>
-			</div>
+			</form>
 		</div>
 		<div class="flex flex-col gap-1.5">
 			<p class="text-sm text-(--color-text-muted) uppercase">Tags</p>
-			<div
+			<form
 				class="flex flex-wrap items-center gap-1.5"
 				id="tags-filter"
 			>
@@ -100,11 +101,12 @@ function numberToWords(n: number): string {
 						</label>
 					))
 				}<button
+					type="reset"
 					id="clear-tags-filter"
-					class="hidden cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
+					class="cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-200 hover:bg-red-800 hover:text-white"
 					><span class="text-lg leading-0">/</span>clear-tags</button
 				>
-			</div>
+			</form>
 		</div>
 		<div
 			class="flex flex-col gap-4"
@@ -116,13 +118,13 @@ function numberToWords(n: number): string {
 						class="project-card group relative flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 md:gap-2"
 						style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
 						data-place={project.data.place}
-						data-tags={JSON.stringify(project.data.tags?.map((t) => t.id) ?? [])}
+						data-tags={project.data.tags?.map((t) => t.id).join(" ") ?? ""}
 					>
 						<a
 							href={`/projects/${project.id}`}
 							aria-label={project.data.title}
 							data-astro-prefetch
-							class="absolute inset-0 z-0 cursor-zoom-in rounded-2xl focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:outline-none"
+							class="absolute inset-0 z-0 cursor-pointer rounded-2xl focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:outline-none"
 						/>
 						<div class="flex w-full items-start justify-between">
 							<div class="flex w-full items-start gap-3">
@@ -151,7 +153,7 @@ function numberToWords(n: number): string {
 								{project.data.links && project.data.links.length > 0 && (
 									<div class="relative z-10">
 										<button
-											class="open-links-btn cursor-pointer rounded-full bg-(--color-text)/10 px-3 py-1 text-sm whitespace-nowrap transition-colors duration-200 hover:bg-(--color-text)/20"
+											class="open-links-btn cursor-zoom-in rounded-full bg-(--color-text)/10 px-3 py-1 text-sm whitespace-nowrap transition-colors duration-200 hover:bg-(--color-text)/20"
 											data-dialog={`links-${project.id.replaceAll("/", "-")}`}
 										>
 											{numberToWords(project.data.links.length)}{" "}
@@ -231,7 +233,7 @@ function numberToWords(n: number): string {
 									</i>
 								</span>
 							))}
-							<div class="relative flex flex-1 items-center justify-center opacity-0 transition-opacity duration-100 group-hover:opacity-100">
+							<div class="relative flex flex-1 items-center justify-center opacity-0 transition-opacity duration-120 group-hover:opacity-100">
 								<div class="h-0.5 w-full rounded bg-(--color-text-muted) pr-1" />
 								<span
 									class="chevron-icon absolute right-0 size-4 shrink-0 pt-1 text-(--color-text-muted)"
@@ -332,68 +334,60 @@ function numberToWords(n: number): string {
 			opacity: 1;
 		}
 	}
+
+	/* Clear button visibility via :has() */
+	#clear-place-filter,
+	#clear-tags-filter {
+		display: none;
+	}
+
+	#place-filter:has(input:checked) #clear-place-filter {
+		display: inline-block;
+	}
+
+	#tags-filter:has(input:checked) #clear-tags-filter {
+		display: inline-block;
+	}
 </style>
+
+<style is:inline set:html={`
+	/* Place filter rules */
+	${places.map((place) => `
+	body:has(#place-filter input[value="${place}"]:checked) .project-card:not([data-place="${place}"]) {
+		display: none;
+	}`).join("")}
+
+	/* Tag filter rules (AND logic: each checked tag hides cards missing it) */
+	${tags.map((tag) => `
+	body:has(#tags-filter input[value="${tag.id}"]:checked) .project-card:not([data-tags~="${tag.id}"]) {
+		display: none;
+	}`).join("")}
+`} />
 
 <script>
 	function setupProjectsPage() {
-		const places = document.querySelectorAll<HTMLInputElement>(".place-option");
-		const tags = document.querySelectorAll<HTMLInputElement>(".tag-checkbox");
-		const projectCards = document.querySelectorAll<HTMLElement>(".project-card");
+		const placeFilter = document.getElementById("place-filter");
+		const tagsFilter = document.getElementById("tags-filter");
+		const projectsList = document.getElementById("projects-list");
 		const emptyState = document.getElementById("empty-state");
-		const clearPlaceFilterBtn = document.getElementById("clear-place-filter");
-		const clearTagsFilterBtn = document.getElementById("clear-tags-filter");
 
-		if (projectCards.length === 0) return;
+		if (!projectsList) return;
 
-		const checked = (inputs: NodeListOf<HTMLInputElement>) =>
-			Array.from(inputs)
-				.filter((i) => i.checked)
-				.map((i) => i.value);
-
-		function updateProjects() {
-			const selectedPlace = checked(places)[0] ?? "";
-			const selectedTags = checked(tags);
-
-			clearPlaceFilterBtn?.classList.toggle("hidden", !selectedPlace);
-			clearTagsFilterBtn?.classList.toggle("hidden", selectedTags.length === 0);
-
-			let visibleCount = 0;
-			projectCards.forEach((card) => {
-				const cardPlace = card.dataset.place || "";
-				const cardTags: string[] = JSON.parse(card.dataset.tags || "[]");
-				const isVisible =
-					(!selectedPlace || selectedPlace === cardPlace) &&
-					(selectedTags.length === 0 || selectedTags.every((tag) => cardTags.includes(tag)));
-
-				card.style.display = isVisible ? "" : "none";
-				if (isVisible) visibleCount++;
-			});
-
-			emptyState?.classList.toggle("hidden", visibleCount > 0);
+		function updateEmptyState() {
+			const anyVisible = Array.from(
+				projectsList!.querySelectorAll<HTMLElement>(".project-card")
+			).some((card) => card.offsetParent !== null);
+			emptyState?.classList.toggle("hidden", anyVisible);
 		}
 
-		places.forEach((option) => {
-			option.addEventListener("change", updateProjects);
-		});
-
-		tags.forEach((checkbox) => {
-			checkbox.addEventListener("change", updateProjects);
-		});
-
-		clearPlaceFilterBtn?.addEventListener("click", () => {
-			places.forEach((option) => (option.checked = false));
-			updateProjects();
-		});
-
-		clearTagsFilterBtn?.addEventListener("click", () => {
-			tags.forEach((checkbox) => (checkbox.checked = false));
-			updateProjects();
-		});
+		placeFilter?.addEventListener("change", updateEmptyState);
+		tagsFilter?.addEventListener("change", updateEmptyState);
+		placeFilter?.addEventListener("reset", () => queueMicrotask(updateEmptyState));
+		tagsFilter?.addEventListener("reset", () => queueMicrotask(updateEmptyState));
 
 		document.querySelectorAll<HTMLButtonElement>(".open-links-btn").forEach((btn) => {
 			btn.addEventListener("click", (e) => {
 				e.preventDefault();
-				e.stopPropagation();
 				const dialog = document.getElementById(btn.dataset.dialog!) as HTMLDialogElement;
 				dialog?.showModal();
 			});
