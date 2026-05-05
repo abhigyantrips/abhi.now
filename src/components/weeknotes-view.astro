@@ -89,11 +89,11 @@ function getMonthColor(date: Date) {
 								class="group block rounded-lg bg-(--color-text)/10 p-4 transition-colors duration-100 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)] md:px-6 md:py-5"
 								style={`--month-color: ${monthColor};`}
 							>
-								<h3 class="flex items-center justify-between gap-4 font-semibold tracking-wide text-(--color-text) decoration-2 underline-offset-4">
-									<span class="text-sm" style={`color: ${monthColor};`}>
+								<h3 class="flex flex-col md:flex-row items-start md:items-center justify-between md:gap-4 font-semibold tracking-wide text-(--color-text) decoration-2 underline-offset-4">
+									<span class="text-xs md:text-sm" style={`color: ${monthColor};`}>
 										{noteId}
 									</span>
-									{noteTitle && <span class="text-right">{noteTitle}</span>}
+									{noteTitle && <span class="md:text-right">{noteTitle}</span>}
 								</h3>
 								<div class="mt-2 flex items-center gap-2 text-sm text-(--color-text-muted)">
 									<time datetime={note.data.fromDate.toISOString()}>
