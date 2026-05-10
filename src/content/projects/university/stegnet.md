@@ -16,9 +16,6 @@ links:
 collaborators:
   - name: Chilveri Srujan Kumar
     url: https://www.linkedin.com/in/srujan-chilveri-95aa27247
-attachments:
-  - src: ../images/visualcss.png
-    alt: VisualCSS Demo Screenshot
 ---
 
 ## About

@@ -14,15 +14,14 @@ links:
 collaborators:
   - name: Chilveri Srujan Kumar
     url: https://www.linkedin.com/in/srujan-chilveri-95aa27247
-attachments:
-  - src: ../images/visualcss.png
-    alt: VisualCSS Demo Screenshot
 ---
 
 ## About
 
-SafeQR is a QR code creator/scanner that transfers encrypted data through QR codes. This project was built to partially fulfill our credits for the Applied Cryptography Lab and showcases encryption/decryption and minimal steganography, all the on the client-side.
+SafeQR is a QR code creator/scanner that transfers encrypted data through [QR codes](https://en.wikipedia.org/wiki/QR_code). This project was built to partially fulfill our credits for the **Applied Cryptography Lab** and showcases encryption/decryption and minimal steganography, all done on the client-side.
 
-The project uses AES-256 symmetric encryption for the content of the QR code, with PBKDF for generating a key based in the "password" input by the user – the same "password" can then be used to decrypt the data on the other end.
+The project uses [AES-256 symmetric encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) for the content of the QR code, with [PBKDF](https://en.wikipedia.org/wiki/PBKDF2) for generating a key based in the "password" input by the user. The same "password" can then be used to decrypt the data on the other end.
 
-The highlight of this project is the implementation of Least Significant Bit (LSB) steganography, which allows storage of data within the downloaded QR code image. Once uploaded, this data can be decoded using the same passkey that decodes the QR code content.
+The highlight of this project is the implementation of Least Significant Bit (LSB) [steganography](https://en.wikipedia.org/wiki/Steganography#Cyber-physical_systems/Internet_of_Things), which allows storage of data within the downloaded QR code image. Once uploaded, this data can be decoded using the same passkey that decodes the QR code content.
+
+## The Story

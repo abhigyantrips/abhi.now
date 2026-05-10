@@ -15,9 +15,6 @@ links:
 collaborators:
   - name: Raghav Gupta
     url: https://alphaspiderman.dev
-attachments:
-  - src: ../images/visualcss.png
-    alt: VisualCSS Demo Screenshot
 ---
 
 This is a test.

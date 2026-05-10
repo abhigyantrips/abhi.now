@@ -12,9 +12,6 @@ tags:
 links:
   - label: Website GitHub Repository
     url: https://github.com/abhigyantrips/Playlistify
-attachments:
-  - src: ../images/visualcss.png
-    alt: VisualCSS Demo Screenshot
 ---
 
 ## About

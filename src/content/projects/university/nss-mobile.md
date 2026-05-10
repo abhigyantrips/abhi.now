@@ -23,13 +23,6 @@ collaborators:
     url: https://www.linkedin.com/in/hari-keshav-rajesh-b25945300
   - name: Rajat Patil
     url: https://www.linkedin.com/in/rajat-patil-322323173
-attachments:
-  - src: ../images/tapmi-login.png
-    alt: Portal Login Page
-  - src: ../images/tapmi-portal.png
-    alt: Portal Main Tickets Page
-  - src: ../images/tapmi-arch.png
-    alt: Project Architecture
 ---
 
 ## About

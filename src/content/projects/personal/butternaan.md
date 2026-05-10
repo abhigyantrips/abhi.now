@@ -14,13 +14,6 @@ links:
   - label: Discord Server (New)
     icon: /icons/message.svg
     url: https://discord.gg/zdVnRaQVzn
-attachments:
-  - src: ../images/tapmi-login.png
-    alt: Portal Login Page
-  - src: ../images/tapmi-portal.png
-    alt: Portal Main Tickets Page
-  - src: ../images/tapmi-arch.png
-    alt: Project Architecture
 ---
 
 This is a test.

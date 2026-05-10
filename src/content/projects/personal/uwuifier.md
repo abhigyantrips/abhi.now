@@ -14,13 +14,8 @@ links:
   - label: Discord Server (New)
     icon: /icons/message.svg
     url: https://discord.gg/zdVnRaQVzn
-attachments:
-  - src: ../images/tapmi-login.png
-    alt: Portal Login Page
-  - src: ../images/tapmi-portal.png
-    alt: Portal Main Tickets Page
-  - src: ../images/tapmi-arch.png
-    alt: Project Architecture
 ---
 
-This is a test.
+### About
+
+This very sophisticated bot written in [Discord.js](https://discord.js.org) is responsible for a lot of chaos in [my Discord server](https://discord.gg/zdVnRaQVzn).

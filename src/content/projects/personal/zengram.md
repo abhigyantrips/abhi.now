@@ -14,13 +14,6 @@ links:
   - label: Chrome Extension
     icon: /icons/google.svg
     url: https://chromewebstore.google.com/detail/zengram-mindful-instagram/ocllfkhcdopiafndigclebelbecaiocp
-attachments:
-  - src: ../images/tapmi-login.png
-    alt: Portal Login Page
-  - src: ../images/tapmi-portal.png
-    alt: Portal Main Tickets Page
-  - src: ../images/tapmi-arch.png
-    alt: Project Architecture
 ---
 
 This is a test.

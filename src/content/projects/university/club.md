@@ -15,7 +15,7 @@ links:
     url: https://github.com/YCN-club/redirect
   - label: Website Tier II ("Linked List") Repository
     url: https://github.com/YCN-club/linkedlist
-  - label: Website Tier III ("Full Template) Repository
+  - label: Website Tier III ("Full Template") Repository
     url: https://github.com/YCN-club/template
   - label: Noticeboard Application Repository
     url: https://github.com/YCN-club/noticeboard
@@ -31,13 +31,8 @@ collaborators:
     url: https://alphaspiderman.dev
   - name: Hari Keshav Rajesh
     url: https://www.linkedin.com/in/hari-keshav-rajesh-b25945300
-attachments:
-  - src: ../images/tapmi-login.png
-    alt: Portal Login Page
-  - src: ../images/tapmi-portal.png
-    alt: Portal Main Tickets Page
-  - src: ../images/tapmi-arch.png
-    alt: Project Architecture
 ---
 
-This is a test.
+### The Story
+
+I have a habit of dreaming big. This is something that has come to disappoint me as I'm brought back to reality.
