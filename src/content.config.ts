@@ -207,7 +207,7 @@ const tags = defineCollection({
 const weeknotes = defineCollection({
 	loader: globWithParser({
 		base: "./src/content/weeknotes",
-		pattern: "**/*.md",
+		pattern: "**/*.{md,mdx}",
 		parser: async (entry) => {
 			const {
 				data,
