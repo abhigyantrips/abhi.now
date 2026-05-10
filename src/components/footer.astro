@@ -3,9 +3,9 @@ import HCard from "@/components/h-card.astro";
 ---
 
 <div
-	class="font-gummy flex items-end justify-center px-6 py-6 text-(--color-text-muted) lg:justify-between lg:px-8"
+	class="font-gummy flex items-end justify-center px-6 py-6 text-(--color-text-muted) lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-end lg:px-8"
 >
-	<div class="hidden lg:block">
+	<div class="hidden lg:block lg:justify-self-start">
 		<HCard />
 	</div>
 	<div class="flex flex-col items-center gap-2">
@@ -39,7 +39,7 @@ import HCard from "@/components/h-card.astro";
 	</div>
 	<button
 		id="scroll-to-top"
-		class="hidden size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110 lg:flex"
+		class="hidden size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110 lg:flex lg:justify-self-end"
 		aria-label="Scroll to top"
 	>
 		<span class="scroll-icon size-5" style="--icon-url: url(/icons/chevrons-up.svg);"></span>
