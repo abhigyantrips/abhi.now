@@ -11,6 +11,10 @@
 	@apply prose-img:rounded-xl prose-img:border prose-img:border-(--color-text-muted)/20;
 
 	.footnotes {
-		@apply text-sm lg:text-base;
+		@apply text-sm lg:text-base prose-li:my-2 prose-p:my-3;
+
+		.data-footnote-backref {
+			@apply text-(--color-text-muted) no-underline hover:text-(--color-bg);
+		}
 	}
 }

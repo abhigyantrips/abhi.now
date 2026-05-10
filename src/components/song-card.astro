@@ -1,0 +1,97 @@
+---
+type Props = {
+	name: string;
+};
+
+const { name } = Astro.props;
+
+let songData: {
+	name: string;
+	artist: string;
+	duration: string;
+	cover: string;
+	url: string;
+} | null = null;
+
+let error: string | null = null;
+
+function formatDuration(durationMillis: number): string {
+	const milliseconds = Math.floor((durationMillis % 1000) / 100);
+	let seconds = Math.floor((durationMillis / 1000) % 60).toString();
+	let minutes = Math.floor((durationMillis / (1000 * 60)) % 60).toString();
+
+	// Use `padStart` to add a leading zero if the value is less than 10.
+	minutes = minutes.toString().padStart(2, "0");
+	seconds = seconds.toString().padStart(2, "0");
+
+	return `${minutes}:${seconds}`;
+}
+
+try {
+	const response = await fetch(
+		`https://itunes.apple.com/search?term=${encodeURIComponent(name)}&entity=song&limit=1`
+	);
+	const { results } = (await response.json()) as {
+		results: Array<{
+			trackName: string;
+			trackViewUrl: string;
+			trackTimeMillis: number;
+			artistName: string;
+			artworkUrl100: string;
+		}>;
+	};
+	const track = results[0];
+
+	songData = {
+		name: track.trackName,
+		artist: track.artistName,
+		duration: formatDuration(track.trackTimeMillis),
+		cover: track.artworkUrl100.replace("100x100", "600x600"),
+		url: track.trackViewUrl,
+	};
+} catch (e) {
+	error = e instanceof Error ? e.message : "Failed to fetch video data";
+	console.error("Error fetching YouTube data:", e);
+}
+---
+
+<a
+	href={songData ? songData.url : "#"}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="not-prose my-4 block rounded-2xl bg-(--color-text)/10 p-4 transition-colors hover:bg-(--color-text)/15"
+>
+	{
+		error ? (
+			<div class="text-red-500">
+				<p>Error: {error}</p>
+				<p class="text-sm opacity-70">Search Term: {name}</p>
+			</div>
+		) : songData ? (
+			<div class="flex items-start gap-4">
+				<div class="relative aspect-square w-24 shrink-0 overflow-hidden rounded-lg">
+					<img src={songData.cover} alt={songData.name} class="h-full w-full object-cover" />
+				</div>
+
+				<div class="min-w-0 flex-1">
+					<h3 class="mb-1 truncate text-lg leading-tight font-semibold">{songData.name}</h3>
+					<p class="text-sm opacity-70">
+						{songData.artist} • {songData.duration}
+					</p>
+				</div>
+
+				<div class="shrink-0 self-end">
+					<img src="/icons/music-3.svg" alt="iTunes" class="h-6 w-6 opacity-60" />
+				</div>
+			</div>
+		) : (
+			<div class="flex animate-pulse items-start gap-4">
+				<div class="aspect-square w-24 rounded-lg bg-(--color-text)/20" />
+				<div class="flex-1 space-y-2">
+					<div class="h-5 w-3/4 rounded bg-(--color-text)/20" />
+					<div class="h-4 w-1/2 rounded bg-(--color-text)/20" />
+				</div>
+			</div>
+		)
+	}
+</a>
