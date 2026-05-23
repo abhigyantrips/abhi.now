@@ -1,3 +1,5 @@
+Dobermann
+IndieWebClub
 adrak
 chai
 chaipatti
@@ -5,3 +7,4 @@ dalchini
 elaichi
 elaichis
 laung
+weeknote
