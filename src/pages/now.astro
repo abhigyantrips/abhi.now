@@ -54,12 +54,15 @@ const weeknotesSince = weeknotes.filter(
 			{
 				entries.length > 1 ? (
 					entries.slice(1, 4).map((entry) => (
-						<a href={`/before/${entry.id}`} class="group relative block overflow-hidden rounded-lg">
+						<a
+							href={`/before/${entry.id}`}
+							class="group relative block overflow-hidden rounded-lg"
+						>
 							{entry.data.heroImage ? (
 								<Image
 									src={entry.data.heroImage}
 									alt={`Hero image for archive #${entry.id}`}
-									class="absolute inset-0 h-full w-full object-cover opacity-20 transition-opacity duration-200 group-hover:opacity-30"
+									class="absolute inset-0 h-full w-full object-cover opacity-20 transition-opacity duration-150 group-hover:opacity-30"
 								/>
 							) : (
 								<div class="absolute inset-0 bg-(--color-text-muted)/20" />

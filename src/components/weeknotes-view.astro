@@ -86,11 +86,14 @@ function getMonthColor(date: Date) {
 						return (
 							<a
 								href={href}
-								class="group block rounded-lg bg-(--color-text)/10 p-4 transition-colors duration-100 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)] md:px-6 md:py-5"
+								class="group block rounded-lg bg-(--color-text)/10 p-4 transition-colors duration-150 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)] md:px-6 md:py-5"
 								style={`--month-color: ${monthColor};`}
 							>
-								<h3 class="flex flex-col md:flex-row items-start md:items-center justify-between md:gap-4 font-semibold tracking-wide text-(--color-text) decoration-2 underline-offset-4">
-									<span class="text-xs md:text-sm" style={`color: ${monthColor};`}>
+								<h3 class="flex flex-col items-start justify-between font-semibold tracking-wide text-(--color-text) decoration-2 underline-offset-4 md:flex-row md:items-center md:gap-4">
+									<span
+										class="text-xs md:text-sm"
+										style={`color: ${monthColor};`}
+									>
 										{noteId}
 									</span>
 									{noteTitle && <span class="md:text-right">{noteTitle}</span>}
@@ -99,7 +102,7 @@ function getMonthColor(date: Date) {
 									<time datetime={note.data.fromDate.toISOString()}>
 										{formatShortDate(note.data.fromDate)}
 									</time>
-									<span class="h-0.5 flex-1 rounded-full bg-(--color-text-muted)/40 transition-colors duration-100 group-hover:bg-(--month-color)" />
+									<span class="h-0.5 flex-1 rounded-full bg-(--color-text-muted)/40 transition-colors duration-150 group-hover:bg-(--month-color)" />
 									<time datetime={note.data.toDate.toISOString()}>
 										{formatShortDate(note.data.toDate)}
 									</time>
