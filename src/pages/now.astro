@@ -50,7 +50,7 @@ const weeknotesSince = weeknotes.filter(
 				view all
 			</a>
 		</div>
-		<div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-3">
+		<div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
 			{
 				entries.length > 1 ? (
 					entries.slice(1, 4).map((entry) => (
@@ -68,14 +68,13 @@ const weeknotesSince = weeknotes.filter(
 								<div class="absolute inset-0 bg-(--color-text-muted)/20" />
 							)}
 							<div class="relative z-10 p-4">
-								<h3 class="font-semibold tracking-wide text-(--color-text)">#{entry.data.title}</h3>
+								<h3 class="font-semibold tracking-wide text-(--color-text)">{entry.data.title}</h3>
 								<time
 									class="text-sm text-(--color-text-muted)"
 									datetime={entry.data.date.toISOString()}
 								>
 									{entry.data.date.toDateString()}
 								</time>
-								<p class="mt-2 text-sm text-(--color-text)">{entry.data.description}</p>
 							</div>
 						</a>
 					))
