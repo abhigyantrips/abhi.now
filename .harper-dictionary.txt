@@ -7,4 +7,5 @@ dalchini
 elaichi
 elaichis
 laung
+squircles
 weeknote
