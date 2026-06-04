@@ -1,7 +1,7 @@
 ---
 title: Instagram Instants
 description: Meta has vibe-coded an interesting side-project alongside their main hustle of dominating the attention economy.
-date: 2026-06-03
+date: 2026-06-04
 ---
 
 I think it was last week when I was checking in on my Instagram DM's, and saw a bunch of [squircles](https://en.wikipedia.org/wiki/Squircle) peeking in from a corner. Clicking on them opened an enthusiastic pop-up introducing me to **"Instagram Instants"**.
