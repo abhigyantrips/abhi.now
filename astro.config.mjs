@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
 
@@ -25,6 +25,14 @@ export default defineConfig({
 	adapter: cloudflare({
 		imageService: "cloudflare",
 	}),
+
+	fonts: [
+		{
+			provider: fontProviders.fontsource(),
+			name: "Sour Gummy",
+			cssVariable: "--font-gummy",
+		},
+	],
 
 	integrations: [sitemap(), mdx()],
 

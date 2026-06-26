@@ -11,6 +11,10 @@
 	}
 }
 
+@theme {
+	--font-gummy: var(--font-gummy);
+}
+
 /* Light theme (default) */
 :root {
 	color-scheme: light;
