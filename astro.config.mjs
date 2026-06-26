@@ -16,6 +16,12 @@ export default defineConfig({
 	site: import.meta.env.DEV ? "http://localhost:4321" : "https://abhi.now",
 	output: "static",
 
+	session: {
+		driver: {
+			entrypoint: "unstorage/drivers/null",
+		},
+	},
+
 	adapter: cloudflare({
 		imageService: "cloudflare",
 	}),
