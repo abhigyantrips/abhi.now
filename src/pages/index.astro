@@ -52,7 +52,7 @@ import "@/styles/global.css";
 						<a
 							href={SOCIAL.HREF}
 							class="font-gummy footer-link decoration-2! underline-offset-2 hover:underline"
-							style={`--hover-color: ${SOCIAL.COLOR};`}
+							style={`--hover-color-light: ${SOCIAL.COLOR.LIGHT}; --hover-color-dark: ${SOCIAL.COLOR.DARK};`}
 						>
 							{SOCIAL.TEXT}
 						</a>
@@ -138,6 +138,14 @@ import "@/styles/global.css";
 			color: var(--hover-color);
 			text-decoration: underline;
 		}
+	}
+
+	.footer-link {
+		--hover-color: var(--hover-color-light);
+	}
+
+	:global(.dark) .footer-link {
+		--hover-color: var(--hover-color-dark);
 	}
 
 	.footer-link:hover {

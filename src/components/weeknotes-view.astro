@@ -22,24 +22,45 @@ function formatShortDate(d: Date) {
 	return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 }
 
-// Month colors in a smooth gradient (Jan → Dec)
-const MONTH_COLORS = [
-	"#E06C75", // jan - rose
-	"#D19A66", // feb - amber
-	"#E5C07B", // mar - gold
-	"#98C379", // apr - green
-	"#56B6C2", // may - teal
-	"#61AFEF", // jun - sky
-	"#528BFF", // jul - blue
-	"#7C6FE1", // aug - indigo
-	"#C678DD", // sep - purple
-	"#E06CB0", // oct - magenta
-	"#D16969", // nov - coral
-	"#BE5046", // dec - rust
-] as const;
+// Month colors in a smooth gradient (Jan to Dec)
+const MONTH_COLORS = {
+	LIGHT: [
+		"#B64A53", // jan - rose
+		"#9B6230", // feb - amber
+		"#8A6A13", // mar - gold
+		"#5F7F37", // apr - green
+		"#2F7D86", // may - teal
+		"#2D6FA7", // jun - sky
+		"#315FB8", // jul - blue
+		"#5B52B4", // aug - indigo
+		"#8E4BA4", // sep - purple
+		"#A84F83", // oct - magenta
+		"#A34B4B", // nov - coral
+		"#8C3F37", // dec - rust
+	],
+	DARK: [
+		"#E06C75", // jan - rose
+		"#D19A66", // feb - amber
+		"#E5C07B", // mar - gold
+		"#98C379", // apr - green
+		"#56B6C2", // may - teal
+		"#61AFEF", // jun - sky
+		"#528BFF", // jul - blue
+		"#7C6FE1", // aug - indigo
+		"#C678DD", // sep - purple
+		"#E06CB0", // oct - magenta
+		"#D16969", // nov - coral
+		"#BE5046", // dec - rust
+	],
+} as const;
 
 function getMonthColor(date: Date) {
-	return MONTH_COLORS[date.getMonth()];
+	const month = date.getMonth();
+
+	return {
+		light: MONTH_COLORS.LIGHT[month],
+		dark: MONTH_COLORS.DARK[month],
+	};
 }
 ---
 
@@ -86,16 +107,11 @@ function getMonthColor(date: Date) {
 						return (
 							<a
 								href={href}
-								class="group block rounded-lg bg-(--color-text)/10 p-4 transition-colors duration-150 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)] md:px-6 md:py-5"
-								style={`--month-color: ${monthColor};`}
+								class="weeknote-card group block rounded-lg bg-(--color-text)/10 p-4 transition-colors duration-150 hover:bg-[color-mix(in_srgb,var(--month-color)_15%,transparent)] md:px-6 md:py-5"
+								style={`--month-color-light: ${monthColor.light}; --month-color-dark: ${monthColor.dark};`}
 							>
 								<h3 class="flex flex-col items-start justify-between font-semibold tracking-wide text-(--color-text) decoration-2 underline-offset-4 md:flex-row md:items-center md:gap-4">
-									<span
-										class="text-xs md:text-sm"
-										style={`color: ${monthColor};`}
-									>
-										{noteId}
-									</span>
+									<span class="month-label text-xs md:text-sm">{noteId}</span>
 									{noteTitle && <span class="md:text-right">{noteTitle}</span>}
 								</h3>
 								<div class="mt-2 flex items-center gap-2 text-sm text-(--color-text-muted)">
@@ -117,3 +133,17 @@ function getMonthColor(date: Date) {
 		</div>
 	</div>
 </div>
+
+<style>
+	.weeknote-card {
+		--month-color: var(--month-color-light);
+	}
+
+	:global(.dark) .weeknote-card {
+		--month-color: var(--month-color-dark);
+	}
+
+	.month-label {
+		color: var(--month-color);
+	}
+</style>

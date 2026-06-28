@@ -8,20 +8,22 @@ export interface Site extends Page {
 	URL: string;
 }
 
+export type ThemeColor = {
+	LIGHT: string;
+	DARK: string;
+};
+
 export type Route = {
 	NAME: string;
 	PATH: string;
 	ICON: string;
-	COLOR: {
-		LIGHT: string;
-		DARK: string;
-	};
+	COLOR: ThemeColor;
 	DESCRIPTION: string;
 };
 
 export type Social = {
 	NAME: string;
 	TEXT: string;
-	COLOR: string;
+	COLOR: ThemeColor;
 	HREF: string;
 };

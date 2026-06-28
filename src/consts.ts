@@ -89,19 +89,19 @@ export const SOCIALS: Social[] = [
 	{
 		NAME: "GitHub",
 		TEXT: "github",
-		COLOR: "#FF5C00",
+		COLOR: { LIGHT: "#B54800", DARK: "#FF5C00" },
 		HREF: "https://github.com/abhigyantrips",
 	},
 	{
 		NAME: "LinkedIn",
 		TEXT: "linkedin",
-		COLOR: "#0077B5",
+		COLOR: { LIGHT: "#005F91", DARK: "#0077B5" },
 		HREF: "https://linkedin.com/in/abhigyantrips",
 	},
 	{
 		NAME: "Discord",
 		TEXT: "discord",
-		COLOR: "#5539CC",
+		COLOR: { LIGHT: "#4430A8", DARK: "#6B5AE8" },
 		HREF: "https://discord.gg/zdVnRaQVzn",
 	},
 ];
