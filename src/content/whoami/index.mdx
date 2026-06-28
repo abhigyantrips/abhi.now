@@ -1,19 +1,8 @@
-import WordCloud from '@/components/word-cloud.astro';
+import FacetPolaroids from "@/components/facet-polaroids.astro";
+import ProfessionalCard from "@/components/professional-card.astro";
+import WordCloud from "@/components/word-cloud.astro";
 
-<div class="not-prose px-4 md:px-3 py-4 rounded-xl bg-(--color-text)/10 flex flex-col md:flex-row items-start">
-  <div class="aspect-square ml-1 mb-4 md:mb-3 md:mr-3 mt-1 md:mt-1.5">
-    <div
-      class="dark:bg-[#EBDBB2] bg-[#3C3836] size-12 md:size-10 -rotate-12"
-      style={`-webkit-mask: url(/icons/file-list.svg) no-repeat center; mask: url(/icons/file-list.svg) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
-      role="img"
-      aria-label='Resume Icon'
-    />
-  </div>
-  <div class="flex items-start justify-center flex-col text-base/6">
-    <span class="font-bold text-left">Looking for something more professional?</span>
-    <p class="text-(--color-text-muted) text-justify md:pr-2 pb-1">You might prefer going straight to my <a href="/resume" class="underline underline-offset-3 decoration-dashed hover:no-underline hover:bg-(--color-text) hover:text-(--color-bg)">resume</a>, since this space is meant to be more casual and non-technical. I also write about software things at <a href="https://abhi.computer" class="underline underline-offset-3 decoration-dashed hover:no-underline hover:bg-(--color-text) hover:text-(--color-bg)">Abhi.Computer</a>, and maintain <a href="https://linkedin.com/in/abhigyantrips" class="underline underline-offset-3 decoration-dashed hover:no-underline hover:bg-(--color-text) hover:text-(--color-bg)">LinkedIn</a> and <a href="https://github.com/abhigyantrips" class="underline underline-offset-3 decoration-dashed hover:no-underline hover:bg-(--color-text) hover:text-(--color-bg)">GitHub</a> profiles you can peruse. Happy surfing!</p>
-  </div>
-</div>
+<ProfessionalCard />
 
 ### Pseudonyms
 
@@ -21,37 +10,9 @@ Here are some nicknames I've picked up along the way. Hover over them to learn h
 
 <WordCloud />
 
-### The Tinkering Kid
+### Facets
 
-I vividly remember receiving an RC car that could drive on walls. It made a loud whirring noise like a vacuum every time you turned it on. I remember being so intrigued by it.
-
-<div class="h-64 flex items-center justify-center text-xl rounded-xl max-w-md mx-auto bg-(--color-text)/10">
-[playing with toys]
-</div>
-
-### The Army Brat
-
-I've grown up in army cantonments, in the midst of jungles and people in uniform.
-
-<div class="h-64 flex items-center justify-center text-xl rounded-xl max-w-md mx-auto bg-(--color-text)/10">
-[sitting in a helicopter]
-</div>
-
-### The College Student
-
-I'm currently a student studying Computer Science at Manipal Institute of Technology, Bengaluru.
-
-<div class="h-64 flex items-center justify-center text-xl rounded-xl max-w-md mx-auto bg-(--color-text)/10">
-[hostel room?]
-</div>
-
-### The Software Developer
-
-I've been coding since I was in 8th Grade, and found it to be my main source of joy.
-
-<div class="h-64 flex items-center justify-center text-xl rounded-xl max-w-md mx-auto bg-(--color-text)/10">
-[on laptop with dad]
-</div>
+<FacetPolaroids />
 
 ### Thank You's
 

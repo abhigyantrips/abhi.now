@@ -51,6 +51,21 @@ const blog = defineCollection({
 	}),
 });
 
+const facets = defineCollection({
+	loader: glob({
+		base: "./src/content/whoami/facets",
+		pattern: "**/*.md",
+	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string().optional(),
+			date: z.coerce.date(),
+			heroImage: image().optional(),
+			heroAlt: z.string().optional(),
+		}),
+});
+
 const opinions = defineCollection({
 	loader: globWithParser({
 		base: "./src/content/opinions",
@@ -238,4 +253,14 @@ const weeknotes = defineCollection({
 	}),
 });
 
-export const collections = { before, blog, opinions, people, projects, snippets, tags, weeknotes };
+export const collections = {
+	before,
+	blog,
+	facets,
+	opinions,
+	people,
+	projects,
+	snippets,
+	tags,
+	weeknotes,
+};

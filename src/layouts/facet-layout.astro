@@ -1,0 +1,65 @@
+---
+import BaseHead from "@/components/base-head.astro";
+import Container from "@/components/container.astro";
+import Footer from "@/components/footer.astro";
+import Header from "@/components/header.astro";
+import { ROUTES, SITE } from "@/consts";
+import { slideFromBottom } from "@/lib/transitions";
+import "@/styles/global.css";
+import "@/styles/prose.css";
+
+type Props = {
+	postTitle: string;
+	postDescription: string;
+	postUrl?: string;
+};
+
+const { postTitle, postDescription, postUrl } = Astro.props;
+const whoamiRoute = ROUTES.find((r) => r.PATH === "/whoami" || r.NAME === "whoami");
+
+if (!whoamiRoute) {
+	throw new Error(`Route "/whoami" not found in ROUTES`);
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
+	</head>
+	<body class="font-gummy">
+		<Header section={whoamiRoute.NAME} />
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
+			transition:animate={slideFromBottom}
+		>
+			<Container size="md">
+				<div class="h-entry flex flex-col pt-24 md:pt-48">
+					<header class="flex flex-col items-center text-center">
+						<p class="text-sm font-semibold tracking-[0.18em] text-(--color-text-muted) uppercase">
+							who i am as...
+						</p>
+						<h1 class="p-name mt-2 text-4xl leading-tight font-semibold text-balance">
+							{postTitle}
+						</h1>
+						<p class="p-summary hidden">{postDescription}</p>
+						{
+							postUrl && (
+								<a class="u-url hidden" href={postUrl}>
+									{postTitle}
+								</a>
+							)
+						}
+						<span class="p-author h-card hidden">
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+						</span>
+					</header>
+					<hr class="my-8 border-t border-(--color-text-muted)/50" />
+					<slot />
+				</div>
+			</Container>
+		</main>
+
+		<Footer />
+	</body>
+</html>

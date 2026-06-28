@@ -1,0 +1,219 @@
+---
+import { createTornPaperMask } from "@/lib/torn-paper";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const facets = (await getCollection("facets")).sort(
+	(a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const rotations = ["-5.5deg", "3.25deg", "-2.75deg", "5deg", "-4deg", "2.5deg"];
+const xOffsets = ["-0.6rem", "0.15rem", "0.25rem", "0.55rem", "-0.2rem", "0.35rem"];
+const yOffsets = ["0.75rem", "-0.35rem", "1rem", "-0.1rem", "0.2rem", "0.65rem"];
+---
+
+{
+	facets.length > 0 && (
+		<div
+			class="facets-polaroids"
+			aria-label="Facets"
+		>
+			{facets.map((facet, index) => {
+				const mask = createTornPaperMask(facet.id);
+				const style = [
+					`--torn-mask: url("${mask}")`,
+					`--rotation: ${rotations[index % rotations.length]}`,
+					`--x-offset: ${xOffsets[index % xOffsets.length]}`,
+					`--y-offset: ${yOffsets[index % yOffsets.length]}`,
+				].join("; ");
+
+				return (
+					<a
+						class="facet-polaroid group"
+						href={`/whoami/${facet.id}`}
+						style={style}
+					>
+						<span class="facet-sheet">
+							<span class="facet-frame">
+								<span class="facet-image not-prose">
+									{facet.data.heroImage ? (
+										<Image
+											src={facet.data.heroImage}
+											alt={facet.data.heroAlt ?? facet.data.title}
+											class="facet-photo"
+											widths={[320, 480, 640]}
+											sizes="(min-width: 768px) 15rem, 17rem"
+											loading="lazy"
+											decoding="async"
+											style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center;"
+										/>
+									) : (
+										<span
+											class="facet-placeholder"
+											role="img"
+											aria-label={facet.data.title}
+										/>
+									)}
+								</span>
+								<span class="facet-title">{facet.data.title}</span>
+							</span>
+						</span>
+					</a>
+				);
+			})}
+		</div>
+	)
+}
+
+<style>
+	.facets-polaroids {
+		position: relative;
+		left: 50%;
+		display: grid;
+		width: min(calc(100vw - 0.75rem), 23rem);
+		margin-block: 2.25rem 3rem;
+		transform: translateX(-50%);
+		grid-template-columns: minmax(0, 1fr);
+		gap: 1.5rem;
+	}
+
+	.facet-polaroid {
+		display: block;
+		color: var(--color-bg);
+		text-decoration: none;
+		transform-origin: center;
+		transition:
+			transform 180ms ease,
+			filter 180ms ease;
+	}
+
+	.facet-polaroid:hover,
+	.facet-polaroid:focus-visible {
+		filter: drop-shadow(0 1rem 1.25rem rgb(0 0 0 / 0.16));
+		transform: translateY(-0.2rem);
+	}
+
+	.facet-polaroid:focus-visible {
+		outline: 2px dashed var(--color-text);
+		outline-offset: 0.45rem;
+	}
+
+	.facet-sheet {
+		display: block;
+		background: var(--color-text);
+		padding: 0.42rem;
+		-webkit-mask-image: var(--torn-mask);
+		mask-image: var(--torn-mask);
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+	}
+
+	.facet-frame {
+		display: block;
+		background: var(--color-text);
+		color: var(--color-bg);
+		padding: 0.28rem 0.28rem 0.42rem;
+		transition:
+			background-color 160ms ease,
+			color 160ms ease;
+	}
+
+	.facet-polaroid:hover .facet-frame,
+	.facet-polaroid:focus-visible .facet-frame {
+		background: var(--color-bg);
+		color: var(--color-text);
+	}
+
+	.facet-image {
+		position: relative;
+		display: block;
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
+		background: color-mix(in srgb, var(--color-bg) 88%, var(--color-text));
+		box-shadow: inset 0 0 0 0.12rem transparent;
+		line-height: 0;
+		transition: box-shadow 160ms ease;
+	}
+
+	.facet-polaroid:hover .facet-image,
+	.facet-polaroid:focus-visible .facet-image {
+		box-shadow: inset 0 0 0 0.12rem var(--color-text);
+	}
+
+	.facet-image :global(picture) {
+		position: absolute;
+		inset: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.facet-image :global(img) {
+		position: absolute;
+		inset: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center;
+		filter: saturate(0.92) contrast(0.98);
+	}
+
+	.facet-placeholder {
+		position: absolute;
+		inset: 0;
+		display: block;
+		background: color-mix(in srgb, var(--color-bg) 88%, var(--color-text));
+	}
+
+	.facet-title {
+		display: flex;
+		min-height: 2.5rem;
+		align-items: center;
+		justify-content: center;
+		padding: 0.42rem 0.1rem 0.08rem;
+		color: currentColor;
+		font-size: 1.15rem;
+		font-weight: 700;
+		line-height: 1.1;
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	@media (min-width: 768px) {
+		.facets-polaroids {
+			width: min(calc(100vw - 3rem), 61rem);
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			gap: 1.75rem;
+			align-items: start;
+			margin-block: 2.75rem 3.5rem;
+		}
+
+		.facet-polaroid {
+			width: min(100%, 15rem);
+			transform: translate(var(--x-offset), var(--y-offset)) rotate(var(--rotation));
+		}
+
+		.facet-polaroid:hover,
+		.facet-polaroid:focus-visible {
+			transform: translate(var(--x-offset), calc(var(--y-offset) - 0.4rem)) rotate(var(--rotation));
+		}
+
+		.facet-polaroid:nth-child(4n + 1) {
+			justify-self: start;
+		}
+
+		.facet-polaroid:nth-child(4n + 2),
+		.facet-polaroid:nth-child(4n + 3) {
+			justify-self: center;
+		}
+
+		.facet-polaroid:nth-child(4n) {
+			justify-self: end;
+		}
+	}
+</style>

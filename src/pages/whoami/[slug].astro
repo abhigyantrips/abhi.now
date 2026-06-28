@@ -1,0 +1,29 @@
+---
+import FacetLayout from "@/layouts/facet-layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const facets = await getCollection("facets");
+
+	return facets.map((facet) => ({
+		params: { slug: facet.id },
+		props: { facet },
+	}));
+}
+
+const { facet } = Astro.props;
+const { Content } = await render(facet);
+const description =
+	facet.data.description ??
+	`A closer look at ${facet.data.title.toLowerCase()} as one facet of Abhigyan Trips.`;
+---
+
+<FacetLayout
+	postTitle={facet.data.title}
+	postDescription={description}
+	postUrl={`/whoami/${facet.id}`}
+>
+	<article class="e-content prose-content">
+		<Content />
+	</article>
+</FacetLayout>
