@@ -1,0 +1,139 @@
+---
+type Nickname = {
+	name: string;
+	description: string;
+	className: string;
+	cardClassName: string;
+};
+
+const nicknames: Nickname[] = [
+	{
+		name: "Trips",
+		description:
+			"My dad's call-sign in the Army Aviation, that I absorbed as a part of my Internet personality.",
+		className: "md:left-[8%] md:top-[41%] md:text-5xl text-(--color-text)/95",
+		cardClassName: "md:left-0 md:top-full",
+	},
+	{
+		name: "Butternaan",
+		description: "Because it rhymes with Abhigyan. Zero other reasons.",
+		className: "md:right-[7%] md:top-[18%] md:text-3xl text-(--color-text)/75",
+		cardClassName: "md:right-0 md:top-full",
+	},
+	{
+		name: "Abhi",
+		description:
+			"Everyone tries to start with this and then gives up on it. Good thing I don't use it anywhere myself, eh?",
+		className: "md:left-[45%] md:top-[12%] md:text-4xl text-(--color-text)/85",
+		cardClassName: "md:left-1/2 md:top-full md:-translate-x-1/2",
+	},
+	{
+		name: "Gyaani Baba",
+		description: "I don't even know what to say.",
+		className: "md:left-[28%] md:bottom-[13%] md:text-2xl text-(--color-text)/65",
+		cardClassName: "md:left-0 md:bottom-full",
+	},
+	{
+		name: "Baadmein-Gyan",
+		description:
+			'The joke here is that <em>abhi</em> means "now", and <em>baadmein</em> means "later". The people using this one find it extremely funny.',
+		className: "md:right-[7%] md:bottom-[22%] md:text-4xl text-(--color-text)/90",
+		cardClassName: "md:right-0 md:bottom-full",
+	},
+	{
+		name: "Pog",
+		description: "This one deserves its own origin story at this point.",
+		className: "md:left-[15%] md:top-[17%] md:text-2xl text-(--color-text)/55",
+		cardClassName: "md:left-0 md:top-full",
+	},
+];
+---
+
+<div
+	class="not-prose word-cloud relative my-6 rounded-xl bg-(--color-text)/10 px-4 py-5 md:h-72 md:px-6 md:py-0"
+	aria-label="Nickname word cloud"
+>
+	<div class="flex flex-col gap-2 md:block md:h-full">
+		{
+			nicknames.map((nickname) => (
+				<div
+					class:list={["group relative z-0 md:absolute", nickname.className]}
+					data-word-cloud-item
+				>
+					<button
+						type="button"
+						class="w-full rounded-md px-2 py-2 text-left leading-none font-bold tracking-normal transition duration-200 outline-none hover:scale-[1.04] hover:text-(--color-text) focus-visible:ring-2 focus-visible:ring-(--color-text)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-bg) md:w-auto md:px-1"
+						aria-describedby={`nickname-${nickname.name.toLowerCase().replaceAll(" ", "-")}`}
+						aria-expanded="false"
+						data-word-cloud-trigger
+					>
+						{nickname.name}
+					</button>
+					<div
+						id={`nickname-${nickname.name.toLowerCase().replaceAll(" ", "-")}`}
+						role="tooltip"
+						class:list={[
+							"z-[10000] mt-0 max-h-0 overflow-hidden rounded-md border border-(--color-text)/20 bg-(--color-bg) px-3 py-0 text-sm/5 font-normal text-(--color-text) opacity-0 shadow-(--color-text)/10 shadow-lg transition duration-150 group-focus-within:mt-1 group-focus-within:max-h-32 group-focus-within:py-2 group-focus-within:opacity-100 group-hover:mt-1 group-hover:max-h-32 group-hover:py-2 group-hover:opacity-100 md:pointer-events-none md:absolute md:mt-2 md:max-h-none md:w-64 md:overflow-visible md:py-2",
+							"word-cloud-card",
+							nickname.cardClassName,
+						]}
+						set:html={nickname.description}
+					/>
+				</div>
+			))
+		}
+	</div>
+</div>
+
+<script>
+	const closeWordCloudCards = (except?: Element) => {
+		document.querySelectorAll("[data-word-cloud-item][data-open]").forEach((item) => {
+			if (item !== except) {
+				item.removeAttribute("data-open");
+				item.querySelector("[data-word-cloud-trigger]")?.setAttribute("aria-expanded", "false");
+			}
+		});
+	};
+
+	document.querySelectorAll("[data-word-cloud-item]").forEach((item) => {
+		const trigger = item.querySelector("[data-word-cloud-trigger]");
+
+		trigger?.addEventListener("click", (event) => {
+			event.stopPropagation();
+			const isOpen = item.hasAttribute("data-open");
+			closeWordCloudCards(item);
+			item.toggleAttribute("data-open", !isOpen);
+			trigger.setAttribute("aria-expanded", String(!isOpen));
+		});
+
+		trigger?.addEventListener("blur", () => {
+			window.setTimeout(() => {
+				if (!item.contains(document.activeElement)) {
+					item.removeAttribute("data-open");
+					trigger.setAttribute("aria-expanded", "false");
+				}
+			}, 0);
+		});
+	});
+
+	document.addEventListener("click", () => closeWordCloudCards());
+	document.addEventListener("keydown", (event) => {
+		if (event.key === "Escape") {
+			closeWordCloudCards();
+		}
+	});
+</script>
+
+<style>
+	.word-cloud [data-word-cloud-item]:is(:hover, :focus-within),
+	.word-cloud [data-word-cloud-item][data-open] {
+		z-index: 9999;
+	}
+
+	.word-cloud [data-open] .word-cloud-card {
+		margin-top: 0.25rem;
+		max-height: 8rem;
+		padding-block: 0.5rem;
+		opacity: 1;
+	}
+</style>
