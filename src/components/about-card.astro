@@ -1,0 +1,123 @@
+---
+const linkClass =
+	"underline decoration-dashed decoration-(--color-text-muted) underline-offset-3 hover:bg-(--color-text) hover:text-(--color-bg) hover:no-underline";
+
+const weatherBoyGif = "https://media.giphy.com/media/SkV2MPigf7YUSDtaG7/giphy.gif";
+---
+
+<div
+	class="not-prose mb-4 grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl bg-(--color-text)/10 px-4 py-5 text-(--color-text) md:grid-cols-[0.95fr_1.1fr_1.25fr] md:gap-0 md:px-0 md:py-4"
+>
+	<div
+		class="col-span-2 flex flex-col items-center justify-center px-2 pb-2 text-center md:col-span-1 md:px-5 md:pb-0"
+	>
+		<img
+			src="/headshot.png"
+			alt="Abhigyan Tripathi"
+			width="400"
+			height="400"
+			class="size-28 rounded-full border-2 border-dashed border-(--color-text-muted)/45 object-cover p-1 md:size-32"
+		/>
+		<p class="mt-3 text-lg/6 font-bold">Abhigyan Tripathi</p>
+	</div>
+
+	<dl
+		class="grid min-w-0 gap-3 px-0 py-1 text-left md:border-l md:border-dashed md:border-(--color-text-muted)/45 md:px-5"
+	>
+		<div>
+			<dt class="text-xs/4 font-bold tracking-wide text-(--color-text-muted) uppercase">
+				Pronouns
+			</dt>
+			<dd class="text-base/6">he/him</dd>
+		</div>
+		<div>
+			<dt class="text-xs/4 font-bold tracking-wide text-(--color-text-muted) uppercase">MBTI</dt>
+			<dd class="text-base/6">
+				<a
+					href="https://www.16personalities.com/intj-personality"
+					class={linkClass}
+					rel="noreferrer"
+				>
+					INTJ
+				</a>
+			</dd>
+		</div>
+		<div>
+			<dt class="text-xs/4 font-bold tracking-wide text-(--color-text-muted) uppercase">
+				Celebrity Crush
+			</dt>
+			<dd class="text-base/6">
+				<a
+					href="https://www.youtube.com/@savbrown"
+					class={linkClass}
+					rel="noreferrer"
+				>
+					Savannah Brown
+				</a>
+			</dd>
+		</div>
+	</dl>
+
+	<dl
+		class="grid min-w-0 gap-3 px-0 py-1 text-left md:border-l md:border-dashed md:border-(--color-text-muted)/45 md:px-5"
+	>
+		<div>
+			<dt class="text-xs/4 font-bold tracking-wide text-(--color-text-muted) uppercase">
+				Favorite Artist
+			</dt>
+			<dd class="text-base/6">
+				<a
+					href="https://www.last.fm/music/Peach+Pit"
+					class={linkClass}
+					rel="noreferrer"
+				>
+					Peach Pit
+				</a>
+			</dd>
+		</div>
+		<div>
+			<dt class="text-xs/4 font-bold tracking-wide text-(--color-text-muted) uppercase">
+				Favorite Album
+			</dt>
+			<dd class="text-base/6">
+				<a
+					href="https://www.last.fm/music/Peach+Pit/Being+So+Normal"
+					class={linkClass}
+					rel="noreferrer"
+				>
+					Being So Normal
+				</a>
+			</dd>
+		</div>
+		<div>
+			<dt class="text-xs/4 font-bold tracking-wide text-(--color-text-muted) uppercase">
+				Relationship Status
+			</dt>
+			<dd class="relative z-10 inline-block text-base/6">
+				<span class="group/status relative inline-block">
+					<button
+						type="button"
+						class="underline decoration-(--color-text-muted) decoration-dashed underline-offset-3 outline-none hover:bg-(--color-text) hover:text-(--color-bg) hover:no-underline focus-visible:ring-2 focus-visible:ring-(--color-text)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-bg)"
+						aria-describedby="relationship-status-card"
+					>
+						Hover Me
+					</button>
+					<span
+						id="relationship-status-card"
+						role="tooltip"
+						class="pointer-events-none absolute right-0 bottom-full z-30 mb-2 w-56 origin-bottom-right rounded-lg border border-(--color-text)/20 bg-(--color-bg) p-2 opacity-0 shadow-(--color-text)/10 shadow-lg transition duration-150 group-focus-within/status:opacity-100 group-hover/status:opacity-100"
+					>
+						<img
+							src={weatherBoyGif}
+							alt="Wouldn't you like to know, weather boy?"
+							width="480"
+							height="270"
+							loading="lazy"
+							class="aspect-video w-full rounded-md object-cover"
+						/>
+					</span>
+				</span>
+			</dd>
+		</div>
+	</dl>
+</div>
