@@ -2,6 +2,7 @@
 import ReadingLayout from "@/layouts/reading-layout.astro";
 import { getEntries } from "astro:content";
 import { getCollection, render } from "astro:content";
+import { formatReadingTime } from "@/lib/utils";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", ({ data }) => data.published);
@@ -18,10 +19,18 @@ const tags = await getEntries(post.data.tags || []);
 
 <ReadingLayout
 	route="/blog"
-	postTitle={post.data.title}
-	postDescription={post.data.description}
-	postDate={post.data.date.toDateString()}
-	postUrl={`/blog/${post.id}`}
+	post={{
+		title: post.data.title,
+		description: post.data.description,
+		date: post.data.date.toLocaleString("en-DB", {
+			day: "numeric",
+			weekday: "long",
+			month: "long",
+			year: "numeric",
+		}),
+		readingTime: formatReadingTime(post.body ?? ""),
+		url: `/blog/${post.id}`,
+	}}
 >
 	<article class="e-content prose-content">
 		<Content />
