@@ -20,4 +20,8 @@
 			@apply text-(--color-text-muted) no-underline hover:text-(--color-bg);
 		}
 	}
+
+	del {
+		@apply text-(--color-text)/80 decoration-(--color-text) decoration-2;
+	}
 }
