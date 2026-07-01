@@ -1,6 +1,7 @@
 ---
 import BaseHead from "@/components/base-head.astro";
 import Container from "@/components/container.astro";
+import EvilEye from "@/components/evil-eye.astro";
 import Header from "@/components/header.astro";
 import { slideFromBottom } from "@/lib/transitions";
 import { ROUTES, SITE } from "@/consts";
@@ -55,6 +56,7 @@ if (!aboutRoute) {
 				<hr class="my-8 border-t border-(--color-text-muted)/50" />
 				<slot />
 			</Container>
+			<EvilEye />
 		</main>
 		<Footer />
 	</body>

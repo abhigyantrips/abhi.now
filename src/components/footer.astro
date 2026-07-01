@@ -1,8 +1,13 @@
 ---
+import EvilEye from "@/components/evil-eye.astro";
 import HCard from "@/components/h-card.astro";
+
+const showWhoamiEvilEye =
+	Astro.url.pathname === "/whoami" || Astro.url.pathname.startsWith("/whoami/");
 ---
 
 <div
+	data-site-footer
 	class="font-gummy flex items-end justify-center px-6 py-6 text-(--color-text-muted) lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-end lg:px-8"
 >
 	<div class="hidden lg:block lg:justify-self-start">
@@ -42,16 +47,19 @@ import HCard from "@/components/h-card.astro";
 
 		<p>copyright &copy; {new Date().getFullYear()}, abhigyan trips.</p>
 	</div>
-	<button
-		id="scroll-to-top"
-		class="hidden size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110 lg:flex lg:justify-self-end"
-		aria-label="Scroll to top"
-	>
-		<span
-			class="scroll-icon size-5"
-			style="--icon-url: url(/icons/chevrons-up.svg);"
-		></span>
-	</button>
+	<div class="hidden items-center gap-2 lg:flex lg:justify-self-end">
+		{showWhoamiEvilEye && <EvilEye variant="inline" />}
+		<button
+			id="scroll-to-top"
+			class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110"
+			aria-label="Scroll to top"
+		>
+			<span
+				class="scroll-icon size-5"
+				style="--icon-url: url(/icons/chevrons-up.svg);"
+			></span>
+		</button>
+	</div>
 </div>
 
 <style>
@@ -71,6 +79,24 @@ import HCard from "@/components/h-card.astro";
 </style>
 
 <script>
+	let evilEyeFooterObserver: IntersectionObserver | undefined;
+	let evilEyeDesktopQuery: MediaQueryList | undefined;
+	let evilEyeFooterVisible = false;
+	let evilEyeStickyElements: NodeListOf<HTMLElement> | undefined;
+	let evilEyeFooterElements: NodeListOf<HTMLElement> | undefined;
+
+	const syncEvilEyeDock = () => {
+		const shouldDock = evilEyeFooterVisible && Boolean(evilEyeDesktopQuery?.matches);
+
+		evilEyeStickyElements?.forEach((element) => {
+			element.toggleAttribute("data-footer-visible", shouldDock);
+		});
+
+		evilEyeFooterElements?.forEach((element) => {
+			element.toggleAttribute("data-footer-visible", shouldDock);
+		});
+	};
+
 	function setupScrollToTop() {
 		const scrollBtn = document.getElementById("scroll-to-top");
 
@@ -82,5 +108,37 @@ import HCard from "@/components/h-card.astro";
 		});
 	}
 
+	function setupEvilEyeDock() {
+		evilEyeFooterObserver?.disconnect();
+		evilEyeDesktopQuery?.removeEventListener("change", syncEvilEyeDock);
+
+		evilEyeFooterVisible = false;
+		evilEyeStickyElements = document.querySelectorAll("[data-evil-eye-sticky]");
+		evilEyeFooterElements = document.querySelectorAll("[data-evil-eye-footer]");
+
+		if (!evilEyeStickyElements.length || !evilEyeFooterElements.length) {
+			syncEvilEyeDock();
+			return;
+		}
+
+		const footer = document.querySelector("[data-site-footer]");
+
+		if (!footer) return;
+
+		evilEyeDesktopQuery = window.matchMedia("(min-width: 1024px)");
+		evilEyeDesktopQuery.addEventListener("change", syncEvilEyeDock);
+
+		evilEyeFooterObserver = new IntersectionObserver(
+			([entry]) => {
+				evilEyeFooterVisible = entry.isIntersecting;
+				syncEvilEyeDock();
+			},
+			{ threshold: 0.25 }
+		);
+
+		evilEyeFooterObserver.observe(footer);
+	}
+
 	document.addEventListener("astro:page-load", setupScrollToTop);
+	document.addEventListener("astro:page-load", setupEvilEyeDock);
 </script>

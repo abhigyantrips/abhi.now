@@ -1,0 +1,110 @@
+---
+type Props = {
+	variant?: "sticky" | "inline";
+	id?: string;
+};
+
+const { variant = "sticky", id = variant === "inline" ? "evil-eye-footer-card" : "evil-eye-card" } =
+	Astro.props;
+
+const shellClass =
+	variant === "sticky"
+		? "evil-eye-shell pointer-events-none sticky bottom-4 z-40 mt-auto mr-4 mb-4 w-fit self-end"
+		: "evil-eye-shell pointer-events-none w-fit shrink-0";
+---
+
+<div
+	class={shellClass}
+	data-variant={variant}
+	data-evil-eye-sticky={variant === "sticky" || undefined}
+	data-evil-eye-footer={variant === "inline" || undefined}
+>
+	<div class="group/evil-eye pointer-events-auto relative">
+		<div
+			tabindex="0"
+			role="img"
+			class="flex size-10 cursor-help items-center justify-center overflow-hidden rounded-full shadow-(--color-text)/10 shadow-lg transition duration-100 outline-none hover:scale-110 focus-visible:ring-2 focus-visible:ring-(--color-text)/50 focus-visible:ring-offset-2 focus-visible:ring-offset-(--color-bg)"
+			aria-label="An evil eye. Y'know, just in case."
+			aria-describedby={id}
+		>
+			<svg
+				viewBox="0 0 64 64"
+				class="block size-full"
+				role="img"
+				aria-hidden="true"
+				focusable="false"
+			>
+				<circle
+					cx="32"
+					cy="32"
+					r="32"
+					fill="#1d4ed8"
+				></circle>
+				<circle
+					cx="32"
+					cy="32"
+					r="22"
+					fill="#f8fafc"
+				></circle>
+				<circle
+					cx="32"
+					cy="32"
+					r="14"
+					fill="#38bdf8"
+				></circle>
+				<circle
+					cx="32"
+					cy="32"
+					r="8"
+					fill="#111827"
+				></circle>
+				<circle
+					cx="28"
+					cy="26"
+					r="3"
+					fill="#f8fafc"
+					opacity="0.9"
+				></circle>
+			</svg>
+		</div>
+		<div
+			id={id}
+			role="tooltip"
+			class="pointer-events-none absolute right-0 bottom-full z-[10000] mb-2 w-56 rounded-md border border-(--color-text)/20 bg-(--color-bg) px-3 py-2 text-sm/5 font-normal text-(--color-text) opacity-0 shadow-(--color-text)/10 shadow-lg transition duration-150 group-focus-within/evil-eye:opacity-100 group-hover/evil-eye:opacity-100"
+		>
+			An evil eye. Y'know, just in case.
+		</div>
+	</div>
+</div>
+
+<style>
+	.evil-eye-shell {
+		transition:
+			opacity 180ms ease,
+			transform 180ms ease;
+	}
+
+	.evil-eye-shell[data-variant="sticky"][data-footer-visible] {
+		pointer-events: none;
+		opacity: 0;
+		transform: translateY(0.5rem);
+	}
+
+	.evil-eye-shell[data-variant="inline"] {
+		pointer-events: none;
+		opacity: 0;
+		transform: translateY(0.5rem);
+	}
+
+	.evil-eye-shell[data-variant="inline"][data-footer-visible] {
+		pointer-events: auto;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.evil-eye-shell {
+			transition: none;
+		}
+	}
+</style>

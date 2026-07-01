@@ -1,6 +1,7 @@
 ---
 import BaseHead from "@/components/base-head.astro";
 import Container from "@/components/container.astro";
+import EvilEye from "@/components/evil-eye.astro";
 import Footer from "@/components/footer.astro";
 import Header from "@/components/header.astro";
 import { ROUTES, SITE } from "@/consts";
@@ -58,6 +59,7 @@ if (!whoamiRoute) {
 					<slot />
 				</div>
 			</Container>
+			<EvilEye />
 		</main>
 
 		<Footer />
