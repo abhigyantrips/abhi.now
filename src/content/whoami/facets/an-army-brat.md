@@ -1,5 +1,5 @@
 ---
-title: The Army Brat
+title: An Army Brat
 date: 2005-01-01
 heroImage: ../images/army-brat.jpg
 ---

@@ -1,7 +1,7 @@
 ---
-title: The Software Dev
+title: A Software Developer
 date: 2018-04-01
-heroImage: ../images/army-brat.jpg
+heroImage: ../images/on-da-laptop.jpg
 ---
 
 I've been coding since I was in 8th Grade, and found it to be my main source of joy.
