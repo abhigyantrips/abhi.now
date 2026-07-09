@@ -1,7 +1,7 @@
 ---
 title: The Origin Story of Pog
 description: This is how my nickname from college came to be, believe it or not. I know the story but still don't know how I got here.
-date: 2026-07-07
+date: 2026-07-09
 ---
 
 I joined my college in September of 2022. It was a new campus; the "food court" was a white tent behind the hostel building, and the path from the hostel to the singular academic block was surrounded by blue metal sheets on both sides. There were cement trucks and towering cranes everywhere. The classrooms were so new that they still had the faint smell of paint. None of this has anything to do with the nickname.
