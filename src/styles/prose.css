@@ -24,4 +24,8 @@
 	del {
 		@apply text-(--color-text)/80 decoration-(--color-text) decoration-2;
 	}
+
+	abbr {
+		@apply decoration-(--color-text-muted) decoration-dashed decoration-1 underline-offset-2;
+	}
 }
