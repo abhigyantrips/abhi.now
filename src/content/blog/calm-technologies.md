@@ -1,11 +1,8 @@
 ---
 title: Calm Technologies That Excite Me
 description: These are some products that I'm excitedly following (or am keen to get) because they're technologies without the intent to dominate.
-date: 2026-07-19
-published: false
+date: 2026-07-23
 ---
-
-### Introduction
 
 I believe that technology should be an enabler, not a subjugator. The tinkerers that love messing with dials and diving into code should continue to do so! But otherwise, technology should help you do a thing and then stand back as you hold the reins of your human experience. I'll try to write more about this later on.
 
@@ -19,9 +16,9 @@ There was a brief Golden Age I experienced in middle school; I would use a [Kind
 
 Replicating that exact setup today would have its own problems, ofcourse -- music players would be more useful if they had Bluetooth, and [e-readers](https://en.wikipedia.org/wiki/E-reader) would be more useful with an independent Internet connection (and without [companies locking down the software](https://blog.the-ebook-reader.com/2026/06/12/amazon-locking-down-10th-gen-kindles-with-new-software-update/)). But we've gotten good at building devices that communicate well with each other, and can do more things when they are offline.
 
-What I dream of is an era of Focused Compute&trade;, where devices target one human function, and exist as a thin layer to smoothly do that function. What excites me is that we're already getting there, from new competing entrants to old products that are being seen in a different light due to paths that software unlocks.
+What I dream of is an era of Focused Compute&trade;, where devices target one human function and exist as a thin layer to smoothly do that function. What excites me is that we're already getting there, from new competing entrants to old products that are being seen in a different light due to paths that software unlocks.
 
-I would like to highlight the ones that really stick out to me this year and I'm closely tracking to buy. I also hereby give you full permission to gift these to me if you want. I won't complain. :P
+I would like to highlight the ones that really stick out to me this year, and I'm closely tracking to buy. I also hereby give you full permission to gift these to me if you want. I won't complain. :P
 
 ### The Daylight Computer
 
@@ -29,9 +26,9 @@ I would like to highlight the ones that really stick out to me this year and I'm
 
 The trade-off here is that the ink takes time to move, and changing content is slow. This has been fine for reading books, but not as much for anything else. Fast-moving content was left to normal displays, until [Anjan Katta](https://www.linkedin.com/in/anjan-katta-250b232b4) came along with [Daylight Computing Co.](https://daylightcomputer.com).
 
-![Via Press Kit at 'daylightcomputer.com'.](./images/calm-technologies-02.png)
+![Via Press Kit at 'daylightcomputer.com'.](./images/calm-technologies-02.jpg)
 
-This guy worked on a version of [Transflective LCDs](https://en.wikipedia.org/wiki/Transflective_liquid-crystal_display) called [LivePaper](https://www.slashgear.com/1655111/daylight-computer-live-paper-display-vs-e-ink-explained/), which can still be visible under direct sunlight and maintains the speed expected from normal displays.
+This guy worked on a version of [Transflective LCDs](https://en.wikipedia.org/wiki/Transflective_liquid-crystal_display) called [LivePaper](https://www.slashgear.com/1655111/daylight-computer-live-paper-display-vs-e-ink-explained/), which can still be visible under direct sunlight and maintains the speed expected from normal displays (around 60 frames per second).
 
 They've showcased it with their first product, the [DC-1](https://support.daylightcomputer.com/daylight-dc-1-press-kit-1), which is an Android tablet with a comfy physical build that's in line with their notion of building a "Calm Computer". It comes with some homely textured accessories and has a very, _very_ yellow frontlight. I love it.
 
@@ -43,7 +40,7 @@ But hey, I'm excited for a future where reading blogs and documents doesn't need
 
 It was around last year when my YouTube algorithm slowly started moving towards videos of iPods being restored; sometimes receiving storage or battery upgrades. That slowly turned into adding [USB-C](https://en.wikipedia.org/wiki/USB-C), then having a custom exterior, and then rooting the operating system to be completely different.
 
-![Posted by u/likesthings on r/ipod at 'reddit.com'.](./images/calm-technologies-05.png)
+![Posted by u/likesthings on r/ipod at 'reddit.com'.](./images/calm-technologies-05.jpg)
 
 As smartphones arrived, music players slowly reduced to either really simple ones with basic playback controls, or really sophisticated ones for audiophiles (by companies like [Fiio](https://www.fiio.com/)). The mainstream was left to smartphones, and later on to streaming services like Spotify.
 
@@ -59,13 +56,39 @@ The first iteration of migrating was using this app called [Classipod](https://g
 
 The experience was much calmer than before, since my options were limited and I chose the albums wisely. Streaming had turned listening to music into a constant background activity; sound that kept droning on without distinction between songs or lyrics. The _intentionality_ of "turning on the iPod" and choosing an album to queue was more mechanical and felt more fruitful, which stuck with me.
 
-The current scene for purchasing a modded iPod in India is still, ofcourse, quite low. The two places I found (neither of which I've actually purchased from, FYI) were [The Revolver Club](https://www.therevolverclub.com/collections/ipod) (which had limited options) and [RetroPodz](https://retropodz.com/) (which had AI-generated images but is run by a single dude as a hobby). I'm still conflicted about the product that will fulfil this need of mine[^2], but a music player is definitely on the list.
+The current scene for purchasing a modded iPod in India is still, ofcourse, quite low. The two places I found (neither of which I've actually purchased from, FYI) were [The Revolver Club](https://www.therevolverclub.com/collections/ipod) (which had limited options) and [RetroPodz](https://retropodz.com/) (which had AI-generated images but is run by one dude as a hobby). I'm still conflicted about the product that will fulfil this need of mine[^2], but a music player is definitely on the list.
+
+### The Clicks Communicator
+
+Smartphones are a pain, aren't they?
+
+We use the same portal for accessing both our loved ones and some of the worst events currently going on in the world. It's the harbinger of both good news and the bad -- from breakup texts to salary updates, from rejection emails to messages from old friends. This is my completely unbiased opinion. :)
+
+None of that relates to this specific product, though.
+
+![A list of games on the Nokia back then, via 'lasopanaked473.weebly.com'.](./images/calm-technologies-04.png)
+
+We got the first smartphone in the family at the start of the 2010's. Before that, it was all squat button phones from Nokia and Motorola. I didn't particularly care for the form factor, all I remember is playing Bounce Tales on my <abbr title="My mom's dad.">Nannoo</abbr>'s Nokia E63.
+
+What I realize looking back though is that a lot of the doom content consumption today is dependent on the vertical form factor. First it was just short-form video, but platforms like Instagram have also made 4:3 photographs their new default (a choice that has faced much criticism from artists).
+
+I feel like a lot of that could be fixed (or rather, I could steer myself away from doomscrolling) by just _not_ having a screen that shows this content properly. This is where I'd like to introduce my solution, the Clicks Communicator.
+
+![A dummy Clicks Communicator, via Eric Zeman at 'uk.pcmag.com'.](./images/calm-technologies-07.jpg)
+
+Worked on by [Michael Fischer (Mr. Mobile)](https://www.youtube.com/@TheMrMobile)'s company [Clicks](https://clicks.tech), the Communicator is meant to be a secondary Blackberry-like device meant primarily for communication during working hours. Its main pitch is "focus and simplicity in communication", which I'm reading as "an attempt to best distract you from distractions".
+
+The device has a physical keyboard as well as a square touchsreen. The keyboard's spacebar also functions as a fingerprint sensor, and there's a special key you can use to create any shortcuts you want. It's lighter than the average smartphone and has a "signal light" on the side which is similar to the notification LED's you'd get on older smartphones.
+
+I love this as my concept for minimalism because it doesn't compromise on all the extensibility we've gained from modern technologies. I shouldn't have to move away from the gains of WhatsApp or a dedicated maps application just to take back my time and focus. This also comes at a good time where the outer screens of modern flip phones have the same screen aspect ratio as the Communicator, meaning that developers have more incentive to fit their apps to such smaller screens.
+
+The current drawbacks are led by the fact that this phone doesn't currently exist; even the one showed above is a dummy for media coverage. The company has [started taking reservations](https://clicksphone.com) for the phone, but it will still be another year before they can start shipping them out by current progress speeds. With some leeway to check other people's reviews after that, there's definitely some time before I can get something like this. And oh, they don't ship to India right now.
 
 ### The TRMNL Ecosystem
 
 Returning to my love for e-ink, [TRMNL](https://trmnl.com) is an ecosystem where you can set up multiple e-ink displays as periodically updating dashboards for whatever you want. This can either be a new display/setup that you buy from them directly, or you can give old e-readers a new life by connecting them to TRMNL.
 
-![TRMNL's DIY Kit, via 'wiki.seeedstudio.com'.](./images/calm-technologies-03.png)
+![TRMNL's DIY Kit, via 'wiki.seeedstudio.com'.](./images/calm-technologies-03.jpg)
 
 > In technical terms, TRMNL works by having a central [web server](https://en.wikipedia.org/wiki/Web_server) (either self-hosted or provided by [trmnl.com](https://trmnl.com)), which sends images to the e-ink device every 30 seconds. The receiver then accepts the image and updates the data on its display.
 >
@@ -78,18 +101,6 @@ I really like this idea of data calmly updating in the background, like a photo 
 
 The best part is that the entire ecosystem can be self-hosted -- an old Kindle can become a receiver, and you can host your own web server on something like a [Raspberry Pi](https://www.raspberrypi.com/). There's also a large library of integrations with the ability to create your own plugins for any platform you want. I really respect the determination of the developers to keep it all open-source.
 
-### The Clicks Communicator
-
-Smartphones are a pain, aren't they?
-
-I think the reason it feels like that is because we attach feelings to our usage of physical items. We reach a water bottle for thirst,
-
-Never have we had something that has existed so close to us at all times that it could be considered as a
-
-I have existed with touchscreen phones/smartphones for basically all my life. I remember a short time where everyone in my family had phones with keyboards, and I would play Bounce Tales on my Nannoo's Nokia E63. The phones were squat
-
-![A list of games on the Nokia back then, via 'lasopanaked473.weebly.com'.](./images/calm-technologies-04.png)
-
 ### Dictaphones
 
 A lot of my thoughts worthy of pursuing pass by like blips. I have to quickly _catch_ them off the train of thought and store them somewhere to revisit later.
@@ -100,7 +111,7 @@ I want it to be as simple as maybe holding a button that starts recording my voi
 
 Enter, dictaphones.
 
-![Posted by u/Ripraz on r/digitalminimalism at 'reddit.com'.](./images/calm-technologies-06.png)
+![Posted by u/Ripraz on r/digitalminimalism at 'reddit.com'.](./images/calm-technologies-06.jpg)
 
 The last time you probably saw one was in the hands of a journalist, interviewer, or a documentary anchor. They're meant for recording conversations or solo "in-the-moment" experiences that can later be accumulated and looked back upon.
 
@@ -113,6 +124,10 @@ My goal with a dictaphone would be to automatically receive the files at, say, t
 > The only problem, again, is that the thing $1,499 USD (roughly ₹1,44,000 INR). What in the world.
 
 ---
+
+I think we've caught on to the fact that gaining more information and speed through our tools doesn't particularly mean that we get to relax more; in most cases, it just means that our deadlines get shorter. A busy day can leave us catching our breath afterwards, and the rest we take needs to keep technology at an arm's length, as much as it can.
+
+The desire for calmer compute has grown past the stage of indie projects and tiny scales. We deserve rest, and a space where our thoughts can be mulled over without being bombarded with information. Let's look for technologies that give us that space.
 
 #### Footnotes
 
