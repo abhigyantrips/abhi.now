@@ -15,9 +15,10 @@ type Props = {
 	fromDate: Date;
 	toDate: Date;
 	postUrl: string;
+	readingTime?: string;
 };
 
-const { title, description, fromDate, toDate, postUrl } = Astro.props;
+const { title, description, fromDate, toDate, postUrl, readingTime } = Astro.props;
 
 const formatDate = (d: Date) =>
 	d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
@@ -48,11 +49,26 @@ const monthColor = getMonthColor(fromDate);
 					style={`--month-color-light: ${monthColor.light}; --month-color-dark: ${monthColor.dark};`}
 				>
 					<div class="flex flex-col gap-1">
-						<span
-							class="weeknote-key font-semibold"
-							aria-hidden="true"
-							>{key}</span
-						>
+						<div class="flex items-center gap-2">
+							<span
+								class="weeknote-key font-semibold"
+								aria-hidden="true"
+								>{key}</span
+							>
+							{
+								readingTime && (
+									<>
+										<span
+											class="text-(--color-text-muted)"
+											aria-hidden="true"
+										>
+											·
+										</span>
+										<span class="text-(--color-text-muted) uppercase">{readingTime}</span>
+									</>
+								)
+							}
+						</div>
 						<h1 class="p-name text-3xl font-semibold">
 							<span class="hidden">{key}</span>
 							{restTitle}
