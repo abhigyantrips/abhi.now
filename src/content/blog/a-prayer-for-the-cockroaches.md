@@ -63,7 +63,7 @@ The entire country watched as undercover police officers stormed the protest sit
 
 ![Wangchuk Ji being taken away from the stage at the protest site in Jantar Mantar.](./images/a-prayer-for-the-cockroaches-06.png)
 
-He fast was forcefully ended as his diagnostics were conducted. Police officers were stationed on the entire floor of the hospital he was admitted in, and his wife wasn't allowed to take her phone when she visited him. They wouldn't allow him to make a statement. The hospital also refused to provide a digital copy of Wangchuk Ji's medical report. Here's [a reel where his wife talks to BBC in detail](https://www.instagram.com/reel/Da8HibrEQxU).
+His fast was forcefully ended as his diagnostics were conducted[^1]. Police officers were stationed on the entire floor of the hospital he was admitted in, and his wife wasn't allowed to take her phone when she visited him. They wouldn't allow him to make a statement. The hospital also refused to provide a digital copy of Wangchuk Ji's medical report. Here's [a reel where his wife talks to BBC in detail](https://www.instagram.com/reel/Da8HibrEQxU).
 
 This was, admittedly, an extremely well-planned operation by the Delhi Police. The officers were called early in the morning under the guise of a "security drill", and were asked to dress in civilian clothes instead of their uniform. They were only told last-minute that they were to abduct Sonam Wangchuk from the protest site within 30 seconds.
 
@@ -79,7 +79,7 @@ As of writing, Abhijeet Dipke has declared an indefinite strike in Sonam Wangchu
 
 The reason for writing this piece, though, is that I got tired of people who gloss over the criticality of CJP's current motive and how it affects the younger generation. I feel like the older people saw the bloated, unfinished past of CJP's journey and stopped listening along the way. Every time that I've tried to bring up the issue with an adult, I've received one of the following responses:
 
-1. **"Changing the system takes time, Abhigyan."** Yes, it does. But it also take the _urge_ to change. The change doesn't occur itself.
+1. **"Changing the system takes time, Abhigyan."** Yes, it does. But it also takes the _urge_ to change. The change doesn't occur itself.
 2. **"Did you know Sonam Wangchuk's father was a Congress MP?"** Okay, how the _hell_ does that matter?
 3. **"What are you going to do, remove corruption on every single level of the country? That's impossible."** These are the people who haven't understood the motive of the movement in the first place.
 
@@ -92,11 +92,11 @@ Now, let me tell you about my fear.
 My fear isn't that things won't change or won't get better. Even if these leaders continue to remain in power, we will inherit the country and make change one day; the old always makes way for the new. My fear is that the change might be _too late_.
 
 1. The NEET paper leaks have been an issue for _decades_ and the National Testing Agency continues to be inefficient. There are students who are giving _years_ of their young life to the testing process, only to be deceived by the process and having to re-take the exam, again and again.
-2. The CBSE On-Screen Marking Portal has lead to many cases where students have been assigned marks _based on the answer sheet of another student_. There are hard-working toppers who have failed their exams because, when they requested a re-evaluation, the found that the answer sheet under their name isn't even theirs.
+2. The CBSE On-Screen Marking Portal has led to many cases where students have been assigned marks _based on the answer sheet of another student_. There are hard-working toppers who have failed their exams because, when they requested a re-evaluation, the found that the answer sheet under their name isn't even theirs.
 
 A student, whose entire life revolves around academics (even more so in India compared to other countries), sees their work fall apart because of faults in a system out of their control. The faults persist and are known to exist, _and yet_ their futures are decided based on the same percentiles and rankings. _And yet_ the system asks for their marksheets from their Board exams. _And yet_ they cannot pursue a respectable degree unless they receive the rank they worked hard for.
 
-Students, who have seen nothing but the merit of a rank, lose their will to live when hard work wasn't enough. Students who take their lives in this case aren't a death toll to be displayed in a news flash. That's blood on the hands of a broken system. That's what the Cockroaches are fighting.
+Students, who have seen nothing but the merit of a rank, lose their will to live when hard work isn't enough. Students who take their lives in this case aren't a death toll to be displayed in a news flash. That's blood on the hands of a broken system. That's what the Cockroaches are fighting.
 
 The Good may prevail in the long run. The arc of the moral universe may bend towards justice. But how many innocent lives are we willing to lose, how many deserving candidates are we willing to rob of their merit before we reach the good place we dream of?
 
@@ -114,3 +114,7 @@ If you are in Delhi, and if you have a child or a sibling that is going to face 
 We've been called "ignorant kids", "terrorists" and "anti-nationals" already. It's high time we add "revolutionaries" to that list.
 
 Signing off, a citizen of Bharat.
+
+#### Footnotes
+
+[^1]: **Edit:** This information is now out-of-date as Sonam Wangchuk publicly ended his fast later on, on 26th July, 2026. This infers that his fast was still uninterrupted before.
