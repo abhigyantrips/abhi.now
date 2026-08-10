@@ -23,6 +23,7 @@ pnpm-debug.log*
 # IDEs
 .idea/
 src/content/.obsidian/
+src/content/.stfolder/
 
 # wrangler files
 .wrangler
