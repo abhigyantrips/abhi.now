@@ -1,12 +1,16 @@
 ---
-title: Changing My Grandparents' Algorithm
-description: the title
+title: Tweaking My Grandparents' Algorithm
+description: Limiting the content my grandparents see online, in an effort to prevent misinformation and highly opinionated content (or extremist material).
 date: 2026-08-02
 published: false
 ---
 
 My grandparents love Facebook.
 
-_Love_ might be a strong term here, but it's undeniable that -- with how close we live to our smartphones -- they spend a majority of their day on social media. That time was first spent catching up with hundreds of Facebook friends and their life updates, but slowly shifted Reels and other short-form content.
+Ah, "love" isn't the right word. "Attachment" probably works better. And no, that's not the same as "addiction".
 
-This hasn't directly hindered their time spent in social interactions yet, as far as I can tell.
+"Addiction" in the context of social media refers to its ability to act as a constant distraction from constructive tasks. That can be work, studying, errands and whatnot. The average teen/adult has enough of these tasks that hours of screen time can radically stunt their productivity and cognitive ability to grow. They have "work to get to".
+
+But a retired senior citizen living with their children and access to quick commerce _doesn't_ have anywhere to go or anything to critically get done. There's apps for every service and websites for every bank procedure.
+
+Some of these are genuinely helpful for them! I'd rather _Nannoo_ did not have to carry heavy vegetables all the way from the market to his home.
