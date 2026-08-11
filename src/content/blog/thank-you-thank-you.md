@@ -39,3 +39,5 @@ This is actually a hit-or-miss. I've been to _kirana_ shops where shopkeepers ar
 A lot of the other scenarios I can think of revolve around paying for an item or a service. The reception of the money initiates a thank-you, while the person who received the service also says thank-you for it.
 
 So while this post started with a lot of gusto, I invite you to add your own examples or showcase situations where we (as Indians) revert to the normal "you're welcome" response. Thanking someone is almost always a polite and good thing to do, so a couple more flowers given to people here and there should only bring about good!
+
+![Flowers.](./images/thank-you-thank-you-01.jpg)
