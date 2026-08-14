@@ -14,10 +14,7 @@ const yOffsets = ["0.75rem", "-0.35rem", "1rem", "-0.1rem", "0.2rem", "0.65rem"]
 
 {
 	facets.length > 0 && (
-		<div
-			class="facets-polaroids"
-			aria-label="Facets"
-		>
+		<div class="facets-polaroids" aria-label="Facets">
 			{facets.map((facet, index) => {
 				const mask = createTornPaperMask(facet.id);
 				const style = [
@@ -28,11 +25,7 @@ const yOffsets = ["0.75rem", "-0.35rem", "1rem", "-0.1rem", "0.2rem", "0.65rem"]
 				].join("; ");
 
 				return (
-					<a
-						class="facet-polaroid group"
-						href={`/whoami/${facet.id}`}
-						style={style}
-					>
+					<a class="facet-polaroid group" href={`/whoami/${facet.id}`} style={style}>
 						<span class="facet-sheet">
 							<span class="facet-frame">
 								<span class="facet-image not-prose">
@@ -48,11 +41,7 @@ const yOffsets = ["0.75rem", "-0.35rem", "1rem", "-0.1rem", "0.2rem", "0.65rem"]
 											style="position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center;"
 										/>
 									) : (
-										<span
-											class="facet-placeholder"
-											role="img"
-											aria-label={facet.data.title}
-										/>
+										<span class="facet-placeholder" role="img" aria-label={facet.data.title} />
 									)}
 								</span>
 								<span class="facet-title">{facet.data.title}</span>

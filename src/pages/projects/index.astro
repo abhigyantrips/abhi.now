@@ -50,10 +50,7 @@ function numberToWords(n: number): string {
 	<div class="flex flex-col gap-6">
 		<div class="flex flex-col gap-1.5">
 			<p class="text-sm text-(--color-text-muted) uppercase">Places</p>
-			<form
-				class="flex flex-wrap items-center gap-1.5"
-				id="place-filter"
-			>
+			<form class="flex flex-wrap items-center gap-1.5" id="place-filter">
 				{
 					places.map((place) => (
 						<label class="inline-flex cursor-pointer items-center">
@@ -80,10 +77,7 @@ function numberToWords(n: number): string {
 		</div>
 		<div class="flex flex-col gap-1.5">
 			<p class="text-sm text-(--color-text-muted) uppercase">Tags</p>
-			<form
-				class="flex flex-wrap items-center gap-1.5"
-				id="tags-filter"
-			>
+			<form class="flex flex-wrap items-center gap-1.5" id="tags-filter">
 				{
 					tags.map((tag) => (
 						<label class="inline-flex cursor-pointer items-center">
@@ -108,10 +102,7 @@ function numberToWords(n: number): string {
 				>
 			</form>
 		</div>
-		<div
-			class="flex flex-col gap-4"
-			id="projects-list"
-		>
+		<div class="flex flex-col gap-4" id="projects-list">
 			{
 				projects.map((project) => (
 					<div

@@ -23,7 +23,7 @@ import "@/styles/global.css";
 					MAIN_ROUTES.map((ROUTE) => (
 						<a
 							href={ROUTE.PATH}
-							class="route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-2"
+							class="route-link group font-gummy flex flex-col items-center gap-2 text-center decoration-2! underline-offset-3"
 							style={`--hover-color-light: ${ROUTE.COLOR.LIGHT}; --hover-color-dark: ${ROUTE.COLOR.DARK}; --icon-url: url(${ROUTE.ICON});`}
 						>
 							<span
@@ -51,7 +51,7 @@ import "@/styles/global.css";
 					SOCIALS.map((SOCIAL) => (
 						<a
 							href={SOCIAL.HREF}
-							class="font-gummy footer-link decoration-2! underline-offset-2 hover:underline"
+							class="font-gummy footer-link decoration-2! underline-offset-3 hover:underline"
 							style={`--hover-color-light: ${SOCIAL.COLOR.LIGHT}; --hover-color-dark: ${SOCIAL.COLOR.DARK};`}
 						>
 							{SOCIAL.TEXT}

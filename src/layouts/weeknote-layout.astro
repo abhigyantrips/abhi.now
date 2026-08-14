@@ -32,10 +32,7 @@ const monthColor = getMonthColor(fromDate);
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={`${title} | ${SITE.TITLE}`}
-			description={description}
-		/>
+		<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
 	</head>
 	<body class="font-gummy">
 		<Header section="weeknotes" />
@@ -50,18 +47,11 @@ const monthColor = getMonthColor(fromDate);
 				>
 					<div class="flex flex-col gap-1">
 						<div class="flex items-center gap-2">
-							<span
-								class="weeknote-key font-semibold"
-								aria-hidden="true"
-								>{key}</span
-							>
+							<span class="weeknote-key font-semibold" aria-hidden="true">{key}</span>
 							{
 								readingTime && (
 									<>
-										<span
-											class="text-(--color-text-muted)"
-											aria-hidden="true"
-										>
+										<span class="text-(--color-text-muted)" aria-hidden="true">
 											·
 										</span>
 										<span class="text-(--color-text-muted) uppercase">{readingTime}</span>
@@ -76,31 +66,17 @@ const monthColor = getMonthColor(fromDate);
 						<p class="p-summary text-(--color-text-muted)">
 							{description}
 						</p>
-						<time
-							class="dt-start hidden"
-							datetime={fromDate.toISOString()}
-						>
+						<time class="dt-start hidden" datetime={fromDate.toISOString()}>
 							{formatDate(fromDate)}
 						</time>
-						<time
-							class="dt-end hidden"
-							datetime={toDate.toISOString()}
-						>
+						<time class="dt-end hidden" datetime={toDate.toISOString()}>
 							{formatDate(toDate)}
 						</time>
-						<a
-							class="u-url hidden"
-							href={postUrl}
-						>
+						<a class="u-url hidden" href={postUrl}>
 							{title}
 						</a>
 						<span class="p-author h-card hidden">
-							<a
-								class="p-name u-url"
-								href={SITE.URL}
-								rel="author"
-								>{SITE.AUTHOR}</a
-							>
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
 						</span>
 					</div>
 					<slot />
