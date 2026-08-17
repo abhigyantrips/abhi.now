@@ -2,6 +2,7 @@
 title: Tweaking My Grandparents' Algorithm
 description: Limiting the content my grandparents see online, in an effort to prevent misinformation and highly opinionated content (or extremist material).
 date: 2026-08-13
+published: false
 ---
 
 The reels my grandparents scroll through have gotten a bit louder lately.
