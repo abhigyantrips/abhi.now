@@ -1,9 +1,14 @@
 ---
 title: Tweaking My Grandparents' Algorithm
 description: Limiting the content my grandparents see online, in an effort to prevent misinformation and highly opinionated content (or extremist material).
-date: 2026-08-02
-published: false
+date: 2026-08-13
 ---
+
+The reels my grandparents scroll through have gotten a bit louder lately.
+
+<abbr title="My mom's mom.">_Mummy_</abbr> and <abbr title="My mom's dad.">_nannoo_</abbr> are very sweet and very caring people, but discussions around current affairs seem to toggle a switch within them. My gentle grandparents begin to state very pinpoint statements, with information that is backed by prejudice over natural truth.
+
+### Old
 
 My grandparents love Facebook.
 

@@ -1,7 +1,7 @@
 ---
 title: Victory (?) of the Cockroaches
 description: "How the lazy, unemployed, and chronically online came together to bring down an incompetent education minister."
-date: 2026-07-30
+date: 2026-08-12
 published: false
 ---
 
@@ -9,7 +9,9 @@ published: false
 
 The day of the [Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march) started early. The protesters and the police prepared in tandem; the former getting ready for a long march while the latter armed themselves with batons and barricades.
 
-Abhijeet Dipke had started an indefinite hunger strike on Wangchuk Ji's capture, but broke the fast on the plea of a NEET aspirant's father.
+Abhijeet Dipke had started an indefinite hunger strike on Wangchuk Ji's capture, but broke the fast on the plea of a NEET aspirant's father. I believe he had a newfound determination that day; something he would definitely need for what was to come.
+
+The protesters would shout
 
 ### Timeline
 
