@@ -250,6 +250,7 @@ const weeknotes = defineCollection({
 		description: z.string().default(""),
 		fromDate: z.coerce.date(),
 		toDate: z.coerce.date(),
+		publishedDate: z.coerce.date().optional(),
 	}),
 });
 

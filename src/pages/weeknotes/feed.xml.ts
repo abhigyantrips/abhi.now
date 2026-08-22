@@ -1,9 +1,9 @@
 import { SITE } from "@/consts";
 import rss from "@astrojs/rss";
-import type { AstroSharedContext } from "astro";
+import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
-export async function GET(context: AstroSharedContext) {
+export async function GET(context: APIContext) {
 	const weeknotes = await getCollection("weeknotes");
 
 	return rss({
@@ -13,7 +13,7 @@ export async function GET(context: AstroSharedContext) {
 		items: weeknotes.map((note) => ({
 			title: note.data.title,
 			description: note.data.description,
-			pubDate: note.data.toDate,
+			pubDate: note.data.publishedDate ?? note.data.toDate,
 			categories: ["weeknotes"],
 			link: `/weeknotes/${note.id}/`,
 		})),

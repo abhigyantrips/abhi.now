@@ -1,9 +1,9 @@
 import { SITE } from "@/consts";
 import rss from "@astrojs/rss";
-import type { AstroSharedContext } from "astro";
+import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
-export async function GET(context: AstroSharedContext) {
+export async function GET(context: APIContext) {
 	const snippets = await getCollection("snippets");
 
 	return rss({
