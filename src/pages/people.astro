@@ -10,7 +10,10 @@ const people: CollectionEntry<"people">[] = await getCollection("people");
 	<div class="flex flex-col gap-4">
 		{
 			people.map((person) => (
-				<div class="flex flex-col gap-4 rounded-2xl bg-(--color-text)/10 p-5 sm:flex-row sm:items-start">
+				<div
+					id={person.id}
+					class="flex flex-col gap-4 rounded-2xl bg-(--color-text)/10 p-5 sm:flex-row sm:items-start"
+				>
 					<div class="flex items-start justify-between sm:w-auto sm:shrink-0">
 						<div class="relative size-44 shrink-0 md:size-22">
 							<img
