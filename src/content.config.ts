@@ -38,9 +38,22 @@ const before = defineCollection({
 });
 
 const blog = defineCollection({
-	loader: glob({
+	loader: globWithParser({
 		base: "./src/content/blog",
 		pattern: "**/*.md",
+		parser: async (entry) => {
+			if (import.meta.env.MODE === "production") {
+				const { id, data }: { id: string; data: { published?: boolean } } = entry;
+
+				if (id.startsWith("drafts/") && data.published !== false) {
+					throw new Error(
+						`All drafts need to be unpublished, dawg.\n\nGo check 'src/content/blog/${id}'`
+					);
+				}
+			}
+
+			return entry;
+		},
 	}),
 	schema: z.object({
 		title: z.string(),

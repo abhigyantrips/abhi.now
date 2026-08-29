@@ -5,7 +5,9 @@ import { getCollection, render } from "astro:content";
 import { formatReadingTime } from "@/lib/utils";
 
 export async function getStaticPaths() {
-	const posts = await getCollection("blog", ({ data }) => data.published);
+	const posts = await getCollection("blog", ({ data }) =>
+		import.meta.env.DEV ? true : data.published
+	);
 	return posts.map((post) => ({
 		params: { id: post.id },
 		props: { post },
