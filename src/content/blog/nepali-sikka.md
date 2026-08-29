@@ -1,6 +1,6 @@
 ---
 title: Nepali Sikka
-description: A story I remembered while reading the news about flash floods in Nepal.
+description: A story about a golden coin that started my currency collection. Recollected while reading the news about the flash floods in Nepal.
 date: 2026-08-28
 ---
 
