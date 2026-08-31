@@ -1,5 +1,5 @@
 ---
-title: Tweaking My Grandparents' Algorithm
+title: Protecting My Grandparents from the Algorithm
 description: Limiting the content my grandparents see online, in an effort to prevent misinformation and highly opinionated content (or extremist material).
 date: 2026-08-18
 published: false
