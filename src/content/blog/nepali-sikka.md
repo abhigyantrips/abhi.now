@@ -40,11 +40,13 @@ The moment I found it again was as new and happy as the first time I found it ne
 
 ---
 
-I recently learned, through the news, about [the flash floods in Nepal](https://www.bbc.com/news/live/cr0qxd1y219kt). Families crying over the loss of loved ones and homes that stood for decades. Countries sending their condolences and organizations offering their aid.
+I recently learned, through the news, about [the flash floods in Nepal](https://www.bbc.com/news/live/cr0qxd1y219kt). There were families crying over the loss of loved ones, and homes that stood for decades suddenly washed away. Countries sent their condolences and organizations offered their aid. It was these news articles and witnessing the world move to help, that made me want to share how a small part of Nepal's heritage had left such a large impact on me.
 
-It was these news articles and witnessing the world move to help, that made me want to share how a small part of Nepal's heritage had left such a large impact on me. Their support to us extends beyond culture as well, as citizens of Nepal migrate to India's labour market, helping us do grunt work that we can't always do ourselves.
+Sometimes, when you ask people in India where they are from, they reply with "Nepal". They say "Nepal" the same way you would name a close neighbour, like a state inside India. And that's because they _are_ close to us; they have lived their lives in our vicinity, in the same part of the world, and many of them come to Bharat to work, and co-exist with us.
 
-My heart goes out to our geographical neighbours, and I hope they find peace and relief soon.
+The people of Nepal have been there for us. Not just through shared culture and stories but through the work they do with us and for us. They're a part of the subcontinental family.
+
+All that to say, my heart goes out to our geographical neighbours, and I hope they find peace and relief soon.
 
 #### Footnotes
 
