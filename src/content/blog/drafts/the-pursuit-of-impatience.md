@@ -17,7 +17,7 @@ I mentioned the metro incident in IndieWebClub, which brought about a thread of 
 
 > [Governments] will always want more surveillance. It is upto the society to resist. That tension therein is a good thing and we arrive at a balance that does okay for both national security and for individual privacy.
 >
-> For some reason, the Indian society does not resist. We are happy to give [our Aadhaar] card everywhere, [phone number] everywhere, comply with [the government's] irrational requirements, etc.
+> For some reason, the Indian society does not resist. We are happy to give [our Aadhaar card] everywhere, [phone number] everywhere, comply with [the government's] irrational requirements, etc.
 
 I started out replying with some thoughts I had, which soon turned into _many_ thoughts. I realized I need to give them the time and space to exist, which brings me to writing this blogpost.
 
