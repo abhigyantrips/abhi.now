@@ -77,9 +77,9 @@ The average worker in India, a desk job or otherwise, is spending 8-12 hours slo
 
 These people, who have already faced hell throughout the day, will most likely do anything that can ease their life outside of it. They give away their Aadhaar card and other sensitive information because they can't worry about its implications. They are apathetic to their rights reducing because they weren't particularly aware of how what they had in the first place.
 
-(You can see how this is me just spouting a lot of things but not necessarily explaining or linking back to anything, which is the stage the post in stuck right now.)
+(You can see how this is me just spouting a lot of things but not necessarily explaining or linking back to anything, which is the stage the post is stuck in right now.)
 
-But anyway, this shows how the average Indian worker already has very little time. Now, imagine the reaction this population would have to their long grocery trips being reduced by quick commerce. How their inability to spend time on long-form content help them turn to Reels. How their lack of companionship will make them turn to internet pornography and cam apps. That's the part that led me to title this, "The Pursuit of Impatience".
+But anyway, this shows how the average Indian worker already has very little time. Now, imagine the reaction this population would have to their long grocery trips being reduced by quick commerce. How their inability to spend time on long-form content would help them turn to Reels. How their lack of companionship will make them turn to internet pornography and cam apps. That's the part that led me to title this, "The Pursuit of Impatience".
 
 Interesting, eh? It's interesting to me at least. Writing all this out might have motivated me to work on it again.
 
@@ -93,21 +93,21 @@ Just thought I'd leave something positive in here. :)
 
 I blogged about the [formation, motives, and protest of the Cockroaches](/blog/a-prayer-for-the-cockroaches) right before their big march to the Parliament ([the Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march)).
 
-The protesters went through some intense struggle throughout that week. Police brutality everywhere, people being harassed and real pellet shots hurting some people. Mainstream media kept masking and diverting from the significance of the event, while independent journalists set foot on-ground and experienced the brutality alongside the students.
+The protesters went through some intense struggle throughout that week. Police brutality everywhere, people being harassed and real pellet shots hurting some protesters. Mainstream media kept masking and diverting from the significance of the event, while independent journalists set foot on-ground and experienced the brutality alongside the students.
 
 (You can see one of the main problems I have here is linking to everything I'm saying, which is an ordeal by itself.)
 
 Ultimately, their chorus _did_ meet victory. The Education Minister resigned and people rejoiced. But as more time passes since the event, the more my feelings change about what I want to write for it.
 
 1. The replacement for the Education Minister doesn't have a great track record (if anything, it's "considered worse").
-2. The [CJP](https://cockroachjantaparty.org), after gaining support from literally lakhs of youngsters from the country, _still_ works with AI-generated websites and artwork.
+2. The [CJP](https://cockroachjantaparty.org), after gaining support from literally lakhs of youngsters from the country, _still_ works with AI-generated websites and artwork. It's like they don't think dissent artwork would be helpful.
 3. The CJP spent a long time behind the chant of _"Dharmendra Pradhan Resign Karo"_, and now that they have completed that objective they haven't really been able to divert that force to their other agendas.
 
-There's not much more I would want to leave on this post about something I would like to leave behind, but I would suggest you to watch the coverage by [UNFILTERED by Samdish Bhatia](https://www.youtube.com/@UNFILTEREDbySamdish). I love this guy.
+There's not much more I would want to leave on this post about something that's increasingly in the past, but I would suggest you to watch the coverage by [UNFILTERED by Samdish Bhatia](https://www.youtube.com/@UNFILTEREDbySamdish). I love their work.
 
 ---
 
-With that, I will take your leave. Doing this has definitely made me feel more _in motion_, so you might see some of these topics surface in individual blogposts soon&trade;.
+With that, I will take your leave. Doing this has made me feel more _in motion_, so you might see some of these topics surface in individual blogposts soon&trade;.
 
 This definitely felt like one of those YouTube videos where people make a compilation of all the different things they wanted to make videos on but couldn't for various reasons.
 
