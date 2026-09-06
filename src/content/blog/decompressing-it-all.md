@@ -55,7 +55,7 @@ The main feeling I have for this right now is as follows.
 >
 > A lot of our innovation and growth as a species, I feel, has come from the fact that we have grandparents. We are one of the few species that live long enough to see our second-generation descendant, talk to them and help our own children parent <u>their</u> children.
 >
-> Our grandparents grew up witnessing the "Colour TV" and the "Brick Telephones". They have since witnessed portable compute, instant communication and social media -- all in one lifetime. There has **not** been enough time for them to catch up to it all, and they are most likely to suffer from the bad side of all the tech. It's our job to protect the ones that raised us and our parents.
+> Our grandparents grew up witnessing the "Colour TV" and the "Brick Telephones". They have since witnessed portable compute, instant communication and social media -- all in one lifetime. There has <u>not</u> been enough time for them to catch up to it all, and they are most likely to suffer from the bad side of all the tech. It's our job to protect the ones that raised us and our parents.
 
 I have this thing where I'm not as concerned about me being hurt, as I am about my loved ones being hurt. The feeling I have right now is probably an extension of that, where I was comfortable with the balance I achieved in my privacy and online safety, but am rageful when the same Algorithm tries to manipulate my family.
 
@@ -75,7 +75,7 @@ There is a lot of content on the draft right now (without a real motive), but th
 
 The average worker in India, a desk job or otherwise, is spending 8-12 hours slogging there. Paired with bad infrastructure, most of their time outside of that goes into travelling between home and work. When they finally reach home and can rest, there is _not_ enough time to think about the socioeconomic status of the country.
 
-These people, who have already faced hell throughout the day, will most likely do anything that can ease their life outside of it. They give away their Aadhaar card and other sensitive information because they can't worry about its implications. They are apathetic to their rights reducing because they aren't particularly aware of how what they had in the first place.
+These people, who have already faced hell throughout the day, will most likely do anything that can ease their life outside of it. They give away their Aadhaar card and other sensitive information because they can't worry about its implications. They are apathetic to their rights reducing because they weren't particularly aware of how what they had in the first place.
 
 (You can see how this is me just spouting a lot of things but not necessarily explaining or linking back to anything, which is the stage the post in stuck right now.)
 
