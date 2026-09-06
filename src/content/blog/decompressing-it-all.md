@@ -45,7 +45,7 @@ Let me paraphrase an ad that a grandparent in the extended family received, when
   Your PDF app is not up-to-date! This can cause harm to your device and slow it down. To fix this issue, click on the link below to download the latest update and read PDF files smoothly.
 </div>
 
-So, uh, _what the hell_?
+So... _what the hell_?
 
 I don't have much else on this post right now, because I experienced this just a couple weeks after my initial draft on helping my grandparents with their Algorithm. But why are we _allowing_ these ads to be shown to our grandparents? People who are the technologically inexperienced and are most likely to be scammed?
 
@@ -53,9 +53,9 @@ The main feeling I have for this right now is as follows.
 
 > We have spent a lot of time and attention in protecting our children from the harmful sections of the Internet. Parental supervision is an ever-present component of social media apps. There's a separate "YouTube for Kids" app that is entirely focused on limiting the extreme content a child might see. _Why are we not doing something similar for our grandparents?_
 >
-> A lot of our innovation and growth as a species, I feel, has come from the fact that we have grandparents. We are one of the few species that live long enough to see our second-generation descendant, talk to them and help our own children parent **their** children.
+> A lot of our innovation and growth as a species, I feel, has come from the fact that we have grandparents. We are one of the few species that live long enough to see our second-generation descendant, talk to them and help our own children parent <u>their</u> children.
 >
-> These people grew up witnessing the "Colour TV" and the "Brick Telephones". Technology has advanced way too fast for them. They are most likely to take certain components of technology too seriously, and we should be the ones protecting them from the harms of tech.
+> Our grandparents grew up witnessing the "Colour TV" and the "Brick Telephones". They have since witnessed portable compute, instant communication and social media -- all in one lifetime. There has **not** been enough time for them to catch up to it all, and they are most likely to suffer from the bad side of all the tech. It's our job to protect the ones that raised us and our parents.
 
 I have this thing where I'm not as concerned about me being hurt, as I am about my loved ones being hurt. The feeling I have right now is probably an extension of that, where I was comfortable with the balance I achieved in my privacy and online safety, but am rageful when the same Algorithm tries to manipulate my family.
 
@@ -75,7 +75,7 @@ There is a lot of content on the draft right now (without a real motive), but th
 
 The average worker in India, a desk job or otherwise, is spending 8-12 hours slogging there. Paired with bad infrastructure, most of their time outside of that goes into travelling between home and work. When they finally reach home and can rest, there is _not_ enough time to think about the socioeconomic status of the country.
 
-These people, who have already faced hell throughout the day, will most likely do anything that can ease their life outside of it. They give away their Aadhaar card and other sensitive information because they can't worry about its implications. They are apathetic to their rights reducing because they aren't particularly of how they affected them in the first place.
+These people, who have already faced hell throughout the day, will most likely do anything that can ease their life outside of it. They give away their Aadhaar card and other sensitive information because they can't worry about its implications. They are apathetic to their rights reducing because they aren't particularly aware of how what they had in the first place.
 
 (You can see how this is me just spouting a lot of things but not necessarily explaining or linking back to anything, which is the stage the post in stuck right now.)
 
