@@ -9,6 +9,8 @@ Funnily enough, after [the last time I documented "thank-you replies"](/blog/tha
 
 So behold, some more examples that I've noticed since the last post.
 
-### Exhibit E: CABS
+### Exhibit E: Security _Bhaiya_
 
-How did I even forget about them? Every time I'm leaving a cab
+For some reason, when people are leaving the office at the end of the day, the security _bhaiya_ says "thank you" to them. I assume it's for a committed day at work. I, when thanked, reply with "thank you" for their work as well.
+
+### Exhibit F: _Not_ Cabs
