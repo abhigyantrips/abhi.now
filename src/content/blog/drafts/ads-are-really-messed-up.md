@@ -5,7 +5,7 @@ date: 2026-08-31
 published: false
 ---
 
-Let me share with you an example of an ad my grandparents received, while searching for and playing a normal video on YouTube.
+Let me paraphrase an ad that a grandparent in the extended family received, when opening a YouTube video on their phone.
 
 <div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted) italic">
   Your PDF app is not up-to-date! This can cause harm to your device and slow it down. To fix this issue, click on the link below to download the latest update and read PDF files smoothly.
