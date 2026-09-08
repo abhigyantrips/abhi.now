@@ -5,15 +5,21 @@ date: 2026-08-12
 published: false
 ---
 
-> This is a continuation of the events that I recorded in my previous post about the protest against NEET Paper Leaks, titled "[A Prayer for the Cockroaches](/blog/a-prayer-for-the-cockroaches)".
+### Foreword
+
+This is a continuation of the events that I recorded in my previous post about the protest against NEET Paper Leaks, titled "[A Prayer for the Cockroaches](/blog/a-prayer-for-the-cockroaches)".
+
+I was originally going to publish this in the same week as the [Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march), where they ended the week with achieving their objective of the resignation of the Union Education Minister. But the situation constantly kept moving, and I kept delaying the post until I could find some sort of narrative conclusion.
+
+Here we are now, over a month after the original "victory".
+
+### Timeline
 
 The day of the [Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march) started early. The protesters and the police prepared in tandem; the former getting ready for a long march while the latter armed themselves with batons and barricades.
 
 Abhijeet Dipke had started an indefinite hunger strike on Wangchuk Ji's capture, but broke the fast on the plea of a NEET aspirant's father. I believe he had a newfound determination that day; something he would definitely need for what was to come.
 
 The protesters would shout
-
-### Timeline
 
 - [ ] vande mataram at stage
 

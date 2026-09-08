@@ -10,6 +10,7 @@ export async function getStaticPaths() {
 		return {
 			params: { year, week },
 			props: { note },
+			cacheKey: String(note.digest),
 		};
 	});
 }

@@ -9,6 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 import rehypeFigure from "@microflash/rehype-figure";
 
+import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
@@ -37,7 +38,9 @@ export default defineConfig({
 	integrations: [sitemap(), mdx()],
 
 	markdown: {
-		rehypePlugins: [rehypeFigure],
+		processor: unified({
+			rehypePlugins: [rehypeFigure],
+		}),
 	},
 
 	vite: {
