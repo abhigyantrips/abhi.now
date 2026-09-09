@@ -21,7 +21,7 @@ const MONTH_COLORS = {
 		"#56B6C2", // may - teal
 		"#61AFEF", // jun - sky
 		"#528BFF", // jul - blue
-		"#7C6FE1", // aug - indigo
+		"#8B7FE9", // aug - indigo
 		"#C678DD", // sep - purple
 		"#E06CB0", // oct - magenta
 		"#D16969", // nov - coral
