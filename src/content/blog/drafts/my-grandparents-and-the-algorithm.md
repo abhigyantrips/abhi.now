@@ -25,7 +25,7 @@ To <abbr title="My mom's mom.">_Mummy_</abbr> and <abbr title="My mom's dad.">_N
 
 ### Toning It Down
 
-Something beautiful to note about the Algorithm is that Meta has very little control over it. Every single setting for tuning your content recommendation is obscure with the hope that you don't use an "Off" button against them.
+Something beautiful to note about the Algorithm is that Meta has very little control over it (or atleast they seem to). Every single setting for tuning your content recommendation is obscure with the hope that you don't use an "Off" button against them.
 
 You don't want to see anything political anymore? Too bad, the best we can do is _stop_ suggesting it. What's the difference between us suggesting something and an unknown post appearing in your feed? Who knows! Both of them are _not_ from the people you follow.
 

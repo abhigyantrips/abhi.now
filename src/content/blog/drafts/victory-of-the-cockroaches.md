@@ -11,11 +11,13 @@ This is a continuation of the events that I recorded in my previous post about t
 
 I was originally going to publish this in the same week as the [Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march), where they ended the week with achieving their objective of the resignation of the Union Education Minister. But the situation constantly kept moving, and I kept delaying the post until I could find some sort of narrative conclusion.
 
-Here we are now, over a month after the original "victory".
+Here we are now, over a month after the original "victory". It might be emotionally better to _not_ bring up the events from the protest, but after the previous post I feel like I have an obligation to cover my perspective of the events since then.
 
-### Timeline
+So here's my recollection of the bad and the ugly, along with the good and the possible future that came out of it.
 
-The day of the [Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march) started early. The protesters and the police prepared in tandem; the former getting ready for a long march while the latter armed themselves with batons and barricades.
+### The Timeline
+
+The day of the [Sansad](https://en.wikipedia.org/wiki/Sansad_Chalo_march) started early. The protesters and the police prepared in tandem; the former getting ready for a long march while the latter armed themselves with batons and barricades. The journalists assembled their equipment and the \_\_\_. One could imagine the anticipation in the air.
 
 Abhijeet Dipke had started an indefinite hunger strike on Wangchuk Ji's capture, but broke the fast on the plea of a NEET aspirant's father. I believe he had a newfound determination that day; something he would definitely need for what was to come.
 
@@ -120,6 +122,8 @@ After its founding by Abhijeet Dipke, the movement appointed Saurav Das, Vijeta 
 - the resignation letter
   - lack of any mention of the movement
   - instead mentioning "anti-national forces"
+
+I think the real impact wasn't the end goal of the replacement, but the subliminal message that was set out for the rest of the country. A message that said something like, "Look! You _can_ fight for your rights. It won't be fair or quick -- not unlike anything in our current system -- but you _can_ raise your voice. You _can_ strive for the Bharat we dream of."
 
 ### The Replacement
 
