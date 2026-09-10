@@ -8,6 +8,7 @@ export async function getStaticPaths() {
 	return projects.map((project) => ({
 		params: { id: project.id },
 		props: { project },
+		cacheKey: String(project.digest)
 	}));
 }
 

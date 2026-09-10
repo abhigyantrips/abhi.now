@@ -7,9 +7,9 @@ import sitemap from "@astrojs/sitemap";
 
 import tailwindcss from "@tailwindcss/vite";
 
-import rehypeFigure from "@microflash/rehype-figure";
+import { satteri } from "@astrojs/markdown-satteri";
+import satteriFigure from "satteri-figure";
 
-import { unified } from "@astrojs/markdown-remark";
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
@@ -38,8 +38,8 @@ export default defineConfig({
 	integrations: [sitemap(), mdx()],
 
 	markdown: {
-		processor: unified({
-			rehypePlugins: [rehypeFigure],
+		processor: satteri({
+			hastPlugins: [satteriFigure],
 		}),
 	},
 
