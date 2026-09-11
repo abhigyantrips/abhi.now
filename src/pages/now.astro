@@ -18,7 +18,6 @@ const weeknotesSince = weeknotes.filter(
 
 <PageLayout route="/now">
 	<article class="prose-content">
-		<span><strong>Last Updated:</strong> {latestEntry.data.date.toLocaleString("en-IN")}</span>
 		{
 			latestEntry.data.heroImage && (
 				<Image
@@ -28,6 +27,7 @@ const weeknotesSince = weeknotes.filter(
 				/>
 			)
 		}
+		<span><strong>Last Updated:</strong> {latestEntry.data.date.toLocaleString("en-IN")}</span>
 		<Content />
 		<div class="flex items-baseline justify-between">
 			<h2>weeknotes since.</h2>
@@ -54,7 +54,10 @@ const weeknotesSince = weeknotes.filter(
 			{
 				entries.length > 1 ? (
 					entries.slice(1, 4).map((entry) => (
-						<a href={`/before/${entry.id}`} class="group relative block overflow-hidden rounded-lg">
+						<a
+							href={`/before/${entry.id}`}
+							class="group relative block overflow-hidden rounded-lg"
+						>
 							{entry.data.heroImage ? (
 								<Image
 									src={entry.data.heroImage}
