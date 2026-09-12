@@ -42,9 +42,9 @@ const tags = await getEntries(post.data.tags || []);
 				tags.map((tag) => (
 					<abbr
 						title={tag.data.description}
-						class="p-category cursor-help rounded bg-(--color-text-muted)/20 px-2 py-1 text-xs text-(--color-text-muted) no-underline"
+						class="p-category cursor-help rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text)/75 no-underline transition-colors duration-150"
 					>
-						{tag.data.name}
+						#{tag.id}
 					</abbr>
 				))
 			}
