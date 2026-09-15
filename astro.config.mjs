@@ -8,6 +8,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 import { satteri } from "@astrojs/markdown-satteri";
+
+import satteriAutolinkParagraphs from "satteri-autolink-paragraphs";
 import satteriFigure from "satteri-figure";
 
 import mdx from "@astrojs/mdx";
@@ -39,7 +41,18 @@ export default defineConfig({
 
 	markdown: {
 		processor: satteri({
-			hastPlugins: [satteriFigure],
+			features: { smartPunctuation: true },
+			hastPlugins: [
+				satteriFigure,
+				satteriAutolinkParagraphs({
+					paragraphProperties: {
+						className: ["group"],
+					},
+					properties: {
+						className: ["invisible group-hover:visible no-underline text-(--color-text)/50"],
+					},
+				}),
+			],
 		}),
 	},
 

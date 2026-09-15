@@ -18,7 +18,8 @@
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.1",
-    "satteri-figure": "^0.0.1",
+    "satteri-autolink-paragraphs": "^0.3.0",
+    "satteri-figure": "^0.2.0",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

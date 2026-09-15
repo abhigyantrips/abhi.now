@@ -29,9 +29,12 @@ importers:
       astro:
         specifier: ^7.3.1
         version: 7.3.1(@astrojs/markdown-remark@7.3.0)(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@25.2.1)(jiti@2.7.0)
+      satteri-autolink-paragraphs:
+        specifier: ^0.3.0
+        version: 0.3.0(satteri@0.10.5)
       satteri-figure:
-        specifier: ^0.0.1
-        version: 0.0.1(satteri@0.10.5)
+        specifier: ^0.2.0
+        version: 0.2.0(satteri@0.10.5)
       tailwindcss:
         specifier: ^4.1.18
         version: 4.1.18
@@ -2121,8 +2124,13 @@ packages:
   sass-formatter@0.7.9:
     resolution: {integrity: sha512-CWZ8XiSim+fJVG0cFLStwDvft1VI7uvXdCNJYXhDvowiv+DsbD1nXLiQ4zrE5UBvj5DWZJ93cwN0NX5PMsr1Pw==}
 
-  satteri-figure@0.0.1:
-    resolution: {integrity: sha512-UarZGq+oq63tsZ8zL1SPoqn0O+tt+vCEXzfHQ5rWrvVTkh5c6Cr58Rz+QlcfNqrzYBJN8Xxp0KsifLUu641VIg==}
+  satteri-autolink-paragraphs@0.3.0:
+    resolution: {integrity: sha512-BM1/hsZ+u64JGnLMnKplnC6YASVBf2F/MVxIfQWbpPnK+7Yv7M5KBpuO+r3b43CHhBBraw4S1IKVySkm8iWetg==}
+    peerDependencies:
+      satteri: ^0.10.5
+
+  satteri-figure@0.2.0:
+    resolution: {integrity: sha512-AjHIwxu9RMecHHYfFJf3HxQVYKsLAH3nlHDe9YKUtLV9xE8cH5Z8yMSyOy7eEUnOk4VWiui0d6oGce5iKSPzBA==}
     peerDependencies:
       satteri: ^0.10.5
 
@@ -4881,7 +4889,11 @@ snapshots:
     dependencies:
       suf-log: 2.5.3
 
-  satteri-figure@0.0.1(satteri@0.10.5):
+  satteri-autolink-paragraphs@0.3.0(satteri@0.10.5):
+    dependencies:
+      satteri: 0.10.5
+
+  satteri-figure@0.2.0(satteri@0.10.5):
     dependencies:
       satteri: 0.10.5
 
