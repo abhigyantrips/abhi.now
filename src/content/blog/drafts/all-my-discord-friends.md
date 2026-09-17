@@ -1,7 +1,7 @@
 ---
-title: To, My First Online Home
+title: All My Discord Friends
 description: Recalling.
-date: 2026-09-10
+date: 2026-09-17
 tags:
   - indie-web-club
 published: false
@@ -11,13 +11,15 @@ Discord gave a home to all my niche interests in school.
 
 Now by "niche", I'm not referring to my 7th Grade self as cool or quirky by any means. But I recall it being difficult for me to find a community around a lot of my hobbies in real life. I had this superpower to choose things not many people were interested in; maybe a therapist has something to decode there.
 
-But anyway, every one of these interests had a home on the Internet, and every one of them had social communities built around them on Discord. Today, I want to recall a little glimpse of all the different experiences I had on Discord, that made me a veteran keyboard warrior.
+But anyway, every one of these interests had a home on the Internet, and every one of them had social communities built around them on Discord. Today, I want to recall a little glimpse of all the different experiences I had on Discord that made me a veteran keyboard warrior.
 
 ### Speedcubing
 
 Speedcubing refers to solving a Rubik's cube really really fast. So fast, that the current Guinness World Record for it (yes, there are World Records) is **2.76 seconds**. I don't think I was aiming for the World Record back then, but I was still trying to be really fast to be able to show-off in school.
 
 It was cool the first couple years, where people timed me solving in the school bus and would come to me in class ask how to solve it. We had a school fair in 6th Grade, where we held a collection of mini-games including solving a Rubik's cube. When a parent questioned whether it could really be solved in 30 seconds, my class brought me forth to prove it. That was the first time I solved it in 29 seconds.
+
+Over time, more people learned to solve it in school. This was cool because I could now compete against people and improve even further. But at some point the craze started to die out. This is when
 
 ### Bug Testing
 
