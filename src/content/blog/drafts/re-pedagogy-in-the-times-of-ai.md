@@ -31,31 +31,41 @@ I've marked out paraphrased quotes that stood out to me, that I feel like respon
 
 ---
 
-### What would the economy be based around? (Economic)
+What would the economy be based around? (Economic)
 
-### Who controls intelligence? Who receives abundance? (Political)
+Who controls intelligence? Who receives abundance? (Political)
 
-### Hierarchies of skill, knowledge, merit (Social)
+Hierarchies of skill, knowledge, merit (Social)
 
-### "Why do we need universities?" (Institutional)
+"Why do we need universities?" (Institutional)
 
-### AI as the Teacher (Pedagogical)
+AI as the Teacher (Pedagogical)
 
-### "Who are we without physical/mental labour?" (Existential)
+"Who are we without physical/mental labour?" (Existential)
 
 Here we go.
 
+### What would the economy be based around?
+
+The professor starts with a broader question than the impact on education.
+
 <h4 class="w-4/5 mx-auto italic text-center pb-4">"What do you think will happen if intelligence is commoditized?"</h4>
 
-The professor outlines how the modern-day economy is built around intelligence. There has been a semblance of a level playing field due to this idea of meritocracy; acquiring knowledge would need effort and time, a currency built through consistency and hard work.
+He outlines how the modern-day economy is built around intelligence. There has been a semblance of a level playing field due to this idea of meritocracy; acquiring knowledge would need effort and time, a currency built through consistency and hard work.
 
 <h4 class="w-4/5 mx-auto italic text-center pb-4">"We had a way to create hierarchy in society based on skill.<br>Take that away from humans, now what?"</h4>
 
-I would actually like to learn the answer to this myself. If intelligence _does_ become ubiquitous, what will we find as our new center of hierarchy? I do think there will still be one; we have always used that which is scarce to compare and classify people.
+I would actually like to learn the answer to this myself. If intelligence _does_ become ubiquitous, what will we find as our new center of hierarchy? I do think there will still be one; we have always used that which is different to compare and classify people, both positively and negatively. I'll discuss the political side later.
 
 My counter-point here though is that it _isn't_ ubiquitous yet. There's still value to being an expert, a veteran of your field. Take your own example from the past, professor.
 
-<h4 class="w-4/5 mx-auto italic text-justify pb-4">"When I started teaching first at IIT Delhi, I used to watch a lot of videos (from MIT OpenCourseWare, Stanford, etc.) and read a lot of books. Every 1-hour class would take 15-16 hours of preperation.<br>Now, if I want to study something, it's always Claude. I have a very well-defined system prompt for my needs, and I find it pretty good."</h4>
+<h4 class="w-4/5 mx-auto italic text-justify pb-4">"When I started teaching first at IIT Delhi, I used to watch a lot of videos (from MIT OpenCourseWare, Stanford, etc.) and read a lot of books. Every 1-hour class would take 15-16 hours of preperation..."</h4>
+
+You built your knowledge based on the work of giants, people who dedicated their entire life to very pinpoint questions (and a lot of the times, didn't get the complete answer). Humans have worked like that for a long time.
+
+I will not claim to know more than you about Machine Learning [for] [obvious] [reasons]. But from the little I do know, LLM's as statistical models depend a lot on the data they train from. Data that was written meticulously by experts,
+
+#### Everything Else
 
 You know, I have seen a lot of people go up in "the hierarchy" without meeting the corresponding requirement of merit. So I think that system has been broken for a while anyway. Or you could instead say that the skill set they were developing was a... different one.
 
@@ -89,6 +99,8 @@ You know, I have seen a lot of people go up in "the hierarchy" without meeting t
 <h4 class="w-4/5 mx-auto italic text-center pb-4">"Philosophically, I can't find evidence to say that you perceive pain. If that's the case, then how can I extrapolate that idea to a machine?"</h4>
 
 I don't really know what to do with this information, sir. So I'll just leave it alone for now.
+
+<h4 class="w-4/5 mx-auto italic text-justify pb-4">"When I started teaching first at IIT Delhi, I used to watch a lot of videos (from MIT OpenCourseWare, Stanford, etc.) and read a lot of books. Every 1-hour class would take 15-16 hours of preperation.<br>Now, if I want to study something, it's always Claude. I have a very well-defined system prompt for my needs, and I find it pretty good."</h4>
 
 - "my immediate problem is what do i educate my children with, what do i tell them?"
 - "genuine question, why do you guys come and sit here in this class?"
