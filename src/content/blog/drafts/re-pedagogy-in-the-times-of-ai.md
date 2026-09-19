@@ -1,7 +1,7 @@
 ---
 title: 'Re: "Pedagogy in the Times of AI"'
 description: Responding to "the most viewed NPTEL video ever".
-date: 2026-09-18
+date: 2026-09-19
 published: false
 ---
 
@@ -81,19 +81,19 @@ You know, I have seen a lot of people go up in "the hierarchy" without meeting t
   - "why do universities keep running?"
   - (in regards to solving the big/critical problems) "where does the capital come from? and then is there really a need for this many of us?"
   - "with you guys as students, if you are seeking a job, just forget about it _laughs_"
+- "is there any point to even teaching this class?"
+- "so why do you people come and sit here in a real classroom?"
+  - students answer placements, attendance, etc.
+- "people say that looking at other people do stuff motivates them to do stuff. maybe that's the kind of place that university would become."
 
 <h4 class="w-4/5 mx-auto italic text-center pb-4">"Philosophically, I can't find evidence to say that you perceive pain. If that's the case, then how can I extrapolate that idea to a machine?"</h4>
 
 I don't really know what to do with this information, sir. So I'll just leave it alone for now.
 
-- "is there any point to even teaching this class?"
 - "my immediate problem is what do i educate my children with, what do i tell them?"
-
 - "genuine question, why do you guys come and sit here in this class?"
   - "why not sit down with GPT or claude, and come here?"
   - "why do you seek human beings now?"
-  - "so why do you people come and sit here in a real classroom?"
-    - students answer placements, attendance, etc.
   - "can't you do all this with an LLM?"
   - "if tomorrow, no one comes here and sits in class, do i still continue what i am doing?"
   - "the hope that whoever is delivering the content is going to give us more than what's there in the textbook, that's no longer the case."
@@ -103,7 +103,6 @@ I don't really know what to do with this information, sir. So I'll just leave it
 - "if you were a teacher in IIT, and had to administer a course like this, what would you do?"
 - "in a scenario where learning comes down to a singular question for a long period of time (like 'how to bring a transformer down to sublinear time), how do you teach or learn? do you assume the student already knows the terminology? will they already have all the required tools in their hands? will we still have 90-minute classes?"
 - "my aim so far as a professor has been to build competency, so that the details/terminology are not as important as the actual implementation of them. but my question is, is that valuable anymore? do you really need to build discipline?"
-- "people say that looking at other people do stuff motivates them to do stuff. maybe that's the kind of place that university would become."
 - "two years ago, this information couldn't have been learned outside the class (referring to the machine learning course). someone had to accumulate it and then administer it. but now even that problem is solved. so what value to be bring here?"
 - 45 minutes in, "as a directed question to students, who are stakeholders in this entire exercise, what's valuable to you in a classroom-like setting?"
   - "if you're not catering to the needs of the people who come and sit here, what's the point of pedagogy and of holding a university?"
