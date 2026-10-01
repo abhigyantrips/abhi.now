@@ -65,7 +65,7 @@ export default defineConfig({
 					},
 					properties: {
 						className: [
-							"hidden md:block invisible group-hover:visible no-underline text-(--color-text)/50",
+							"hidden md:inline invisible group-hover:visible no-underline text-(--color-text)/50",
 						],
 					},
 				}),
