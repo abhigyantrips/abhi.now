@@ -14,6 +14,18 @@ import satteriFigure from "satteri-figure";
 
 import mdx from "@astrojs/mdx";
 
+// Sätteri's Smartypants handles my en dashes correctly, but they look
+// the same as normal dashes on Sour Gummy. So this thing handles converting
+// them into em dashes.
+const enDashConversion = {
+	name: "en-dash-conversion",
+	text(node, ctx) {
+		if (node.value.includes("--")) {
+			ctx.setProperty(node, "value", node.value.replaceAll("--", "—"));
+		}
+	},
+};
+
 // https://astro.build/config
 export default defineConfig({
 	site: import.meta.env.DEV ? "http://localhost:4321" : "https://abhi.now",
@@ -41,7 +53,10 @@ export default defineConfig({
 
 	markdown: {
 		processor: satteri({
-			features: { smartPunctuation: true },
+			features: {
+				smartPunctuation: { dashes: false },
+			},
+			mdastPlugins: [enDashConversion],
 			hastPlugins: [
 				satteriFigure,
 				satteriAutolinkParagraphs({

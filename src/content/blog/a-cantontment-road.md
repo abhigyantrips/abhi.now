@@ -4,7 +4,7 @@ description: A place that only seems to exist in my head, though I can't place w
 date: 2026-09-18
 ---
 
-There's a place I go to in my head sometimes. An empty, curving road. It has those blinking red lights running along its center, the way roads in Army Cantonments have. I can also feel I'm in an Army Cantt., though I can't tell which one. It could be Shankar Vihar or Jalandhar or anywhere else. The streetlamps are those old ones with bulbous heads, except the yellow halogen lamps have been switched out for cold, white ones.
+There's a place I go to in my head sometimes. An empty, curving road. It has those blinking red lights running along its center, the way roads in Army Cantonments have. I can also _feel_ I'm in an Army Cantt., though I can't tell which one. It could be Shankar Vihar or Jalandhar or anywhere else. The streetlamps are those old ones with bulbous heads, except the yellow halogen lamps have been switched out for cold, white ones.
 
 The place is stuck in nighttime. You can hear all the different bugs you usually do on a cold night like this, with only grass (or maybe trees) on either side of the road. I can imagine myself wearing my thin white windcheater, standing on the road. I never move, never walk. I just watch the road and the lamp and the blinking lights.
 
