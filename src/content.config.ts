@@ -17,8 +17,8 @@ const before = defineCollection({
 			const epochMatch = id.match(/^(\d{10})$/);
 			if (epochMatch) {
 				const epoch = parseInt(epochMatch[1], 10);
-				// Convert to local timezone string
-				data.date = new Date(epoch * 1000).toLocaleString();
+				// Preserve the timestamp independently of the build machine's timezone.
+				data.date = new Date(epoch * 1000).toISOString();
 			} else {
 				// fallback: try ISO date or default
 				data.date = id.match(/(\d{4}-\d{2}-\d{2})/)?.[0] ?? new Date().toString();
@@ -202,8 +202,8 @@ const snippets = defineCollection({
 			const epochMatch = id.match(/^(\d{10})$/);
 			if (epochMatch) {
 				const epoch = parseInt(epochMatch[1], 10);
-				// Convert to local timezone string
-				data.date = new Date(epoch * 1000).toLocaleString();
+				// Preserve the timestamp independently of the build machine's timezone.
+				data.date = new Date(epoch * 1000).toISOString();
 			} else {
 				// fallback: try ISO date or default
 				data.date = id.match(/(\d{4}-\d{2}-\d{2})/)?.[0] ?? new Date().toString();

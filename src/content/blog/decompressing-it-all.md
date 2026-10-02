@@ -12,7 +12,7 @@ So this is me expelling all the little bits of thoughts and information I've col
 
 ### Grandparents
 
-I [recently went home](/weeknotes/32) to spend time with my family [before I started working](/weeknotes/34). This was around the same time that [the NEET protest](https://en.wikipedia.org/wiki/2026_Delhi_Jantar_Mantar_protests) was wrapping up. I remember my mom telling me that there had been some heated discussions with my grandparents on the topic, with a lot of their opinions being based on news that was already declared incorrect or fake.
+I [recently went home](/weeknotes/2026/32) to spend time with my family [before I started working](/weeknotes/2026/34). This was around the same time that [the NEET protest](https://en.wikipedia.org/wiki/2026_Delhi_Jantar_Mantar_protests) was wrapping up. I remember my mom telling me that there had been some heated discussions with my grandparents on the topic, with a lot of their opinions being based on news that was already declared incorrect or fake.
 
 One of the first things I did after being home (and something I'd been planning to do for a while) was check my grandparents' Facebook/Instagram feeds. That was, as I anticipated, the source.
 

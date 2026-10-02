@@ -17,7 +17,7 @@ export async function GET(context: APIContext) {
 				title: post.data.title,
 				description: post.data.description,
 				pubDate: post.data.date,
-				link: `/snippets/#${post.id}/`,
+				link: `/snippets/#${post.id}`,
 				content: await renderEntryContent(post, new URL(site)),
 			}))
 		),
