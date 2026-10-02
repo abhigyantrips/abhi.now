@@ -13,8 +13,11 @@ entries = entries.sort((a, b) => {
 
 // Helper function to format date
 function formatDate(date: Date) {
-	return date.toLocaleDateString("en-CA", {
+	return date.toLocaleDateString("en-DB", {
 		timeZone: "Asia/Kolkata",
+		day: "numeric",
+		month: "long",
+		year: "numeric",
 	});
 }
 
@@ -57,7 +60,7 @@ function formatTime(date: Date) {
 									{timeStr}
 								</time>
 								<a
-									class="p-name cursor-pointer px-2 py-1 text-(--color-text-muted) decoration-2 underline-offset-3 hover:underline"
+									class="p-name cursor-pointer px-2 pt-2 pb-1 text-sm text-(--color-text-muted) decoration-2 underline-offset-3 hover:underline"
 									href={`/snippets/#${post.id}`}
 								>
 									#{post.data.title || post.id}
