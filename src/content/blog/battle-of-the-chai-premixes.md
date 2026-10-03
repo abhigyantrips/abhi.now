@@ -88,12 +88,12 @@ I, once again, accidentally got the low sugar variant here and wasn't happy with
 
 ---
 
-I was having chai on the balcony for this last one, grimacing at the taste. I was just waiting for the mug to finish when one of my neighbours dropped in and we started chatting. It was normal stuff about work and weekends, but I noticed over time that the chai tasting better. That was interesting.
+I was having chai on the balcony for this last one, grimacing at the taste. I was just waiting for the mug to finish when one of my neighbours dropped in and we started chatting. It was normal stuff about work and weekends, but I noticed that the chai started tasting better over the course of the conversation. That was interesting.
 
-I don't want to end this post on a cheesy "the real good chai was the friends we made along the way," though. So I'll instead be a kid and just declare an objective winner that I prefer personally.
+I don't want to end this post on a cheesy "the real good chai was the friends we made along the way," though. So I'll instead be childish and just declare an objective winner that I prefer personally.
 
 That winner for me, in this post, is **Namaste Chai**. Remember how I was foreshadowing that I don't want to set high expectations for the rest of the premixes? It looks like I did. And I'm fine with the slightly higher sugar content I think, because the chai is good enough that I feel satisfied and don't crave another one for a while. So that's that.
 
 I'll continue to experiment with newer ones from time to time though. For example, none of the premixes mentioned here were dairy-free, so I'm keen to look for something in that department. None of these are a replacement for chai by any means, and some of them are probably even using artificial colours to _look_ like chai. But the sloppy imitation will suffice for now.
 
-> By the way, this draft started originally on 31st May, 2026. So it has been in the works for a loong time. Very glad I finally published this, and this post is dedicated to all the people I have been telling about this post for weeks. :)
+> By the way, this draft started originally on 31st May, 2026. So it has been in the works for a loong time. Very glad I finally published, and this post is dedicated to all the people I have been telling about "this thing I'm doing" for weeks. :)
