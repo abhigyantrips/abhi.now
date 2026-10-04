@@ -1,7 +1,7 @@
 ---
-title: All My Discord Friends
+title: Discord, My Third Place in School
 description: Recalling.
-date: 2026-09-17
+date: 2026-10-04
 tags:
   - indie-web-club
 published: false
