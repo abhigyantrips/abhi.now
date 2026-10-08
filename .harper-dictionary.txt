@@ -31,3 +31,4 @@ fulfilled
 laung
 squircles
 weeknote
+weeknotes
