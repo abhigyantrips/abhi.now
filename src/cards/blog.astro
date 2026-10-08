@@ -1,0 +1,136 @@
+---
+import { Font } from "astro:assets";
+
+interface Props {
+	title: string;
+	description: string;
+	date: string;
+	readingTime: string;
+	openingHtml: string;
+}
+
+const { title, description, date, readingTime, openingHtml } = Astro.props;
+---
+
+<Font cssVariable="--font-gummy" />
+<div class="blog-card">
+	<div class="heading">
+		<div class="metadata">{date.toUpperCase()} · {readingTime.toUpperCase()}</div>
+		<h1>{title}</h1>
+		<p class="description">{description}</p>
+	</div>
+	<hr />
+	<div class="opening" set:html={openingHtml} />
+	<div class="fade"></div>
+</div>
+
+<style is:inline>
+	.blog-card {
+		position: relative;
+		box-sizing: border-box;
+		width: 1200px;
+		height: 630px;
+		padding: 48px 60px 0;
+		overflow: hidden;
+		background: #fffaed;
+		color: #3c3836;
+		font-family: var(--font-gummy);
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	.heading {
+		position: relative;
+		z-index: 2;
+	}
+	.metadata {
+		color: #665c54;
+		font-size: 20px;
+		line-height: 1.4;
+		margin-bottom: 8px;
+	}
+	h1 {
+		margin: 0 0 8px;
+		font-size: 48px;
+		font-weight: 600;
+		line-height: 1.15;
+	}
+	.description {
+		margin: 0;
+		color: #665c54;
+	}
+	hr {
+		margin: 24px 0 0;
+		border: 0;
+		height: 2px;
+		background: repeating-linear-gradient(
+			to right,
+			#665c5480 0px,
+			#665c5480 12px,
+			transparent 12px,
+			transparent 20px
+		);
+	}
+	.opening {
+		margin-top: 24px;
+		text-align: justify;
+	}
+	.opening p,
+	.opening pre,
+	.opening ul,
+	.opening ol {
+		margin: 0 0 20px;
+	}
+	.opening h1,
+	.opening h2,
+	.opening h3,
+	.opening h4,
+	.opening h5,
+	.opening h6 {
+		margin: 0 0 16px;
+		font-size: 30px;
+		font-weight: 600;
+		line-height: 1.3;
+		letter-spacing: 0.03em;
+	}
+	.opening blockquote {
+		margin: 0 0 20px;
+		padding-left: 24px;
+		border-left: 4px solid #3c3836;
+		color: #3c3836bf;
+		font-style: italic;
+	}
+	.opening ul,
+	.opening ol {
+		padding-left: 32px;
+	}
+	.opening li {
+		margin-bottom: 8px;
+	}
+	.opening strong {
+		font-weight: 600;
+	}
+	.opening a {
+		color: #3c3836;
+		text-decoration: underline;
+		text-decoration-color: #665c54;
+		text-underline-offset: 3px;
+	}
+	.opening code {
+		padding: 0 4px;
+		background: #3c383610;
+		font-family: var(--font-gummy);
+	}
+	.opening pre {
+		white-space: pre-wrap;
+	}
+	.fade {
+		position: absolute;
+		z-index: 1;
+		top: 340px;
+		left: 0;
+		width: 1200px;
+		height: 290px;
+		background: linear-gradient(to bottom, #fffaed00, #fffaed 90%);
+	}
+</style>

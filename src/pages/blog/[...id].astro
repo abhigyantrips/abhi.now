@@ -2,7 +2,9 @@
 import ReadingLayout from "@/layouts/reading-layout.astro";
 import { getEntries } from "astro:content";
 import { getCollection, render } from "astro:content";
-import { formatReadingTime } from "@/lib/utils";
+import { formatBlogDate, formatReadingTime } from "@/lib/utils";
+import { extractOpeningHtml } from "@/lib/blog-preview";
+import { renderCard } from "astro-cards/runtime";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog", ({ data }) =>
@@ -18,20 +20,37 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const tags = await getEntries(post.data.tags || []);
+const date = formatBlogDate(post.data.date);
+const readingTime = formatReadingTime(post.body ?? "");
+
+if (post.rendered?.html === undefined) {
+	throw new Error(
+		`Cannot generate blog preview for "${post.id}": rendered Markdown HTML is missing.`
+	);
+}
+
+const image = await renderCard("blog", {
+	title: post.data.title,
+	description: post.data.description,
+	date,
+	readingTime,
+	openingHtml: extractOpeningHtml(post.rendered.html),
+}).catch((cause: unknown) => {
+	throw new Error(
+		`Cannot render blog preview for "${post.id}". Check src/cards/blog.astro and the Sour Gummy Fonts API configuration.`,
+		{ cause }
+	);
+});
 ---
 
 <ReadingLayout
 	route="/blog"
+	image={image}
 	post={{
 		title: post.data.title,
 		description: post.data.description,
-		date: post.data.date.toLocaleString("en-DB", {
-			day: "numeric",
-			weekday: "long",
-			month: "long",
-			year: "numeric",
-		}),
-		readingTime: formatReadingTime(post.body ?? ""),
+		date,
+		readingTime,
 		url: `/blog/${post.id}`,
 	}}
 >

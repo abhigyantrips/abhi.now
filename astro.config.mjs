@@ -13,6 +13,7 @@ import satteriAutolinkParagraphs from "satteri-autolink-paragraphs";
 import satteriFigure from "satteri-figure";
 
 import mdx from "@astrojs/mdx";
+import cards from "astro-cards";
 
 // Sätteri's Smartypants handles my en dashes correctly, but they look
 // the same as normal dashes on Sour Gummy. So this thing handles converting
@@ -30,6 +31,9 @@ const enDashConversion = {
 export default defineConfig({
 	site: import.meta.env.DEV ? "http://localhost:4321" : "https://abhi.now",
 	output: "static",
+	experimental: {
+		incrementalBuild: true,
+	},
 
 	session: {
 		driver: {
@@ -46,10 +50,13 @@ export default defineConfig({
 			provider: fontProviders.fontsource(),
 			name: "Sour Gummy",
 			cssVariable: "--font-gummy",
+			weights: [400, 600],
+			styles: ["normal", "italic"],
+			formats: ["woff2"],
 		},
 	],
 
-	integrations: [sitemap(), mdx()],
+	integrations: [sitemap(), mdx(), cards({ width: 1200, height: 630, format: "png" })],
 
 	markdown: {
 		processor: satteri({

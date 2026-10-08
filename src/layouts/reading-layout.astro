@@ -10,6 +10,7 @@ import "@/styles/prose.css";
 
 type Props = {
 	route: string;
+	image?: { src: string; width: number; height: number; type: string };
 	post: {
 		title: string;
 		description: string;
@@ -19,7 +20,7 @@ type Props = {
 	};
 };
 
-const { route, post } = Astro.props;
+const { route, post, image } = Astro.props;
 
 const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 
@@ -34,6 +35,10 @@ if (!currentRoute) {
 		<BaseHead
 			title={`${post.title.toLowerCase()} | ${SITE.TITLE}`}
 			description={post.description}
+			image={image?.src}
+			imageWidth={image?.width}
+			imageHeight={image?.height}
+			imageType={image?.type}
 		/>
 	</head>
 	<body class="font-gummy">
