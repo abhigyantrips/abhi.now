@@ -1,0 +1,107 @@
+---
+import { Font } from "astro:assets";
+
+interface Props {
+	id: string;
+	title: string;
+	readingTime: string;
+	monthColor: string;
+	dateRange: string;
+	imageUrl?: string;
+}
+
+const { id, title, readingTime, monthColor, dateRange, imageUrl } = Astro.props;
+---
+
+<Font cssVariable="--font-gummy" />
+<div class="weeknote-card">
+	<div class:list={["text-panel", { "full-width": !imageUrl }]}>
+		<div class="heading">
+			<div class="metadata">
+				<span class="weeknote-id" style={`color: ${monthColor}`}>{id}</span>
+				<span class="separator">·</span>
+				<span>{readingTime.toUpperCase()}</span>
+			</div>
+			<h1>{title}</h1>
+		</div>
+		<div class="date-range">{dateRange}</div>
+	</div>
+	{
+		imageUrl && (
+			<img
+				class="image-panel"
+				src={imageUrl}
+				width="555"
+				height="630"
+				alt=""
+				style={`border-left-color: ${monthColor}`}
+			/>
+		)
+	}
+</div>
+
+<style is:inline>
+	.weeknote-card {
+		display: flex;
+		width: 1200px;
+		height: 630px;
+		overflow: hidden;
+		background: #1d2021;
+		color: #ebdbb2;
+		font-family: var(--font-gummy);
+		font-weight: 400;
+	}
+	.text-panel {
+		position: relative;
+		box-sizing: border-box;
+		width: 645px;
+		height: 630px;
+		padding: 48px 60px;
+		flex-shrink: 0;
+	}
+	.full-width {
+		width: 1200px;
+	}
+	.metadata,
+	.date-range {
+		color: #a89984;
+		font-size: 30px;
+		line-height: 1.4;
+	}
+	.metadata {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+	}
+	.separator {
+		font-size: 42px;
+		line-height: 1;
+	}
+	.weeknote-id {
+		font-weight: 600;
+	}
+	h1 {
+		margin: 0;
+		width: 550px;
+		font-size: 54px;
+		font-weight: 600;
+		line-height: 1.15;
+	}
+	.date-range {
+		position: absolute;
+		bottom: 48px;
+		left: 60px;
+		right: 60px;
+	}
+	.image-panel {
+		display: block;
+		box-sizing: border-box;
+		width: 555px;
+		height: 630px;
+		border-left: 5.5px solid #ebdbb2;
+		flex-shrink: 0;
+		object-fit: cover;
+		object-position: center;
+	}
+</style>

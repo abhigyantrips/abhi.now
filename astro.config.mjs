@@ -56,7 +56,11 @@ export default defineConfig({
 		},
 	],
 
-	integrations: [sitemap(), mdx(), cards({ width: 1200, height: 630, format: "png" })],
+	integrations: [
+		sitemap(),
+		mdx(),
+		cards({ width: 1200, height: 630, format: "jpeg", quality: 85 }),
+	],
 
 	markdown: {
 		processor: satteri({

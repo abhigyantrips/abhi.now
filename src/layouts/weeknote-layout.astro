@@ -6,6 +6,7 @@ import Header from "@/components/header.astro";
 import { slideFromBottom } from "@/lib/transitions";
 import { getMonthColor } from "@/lib/month-colors";
 import { SITE } from "@/consts";
+import type { SocialImage } from "@/types";
 import "@/styles/global.css";
 import "@/styles/prose.css";
 
@@ -16,9 +17,10 @@ type Props = {
 	toDate: Date;
 	postUrl: string;
 	readingTime?: string;
+	image?: SocialImage;
 };
 
-const { title, description, fromDate, toDate, postUrl, readingTime } = Astro.props;
+const { title, description, fromDate, toDate, postUrl, readingTime, image } = Astro.props;
 
 const formatDate = (d: Date) =>
 	d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
@@ -32,7 +34,7 @@ const monthColor = getMonthColor(fromDate);
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} />
+		<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} image={image} />
 	</head>
 	<body class="font-gummy">
 		<Header section="weeknotes" />
