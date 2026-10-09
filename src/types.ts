@@ -8,6 +8,13 @@ export interface Site extends Page {
 	URL: string;
 }
 
+export type SocialImage = {
+	src: string;
+	width: number;
+	height: number;
+	type: string;
+};
+
 export type ThemeColor = {
 	LIGHT: string;
 	DARK: string;

@@ -5,12 +5,13 @@ import Footer from "@/components/footer.astro";
 import Header from "@/components/header.astro";
 import { slideFromBottom } from "@/lib/transitions";
 import { ROUTES, SITE } from "@/consts";
+import type { SocialImage } from "@/types";
 import "@/styles/global.css";
 import "@/styles/prose.css";
 
 type Props = {
 	route: string;
-	image?: { src: string; width: number; height: number; type: string };
+	image?: SocialImage;
 	post: {
 		title: string;
 		description: string;
@@ -35,10 +36,7 @@ if (!currentRoute) {
 		<BaseHead
 			title={`${post.title.toLowerCase()} | ${SITE.TITLE}`}
 			description={post.description}
-			image={image?.src}
-			imageWidth={image?.width}
-			imageHeight={image?.height}
-			imageType={image?.type}
+			image={image}
 		/>
 	</head>
 	<body class="font-gummy">
