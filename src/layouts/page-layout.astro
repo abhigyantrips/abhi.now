@@ -7,16 +7,18 @@ import { MAIN_ROUTES, ROUTES, SITE } from "@/consts";
 import "@/styles/global.css";
 import "@/styles/prose.css";
 import Footer from "@/components/footer.astro";
+import type { SocialImage } from "@/types";
 
 type Props = {
 	route: string;
 	title?: string;
 	description?: string;
 	icon?: string;
+	image?: SocialImage;
 	rssFeed?: { title: string; path: string };
 };
 
-const { route, title, description, icon, rssFeed } = Astro.props;
+const { route, title, description, icon, image, rssFeed } = Astro.props;
 const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 
 if (!currentRoute) {
@@ -35,6 +37,7 @@ const pageIcon = icon ?? currentRoute.ICON;
 		<BaseHead
 			title={`${pageTitle} | ${SITE.TITLE}`}
 			description={pageDescription}
+			image={image}
 			rssFeed={rssFeed}
 		/>
 	</head>

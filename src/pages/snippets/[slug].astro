@@ -1,7 +1,9 @@
 ---
 import SnippetFeed from "@/components/snippet-feed.astro";
 import PageLayout from "@/layouts/page-layout.astro";
+import { formatSnippetDate, getSnippetFeed } from "@/lib/snippets";
 import type { GetStaticPaths } from "astro";
+import { renderCard } from "astro-cards/runtime";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export const getStaticPaths = (async () => {
@@ -17,12 +19,32 @@ interface Props {
 }
 
 const { collection } = Astro.props;
+const snippets = (await getSnippetFeed(collection.id)).slice(0, 3).map(({ post }) => {
+	if (post.rendered?.html === undefined) {
+		throw new Error(
+			`Cannot generate collection preview for "${collection.id}": snippet "${post.id}" is missing rendered Markdown HTML.`
+		);
+	}
+	const { publishedDate, publishedTime } = formatSnippetDate(post.data.date);
+	return { html: post.rendered.html, date: `${publishedDate}, ${publishedTime}` };
+});
+const image = await renderCard("collection", {
+	title: collection.data.name,
+	description: collection.data.description,
+	snippets,
+}).catch((cause: unknown) => {
+	throw new Error(
+		`Cannot render collection preview for "${collection.id}". Check src/cards/collection.astro and the Sour Gummy Fonts API configuration.`,
+		{ cause }
+	);
+});
 ---
 
 <PageLayout
 	route="/snippets"
 	title={collection.data.name}
 	description={collection.data.description}
+	image={image}
 	icon="/icons/folder-empty.svg"
 	rssFeed={{
 		title: `abhigyan trips's ${collection.data.name}.`,

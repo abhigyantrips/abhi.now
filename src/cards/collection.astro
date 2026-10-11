@@ -1,0 +1,171 @@
+---
+import { ROUTES } from "@/consts";
+import { Font } from "astro:assets";
+import folderIcon from "../../public/icons/folder-empty.svg?raw";
+
+interface Props {
+	title: string;
+	description: string;
+	snippets: { html: string; date: string }[];
+}
+
+const { title, description, snippets } = Astro.props;
+const collectionColor = ROUTES.find((route) => route.PATH === "/snippets")!.COLOR.DARK;
+const folderIconUrl = `data:image/svg+xml,${encodeURIComponent(folderIcon.replace('fill="black"', `fill="${collectionColor}"`))}`;
+---
+
+<Font cssVariable="--font-gummy" />
+<div class="collection-card" style={`--collection-color: ${collectionColor}`}>
+	<div class="heading">
+		<img class="folder-icon" src={folderIconUrl} width="110" height="110" alt="" />
+		<div>
+			<h1>{title}</h1>
+			<p class="description">{description}</p>
+		</div>
+	</div>
+	<hr />
+	<div class="snippets">
+		{
+			snippets.map(({ html, date }) => (
+				<article class="snippet">
+					<div class="content" set:html={html} />
+					<footer>{date}</footer>
+				</article>
+			))
+		}
+	</div>
+	<div class="fade"></div>
+</div>
+
+<style is:inline>
+	.collection-card {
+		position: relative;
+		box-sizing: border-box;
+		width: 1200px;
+		height: 630px;
+		padding: 48px 60px 0;
+		overflow: hidden;
+		background: #1d2021;
+		color: #ebdbb2;
+		font-family: var(--font-gummy);
+		font-size: 30.24px;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+	.heading {
+		display: flex;
+		align-items: flex-start;
+		gap: 40px;
+		position: relative;
+		z-index: 2;
+	}
+	.folder-icon {
+		width: 110px;
+		height: 110px;
+		flex-shrink: 0;
+		object-fit: contain;
+		transform: rotate(-12deg);
+	}
+	h1 {
+		margin: 0 0 8px;
+		color: var(--collection-color);
+		font-size: 60.48px;
+		font-weight: 600;
+		line-height: 1.15;
+	}
+	.description {
+		margin: 0;
+		color: #a89984;
+	}
+	hr {
+		margin: 24px 0;
+		border: 0;
+		height: 2px;
+		background: repeating-linear-gradient(
+			to right,
+			#a8998480 0px,
+			#a8998480 12px,
+			transparent 12px,
+			transparent 20px
+		);
+	}
+	.snippets {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+	.snippet {
+		padding: 32px;
+		border-radius: 14px;
+		background: #ebdbb21a;
+	}
+	.content {
+		overflow-wrap: anywhere;
+	}
+	.content p,
+	.content pre,
+	.content ul,
+	.content ol,
+	.content blockquote {
+		margin: 0 0 20px;
+	}
+	.content > :last-child {
+		margin-bottom: 0;
+	}
+	.content h1,
+	.content h2,
+	.content h3,
+	.content h4,
+	.content h5,
+	.content h6 {
+		margin: 0 0 16px;
+		color: #ebdbb2;
+		font-size: 38.88px;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	.content blockquote {
+		padding-left: 24px;
+		border-left: 4px solid #ebdbb2;
+		font-style: italic;
+	}
+	.content ul,
+	.content ol {
+		padding-left: 32px;
+	}
+	.content strong {
+		font-weight: 600;
+	}
+	.content a {
+		color: #ebdbb2;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+	.content code {
+		padding: 0 4px;
+		background: #ebdbb210;
+		font-family: var(--font-gummy);
+	}
+	.content pre {
+		white-space: pre-wrap;
+	}
+	.content img {
+		max-width: 100%;
+		border-radius: 14px;
+	}
+	footer {
+		margin-top: 24px;
+		color: #a89984;
+		font-size: 24px;
+		line-height: 1.4;
+	}
+	.fade {
+		position: absolute;
+		z-index: 1;
+		top: 340px;
+		left: 0;
+		width: 1200px;
+		height: 290px;
+		background: linear-gradient(to bottom, #1d202100, #1d2021 90%);
+	}
+</style>

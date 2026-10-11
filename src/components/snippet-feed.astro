@@ -1,5 +1,5 @@
 ---
-import { getSnippetFeed } from "@/lib/snippets";
+import { formatSnippetDate, getSnippetFeed } from "@/lib/snippets";
 import { render } from "astro:content";
 
 interface Props {
@@ -17,18 +17,7 @@ const entries = await Promise.all(
 	(await getSnippetFeed(collectionId)).map(async ({ post, collection }) => {
 		const { Content } = await render(post);
 		const date = post.data.date;
-		const publishedDate = date.toLocaleDateString("en-GB", {
-			timeZone: "Asia/Kolkata",
-			day: "numeric",
-			month: "long",
-			year: "numeric",
-		});
-		const publishedTime = date.toLocaleTimeString("en-GB", {
-			timeZone: "Asia/Kolkata",
-			hour: "2-digit",
-			minute: "2-digit",
-			hour12: false,
-		});
+		const { publishedDate, publishedTime } = formatSnippetDate(date);
 		return { post, collection, Content, date, publishedDate, publishedTime };
 	})
 );
