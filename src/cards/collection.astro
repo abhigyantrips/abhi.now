@@ -1,7 +1,6 @@
 ---
 import { ROUTES } from "@/consts";
 import { Font } from "astro:assets";
-import folderIcon from "../../public/icons/folder-empty.svg?raw";
 
 interface Props {
 	title: string;
@@ -11,17 +10,13 @@ interface Props {
 
 const { title, description, snippets } = Astro.props;
 const collectionColor = ROUTES.find((route) => route.PATH === "/snippets")!.COLOR.DARK;
-const folderIconUrl = `data:image/svg+xml,${encodeURIComponent(folderIcon.replace('fill="black"', `fill="${collectionColor}"`))}`;
 ---
 
 <Font cssVariable="--font-gummy" />
 <div class="collection-card" style={`--collection-color: ${collectionColor}`}>
 	<div class="heading">
-		<img class="folder-icon" src={folderIconUrl} width="110" height="110" alt="" />
-		<div>
-			<h1>{title}</h1>
-			<p class="description">{description}</p>
-		</div>
+		<h1>{title}</h1>
+		<p class="description">{description}</p>
 	</div>
 	<hr />
 	<div class="snippets">
@@ -53,18 +48,8 @@ const folderIconUrl = `data:image/svg+xml,${encodeURIComponent(folderIcon.replac
 		line-height: 1.5;
 	}
 	.heading {
-		display: flex;
-		align-items: flex-start;
-		gap: 40px;
 		position: relative;
 		z-index: 2;
-	}
-	.folder-icon {
-		width: 110px;
-		height: 110px;
-		flex-shrink: 0;
-		object-fit: contain;
-		transform: rotate(-12deg);
 	}
 	h1 {
 		margin: 0 0 8px;
