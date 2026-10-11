@@ -1,8 +1,10 @@
 import { globWithParser } from "@/lib/parsers";
-import { glob } from "astro/loaders";
+import { glob, type Loader } from "astro/loaders";
 import { z } from "astro/zod";
 import { defineCollection, reference } from "astro:content";
-import { stat } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
+import { basename, dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const before = defineCollection({
 	loader: globWithParser({
@@ -189,34 +191,122 @@ const projects = defineCollection({
 		}),
 });
 
-const snippets = defineCollection({
-	loader: globWithParser({
-		base: "./src/content/snippets",
-		pattern: "**/*.md",
-		parser: async (entry) => {
-			const { id, data }: { id: string; data: { title?: string; date?: string } } = entry;
+const snippetsBase = "./src/content/snippets";
 
-			// Use the filename (id) as the epoch timestamp
-			data.title = id;
-			// If the id is an epoch timestamp, convert it to a Date
-			const epochMatch = id.match(/^(\d{10})$/);
-			if (epochMatch) {
-				const epoch = parseInt(epochMatch[1], 10);
-				// Preserve the timestamp independently of the build machine's timezone.
-				data.date = new Date(epoch * 1000).toISOString();
-			} else {
-				// fallback: try ISO date or default
-				data.date = id.match(/(\d{4}-\d{2}-\d{2})/)?.[0] ?? new Date().toString();
+const snippetCollectionSchema = z.object({
+	name: z.string().trim().min(1),
+	description: z.string().trim().min(1),
+	permalink: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+});
+
+// Validate the whole tree before glob can overwrite entries with duplicate IDs.
+// This also checks relationships independently of collection loading order.
+async function validateSnippetTree(directory: string) {
+	const files = await readdir(directory, { recursive: true });
+	const collections = new Set<string>();
+	const permalinks = new Map<string, string>();
+	const timestamps = new Map<string, string>();
+
+	for (const file of files.filter((file) => basename(file) === "_collection.json")) {
+		const folder = dirname(file);
+		if (folder === "." || dirname(folder) !== ".") {
+			throw new Error(`Snippet metadata must be in a collection folder: ${file}`);
+		}
+		const metadata = snippetCollectionSchema.parse(
+			JSON.parse(await readFile(join(directory, file), "utf8"))
+		);
+		const existing = permalinks.get(metadata.permalink);
+		if (existing) {
+			throw new Error(
+				`Duplicate snippet collection permalink "${metadata.permalink}": ${existing} and ${file}`
+			);
+		}
+		permalinks.set(metadata.permalink, file);
+		collections.add(folder);
+	}
+
+	for (const file of files.filter((file) => file.endsWith(".md"))) {
+		const timestamp = basename(file, ".md");
+		if (!/^\d{10}$/.test(timestamp)) {
+			throw new Error(`Invalid snippet timestamp: ${file}; expected a 10-digit epoch filename`);
+		}
+		const existing = timestamps.get(timestamp);
+		if (existing) {
+			throw new Error(`Duplicate snippet timestamp "${timestamp}": ${existing} and ${file}`);
+		}
+		timestamps.set(timestamp, file);
+		if (!collections.has(dirname(file))) {
+			throw new Error(`Snippet has no matching _collection.json: ${file}`);
+		}
+	}
+	return timestamps;
+}
+
+function snippetCollectionsLoader() {
+	const loader = glob({
+		base: snippetsBase,
+		pattern: "**/_collection.json",
+		generateId: ({ entry }) => basename(dirname(entry)),
+	});
+	const originalLoad = loader.load;
+	loader.load = async (context) => {
+		// Glob skips unchanged files, even when an older schema stripped fields.
+		// Reparse cached metadata that no longer satisfies the current schema.
+		for (const entry of context.store.values()) {
+			if (!snippetCollectionSchema.safeParse(entry.data).success) {
+				context.store.delete(entry.id);
 			}
+		}
+		await originalLoad(context);
+	};
+	return loader;
+}
 
-			return entry;
-		},
-	}),
+function snippetsLoader(): Loader {
+	const loader = globWithParser({
+		base: snippetsBase,
+		pattern: "**/*.md",
+		generateId: ({ entry }) => basename(entry, ".md"),
+		parser: async (entry) => ({
+			...entry,
+			data: {
+				...entry.data,
+				collection: basename(dirname(entry.filePath!)),
+				date: new Date(Number(entry.id) * 1000).toISOString(),
+			},
+		}),
+	});
+	const originalLoad = loader.load;
+	loader.load = async (context) => {
+		const directory = fileURLToPath(new URL(snippetsBase, context.config.root));
+		const files = await validateSnippetTree(directory);
+		// A folder move keeps the ID and body digest, but changes the reference
+		// and relative image paths. Invalidate that entry before glob's cache check.
+		for (const entry of context.store.values()) {
+			const file = files.get(entry.id);
+			if (
+				file &&
+				entry.filePath &&
+				resolve(fileURLToPath(context.config.root), entry.filePath) !== join(directory, file)
+			) {
+				context.store.delete(entry.id);
+			}
+		}
+		await originalLoad(context);
+	};
+	return loader;
+}
+
+const snippetCollections = defineCollection({
+	loader: snippetCollectionsLoader(),
+	schema: snippetCollectionSchema,
+});
+
+const snippets = defineCollection({
+	loader: snippetsLoader(),
 	schema: z.object({
-		title: z.string().default(""),
-		description: z.string().default("a sticky note to remember."),
-		date: z.coerce.date().optional(),
-		tags: z.array(reference("tags")).optional(),
+		collection: reference("snippetCollections"),
+		date: z.coerce.date(),
 	}),
 });
 
@@ -274,6 +364,7 @@ export const collections = {
 	opinions,
 	people,
 	projects,
+	snippetCollections,
 	snippets,
 	tags,
 	weeknotes,

@@ -10,9 +10,12 @@ import Footer from "@/components/footer.astro";
 
 type Props = {
 	route: string;
+	title?: string;
+	description?: string;
+	icon?: string;
 };
 
-const { route } = Astro.props;
+const { route, title, description, icon } = Astro.props;
 const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 
 if (!currentRoute) {
@@ -20,15 +23,15 @@ if (!currentRoute) {
 }
 
 const isMainRoute = MAIN_ROUTES.includes(currentRoute);
+const pageTitle = title ?? currentRoute.NAME;
+const pageDescription = description ?? currentRoute.DESCRIPTION;
+const pageIcon = icon ?? currentRoute.ICON;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={`${currentRoute.NAME} | ${SITE.TITLE}`}
-			description={currentRoute.DESCRIPTION}
-		/>
+		<BaseHead title={`${pageTitle} | ${SITE.TITLE}`} description={pageDescription} />
 	</head>
 	<body class="font-gummy">
 		<Header section={currentRoute.NAME} />
@@ -43,29 +46,29 @@ const isMainRoute = MAIN_ROUTES.includes(currentRoute);
 				>
 					<div class="flex flex-col space-x-6 md:flex-row">
 						{
-							isMainRoute ? (
+							isMainRoute && !icon ? (
 								<div
 									class="route-icon-display mb-2 size-14 -rotate-12 md:mb-0 md:size-16"
-									style={`-webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+									style={`-webkit-mask: url(${pageIcon}) no-repeat center; mask: url(${pageIcon}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
 									role="img"
-									aria-label={currentRoute.NAME}
+									aria-label={pageTitle}
 									transition:name={`icon-${currentRoute.NAME}`}
 									transition:animate={slideFromBottom}
 								/>
 							) : (
 								<div
 									class="route-icon-display mb-2 size-14 -rotate-12 md:mb-0 md:size-16"
-									style={`-webkit-mask: url(${currentRoute.ICON}) no-repeat center; mask: url(${currentRoute.ICON}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+									style={`-webkit-mask: url(${pageIcon}) no-repeat center; mask: url(${pageIcon}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
 									role="img"
-									aria-label={currentRoute.NAME}
+									aria-label={pageTitle}
 								/>
 							)
 						}
 						<div class="flex flex-col">
 							<h1 class="route-title text-3xl font-bold">
-								{currentRoute.NAME}
+								{pageTitle}
 							</h1>
-							<p class="text-(--color-text)">{currentRoute.DESCRIPTION}</p>
+							<p class="text-(--color-text)">{pageDescription}</p>
 						</div>
 					</div>
 				</div>

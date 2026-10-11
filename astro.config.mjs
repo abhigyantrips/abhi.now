@@ -18,6 +18,7 @@ import cards from "astro-cards";
 // Sätteri's Smartypants handles my en dashes correctly, but they look
 // the same as normal dashes on Sour Gummy. So this thing handles converting
 // them into em dashes.
+/** @type {ReturnType<typeof import("@astrojs/markdown-satteri").satteriCollectImagesPlugin>} */
 const enDashConversion = {
 	name: "en-dash-conversion",
 	text(node, ctx) {
@@ -69,17 +70,21 @@ export default defineConfig({
 			},
 			mdastPlugins: [enDashConversion],
 			hastPlugins: [
-				satteriFigure,
-				satteriAutolinkParagraphs({
-					paragraphProperties: {
-						className: ["group"],
-					},
-					properties: {
-						className: [
-							"hidden md:inline invisible group-hover:visible no-underline text-(--color-text)/50",
-						],
-					},
-				}),
+				({ fileURL }) =>
+					fileURL?.pathname.includes("/src/content/snippets/") ? null : satteriFigure(),
+				({ fileURL }) =>
+					fileURL?.pathname.includes("/src/content/snippets/")
+						? null
+						: satteriAutolinkParagraphs({
+								paragraphProperties: {
+									className: ["group"],
+								},
+								properties: {
+									className: [
+										"hidden md:inline invisible group-hover:visible no-underline text-(--color-text)/50",
+									],
+								},
+							}),
 			],
 		}),
 	},

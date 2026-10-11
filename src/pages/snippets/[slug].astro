@@ -1,0 +1,33 @@
+---
+import SnippetFeed from "@/components/snippet-feed.astro";
+import PageLayout from "@/layouts/page-layout.astro";
+import type { GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export const getStaticPaths = (async () => {
+	const collections = await getCollection("snippetCollections");
+	return collections.map((collection) => ({
+		params: { slug: collection.data.permalink },
+		props: { collection },
+	}));
+}) satisfies GetStaticPaths;
+
+interface Props {
+	collection: CollectionEntry<"snippetCollections">;
+}
+
+const { collection } = Astro.props;
+---
+
+<PageLayout
+	route="/snippets"
+	title={collection.data.name}
+	description={collection.data.description}
+	icon="/icons/folder-empty.svg"
+>
+	<SnippetFeed
+		collectionId={collection.id}
+		feedPath={`/snippets/${collection.data.permalink}`}
+		name={collection.data.name}
+	/>
+</PageLayout>

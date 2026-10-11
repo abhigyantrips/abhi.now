@@ -1,0 +1,26 @@
+---
+import SnippetCard from "@/cards/snippet.astro";
+import { getSnippetFeed } from "@/lib/snippets";
+
+interface Props {
+	collectionId?: string;
+	feedPath?: string;
+	name?: string;
+}
+
+const {
+	collectionId,
+	feedPath = "/snippets",
+	name = "abhigyan trips's sticky notes",
+} = Astro.props;
+const entries = await getSnippetFeed(collectionId);
+---
+
+<div class="h-feed flex flex-col gap-4">
+	<span class="p-name sr-only">{name}</span>
+	{
+		entries.map(({ post, collection }) => (
+			<SnippetCard post={post} collection={collection} feedPath={feedPath} />
+		))
+	}
+</div>
