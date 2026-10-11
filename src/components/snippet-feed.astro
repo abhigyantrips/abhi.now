@@ -1,6 +1,6 @@
 ---
-import SnippetCard from "@/cards/snippet.astro";
 import { getSnippetFeed } from "@/lib/snippets";
+import { render } from "astro:content";
 
 interface Props {
 	collectionId?: string;
@@ -13,14 +13,77 @@ const {
 	feedPath = "/snippets",
 	name = "abhigyan trips's sticky notes",
 } = Astro.props;
-const entries = await getSnippetFeed(collectionId);
+const entries = await Promise.all(
+	(await getSnippetFeed(collectionId)).map(async ({ post, collection }) => {
+		const { Content } = await render(post);
+		const date = post.data.date;
+		const publishedDate = date.toLocaleDateString("en-GB", {
+			timeZone: "Asia/Kolkata",
+			day: "numeric",
+			month: "long",
+			year: "numeric",
+		});
+		const publishedTime = date.toLocaleTimeString("en-GB", {
+			timeZone: "Asia/Kolkata",
+			hour: "2-digit",
+			minute: "2-digit",
+			hour12: false,
+		});
+		return { post, collection, Content, date, publishedDate, publishedTime };
+	})
+);
 ---
 
 <div class="h-feed flex flex-col gap-4">
 	<span class="p-name sr-only">{name}</span>
 	{
-		entries.map(({ post, collection }) => (
-			<SnippetCard post={post} collection={collection} feedPath={feedPath} />
+		entries.map(({ post, collection, Content, date, publishedDate, publishedTime }) => (
+			<article id={post.id} class="h-entry min-w-0 scroll-mt-6 rounded-lg bg-(--color-text)/10 p-6">
+				<div class="e-content prose dark:prose-invert prose-strong:text-(--color-text) prose-strong:font-semibold prose-a:text-(--color-text) prose-blockquote:text-(--color-text) prose-em:text-(--color-text) prose-headings:text-(--color-text) prose-img:rounded-lg max-w-none [overflow-wrap:anywhere] text-(--color-text)">
+					<Content />
+				</div>
+				<span class="p-name sr-only">
+					{collection.data.name} · #{post.id}
+				</span>
+				<footer class="mt-4 flex flex-col flex-wrap items-start justify-between gap-x-4 gap-y-2 text-sm text-(--color-text-muted) md:flex-row md:items-center">
+					<time class="dt-published text-left whitespace-nowrap" datetime={date.toISOString()}>
+						{publishedDate}, {publishedTime}
+					</time>
+					<div class="flex flex-wrap items-center justify-start gap-x-2 gap-y-1 md:ml-auto md:justify-end">
+						<a
+							class="inline-flex items-center gap-1.5 decoration-2 underline-offset-3 hover:underline"
+							href={`/snippets/${collection.data.permalink}`}
+						>
+							<span
+								class="footer-icon size-4 shrink-0"
+								style="--icon-url: url(/icons/folder-empty.svg)"
+								aria-hidden="true"
+							/>
+							{collection.data.name}
+						</a>
+						<span aria-hidden="true">·</span>
+						<a
+							class="u-url inline-flex items-center gap-1.5 decoration-2 underline-offset-3 hover:underline"
+							href={`${feedPath}#${post.id}`}
+							aria-label={`link to post #${post.id}`}
+						>
+							<span
+								class="footer-icon size-4 shrink-0"
+								style="--icon-url: url(/icons/link.svg)"
+								aria-hidden="true"
+							/>
+							link to post
+						</a>
+					</div>
+				</footer>
+			</article>
 		))
 	}
 </div>
+
+<style>
+	.footer-icon {
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+	}
+</style>

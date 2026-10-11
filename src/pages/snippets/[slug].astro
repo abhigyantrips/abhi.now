@@ -24,6 +24,10 @@ const { collection } = Astro.props;
 	title={collection.data.name}
 	description={collection.data.description}
 	icon="/icons/folder-empty.svg"
+	rssFeed={{
+		title: `abhigyan trips's ${collection.data.name}.`,
+		path: `/snippets/${collection.data.permalink}/feed.xml`,
+	}}
 >
 	<SnippetFeed
 		collectionId={collection.id}

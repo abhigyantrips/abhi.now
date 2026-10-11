@@ -13,9 +13,10 @@ type Props = {
 	title?: string;
 	description?: string;
 	icon?: string;
+	rssFeed?: { title: string; path: string };
 };
 
-const { route, title, description, icon } = Astro.props;
+const { route, title, description, icon, rssFeed } = Astro.props;
 const currentRoute = ROUTES.find((r) => r.PATH === route || r.NAME === route);
 
 if (!currentRoute) {
@@ -31,7 +32,11 @@ const pageIcon = icon ?? currentRoute.ICON;
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`${pageTitle} | ${SITE.TITLE}`} description={pageDescription} />
+		<BaseHead
+			title={`${pageTitle} | ${SITE.TITLE}`}
+			description={pageDescription}
+			rssFeed={rssFeed}
+		/>
 	</head>
 	<body class="font-gummy">
 		<Header section={currentRoute.NAME} />
