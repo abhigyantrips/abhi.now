@@ -28,7 +28,15 @@ const entries = await Promise.all(
 	{
 		entries.map(({ post, collection, Content, date, publishedDate, publishedTime }) => (
 			<article id={post.id} class="h-entry min-w-0 scroll-mt-6 rounded-lg bg-(--color-text)/10 p-6">
-				<div class="e-content prose dark:prose-invert prose-strong:text-(--color-text) prose-strong:font-semibold prose-a:text-(--color-text) prose-blockquote:text-(--color-text) prose-em:text-(--color-text) prose-headings:text-(--color-text) prose-img:rounded-lg max-w-none [overflow-wrap:anywhere] text-(--color-text)">
+				<div
+					class:list={[
+						"e-content prose dark:prose-invert max-w-none wrap-anywhere text-(--color-text)",
+						"prose-strong:text-(--color-text) prose-strong:font-semibold",
+						"prose-a:text-(--color-text) prose-a:underline-offset-3 prose-a:decoration-1 prose-a:decoration-(--color-text-muted) prose-a:hover:bg-(--color-text) prose-a:hover:text-(--color-bg) prose-a:*:hover:text-(--color-bg) prose-a:hover:decoration-transparent",
+						"prose-blockquote:text-(--color-text)/75 prose-blockquote:border-l-4 prose-blockquote:border-(--color-text) prose-blockquote:[&>p]:first-of-type:before:content-none prose-blockquote:[&>p]:last-of-type:after:content-none",
+						"prose-em:text-(--color-text) prose-headings:text-(--color-text) prose-img:rounded-lg",
+					]}
+				>
 					<Content />
 				</div>
 				<span class="p-name sr-only">
