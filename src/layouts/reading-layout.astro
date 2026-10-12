@@ -52,7 +52,10 @@ if (!currentRoute) {
 							(post.date || post.readingTime) && (
 								<div class="flex items-center gap-2 text-sm text-(--color-text-muted) uppercase">
 									{post.date && (
-										<time class="dt-published" datetime={post.date}>
+										<time
+											class="dt-published"
+											datetime={post.date}
+										>
 											{post.date}
 										</time>
 									)}
@@ -67,16 +70,52 @@ if (!currentRoute) {
 						<p class="p-summary text-(--color-text-muted)">{post.description}</p>
 						{
 							post.url && (
-								<a class="u-url hidden" href={post.url}>
+								<a
+									class="u-url hidden"
+									href={post.url}
+								>
 									{post.title}
 								</a>
 							)
 						}
 						<span class="p-author h-card hidden">
-							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+							<a
+								class="p-name u-url"
+								href={SITE.URL}
+								rel="author"
+								>{SITE.AUTHOR}</a
+							>
 						</span>
 					</div>
 					<hr class="mt-4 border-t-2 border-dashed border-(--color-text-muted)/50" />
+					<div class="not-prose mt-4 flex justify-start gap-2">
+						<button
+							id="download-pdf"
+							class="pdf-btn font-gummy inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+						>
+							<span
+								class="pdf-btn-icon size-4 shrink-0"
+								style="--icon-url: url(/icons/paper-clip-2.svg)"
+								aria-hidden="true"
+							></span>
+							Download PDF
+						</button>
+						{
+							post.url && (
+								<a
+									href={`${post.url}/plaintext`}
+									class="pdf-btn font-gummy inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm no-underline"
+								>
+									<span
+										class="pdf-btn-icon size-4 shrink-0"
+										style="--icon-url: url(/icons/left-align.svg)"
+										aria-hidden="true"
+									/>
+									Show Plaintext Version
+								</a>
+							)
+						}
+					</div>
 					<slot />
 				</div>
 			</Container>
@@ -85,3 +124,38 @@ if (!currentRoute) {
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.pdf-btn {
+		background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+		cursor: pointer;
+		border: none;
+	}
+	.pdf-btn:hover {
+		background-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+		color: var(--color-text);
+	}
+	.pdf-btn-icon {
+		display: inline-block;
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+	}
+
+	@media print {
+		.pdf-btn {
+			display: none !important;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener("astro:page-load", () => {
+		document.getElementById("download-pdf")?.addEventListener("click", () => {
+			window.print();
+		});
+	});
+</script>

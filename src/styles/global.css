@@ -57,3 +57,42 @@ body {
 	background-color: rgba(150, 150, 150, 0.2); /* Adjust this for light/dark themes */
 	color: inherit; /* Inherit prose color or specify a distinct color like #d946ef */
 }
+
+@media print {
+	@page {
+		margin: 1.5cm;
+	}
+
+	#header,
+	[data-site-footer] {
+		display: none !important;
+	}
+
+	.h-entry {
+		padding-top: 0 !important;
+	}
+
+	.h-entry,
+	.h-entry *:not(figure, ul, ol, li, blockquote, blockquote *) {
+		max-width: 100% !important;
+		padding-inline: 0 !important;
+	}
+
+	blockquote {
+		border-left-color: #3c3836 !important;
+	}
+
+	figure,
+	img {
+		break-inside: avoid;
+	}
+
+	figure {
+		max-width: 60% !important;
+		margin-inline: auto;
+	}
+
+	figure img {
+		max-width: 100% !important;
+	}
+}

@@ -1,0 +1,268 @@
+---
+import { getCollection, getEntries, render } from "astro:content";
+import { formatBlogDate, formatReadingTime } from "@/lib/utils";
+import { extractOpeningHtml } from "@/lib/blog-preview";
+import { renderCard } from "astro-cards/runtime";
+import { SITE } from "@/consts";
+import type { SocialImage } from "@/types";
+import "@/styles/global.css";
+import "@/styles/prose.css";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog", ({ data }) =>
+		import.meta.env.DEV ? true : data.published
+	);
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+		cacheKey: String(post.digest),
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const tags = await getEntries(post.data.tags || []);
+const date = formatBlogDate(post.data.date);
+const readingTime = formatReadingTime(post.body ?? "");
+
+if (post.rendered?.html === undefined) {
+	throw new Error(
+		`Cannot generate blog preview for "${post.id}": rendered Markdown HTML is missing.`
+	);
+}
+
+const image = await renderCard("blog", {
+	title: post.data.title,
+	description: post.data.description,
+	date,
+	readingTime,
+	openingHtml: extractOpeningHtml(post.rendered.html),
+}).catch((cause: unknown) => {
+	throw new Error(
+		`Cannot render blog preview for "${post.id}". Check src/cards/blog.astro and the Sour Gummy Fonts API configuration.`,
+		{ cause }
+	);
+});
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
+const styledUrl = `/blog/${post.id}`;
+const pageTitle = `${post.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="canonical" href={canonicalURL} />
+
+		<title>{pageTitle}</title>
+		<meta name="title" content={pageTitle} />
+		<meta name="description" content={post.data.description} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={post.data.description} />
+		<meta property="og:image" content={imageURL} />
+		{
+			image && (
+				<>
+					<meta property="og:image:width" content={String(image.width)} />
+					<meta property="og:image:height" content={String(image.height)} />
+					<meta property="og:image:type" content={image.type} />
+				</>
+			)
+		}
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={pageTitle} />
+		<meta property="twitter:description" content={post.data.description} />
+		<meta property="twitter:image" content={imageURL} />
+
+		<link rel="sitemap" href="/sitemap-index.xml" />
+	</head>
+	<body>
+		<main>
+			<a href={styledUrl} class="back-link">&#8592; back to stylistic version</a>
+			<div class="meta">
+				{
+					(date || readingTime) && (
+						<span>
+							{date}
+							{date && readingTime && " · "}
+							{readingTime}
+						</span>
+					)
+				}
+				<h1>{post.data.title}</h1>
+				<p class="description">{post.data.description}</p>
+			</div>
+			<hr />
+			<article class="prose-content">
+				<Content />
+				{
+					tags.length > 0 && (
+						<div class="tags">
+							{tags.map((tag) => (
+								<abbr title={tag.data.description}>#{tag.id}</abbr>
+							))}
+						</div>
+					)
+				}
+			</article>
+		</main>
+		<footer>
+			<p>copyright &copy; {new Date().getFullYear()}, abhigyan trips.</p>
+		</footer>
+	</body>
+</html>
+
+<style>
+	:root {
+		--pt-bg: #fffaed;
+		--pt-text: #3c3836;
+		--pt-muted: #665c54;
+		--pt-border: #bdae93;
+	}
+
+	:root.dark {
+		--pt-bg: #1d2021;
+		--pt-text: #ebdbb2;
+		--pt-muted: #a89984;
+		--pt-border: #504945;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+			"DejaVu Sans Mono", monospace;
+		background-color: var(--pt-bg);
+		color: var(--pt-text);
+		font-size: 0.9rem;
+		line-height: 1.7;
+		margin: 0;
+		padding: 0;
+	}
+
+	main {
+		max-width: 48rem;
+		margin: 0 auto;
+		padding: 2.5rem 1.5rem 4rem;
+	}
+
+	.back-link {
+		display: inline-block;
+		color: var(--pt-muted);
+		text-decoration: none;
+		font-size: 0.85rem;
+		margin-bottom: 2rem;
+	}
+
+	.back-link:hover {
+		color: var(--pt-text);
+		text-decoration: underline;
+	}
+
+	.meta {
+		margin-bottom: 1rem;
+	}
+
+	.meta span {
+		display: block;
+		font-size: 0.8rem;
+		color: var(--pt-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
+	}
+
+	.meta h1 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 0.4rem;
+		line-height: 1.3;
+	}
+
+	.meta .description {
+		color: var(--pt-muted);
+		margin: 0;
+		font-size: 0.875rem;
+	}
+
+	hr {
+		border: none;
+		border-top: 2px dashed var(--pt-border);
+		margin: 1.5rem 0;
+	}
+
+	/* Override prose-content to use monospace */
+	:global(.prose-content) {
+		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+			"DejaVu Sans Mono", monospace !important;
+	}
+
+	:global(.prose-content *) {
+		font-family: inherit !important;
+	}
+
+	.tags {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.tags abbr {
+		text-decoration: none;
+		font-size: 0.8rem;
+		color: var(--pt-muted);
+		background: color-mix(in srgb, var(--pt-text) 10%, transparent);
+		padding: 0.2rem 0.6rem;
+		border-radius: 0.4rem;
+		cursor: help;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root:not(.light) {
+			--pt-bg: #1d2021;
+			--pt-text: #ebdbb2;
+			--pt-muted: #a89984;
+			--pt-border: #504945;
+		}
+	}
+
+	footer {
+		max-width: 48rem;
+		margin: 0 auto;
+		padding: 1.5rem 1.5rem 2.5rem;
+		border-top: 2px dashed var(--pt-border);
+		color: var(--pt-muted);
+		font-size: 0.8rem;
+	}
+
+	footer p {
+		margin: 0;
+	}
+</style>
+
+<script is:inline>
+	function getThemePreference() {
+		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+			return localStorage.getItem("theme");
+		}
+		return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+	}
+
+	const isDark = getThemePreference() === "dark";
+	document.documentElement.classList.toggle("dark", isDark);
+</script>
