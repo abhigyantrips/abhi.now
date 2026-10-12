@@ -81,6 +81,29 @@ const monthColor = getMonthColor(fromDate);
 							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
 						</span>
 					</div>
+					<hr class="mt-4 border-t-2 border-dashed border-(--color-text-muted)/50" />
+					<div class="not-prose mt-4 flex justify-start gap-2">
+						<button
+							id="download-pdf"
+							class="pdf-btn font-gummy inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+						>
+							<span
+								class="pdf-btn-icon size-4 shrink-0"
+								style="--icon-url: url(/icons/paper-clip-2.svg)"
+								aria-hidden="true"></span>
+							Download PDF
+						</button>
+						<a
+							href={`${postUrl}/plaintext`}
+							class="pdf-btn font-gummy inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm no-underline"
+						>
+							<span
+								class="pdf-btn-icon size-4 shrink-0"
+								style="--icon-url: url(/icons/left-align.svg)"
+								aria-hidden="true"></span>
+							Show Plaintext Version
+						</a>
+					</div>
 					<slot />
 				</div>
 			</Container>
@@ -90,7 +113,40 @@ const monthColor = getMonthColor(fromDate);
 	</body>
 </html>
 
+<script>
+	document.addEventListener("astro:page-load", () => {
+		document.getElementById("download-pdf")?.addEventListener("click", () => {
+			window.print();
+		});
+	});
+</script>
+
 <style>
+	.pdf-btn {
+		background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+		cursor: pointer;
+		border: none;
+	}
+	.pdf-btn:hover {
+		background-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+		color: var(--color-text);
+	}
+	.pdf-btn-icon {
+		display: inline-block;
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+	}
+
+	@media print {
+		.pdf-btn {
+			display: none !important;
+		}
+	}
+
 	.weeknote-key {
 		color: var(--month-color-light);
 	}

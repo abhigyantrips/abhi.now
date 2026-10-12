@@ -1,0 +1,240 @@
+---
+import { getCollection, render } from "astro:content";
+import { formatReadingTime } from "@/lib/utils";
+import { getMonthColor } from "@/lib/month-colors";
+import { extractFirstImage, formatWeeknoteDateRange } from "@/lib/weeknote-preview";
+import { renderCard } from "astro-cards/runtime";
+import { SITE } from "@/consts";
+import "@/styles/global.css";
+import "@/styles/prose.css";
+
+export async function getStaticPaths() {
+	const notes = await getCollection("weeknotes");
+	return notes.map((note) => {
+		const [year, week] = note.id.split("/");
+		return {
+			params: { year, week },
+			props: { note },
+			cacheKey: String(note.digest),
+		};
+	});
+}
+
+const { note } = Astro.props;
+const { Content } = await render(note);
+const readingTime = formatReadingTime(note.body ?? "");
+const [id, ...title] = note.data.title.split(" ");
+const restTitle = title.join(" ");
+const dateRange = formatWeeknoteDateRange(note.data.fromDate, note.data.toDate);
+
+const image = await (async () => {
+	if (note.rendered?.html === undefined) {
+		throw new Error("Rendered Markdown HTML is missing.");
+	}
+	return renderCard("weeknote", {
+		id,
+		title: restTitle,
+		readingTime,
+		monthColor: getMonthColor(note.data.fromDate).dark,
+		dateRange,
+		imageUrl: await extractFirstImage(note.rendered.html, note.filePath),
+	});
+})().catch((cause: unknown) => {
+	throw new Error(
+		`Cannot generate weeknote preview for "${note.id}". Check src/cards/weeknote.astro, the first Markdown image, and the Sour Gummy Fonts API configuration.`,
+		{ cause }
+	);
+});
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
+const styledUrl = `/weeknotes/${note.id}`;
+const pageTitle = `${note.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="canonical" href={canonicalURL} />
+
+		<title>{pageTitle}</title>
+		<meta name="title" content={pageTitle} />
+		<meta name="description" content={note.data.description} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={note.data.description} />
+		<meta property="og:image" content={imageURL} />
+		{
+			image && (
+				<>
+					<meta property="og:image:width" content={String(image.width)} />
+					<meta property="og:image:height" content={String(image.height)} />
+					<meta property="og:image:type" content={image.type} />
+				</>
+			)
+		}
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={pageTitle} />
+		<meta property="twitter:description" content={note.data.description} />
+		<meta property="twitter:image" content={imageURL} />
+
+		<link rel="sitemap" href="/sitemap-index.xml" />
+	</head>
+	<body>
+		<main>
+			<a href={styledUrl} class="back-link">&#8592; back to stylistic version</a>
+			<div class="meta">
+				<span>
+					{id}
+					{readingTime && " · "}
+					{readingTime}
+				</span>
+				<h1>{restTitle}</h1>
+				<p class="description">{note.data.description}</p>
+			</div>
+			<hr />
+			<article class="prose-content">
+				<Content />
+			</article>
+		</main>
+		<footer>
+			<p>copyright &copy; {new Date().getFullYear()}, abhigyan trips.</p>
+		</footer>
+	</body>
+</html>
+
+<style>
+	:root {
+		--pt-bg: #fffaed;
+		--pt-text: #3c3836;
+		--pt-muted: #665c54;
+		--pt-border: #bdae93;
+	}
+
+	:root.dark {
+		--pt-bg: #1d2021;
+		--pt-text: #ebdbb2;
+		--pt-muted: #a89984;
+		--pt-border: #504945;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+			"DejaVu Sans Mono", monospace;
+		background-color: var(--pt-bg);
+		color: var(--pt-text);
+		font-size: 0.9rem;
+		line-height: 1.7;
+		margin: 0;
+		padding: 0;
+	}
+
+	main {
+		max-width: 48rem;
+		margin: 0 auto;
+		padding: 2.5rem 1.5rem 4rem;
+	}
+
+	.back-link {
+		display: inline-block;
+		color: var(--pt-muted);
+		text-decoration: none;
+		font-size: 0.85rem;
+		margin-bottom: 2rem;
+	}
+
+	.back-link:hover {
+		color: var(--pt-text);
+		text-decoration: underline;
+	}
+
+	.meta {
+		margin-bottom: 1rem;
+	}
+
+	.meta span {
+		display: block;
+		font-size: 0.8rem;
+		color: var(--pt-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
+	}
+
+	.meta h1 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 0 0 0.4rem;
+		line-height: 1.3;
+	}
+
+	.meta .description {
+		color: var(--pt-muted);
+		margin: 0;
+		font-size: 0.875rem;
+	}
+
+	hr {
+		border: none;
+		border-top: 2px dashed var(--pt-border);
+		margin: 1.5rem 0;
+	}
+
+	/* Override prose-content to use monospace */
+	:global(.prose-content) {
+		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
+			"DejaVu Sans Mono", monospace !important;
+	}
+
+	:global(.prose-content *) {
+		font-family: inherit !important;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root:not(.light) {
+			--pt-bg: #1d2021;
+			--pt-text: #ebdbb2;
+			--pt-muted: #a89984;
+			--pt-border: #504945;
+		}
+	}
+
+	footer {
+		max-width: 48rem;
+		margin: 0 auto;
+		padding: 1.5rem 1.5rem 2.5rem;
+		border-top: 2px dashed var(--pt-border);
+		color: var(--pt-muted);
+		font-size: 0.8rem;
+	}
+
+	footer p {
+		margin: 0;
+	}
+</style>
+
+<script is:inline>
+	function getThemePreference() {
+		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+			return localStorage.getItem("theme");
+		}
+		return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+	}
+
+	const isDark = getThemePreference() === "dark";
+	document.documentElement.classList.toggle("dark", isDark);
+</script>
