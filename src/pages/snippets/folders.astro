@@ -17,6 +17,30 @@ for (const { post } of feed) {
 	description="all the different collections of snippets."
 	icon="/icons/folder-empty.svg"
 >
+	<div class="-mt-5 mb-6 flex justify-end gap-2">
+		<a
+			href="/snippets"
+			class="feed-action-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+		>
+			<span
+				class="btn-icon size-4 shrink-0"
+				style="--icon-url: url(/icons/file-list.svg)"
+				aria-hidden="true"
+			></span>
+			View Latest Snippets
+		</a>
+		<a
+			href="/snippets/feed.xml"
+			class="feed-action-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+		>
+			<span
+				class="btn-icon size-4 shrink-0"
+				style="--icon-url: url(/icons/rss.svg)"
+				aria-hidden="true"
+			></span>
+			Follow RSS Feed
+		</a>
+	</div>
 	<div class="grid grid-flow-row grid-cols-1 items-baseline gap-4 md:grid-cols-2">
 		{
 			collections.map((collection) => {
@@ -39,3 +63,21 @@ for (const { post } of feed) {
 		}
 	</div>
 </PageLayout>
+
+<style>
+	.feed-action-btn {
+		background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+	}
+	.feed-action-btn:hover {
+		background-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+		color: var(--color-text);
+	}
+	.btn-icon {
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+	}
+</style>

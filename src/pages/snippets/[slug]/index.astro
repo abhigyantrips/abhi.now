@@ -52,9 +52,40 @@ const image = await renderCard("collection", {
 		path: `/snippets/${collection.data.permalink}/feed.xml`,
 	}}
 >
+	<div class="-mt-5 mb-6 flex justify-end">
+		<a
+			href={`/snippets/${collection.data.permalink}/feed.xml`}
+			class="feed-action-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+		>
+			<span
+				class="btn-icon size-4 shrink-0"
+				style="--icon-url: url(/icons/rss.svg)"
+				aria-hidden="true"
+			></span>
+			Follow This Folder's RSS Feed
+		</a>
+	</div>
 	<SnippetFeed
 		collectionId={collection.id}
 		feedPath={`/snippets/${collection.data.permalink}`}
 		name={collection.data.name}
 	/>
 </PageLayout>
+
+<style>
+	.feed-action-btn {
+		background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+	}
+	.feed-action-btn:hover {
+		background-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+		color: var(--color-text);
+	}
+	.btn-icon {
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+	}
+</style>

@@ -4,5 +4,47 @@ import PageLayout from "@/layouts/page-layout.astro";
 ---
 
 <PageLayout route="/snippets">
+	<div class="-mt-5 mb-6 flex justify-end gap-2">
+		<a
+			href="/snippets/folders"
+			class="feed-action-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+		>
+			<span
+				class="btn-icon size-4.25 shrink-0"
+				style="--icon-url: url(/icons/folder-empty.svg)"
+				aria-hidden="true"
+			></span>
+			View All Folders
+		</a>
+		<a
+			href="/snippets/feed.xml"
+			class="feed-action-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+		>
+			<span
+				class="btn-icon size-4 shrink-0"
+				style="--icon-url: url(/icons/rss.svg)"
+				aria-hidden="true"
+			></span>
+			Follow RSS Feed
+		</a>
+	</div>
 	<SnippetFeed />
 </PageLayout>
+
+<style>
+	.feed-action-btn {
+		background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+	}
+	.feed-action-btn:hover {
+		background-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+		color: var(--color-text);
+	}
+	.btn-icon {
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+	}
+</style>
