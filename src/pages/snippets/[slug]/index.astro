@@ -11,6 +11,7 @@ export const getStaticPaths = (async () => {
 	return collections.map((collection) => ({
 		params: { slug: collection.data.permalink },
 		props: { collection },
+		cacheKey: String(collection.digest),
 	}));
 }) satisfies GetStaticPaths;
 
