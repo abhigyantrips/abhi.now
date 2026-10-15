@@ -28,6 +28,10 @@ export async function extractFirstImage(
 	const placeholder = attrs.get("__astro_image_");
 	const src: string | undefined = placeholder ? JSON.parse(placeholder).src : attrs.get("src");
 	if (!src) throw new Error("The first Markdown image has no source.");
+	// Rendered MDX has already passed through Cloudflare's image service.
+	// Cards are generated locally, where only the original asset exists.
+	const localAsset = src.match(/^\/cdn-cgi\/image\/[^/]+\/(_astro\/.*)$/);
+	if (localAsset) return `/${localAsset[1]}`;
 	if (/^(?:[a-z][a-z\d+.-]*:|\/)/i.test(src)) return src;
 	if (!filePath) throw new Error(`Cannot resolve image "${src}" without a source file path.`);
 

@@ -4,6 +4,7 @@ import WeeknoteLayout from "@/layouts/weeknote-layout.astro";
 import { formatReadingTime } from "@/lib/utils";
 import { getMonthColor } from "@/lib/month-colors";
 import { extractFirstImage, formatWeeknoteDateRange } from "@/lib/weeknote-preview";
+import { renderEntryHtml } from "@/lib/content-html";
 import { renderCard } from "astro-cards/runtime";
 
 export async function getStaticPaths() {
@@ -23,16 +24,14 @@ const { Content } = await render(note);
 const readingTime = formatReadingTime(note.body ?? "");
 const [id, ...title] = note.data.title.split(" ");
 const image = await (async () => {
-	if (note.rendered?.html === undefined) {
-		throw new Error("Rendered Markdown HTML is missing.");
-	}
+	const html = note.rendered?.html ?? (await renderEntryHtml(note));
 	return renderCard("weeknote", {
 		id,
 		title: title.join(" "),
 		readingTime,
 		monthColor: getMonthColor(note.data.fromDate).dark,
 		dateRange: formatWeeknoteDateRange(note.data.fromDate, note.data.toDate),
-		imageUrl: await extractFirstImage(note.rendered.html, note.filePath),
+		imageUrl: await extractFirstImage(html, note.filePath),
 	});
 })().catch((cause: unknown) => {
 	throw new Error(

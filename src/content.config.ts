@@ -42,7 +42,7 @@ const before = defineCollection({
 const blog = defineCollection({
 	loader: globWithParser({
 		base: "./src/content/blog",
-		pattern: "**/*.md",
+		pattern: "**/*.{md,mdx}",
 		parser: async (entry) => {
 			if (import.meta.env.MODE === "production") {
 				const { id, data }: { id: string; data: { published?: boolean } } = entry;

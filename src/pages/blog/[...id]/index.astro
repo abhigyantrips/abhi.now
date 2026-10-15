@@ -4,6 +4,7 @@ import { getEntries } from "astro:content";
 import { getCollection, render } from "astro:content";
 import { formatBlogDate, formatReadingTime } from "@/lib/utils";
 import { extractOpeningHtml } from "@/lib/blog-preview";
+import { renderEntryHtml } from "@/lib/content-html";
 import { renderCard } from "astro-cards/runtime";
 
 export async function getStaticPaths() {
@@ -23,18 +24,15 @@ const tags = await getEntries(post.data.tags || []);
 const date = formatBlogDate(post.data.date);
 const readingTime = formatReadingTime(post.body ?? "");
 
-if (post.rendered?.html === undefined) {
-	throw new Error(
-		`Cannot generate blog preview for "${post.id}": rendered Markdown HTML is missing.`
-	);
-}
+// MDX entries render at runtime rather than storing HTML in the collection.
+const html = post.rendered?.html ?? (await renderEntryHtml(post));
 
 const image = await renderCard("blog", {
 	title: post.data.title,
 	description: post.data.description,
 	date,
 	readingTime,
-	openingHtml: extractOpeningHtml(post.rendered.html),
+	openingHtml: extractOpeningHtml(html),
 }).catch((cause: unknown) => {
 	throw new Error(
 		`Cannot render blog preview for "${post.id}". Check src/cards/blog.astro and the Sour Gummy Fonts API configuration.`,
