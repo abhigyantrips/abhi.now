@@ -122,16 +122,13 @@ const pageTitle = `${post.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`
 
 <style>
 	:root {
-		--pt-bg: #fffaed;
-		--pt-text: #3c3836;
-		--pt-muted: #665c54;
+		--pt-bg: var(--color-bg);
+		--pt-text: var(--color-text);
+		--pt-muted: var(--color-text-muted);
 		--pt-border: #bdae93;
 	}
 
 	:root.dark {
-		--pt-bg: #1d2021;
-		--pt-text: #ebdbb2;
-		--pt-muted: #a89984;
 		--pt-border: #504945;
 	}
 
@@ -228,15 +225,6 @@ const pageTitle = `${post.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`
 		padding: 0.2rem 0.6rem;
 		border-radius: 0.4rem;
 		cursor: help;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:root:not(.light) {
-			--pt-bg: #1d2021;
-			--pt-text: #ebdbb2;
-			--pt-muted: #a89984;
-			--pt-border: #504945;
-		}
 	}
 
 	footer {
