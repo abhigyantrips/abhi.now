@@ -56,7 +56,7 @@ import image18 from './images/favourite-art-from-october-10-18.webp';
 `}</style>
 
 <script is:inline>{`
-	document.addEventListener("astro:page-load", () => {
+	const setupVideos = () => {
 		document.querySelectorAll("figure video").forEach((video) => {
 			video.muted = true;
 			const btn = video.parentElement.querySelector("button");
@@ -65,7 +65,9 @@ import image18 from './images/favourite-art-from-october-10-18.webp';
 				btn.textContent = video.muted ? "Unmute" : "Mute";
 			};
 		});
-	}, { once: true });
+	};
+	document.addEventListener("astro:page-load", setupVideos, { once: true });
+	document.addEventListener("DOMContentLoaded", setupVideos, { once: true });
 `}</script>
 
 "October 10" here refers to the entire (still ongoing) period of the SIR protests. If you aren't informed yet, you can [read more on Wikipedia](https://en.wikipedia.org/wiki/2026_Indian_electoral_controversy) and [watch (my GOAT) Samdish's video](https://www.youtube.com/watch?v=bE9rxrjAnxc).
