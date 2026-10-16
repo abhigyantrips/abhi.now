@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import { formatReadingTime } from "@/lib/utils";
 import { getMonthColor } from "@/lib/month-colors";
 import { extractFirstImage, formatWeeknoteDateRange } from "@/lib/weeknote-preview";
+import { renderEntryHtml } from "@/lib/content-html";
 import { renderCard } from "astro-cards/runtime";
 import { SITE } from "@/consts";
 import "@/styles/global.css";
@@ -28,16 +29,14 @@ const restTitle = title.join(" ");
 const dateRange = formatWeeknoteDateRange(note.data.fromDate, note.data.toDate);
 
 const image = await (async () => {
-	if (note.rendered?.html === undefined) {
-		throw new Error("Rendered Markdown HTML is missing.");
-	}
+	const html = note.rendered?.html ?? (await renderEntryHtml(note));
 	return renderCard("weeknote", {
 		id,
 		title: restTitle,
 		readingTime,
 		monthColor: getMonthColor(note.data.fromDate).dark,
 		dateRange,
-		imageUrl: await extractFirstImage(note.rendered.html, note.filePath),
+		imageUrl: await extractFirstImage(html, note.filePath),
 	});
 })().catch((cause: unknown) => {
 	throw new Error(

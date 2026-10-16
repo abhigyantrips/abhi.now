@@ -1,0 +1,235 @@
+---
+title: My Favourite Artwork from October 10
+description: A collection of posts from intense scrolling during the SIR protests.
+date: 2026-10-16
+---
+
+import image01 from './images/favourite-art-from-october-10-01.jpg';
+import image02 from './images/favourite-art-from-october-10-02.jpg';
+import image03 from './images/favourite-art-from-october-10-03.jpg';
+import image04 from './images/favourite-art-from-october-10-04.jpg';
+import image05 from './images/favourite-art-from-october-10-05.jpg';
+import image06 from './images/favourite-art-from-october-10-06.jpg';
+import image07 from './images/favourite-art-from-october-10-07.jpg';
+import image08 from './images/favourite-art-from-october-10-08.jpg';
+import image09 from './images/favourite-art-from-october-10-09.webp';
+import image10 from './images/favourite-art-from-october-10-10.webp';
+import image11 from './images/favourite-art-from-october-10-11.jpg';
+import image12 from './images/favourite-art-from-october-10-12.jpg';
+import image13 from './images/favourite-art-from-october-10-13.jpg';
+import image14 from './images/favourite-art-from-october-10-14.webp';
+import image15 from './images/favourite-art-from-october-10-15.jpg';
+import image16 from './images/favourite-art-from-october-10-16.jpg';
+import image17 from './images/favourite-art-from-october-10-17.jpg';
+import image18 from './images/favourite-art-from-october-10-18.webp';
+
+<style>{`
+	/* Captions are aligned left/right at every breakpoint. */
+	.prose-content figure:nth-of-type(odd) figcaption {
+		text-align: left;
+	}
+	.prose-content figure:nth-of-type(even) figcaption {
+		text-align: right;
+	}
+
+	/* Mobile browsers composite playing videos on their own layer, which can ignore border-radius while scrolling. clip-path is applied at the compositor level, so the corners stay clipped. */
+	.prose-content figure video {
+		clip-path: inset(0 round 0.75rem);
+		transform: translateZ(0);
+	}
+
+	/* From sm: up, images and captions hug the matching edge. */
+	@media (min-width: 40rem) {
+		.prose-content figure:nth-of-type(odd) img,
+		.prose-content figure:nth-of-type(odd) .video-wrap,
+		.prose-content figure:nth-of-type(odd) figcaption {
+			margin-left: 0;
+			margin-right: auto;
+		}
+		.prose-content figure:nth-of-type(even) img,
+		.prose-content figure:nth-of-type(even) .video-wrap,
+		.prose-content figure:nth-of-type(even) figcaption {
+			margin-right: 0;
+			margin-left: auto;
+		}
+	}
+`}</style>
+
+<script is:inline>{`
+	document.addEventListener("astro:page-load", () => {
+		document.querySelectorAll("figure video").forEach((video) => {
+			video.muted = true;
+			const btn = video.parentElement.querySelector("button");
+			btn.onclick = () => {
+				video.muted = !video.muted;
+				btn.textContent = video.muted ? "Unmute" : "Mute";
+			};
+		});
+	}, { once: true });
+`}</script>
+
+"October 10" here refers to the entire (still ongoing) period of the SIR protests. If you aren't informed yet, you can [read more on Wikipedia](https://en.wikipedia.org/wiki/2026_Indian_electoral_controversy) and [watch (my GOAT) Samdish's video](https://www.youtube.com/watch?v=bE9rxrjAnxc).
+
+<iframe
+  src="https://www.youtube-nocookie.com/embed/bE9rxrjAnxc?si=Utpmo6Ytg5WOSEh_"
+  class="w-full sm:w-4/5 sm:mx-auto aspect-video rounded-lg"
+  title="YouTube Video Player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+This collection was originally much larger than it is right now, but I learned that a lot of the posts I saved have been taken down since under the State's rigorous banishing of free speech online. You can read [the Internet Freedom Foundation's coverage](https://internetfreedom.in/meitys-enhanced-diligence-advisory-pressures-platforms-to-police-protest-speech-it-must-be-withdrawn/) on this.
+
+They ironically call it "enhanced diligence", which is something _they_ could have shown when crimes of rape and abuse became rampant all across the country.
+
+---
+
+<figure>
+  <div class="video-wrap relative sm:w-4/5 sm:mx-auto">
+    <video autoplay loop muted playsinline src="https://unrot.abhi.now/media/objects/61101a4a3de535dccd6b705d6445748f652eaadf802877386adac8f7b0ab67fe.mp4" class="block w-full my-0 rounded-xl border border-(--color-text-muted)/20 overflow-hidden" />
+    <button type="button" class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-sm text-white backdrop-blur cursor-pointer">Unmute</button>
+  </div>
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/Dd9FcS2zZVg/" target="_blank" rel="noopener norferrer">@meancurry</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image02.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeUt7zavqej/" target="_blank" rel="noopener norferrer">@santapollutant</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image03.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeTawi_qtXr/" target="_blank" rel="noopener norferrer">@sanitarypanels</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image01.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeUTnzkISpq/" target="_blank" rel="noopener norferrer">@hitesh.sonar</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image09.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/Dd-jXcATomL/" target="_blank" rel="noopener norferrer">@soumyadip.sinhart</a> on Instagram.</figcaption>
+</figure>
+
+---
+<div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted)">
+  <span><i>"हमारा ठोकरों से कुछ पुराना ख़ास नाता है।</i></span><br/>
+	<span><i>है जिसने इश्क़ ही देखा ना, वो रब का दुलारा है।"</i></span><br/>
+  <p class="text-right mt-0!"><b>&ndash; <a class="text-(--color-text-muted)! hover:text-(--color-bg)!" href="https://genius.com/Farak-10a-ind-and-saswat-balan-taare-lyrics">Taare by Farak</a></b></p>
+</div>
+
+---
+
+<figure>
+  <img src={image18.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeFJG21ScFJ/" target="_blank" rel="noopener norferrer">@ash.bagchi</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <div class="video-wrap relative sm:w-4/5 sm:mx-auto">
+    <video autoplay loop muted playsinline src="https://unrot.abhi.now/media/objects/a9a5ae56a21e03f2a85b41d3388f99b6020717b310b3b3d8d19421dcf676c5f3.mp4" class="block w-full my-0 rounded-xl border border-(--color-text-muted)/20 overflow-hidden" />
+    <button type="button" class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-sm text-white backdrop-blur cursor-pointer">Unmute</button>
+  </div>
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeTT6ihsnUo/" target="_blank" rel="noopener norferrer">@namamoco</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image08.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeTIa6hTjQd/" target="_blank" rel="noopener norferrer">@soumyadip.sinhart</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image11.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/anmol.moss/p/DeMhuX1FHp7/" target="_blank" rel="noopener norferrer">@anmol.moss</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image04.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeUz3LXMNG1/" target="_blank" rel="noopener norferrer">@bakeryprasad</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image16.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeT_RxuiMaQ/" target="_blank" rel="noopener norferrer">@anirban_ghosh</a> on Instagram. A beautiful series of images, I recommend reading through the whole thing.</figcaption>
+</figure>
+
+<figure>
+  <img src={image13.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/srftioutloud/p/DeJbyFkk3UQ/" target="_blank" rel="noopener norferrer">@srftioutloud</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image05.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeWQFhfk3X5/" target="_blank" rel="noopener norferrer">@ritweakranjan</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image12.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/anmol.moss/p/DecK4AklD8F/" target="_blank" rel="noopener norferrer">@anmol.moss</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image17.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/anirban_ghosh/p/DeZbpcPIsbo/" target="_blank" rel="noopener norferrer">@anirban_ghosh</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image10.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/soumyadip.sinhart/p/DeVwwPbTstz/" target="_blank" rel="noopener norferrer">@soumyadip.sinhart</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image14.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeUeCWMyV1m/" target="_blank" rel="noopener norferrer">@ash.bagchi</a> on Instagram.</figcaption>
+</figure>
+
+---
+<div class="max-w-3/4 mt-6 mx-auto text-(--color-text-muted)">
+  <span><i>"In order for me to write poetry that isn’t political</i></span><br/>
+	<span><i>I must listen to the birds</i></span><br/>
+	<span><i>and in order to hear the birds</i></span><br/>
+	<span><i>the warplanes must be silent."</i></span><br/>
+  <p class="text-right mt-0!"><b>&ndash; <a class="text-(--color-text-muted)! hover:text-(--color-bg)!" href="https://allpoetry.com/poem/17661332-In-order-for-me-to-write-poetry-that-isn-t-political-by-Kannon-McAfee">Marwan Makhoul</a></b></p>
+</div>
+
+---
+
+<figure>
+  <div class="video-wrap relative sm:w-4/5 sm:mx-auto">
+    <video autoplay loop muted playsinline src="https://unrot.abhi.now/media/objects/ce57ebc12121dd7fa563480b16e28c83c36786bd31016db10380e1817b924ad7.mp4" class="block w-full my-0 rounded-xl border border-(--color-text-muted)/20 overflow-hidden" />
+    <button type="button" class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-sm text-white backdrop-blur cursor-pointer">Unmute</button>
+  </div>
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DbIiURzohJ2/" target="_blank" rel="noopener norferrer">@meancurry</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image15.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/Defz6tzovR6/" target="_blank" rel="noopener norferrer">@manjultoons</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <div class="video-wrap relative sm:w-4/5 sm:mx-auto">
+    <video autoplay loop muted playsinline src="https://unrot.abhi.now/media/objects/a57f3bab39fcaff1273b153de14455bd54f7d7e89408165793ea64884cd6e7aa.mp4" class="block w-full my-0 rounded-xl border border-(--color-text-muted)/20 overflow-hidden" />
+    <button type="button" class="absolute bottom-3 right-3 rounded-full bg-black/60 px-3 py-1 text-sm text-white backdrop-blur cursor-pointer">Unmute</button>
+  </div>
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/shivamsachdeva7/reel/DdRd82IoKiW/" target="_blank" rel="noopener norferrer">@shivamsachdeva7</a> on Instagram. Just something I found while scrolling and was laughing at for a long time.</figcaption>
+</figure>
+
+<figure>
+  <img src={image07.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/DeObbEOvqam/" target="_blank" rel="noopener norferrer">@bakeryprasad</a> on Instagram.</figcaption>
+</figure>
+
+<figure>
+  <img src={image06.src} />
+  <figcaption class="mt-1.5!">Via <a href="https://www.instagram.com/p/Dd9B1UfDOQI/" target="_blank" rel="noopener norferrer">@humour_ink</a> on Instagram.</figcaption>
+</figure>
+
+---
+
+Some of this artwork might involve AI use. I don't mean to demean real artwork by putting both in the same space; I appreciate real effort and skill achieved through hard work, and the toil that artists put into every single piece. But I also think everyone in a democracy has the right to dissent, and excluding alternative forms of expression at a time like this would be neglectful of me.
+
+I don't know, my stance here is still a work in progress. But I find all exercising of our freedom of speech and expression cool as hell.
