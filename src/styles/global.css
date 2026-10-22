@@ -38,6 +38,8 @@ html {
 }
 
 body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	color: var(--color-text);
 	transition: color 0.3s ease;
 }

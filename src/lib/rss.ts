@@ -23,6 +23,11 @@ export async function renderEntryContent<C extends CollectionKey>(
 	site: URL
 ): Promise<string> {
 	const html = await renderEntryHtml(entry);
+	const notice =
+		(entry.collection === "blog" || entry.collection === "weeknotes") &&
+		entry.filePath?.endsWith(".mdx")
+			? "<blockquote><p>This post may contain custom HTML and scripts, which could be blocked when reading on an RSS reader. For the best experience, it is recommended to read on the website directly. Thanks!</p></blockquote>\n"
+			: "";
 
-	return absolutize(html, site);
+	return notice + absolutize(html, site);
 }
