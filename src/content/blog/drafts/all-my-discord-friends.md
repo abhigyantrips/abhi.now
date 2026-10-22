@@ -11,7 +11,7 @@ Discord gave a home to all my niche interests in school.
 
 Now by "niche", I'm not referring to my 7th Grade self as cool or quirky by any means. But I recall it being difficult for me to find a community around a lot of my hobbies in real life. I had this superpower to choose things not many people were interested in; maybe a therapist has something to decode there.
 
-But anyway, every one of these interests had a home on the Internet, and every one of them had social communities built around them on Discord. It's where I would go for things that didn't fit in at home or school, and it's the place that turned me into a proper keyboard warrior. I'd like to reminisce my favourite nooks from that place today.
+But anyway, every one of these interests had a home on the Internet, and every one of them had social communities built around them on Discord. It's where I would go for things that didn't fit in at home or school, and it's the place that turned me into the keyboard warrior that I am. I'd like to reminisce my favourite nooks from that place today.
 
 ### Speedcubing
 
@@ -19,7 +19,7 @@ Speedcubing is when you solve a Rubik's cube really really fast. So fast, that t
 
 It was cool the first couple years, where people timed me solving in the school bus and would come to me in class ask how to solve it. We had a school fair in 6th Grade, where we held a collection of mini-games including solving a Rubik's cube. When a parent questioned whether it could really be solved in 30 seconds, my class brought me forth to prove it. That was the first time I solved it in 29 seconds.
 
-Over time, more people learned to solve it in school. This was cool because I could now compete against people and improve even further. But at some point the craze started to die out. This is when
+Over time, more people learned to solve it in school, which was cool. We would time each other and try to solve faster, and share other weird puzzles we owned with one another.
 
 ### Bug Testing
 
