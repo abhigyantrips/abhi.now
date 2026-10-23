@@ -5,23 +5,41 @@ date: 2026-10-21
 published: false
 ---
 
+import image01 from './images/my-love-for-naive-design-01.png';
+import image02 from './images/my-love-for-naive-design-02.png';
+import chatFavour from '../../../assets/fonts/ChatFavour.otf?url';
+import hachiMaruPop from '../../../assets/fonts/HachiMaruPop.woff2?url';
+import caveat from '../../../assets/fonts/Caveat.woff2?url';
+
+<style>{`
+@font-face { font-family: "Chat Favour"; src: url(${chatFavour}) format("opentype"); font-display: swap; }
+@font-face { font-family: "Hachi Maru Pop"; src: url(${hachiMaruPop}) format("woff2"); font-display: swap; }
+@font-face { font-family: "Caveat"; src: url(${caveat}) format("woff2"); font-display: swap; }
+`}</style>
+
 Do you remember [skeumorphism](https://www.nngroup.com/articles/skeuomorphism/)?
 
 The era where everything aimed to look realistic. From app icons to desktop windows, complex shapes and 3D rendering techniques doing their best to replicate real-life elements on a digital surface.
 
-[image of ios skeumorphic icons]
+<figure>
+  <img src={image01.src} />
+  <figcaption>Skeumorphic icons from iOS 6, via <a href="https://www.thesyncedit.com/blog/ios-skeumuorphyism" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">thesyncedit.com</a>.</figcaption>
+</figure>
 
-One part of it that I still like to hold on to was MP3 players. All these different and cool UI's you could pull up on your computer just to play music. Not one of them was "basic", every single one struck out with its own unique personality. That spirit is something I still try to carry with this Android app called [Classipod].
+One part of it that I still like to hold on to was MP3 players. All these different and cool UI's you could pull up on your computer just to play music. Not one of them was "basic"; every single one struck out with its own unique personality. That spirit is something I still try to carry with this Android app called [Classipod](https://play.google.com/store/apps/details?id=com.adeeteya.classipod).
 
-[image of audio players, talk about danq]
+<figure>
+  <img src={image02.src} class="border-none" />
+  <figcaption>Older MP3 players, via <a href="https://danq.me/2022/12/07/old-music-player-design/" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">danq.me</a> -- who actually didn't like how they looked! I heavily disagree.</figcaption>
+</figure>
 
 I think we all eventually came to a consensus where we put the skeumorphism to rest. We understood that this attempt to bring the 3D to the 2D compromised on accessibility, and was constrained by the physical limits that real-life objects have.
 
-So we ditched it. We introduced flat, "material" UI. Lesser digital shadows and more shape uniformity. Buttons that changed color instead of moving "in" and "out" when pressed. We were no longer mimicking limited physical interfaces, so we got used to UI's having infinite scrolls and extremely vibrant colors; software slowly losing its connection from its roots, which was reality.
+So we ditched it. We introduced flat, "material" UI. Lesser digital shadows and more shape uniformity. Buttons that changed color instead of moving "in" and "out" when pressed. We were no longer mimicking limited physical interfaces, so we got used to UI's having infinite scrolls and dropdowns within dropdowns; software slowly losing its connection with its roots, which was reality.
 
-It all logically makes sense; we were coming from a time where computers needed to look less alien and more at-home, and the best way to do that was to make software look like things you would have in your house.
+It all culturally made sense; we were coming from a time where computers needed to look less alien and more at-home, and the best way to do that was to make software look like everyday items you would have in your house. But we're much more familiar with technology now, where smartphones exist in everyone's hands and apps are monetarily free to install.
 
-We're much more familiar with technology now, where smartphones exist in everyone's hands and apps are monetarily free to install. But looking at the same minimalist icons and button layouts on slightly different shades of white/black everywhere I go, I start wondering what it was we really gained from it.
+In this modern present, looking at the same minimalist icons and button layouts on slightly different shades of white/black everywhere I go, I start wondering what it was we really gained from the shift.
 
 ---
 
@@ -33,15 +51,32 @@ Once the design was set up, I kinda just left it there and didn't think about it
 
 Now that I know that I'm an unintentional ambassador of this trend, I have taken it upon myself to collect and showcase my fragment of it. With this, I welcome you to everything I love about naïve design.
 
----
-
 ### Handwritten Fonts
 
-I see the creation of handwritten fonts as a top-notch exercise of free will. Ever since Comic Sans showed that you don't need to have perfect curves, the font world has seemed to have stopped bodyshaming the alphabet.
+I see the creation of handwritten fonts as a top-notch exercise of free will. Ever since Comic Sans showed that you don't need to have perfect curves, the font world has seemed to have stopped bodyshaming the alphabet. And I guess through that, people have started to believe that the best way to represent authenticity _is_ through handwriting.
 
 My choice for the site was "Sour Gummy" by Stefie Justprince, after going to [Fontsource](https://fontsource.org/) and looking for a font that was close to my own handwriting. There are actually [many options to choose from](https://fontsource.org/?classifications=handwriting) now, with many of them being less quirky and more readable. I love it when designers execute their ideas and open-source them for the love of it.
 
-### Handwritten Fonts
+<figure>
+  <div class="text-center text-5xl max-w-4/5 mx-auto" style={{ fontFamily: "'Chat Favour', cursive" }}>
+    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
+  </div>
+  <figcaption>Chat Favour by Eko Bimantara, via <a href="https://fontesk.com/chat-favour-font/" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontesk.com</a>.</figcaption>
+</figure>
+
+<figure>
+  <div class="text-center text-2xl max-w-4/5 mx-auto" style={{ fontFamily: "'Hachi Maru Pop', cursive" }}>
+    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
+  </div>
+  <figcaption>Hachi Maru Pop by Fontworks Inc., via <a href="https://fontsource.org/fonts/hachi-maru-pop" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontsource.org</a>.</figcaption>
+</figure>
+
+<figure>
+  <div class="text-center text-5xl max-w-4/5 mx-auto" style={{ fontFamily: "'Caveat', cursive" }}>
+    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
+  </div>
+  <figcaption>Caveat by Impallari Type, via <a href="https://fontsource.org/fonts/caveat" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontsource.org</a>.</figcaption>
+</figure>
 
 - the loveliest
 - my use of sour gummy
