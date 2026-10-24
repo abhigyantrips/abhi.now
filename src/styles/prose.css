@@ -21,6 +21,10 @@
 		}
 	}
 
+	:not(pre) > code {
+		@apply rounded bg-(--color-text-muted)/10 px-1 py-0.5 font-mono font-normal text-(--color-text) before:content-none after:content-none;
+	}
+
 	del {
 		@apply text-(--color-text)/80 decoration-(--color-text) decoration-2;
 	}

@@ -1,20 +1,46 @@
 ---
 title: My Love for Naïve Design
 description: These are some products that I'm excitedly following (or am keen to get) because they're technologies without the intent to dominate.
-date: 2026-10-21
+date: 2026-10-24
 published: false
 ---
 
 import image01 from './images/my-love-for-naive-design-01.png';
 import image02 from './images/my-love-for-naive-design-02.png';
 import chatFavour from '../../../assets/fonts/ChatFavour.otf?url';
-import hachiMaruPop from '../../../assets/fonts/HachiMaruPop.woff2?url';
+import cedarvilleCursive from '../../../assets/fonts/CedarvilleCursive.woff2?url';
 import caveat from '../../../assets/fonts/Caveat.woff2?url';
+import shantellSans from '../../../assets/fonts/ShantellSans.woff2?url';
+import { createTornPaperMask } from '@/lib/torn-paper';
 
 <style>{`
 @font-face { font-family: "Chat Favour"; src: url(${chatFavour}) format("opentype"); font-display: swap; }
-@font-face { font-family: "Hachi Maru Pop"; src: url(${hachiMaruPop}) format("woff2"); font-display: swap; }
+@font-face { font-family: "Cedarville Cursive"; src: url(${cedarvilleCursive}) format("woff2"); font-display: swap; }
 @font-face { font-family: "Caveat"; src: url(${caveat}) format("woff2"); font-display: swap; }
+@font-face { font-family: "Shantell Sans"; src: url(${shantellSans}) format("woff2"); font-display: swap; }
+
+.torn-paper-sample {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 18rem;
+  padding: 2rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  text-align: left;
+  -webkit-mask-image: var(--torn-mask);
+  mask-image: var(--torn-mask);
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.torn-paper-sample > p {
+  margin: 0;
+}
 `}</style>
 
 Do you remember [skeumorphism](https://www.nngroup.com/articles/skeuomorphism/)?
@@ -37,39 +63,29 @@ I think we all eventually came to a consensus where we put the skeumorphism to r
 
 So we ditched it. We introduced flat, "material" UI. Lesser digital shadows and more shape uniformity. Buttons that changed color instead of moving "in" and "out" when pressed. We were no longer mimicking limited physical interfaces, so we got used to UI's having infinite scrolls and dropdowns within dropdowns; software slowly losing its connection with its roots, which was reality.
 
-It all culturally made sense; we were coming from a time where computers needed to look less alien and more at-home, and the best way to do that was to make software look like everyday items you would have in your house. But we're much more familiar with technology now, where smartphones exist in everyone's hands and apps are monetarily free to install.
+It all culturally made sense; we were coming from a time where computers needed to look less alien and more at-home, and the best way to do that was to make software look like everyday items you would have in your house. We're much more familiar with technology now though, when smartphones exist in everyone's hands and apps are monetarily free to install.
 
 In this modern present, looking at the same minimalist icons and button layouts on slightly different shades of white/black everywhere I go, I start wondering what it was we really gained from the shift.
 
 ---
 
-When I first started working on this site in January, I already knew I didn't want it look like everything I was sick of. I wanted it to be as if you were opening _my_ notebook, _my_ photo album, coming to a corner of the Internet that wished you "Good Morning!" with a heartwarming _chai_ ready for you.
+When I first started working on this site in January, I already knew I didn't want it look like everything I was sick of. I wanted it to be as if you were opening _my_ notebook, _my_ photo album, coming to a corner of the Internet that wished you "Good Morning!" with a heartwarming _chai_ ready for you in a weirdly quirky mug.
 
 I think I manifested it hard enough, because it didn't take much rabbithole-ing for me to find all the elements that brought the current design of this site together. I've gotten all the un-uniformity and doodle-iness I wanted for this place, and it has made me feel cozy every time I have visited it myself.
 
-Once the design was set up, I kinda just left it there and didn't think about it. It was only recently that I learned about this term called "Naïve Design", referring to the trend of "anti-perfect" design elements that have come up in the recent year as "The Rise Against The Machines".
+![The homepage of my website as of writing.](./images/my-love-for-naive-design-03.png)
+
+Once this design was set up, I kinda just left it there and didn't think about it. But then recently, I learned about this term called "[Naïve Design](https://www.kittl.com/blogs/naive-design-trend-stl/)", referring to the trend of "anti-perfect" design elements that have come up in the recent year as "The Rise Against The Machines".
+
+![That sounds familiar...](https://media1.tenor.com/m/IJwsfw7ToiQAAAAd/wait-what.gif)
 
 Now that I know that I'm an unintentional ambassador of this trend, I have taken it upon myself to collect and showcase my fragment of it. With this, I welcome you to everything I love about naïve design.
 
 ### Handwritten Fonts
 
-I see the creation of handwritten fonts as a top-notch exercise of free will. Ever since Comic Sans showed that you don't need to have perfect curves, the font world has seemed to have stopped bodyshaming the alphabet. And I guess through that, people have started to believe that the best way to represent authenticity _is_ through handwriting.
+I see the creation of handwritten fonts as a top-notch exercise of free will. Ever since Comic Sans showed that you don't need to have perfect curves, the font world seems to have stopped bodyshaming the alphabet. And I guess through that, people have started to believe that the best way to represent authenticity _is_ through human handwriting.
 
 My choice for the site was "Sour Gummy" by Stefie Justprince, after going to [Fontsource](https://fontsource.org/) and looking for a font that was close to my own handwriting. There are actually [many options to choose from](https://fontsource.org/?classifications=handwriting) now, with many of them being less quirky and more readable. I love it when designers execute their ideas and open-source them for the love of it.
-
-<figure>
-  <div class="text-center text-5xl max-w-4/5 mx-auto" style={{ fontFamily: "'Chat Favour', cursive" }}>
-    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
-  </div>
-  <figcaption>Chat Favour by Eko Bimantara, via <a href="https://fontesk.com/chat-favour-font/" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontesk.com</a>.</figcaption>
-</figure>
-
-<figure>
-  <div class="text-center text-2xl max-w-4/5 mx-auto" style={{ fontFamily: "'Hachi Maru Pop', cursive" }}>
-    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
-  </div>
-  <figcaption>Hachi Maru Pop by Fontworks Inc., via <a href="https://fontsource.org/fonts/hachi-maru-pop" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontsource.org</a>.</figcaption>
-</figure>
 
 <figure>
   <div class="text-center text-5xl max-w-4/5 mx-auto" style={{ fontFamily: "'Caveat', cursive" }}>
@@ -78,24 +94,221 @@ My choice for the site was "Sour Gummy" by Stefie Justprince, after going to [Fo
   <figcaption>Caveat by Impallari Type, via <a href="https://fontsource.org/fonts/caveat" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontsource.org</a>.</figcaption>
 </figure>
 
-- the loveliest
-- my use of sour gummy
-- other fonts i absolutely love
-- the idea of converting your own handwriting into a font.
+Some of them are definitely meant more to have a personality than be readable, though. For example, below is the display font I used for my app [Graycie](https://f-droid.org/packages/now.abhi.graycie/).
+
+<figure>
+  <div class="text-center text-5xl max-w-4/5 mx-auto" style={{ fontFamily: "'Chat Favour', cursive" }}>
+    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
+  </div>
+  <figcaption>Chat Favour by Eko Bimantara, via <a href="https://fontesk.com/chat-favour-font/" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontesk.com</a>.</figcaption>
+</figure>
+
+The coolest aspect of this so far, is when normal people start converting their handwriting into a font they (and other people) can use online.
+
+I have no idea where it started or who did it first, but the web is full of examples of people sharing their handwriting for the world to use. The more "polished" ones include designers like Shantell Martin, who is dyslexic and wrote pangrams with a Staedtler marker that were traced into [Shantell Sans](https://shantellsans.com/process). There's also [F37 Harriet](https://f37.com/f37x/f37-harriet) by Harriet Richardson, which traces handwritings from her diary at three different ages of her life -- when she was 4, 13 and 30.
+
+<figure>
+  <div class="text-center text-3xl max-w-4/5 mx-auto" style={{ fontFamily: "'Shantell Sans', cursive" }}>
+    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
+  </div>
+  <figcaption>Shantell Sans by Shantell Martin, via <a href="https://fontsource.org/fonts/shantell-sans" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontsource.org</a>.</figcaption>
+</figure>
+
+Another one I really adore is [ABC Stefan](https://abcdinamo.com/news/stefan-marx-font-release) by Stefan Marx, which stands out because it has _multiple iterations_ of each letter, that it chooses between with the help of a randomizer. That font requires a license, so it isn't following the open-source culture. But the story and math behind it is interesting nonetheless.
+
+Coming to the more personal examples, there are a plethora of bloggers who took in upon themselves to convert their handwriting into a personal font, as a prime showcase of whimsy. There's [Sacha Chua](https://sachachua.com/blog/2020/06/pythonfontforgeorg-i-made-a-font-based-on-my-handwriting/), who made a font using only free software and applied it to their blog titles (and they look awesome). There's [Edd Wilder-James](https://wilderwrites.ink/article/digitizing-my-handwriting/) who set out to build their own pipeline from handwriting to font, because existing solutions felt lacking to them.
+
+There's also [Croom](https://adamcroom.com/2017/10/the-croom-font/) by Adam Croom, who specifically talks about how flat design feels like its colonizing the web, and how the custom font was an attempt to make their digital presence uniquely theirs. I really resonated with the story behind it.
+
+The loveliest one out of the personal journeys though, is [Cedarville Cursive](https://www.cedarville.edu/news/2025/the-hands-behind-the-cedarville-cursive-font).
+
+<figure>
+  <div class="text-center text-4xl max-w-4/5 mx-auto" style={{ fontFamily: "'Cedarville Cursive', cursive" }}>
+    <p class="my-6!">This is a test for some text written in this cool handwritten font.</p>
+  </div>
+  <figcaption>Cedarville Cursive by Kimberly Geswein, via <a href="https://fontsource.org/fonts/cedarville-cursive" class="text-(--color-text-muted)! hover:text-(--color-bg)!" target="_blank" rel="noopener noreferrer">fontsource.org</a>.</figcaption>
+</figure>
+
+The designer [Kimberly Geswein](https://kimberlygeswein.com/) and teacher Catie Holt met through very unique circumstances, when their lives coincided during overseas training in China. It was just another day when Kimberly asked Holt if she wanted to convert her handwriting into a font, gave her the grid paper, and published the result. That font is used by over 98,000 websites today, and ranks 9th in Kimberly's own 22 published fonts.
+
+I think what I've learned through all of these, is that every single font -- even the non-handwriting ones -- have a deep history of stories and decisions behind them. I have felt this before too, when reading through [TypeTogether's blog](https://www.typetogether.com/blog/filter) and seeing them explain the details behind a font. People making fonts are very cool.
+
+> **Editor's Note:** I love unconventional fonts, but they can come at the price of making it more difficult for readers (and people in general) to interact with your web home. It's something I [learned the hard way](https://lobste.rs/s/fmyrgy/calm_technologies_excite_me#c_cmwdrb). So I always recommend having a simpler way for people to read, like I do [here](/blog/my-love-for-naive-design/plaintext).
 
 ### Doodle Icons
 
-- the ones i use, by Khushmeen
-- simplicity brings accessibility, but doodle brings character
-- not compromising accessibility by making full use of aria
-- the idea of "handwritten" art made by other artists to be used instead of generating slop to mimic humans.
+So far, I have seen icons hold a huge responsibility on their shoulders. They're meant to convey something that would usually take multiple words to communicate. "Go to your shopping cart," or "duplicate this," or "I need to contact support." Maybe it's even weirder that we _can_ understand something so verbose from just a drawing. I'll leave a reminder for myself to dive into this later.
 
-Dan Q has a post showing the different interfaces from the time I'm talking about, but he surprisingly didn't like how bulky they were or how much space they took.
+I'm not sure what led me to use [Khushmeen Sidhu](https://khushmeen.com/)'s [Doodle Icons](https://khushmeen.gumroad.com/l/doodleicons). It might be that she was one of the first people to pop up when searching "doodly icons", or it could be one of the hundreds of design posts I've saved on Instagram. But nevertheless I found myself sitting in front of her Gumroad page when starting work on this site, and immediately thought that it fit.
+
+![Some of Khushmeen's Doodle Icons as seen on SVG Repo.](./images/my-love-for-naive-design-04.png)
+
+Now when I was first starting this post, I was going to admit that having simpler icons leads to better accessibility for more people. But I'm starting to wonder if it's better to have icons like these instead; drawings that better represent something we know and see in everyday life. I'm not sure.
+
+There are hurdles I face here and there, ofcourse. It's hard to distinctly show detailed icons at smaller sizes, meaning that I _shouldn't_ use the icons when components reach a certain scale. There's also a relatively limited library, which is not a constraint I'm facing right now. But if I ever do, I'd love to commission Khushmeen myself with a request to extend the library. I've gotten the current icon set for free, after all.
+
+The only other extensive library I found in this area was one by [Streamline Icons](https://www.streamlinehq.com/icons/streamline-freehand). Now _that's_ extensive, with over 11,000 icons in their paid version. But when I look at so many different icons and versions, I start wondering _who_ it was that worked on each individual one. And I do not know.
+
+Maybe it is a craving for the artisanal, but when I see something hand-drawn or hand-written the idea in my head is that it's done _by_ someone. A person or a group of people. In the case of Doodle Icons, it might just be that the personal-ness of it makes me want to use the icon set even more. And I'm glad to do so.
+
+I also like how much this website's design opposes the current era of the web. In a world where LLM's and people using them keep trying to mimic humans and generate more "realistic" work, there are a cluster of humans who've gone, "Well, can you mimic _this_?" and made things that would be considered messy or careless. But to me, they still have a thousand times more care than someone who generated "art" with an LLM from a couple half-baked sentences.
 
 ### Human Physics
 
-- human visual perception through experience of human things
-- torn paper, how it's replicated through SVG textures
-- rough notations, how they mimic the unevenness of human handwriting
+Oof, alright. I've dedicated quite a few paragraphs to fonts and icons there. My apologies, I'm quite passionate about this.
 
-> This post originally began on 21st July, 2026.
+So far, we've looked at things that already have a set template to be converted to their digital form -- type designers were already using grid papers for designing fonts when digital software didn't exist. But what do you do about something that _can't_ be framed inside a rectangle? Like the edge of torn paper or the unevenness of a human circling something?
+
+The answer, more often than not, is "randomness".
+
+<div class="torn-paper-sample -rotate-12 text-2xl aspect-square my-16 mx-auto" style={`--torn-mask: url("${createTornPaperMask("naive-design-torn-paper-sample", { width: 360, height: 360 })}")`}>
+  This is a test for some text written on a piece of torn paper. Aren't the edges cool?
+</div>
+
+I don't know what I was searching for when I stumbled across [TornPaper.js](https://github.com/happy358/TornPaper). It's this JavaScript library that was last updated almost three years ago, and uses `<feTurbulence>` in SVG's to create an artifical texture using [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise).
+
+I really liked the scrapbook-y feeling that the texture brings, but having extra JavaScript load at runtime was too much. So I made [my own version of it](https://github.com/abhigyantrips/abhi.now/blob/c224d97ea5b7b99566d8471a76c470a8ff703afe/src/lib/torn-paper.ts) which runs at build-time, and keeps the edges consistent across reloads. I'm using it for the Facets [on my About page](/whoami) right now, and it looks _great_.
+
+![Some of the Facets I currently have up, though I'm yet to finish writing their content. :P](./images/my-love-for-naive-design-05.png)
+
+It's cool how pattern recognition comes into play when we're looking at digital things and trying to find what connects them to something we know. A trash can intuitively becomes a place to throw away things, and dragging an item turning into a hand holding the file to show that you've picked it up. The familiarity aspect is underrated, and I wonder if the same "familiarity" is what makes unpolished design feel cozy.
+
+The last item, which I only found like last month, is [Rough Notation](https://roughnotation.com). Yet another JavaScript library, except this one <span data-rough="highlight">animates drawing and underlining and highlighting</span> on any piece of text you want. You can <span data-rough="box" class="whitespace-nowrap">box something in</span>, <span data-rough="circle" class="whitespace-nowrap">circle</span> the important bits, <span data-rough="strike-through">strike out the things you changed your mind about</span>, or just <span data-rough="crossed-off" class="whitespace-nowrap">cross them off</span> entirely. Annotations can have different styles/colors, and you can even disable the animation if you're not into it.
+
+<div class="not-prose my-8 flex flex-wrap items-center justify-between gap-3">
+  <button
+    id="add-rough-notations"
+    type="button"
+    class="cursor-pointer rounded-lg bg-(--color-text)/10 px-4 py-2 text-sm text-(--color-text-muted) transition-colors hover:bg-(--color-text)/18 hover:text-(--color-text) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-text) disabled:cursor-not-allowed disabled:opacity-50"
+  >
+    Apply Rough Notations
+  </button>
+  <button
+    id="reset-rough-notations"
+    type="button"
+    class="cursor-pointer rounded-lg bg-(--color-text)/10 px-4 py-2 text-sm text-(--color-text-muted) transition-colors hover:bg-(--color-text)/18 hover:text-(--color-text) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-text) disabled:cursor-not-allowed disabled:opacity-50"
+    disabled
+  >
+    Reset Notations
+  </button>
+</div>
+
+This library itself stands on the shoulder of another giant called [Rough.js](https://roughjs.com/), by the way, which can create <span data-rough="underline">hand-drawn graphics</span> and is already used by apps like [Excalidraw](https://excalidraw.com/) and [Diagrams.Net](https://diagrams.net). There's even a <span data-rough="bracket" class="whitespace-nowrap">bracket</span> style, which I'm mentioning just so I can demo it.
+
+<script is:inline data-astro-rerun>{`
+  (() => {
+    const addButton = document.getElementById("add-rough-notations");
+    const resetButton = document.getElementById("reset-rough-notations");
+    const targets = [...document.querySelectorAll("[data-rough]")];
+
+    if (!addButton || !resetButton || !targets.length) return;
+
+    // Gruvbox-flavoured colours to match the site's palette in both themes.
+    const palettes = {
+      light: {
+        highlight: "rgba(215, 153, 33, 0.4)",
+        box: "#458588",
+        circle: "#d65d0e",
+        "strike-through": "#79740e",
+        "crossed-off": "#9d0006",
+        underline: "#b16286",
+        bracket: "#427b58",
+      },
+      dark: {
+        highlight: "rgba(250, 189, 47, 0.3)",
+        box: "#83a598",
+        circle: "#fe8019",
+        "strike-through": "#b8bb26",
+        "crossed-off": "#fb4934",
+        underline: "#d3869b",
+        bracket: "#8ec07c",
+      },
+    };
+
+    const options = {
+      highlight: { multiline: true },
+      underline: { multiline: true, strokeWidth: 2 },
+      "strike-through": { multiline: true, strokeWidth: 2 },
+      box: { strokeWidth: 2, padding: 6 },
+      circle: { strokeWidth: 2, padding: 8 },
+      "crossed-off": { strokeWidth: 2, padding: 2 },
+      bracket: { strokeWidth: 2, brackets: ["left", "right"], padding: 4 },
+    };
+
+    const root = document.documentElement;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const palette = () => palettes[root.classList.contains("dark") ? "dark" : "light"];
+
+    let roughNotation;
+    let annotations = [];
+    let themeObserver;
+
+    const clear = () => {
+      themeObserver?.disconnect();
+      themeObserver = undefined;
+      annotations.forEach(({ annotation }) => annotation.remove());
+      annotations = [];
+    };
+
+    addButton.addEventListener("click", async () => {
+      addButton.disabled = true;
+
+      try {
+        roughNotation ??= await import("https://unpkg.com/rough-notation@0.5.1/lib/rough-notation.esm.js");
+
+        const colors = palette();
+        annotations = targets.map((target) => {
+          const type = target.dataset.rough;
+          return {
+            type,
+            annotation: roughNotation.annotate(target, {
+              type,
+              color: colors[type],
+              animate: !reducedMotion.matches,
+              ...options[type],
+            }),
+          };
+        });
+
+        roughNotation.annotationGroup(annotations.map(({ annotation }) => annotation)).show();
+        resetButton.disabled = false;
+
+        themeObserver = new MutationObserver(() => {
+          const next = palette();
+          annotations.forEach(({ type, annotation }) => {
+            annotation.color = next[type];
+          });
+        });
+        themeObserver.observe(root, { attributes: true, attributeFilter: ["class"] });
+      } catch (error) {
+        clear();
+        addButton.disabled = false;
+        console.error("Could not load Rough Notation.", error);
+      }
+    });
+
+    resetButton.addEventListener("click", () => {
+      clear();
+      resetButton.disabled = true;
+      addButton.disabled = false;
+    });
+
+    document.addEventListener("astro:before-swap", clear, { once: true });
+  })();
+`}</script>
+
+I don't think I'm going to use Rough Notation any time soon though, because I used to be one of those kids in school that would underline words with a ruler. It seems weird to underline messy handwriting with a immaculate line, looking back. But that's just a part of who I am now.
+
+---
+
+This site has received much love from people since its publication in February, and I couldn't be happier about it. I had an idea in my head that I was able to successfully apply, but it wouldn't have been possible without all the artists that leave their work open for public use. They deserve all the love they receive.
+
+As time goes on and I grow as a person, this site receives updates in the form of new content and new pages. Not all of them find a place easily, which makes me wonder from time to time whether the design of the site needs to change. I really love how the site looks, but I also don't want to put myself in a box when Abhi.Now isn't even a year old.
+
+So this place may change one day. The font might become more readable and the icons might have more color. The aesthetic might change from a pocket notebook to a printed textbook. But the one thing I will try my best to do is keep the human touch. Stay naïve, and be the designer of your own life (or something like that). :)
+
+> This post originally began [on 19th July, 2026](https://github.com/abhigyantrips/abhi.now/commits/c01834bf653e1e4e970b11ddb4c6ca6b5d05bc34/src/content/blog/my-love-for-naive-design.md?browsing_rename_history=true&new_path=src/content/blog/drafts/my-love-for-naive-design.md&original_branch=main). The draft was rotting for a long time in a <u>very</u> unfinished state; mostly just three headings about fonts and icons and physics.
+>
+> It was only a couple days ago, when I told yet another person about how I'm working on this draft, and they asked me, "Would you really just give away how your website works like that? You're fine with someone else re-using it?" And I paused for a bit before realizing that my answer was, "You know what? Hell yeah. More people should be doing things like this."
+>
+> So here we are, three months later. You never know when the motivation/inspiration/whatever will strike.
