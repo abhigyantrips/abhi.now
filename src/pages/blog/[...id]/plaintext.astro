@@ -200,14 +200,10 @@ const pageTitle = `${post.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`
 		margin: 1.5rem 0;
 	}
 
-	/* Override prose-content to use monospace */
+	/* Default to monospace while allowing font samples to set their own typeface. */
 	:global(.prose-content) {
 		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
 			"DejaVu Sans Mono", monospace !important;
-	}
-
-	:global(.prose-content *) {
-		font-family: inherit !important;
 	}
 
 	.tags {
