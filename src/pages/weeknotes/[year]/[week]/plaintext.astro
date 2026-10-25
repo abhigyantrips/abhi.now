@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import { getCollection, render } from "astro:content";
 import { formatReadingTime } from "@/lib/utils";
 import { getMonthColor } from "@/lib/month-colors";
@@ -58,6 +59,7 @@ const pageTitle = `${note.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
+		<Font cssVariable="--font-atkinson" />
 
 		<link rel="canonical" href={canonicalURL} />
 
@@ -129,8 +131,13 @@ const pageTitle = `${note.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`
 	}
 
 	body {
-		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-			"DejaVu Sans Mono", monospace;
+		font-family:
+			var(--font-atkinson),
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			"Segoe UI",
+			sans-serif;
 		background-color: var(--pt-bg);
 		color: var(--pt-text);
 		font-size: 0.9rem;
@@ -190,10 +197,15 @@ const pageTitle = `${note.data.title.toLowerCase()} (plaintext) | ${SITE.TITLE}`
 		margin: 1.5rem 0;
 	}
 
-	/* Default to monospace while allowing font samples to set their own typeface. */
+	/* Default to Atkinson Hyperlegible while allowing font samples to set their own typeface. */
 	:global(.prose-content) {
-		font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-			"DejaVu Sans Mono", monospace !important;
+		font-family:
+			var(--font-atkinson),
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			"Segoe UI",
+			sans-serif !important;
 	}
 
 	footer {

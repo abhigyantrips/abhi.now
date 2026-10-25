@@ -49,6 +49,14 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.fontsource(),
+			name: "Atkinson Hyperlegible",
+			cssVariable: "--font-atkinson",
+			weights: [400, 700],
+			styles: ["normal", "italic"],
+			formats: ["woff2"],
+		},
+		{
+			provider: fontProviders.fontsource(),
 			name: "Sour Gummy",
 			cssVariable: "--font-gummy",
 			weights: [400, 600],
