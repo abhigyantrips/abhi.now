@@ -32,6 +32,22 @@ const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
 	data-website-id="05ca8815-e70d-4226-8173-1a6d7744a00d"
 	data-domains="abhi.now"></script>
 
+<!-- Umami Visit Duration Heartbeat (duration = last event - first event in a session) -->
+<script>
+	const HEARTBEAT_INTERVAL_MS = 15_000;
+	const MAX_HEARTBEATS = 60;
+	let beats = 0;
+
+	const timer = setInterval(() => {
+		if (beats >= MAX_HEARTBEATS) return clearInterval(timer);
+		if (document.visibilityState !== "visible") return;
+		const umami = (window as { umami?: { track: (event: string) => void } }).umami;
+		if (!umami) return;
+		umami.track("heartbeat");
+		beats++;
+	}, HEARTBEAT_INTERVAL_MS);
+</script>
+
 <!-- Animation Styles -->
 <style is:global>
 	@keyframes slideInFromBottom {
