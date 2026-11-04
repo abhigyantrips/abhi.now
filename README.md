@@ -41,3 +41,42 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Snippet collections
+
+Each folder in `src/content/snippets/` has an `_collection.json` containing
+`name`, `description`, `permalink`, and `type` (`"text"` or `"photos"`). Omitted
+`type` values default to `"text"`. The collection controls every post's type;
+individual posts do not need their own `type` field.
+
+```json
+{
+  "name": "out-and-about",
+  "description": "things i saw while being out in the world.",
+  "permalink": "out-and-about",
+  "type": "photos"
+}
+```
+
+Posts keep their unique 10-digit Unix timestamp filenames. Text posts are ordinary
+Markdown. In a photo collection, each post requires a local `image` and nonempty
+`imageAlt` in its frontmatter. Image paths are relative to the Markdown file;
+`imageAlt` describes the image for accessibility, independently of the caption.
+The Markdown body is the optional caption; don't repeat the main image in it.
+
+```md
+---
+image: ./images/evening-walk.jpg
+imageAlt: Sunlight falling across trees beside a walking path.
+---
+
+I just remember my legs hurting from the exertion.
+It was an amazingly extroverted day.
+```
+
+Photos preserve their aspect ratios. They use 60% of the feed width from the `md`
+breakpoint, alternating left and right among photo posts only, and the full feed
+width on mobile. The same presentation applies to the mixed feed and folder
+pages. The collection name links to its folder; the datetime links to the post.
+RSS includes the frontmatter image before the caption, and photo folders have
+photo previews in their social sharing images.

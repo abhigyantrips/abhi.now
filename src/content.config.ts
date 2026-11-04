@@ -194,6 +194,7 @@ const projects = defineCollection({
 const snippetsBase = "./src/content/snippets";
 
 const snippetCollectionSchema = z.object({
+	type: z.enum(["text", "photos"]).default("text"),
 	name: z.string().trim().min(1),
 	description: z.string().trim().min(1),
 	permalink: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -253,7 +254,7 @@ function snippetCollectionsLoader() {
 		// Glob skips unchanged files, even when an older schema stripped fields.
 		// Reparse cached metadata that no longer satisfies the current schema.
 		for (const entry of context.store.values()) {
-			if (!snippetCollectionSchema.safeParse(entry.data).success) {
+			if (!snippetCollectionSchema.safeParse(entry.data).success || !entry.data.type) {
 				context.store.delete(entry.id);
 			}
 		}
@@ -263,36 +264,83 @@ function snippetCollectionsLoader() {
 }
 
 function snippetsLoader(): Loader {
+	let stopWatching: (() => void) | undefined;
 	const loader = globWithParser({
 		base: snippetsBase,
 		pattern: "**/*.md",
 		generateId: ({ entry }) => basename(entry, ".md"),
-		parser: async (entry) => ({
-			...entry,
-			data: {
-				...entry.data,
-				collection: basename(dirname(entry.filePath!)),
-				date: new Date(Number(entry.id) * 1000).toISOString(),
-			},
-		}),
+		parser: async (entry) => {
+			const metadata = snippetCollectionSchema.parse(
+				JSON.parse(await readFile(join(dirname(entry.filePath!), "_collection.json"), "utf8"))
+			);
+			return {
+				...entry,
+				data: {
+					...entry.data,
+					type: metadata.type,
+					collection: basename(dirname(entry.filePath!)),
+					date: new Date(Number(entry.id) * 1000).toISOString(),
+				},
+			};
+		},
 	});
 	const originalLoad = loader.load;
 	loader.load = async (context) => {
+		stopWatching?.();
 		const directory = fileURLToPath(new URL(snippetsBase, context.config.root));
 		const files = await validateSnippetTree(directory);
-		// A folder move keeps the ID and body digest, but changes the reference
-		// and relative image paths. Invalidate that entry before glob's cache check.
+		const types = new Map<string, string>();
+		for (const folder of new Set([...files.values()].map((file) => dirname(file)))) {
+			const metadata = snippetCollectionSchema.parse(
+				JSON.parse(await readFile(join(directory, folder, "_collection.json"), "utf8"))
+			);
+			types.set(folder, metadata.type);
+		}
+		// Folder moves and collection type changes keep the Markdown body digest.
+		// Reparse those entries before glob's cache check.
 		for (const entry of context.store.values()) {
 			const file = files.get(entry.id);
 			if (
 				file &&
-				entry.filePath &&
-				resolve(fileURLToPath(context.config.root), entry.filePath) !== join(directory, file)
+				(entry.data.type !== types.get(dirname(file)) ||
+					(entry.filePath &&
+						resolve(fileURLToPath(context.config.root), entry.filePath) !== join(directory, file)))
 			) {
 				context.store.delete(entry.id);
 			}
 		}
 		await originalLoad(context);
+		const watcher = context.watcher;
+		if (watcher) {
+			const onMetadataChange = async (changedPath: string) => {
+				if (
+					basename(changedPath) !== "_collection.json" ||
+					dirname(dirname(changedPath)) !== directory
+				) {
+					return;
+				}
+				try {
+					const metadata = snippetCollectionSchema.parse(
+						JSON.parse(await readFile(changedPath, "utf8"))
+					);
+					const folder = basename(dirname(changedPath));
+					for (const entry of context.store.values()) {
+						if (
+							entry.filePath &&
+							basename(dirname(entry.filePath)) === folder &&
+							entry.data.type !== metadata.type
+						) {
+							context.store.delete(entry.id);
+							watcher.emit("change", resolve(fileURLToPath(context.config.root), entry.filePath));
+						}
+					}
+				} catch (error) {
+					context.logger.error(`Cannot update snippet collection ${changedPath}: ${error}`);
+				}
+			};
+			watcher.on("change", onMetadataChange);
+			stopWatching = () => watcher.off("change", onMetadataChange);
+		}
 	};
 	return loader;
 }
@@ -304,10 +352,21 @@ const snippetCollections = defineCollection({
 
 const snippets = defineCollection({
 	loader: snippetsLoader(),
-	schema: z.object({
-		collection: reference("snippetCollections"),
-		date: z.coerce.date(),
-	}),
+	schema: ({ image }) => {
+		const common = {
+			collection: reference("snippetCollections"),
+			date: z.coerce.date(),
+		};
+		return z.discriminatedUnion("type", [
+			z.object({ ...common, type: z.literal("text") }),
+			z.object({
+				...common,
+				type: z.literal("photos"),
+				image: image(),
+				imageAlt: z.string().trim().min(1),
+			}),
+		]);
+	},
 });
 
 const tags = defineCollection({

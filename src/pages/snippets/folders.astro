@@ -25,8 +25,7 @@ for (const { post } of feed) {
 			<span
 				class="btn-icon size-4 shrink-0"
 				style="--icon-url: url(/icons/file-list.svg)"
-				aria-hidden="true"
-			></span>
+				aria-hidden="true"></span>
 			View Latest Snippets
 		</a>
 		<a
@@ -36,8 +35,7 @@ for (const { post } of feed) {
 			<span
 				class="btn-icon size-4 shrink-0"
 				style="--icon-url: url(/icons/rss.svg)"
-				aria-hidden="true"
-			></span>
+				aria-hidden="true"></span>
 			Follow RSS Feed
 		</a>
 	</div>
@@ -45,6 +43,7 @@ for (const { post } of feed) {
 		{
 			collections.map((collection) => {
 				const count = counts.get(collection.id) ?? 0;
+				const noun = collection.data.type === "photos" ? "photo" : "sticky note";
 				return (
 					<a
 						class="group flex flex-col gap-0.5 rounded-2xl bg-(--color-text)/10 p-4 hover:scale-105"
@@ -52,7 +51,8 @@ for (const { post } of feed) {
 					>
 						<span>{collection.data.name}</span>
 						<span class="mb-1 text-sm text-(--color-text-muted)">
-							{count} {count === 1 ? "sticky note" : "sticky notes"}
+							{count} {noun}
+							{count === 1 ? "" : "s"}
 						</span>
 						<span class="line-clamp-2 text-sm text-(--color-text-muted)">
 							{collection.data.description}

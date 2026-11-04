@@ -1,5 +1,6 @@
 {
-  "name": "overheard @ iwcb",
-  "description": "things i've heard people say at IndieWebClub BLR that should be quoted.",
-  "permalink": "iwcb"
+	"name": "overheard @ iwcb",
+	"description": "things i've heard people say at IndieWebClub BLR that should be quoted.",
+	"permalink": "iwcb",
+	"type": "text"
 }

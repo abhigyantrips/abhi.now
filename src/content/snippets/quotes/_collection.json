@@ -1,5 +1,6 @@
 {
-  "name": "saved quotes",
-  "description": "semi-cheesy quotes from elsewhere that i wanted to archive.",
-  "permalink": "quotes"
+	"name": "saved quotes",
+	"description": "semi-cheesy quotes from elsewhere that i wanted to archive.",
+	"permalink": "quotes",
+	"type": "text"
 }

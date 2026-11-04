@@ -1,5 +1,6 @@
 {
-  "name": "my own words",
-  "description": "words i've blabbered and then gone, 'hold on, that's good'.",
-  "permalink": "thoughts"
+	"name": "my own words",
+	"description": "words i've blabbered and then gone, 'hold on, that's good'.",
+	"permalink": "thoughts",
+	"type": "text"
 }
