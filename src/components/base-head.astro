@@ -25,27 +25,23 @@ const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
 <!-- Font Imports -->
 <Font cssVariable="--font-gummy" />
 
-<!-- Umami Anonymous Analytics -->
-<script
-	defer
-	src="https://ego.abhi.now/stroke.js"
-	data-website-id="05ca8815-e70d-4226-8173-1a6d7744a00d"
-	data-domains="abhi.now"></script>
-
-<!-- Umami Visit Duration Heartbeat (duration = last event - first event in a session) -->
+<!-- Annu Analytics -->
 <script>
-	const HEARTBEAT_INTERVAL_MS = 15_000;
-	const MAX_HEARTBEATS = 60;
-	let beats = 0;
-
-	const timer = setInterval(() => {
-		if (beats >= MAX_HEARTBEATS) return clearInterval(timer);
-		if (document.visibilityState !== "visible") return;
-		const umami = (window as { umami?: { track: (event: string) => void } }).umami;
-		if (!umami) return;
-		umami.track("heartbeat");
-		beats++;
-	}, HEARTBEAT_INTERVAL_MS);
+	(() => {
+		const load = () => {
+			const s = document.createElement("script");
+			s.src = "https://annu.abhi.now/script.js";
+			s.async = true;
+			s.dataset.siteId = "3a90c2c4-8cff-4861-8f64-23f04862ac13";
+			s.dataset.domains = "abhi.now";
+			s.dataset.heartbeat = "true";
+			s.dataset.performance = "true";
+			s.dataset.links = "true";
+			document.head.appendChild(s);
+		};
+		if (document.readyState === "complete") setTimeout(load, 0);
+		else window.addEventListener("load", load, { once: true });
+	})();
 </script>
 
 <!-- Animation Styles -->
