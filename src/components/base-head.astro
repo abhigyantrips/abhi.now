@@ -26,7 +26,7 @@ const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
 <Font cssVariable="--font-gummy" />
 
 <!-- Annu Analytics -->
-<script>
+<script is:inline>
 	(() => {
 		const load = () => {
 			const s = document.createElement("script");
