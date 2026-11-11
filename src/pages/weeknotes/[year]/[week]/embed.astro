@@ -1,0 +1,16 @@
+---
+import View from "./_view.astro";
+import { getCollection } from "astro:content";
+import { getEmbedBuildContext } from "@/lib/embed-cache";
+export async function getStaticPaths() {
+	const { page, cacheKey } = await getEmbedBuildContext();
+	const entries = await getCollection("weeknotes");
+	return entries.map((note) => ({
+		params: { year: note.id.split("/")[0], week: note.id.split("/")[1] },
+		props: { note, embed: page(`/weeknotes/${note.id}`) },
+		cacheKey: cacheKey([note]),
+	}));
+}
+---
+
+<View {...Astro.props} />

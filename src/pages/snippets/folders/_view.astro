@@ -9,9 +9,12 @@ const counts = new Map<string, number>();
 for (const { post } of feed) {
 	counts.set(post.data.collection.id, (counts.get(post.data.collection.id) ?? 0) + 1);
 }
+
+const embed = Astro.props.embed;
 ---
 
 <PageLayout
+	embed={embed}
 	route="/snippets"
 	title="folders"
 	description="all the different collections of snippets."

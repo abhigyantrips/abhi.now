@@ -1,0 +1,14 @@
+---
+import View from "./_view.astro";
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+	const facets = await getCollection("facets");
+
+	return facets.map((facet) => ({
+		params: { slug: facet.id },
+		props: { facet },
+	}));
+}
+---
+
+<View {...Astro.props} />

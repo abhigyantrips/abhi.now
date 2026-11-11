@@ -1,4 +1,5 @@
 ---
+import EmbedHead from "@/components/embed-head.astro";
 import BaseHead from "@/components/base-head.astro";
 import Container from "@/components/container.astro";
 import EvilEye from "@/components/evil-eye.astro";
@@ -10,12 +11,13 @@ import "@/styles/global.css";
 import "@/styles/prose.css";
 
 type Props = {
+	embed?: import("@/lib/embed-policy").EmbedPage;
 	postTitle: string;
 	postDescription: string;
 	postUrl?: string;
 };
 
-const { postTitle, postDescription, postUrl } = Astro.props;
+const { postTitle, postDescription, postUrl, embed } = Astro.props;
 const whoamiRoute = ROUTES.find((r) => r.PATH === "/whoami" || r.NAME === "whoami");
 
 if (!whoamiRoute) {
@@ -24,18 +26,31 @@ if (!whoamiRoute) {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-embed={embed && "computer"} data-embed-scope={embed?.scope}>
 	<head>
-		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
+		{
+			embed ? (
+				<EmbedHead
+					embed={embed}
+					title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
+					description={postDescription}
+				/>
+			) : (
+				<BaseHead
+					title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`}
+					description={postDescription}
+				/>
+			)
+		}
 	</head>
 	<body class="font-gummy">
-		<Header section={whoamiRoute.NAME} />
+		{!embed && <Header section={whoamiRoute.NAME} />}
 		<main
 			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
 			transition:animate={slideFromBottom}
 		>
 			<Container size="md">
-				<div class="h-entry flex flex-col pt-24 md:pt-48">
+				<div class={embed ? "h-entry flex flex-col pt-8" : "h-entry flex flex-col pt-24 md:pt-48"}>
 					<header class="flex flex-col items-center text-center">
 						<p class="text-sm font-semibold tracking-[0.18em] text-(--color-text-muted) uppercase">
 							who i am as...

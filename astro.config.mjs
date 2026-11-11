@@ -14,6 +14,7 @@ import satteriFigure from "satteri-figure";
 
 import mdx from "@astrojs/mdx";
 import cards from "astro-cards";
+import stableCardCache from "./src/integrations/stable-card-cache.ts";
 
 // Sätteri's Smartypants handles my en dashes correctly, but they look
 // the same as normal dashes on Sour Gummy. So this thing handles converting
@@ -66,9 +67,10 @@ export default defineConfig({
 	],
 
 	integrations: [
-		sitemap(),
+		sitemap({ filter: (page) => !new URL(page).pathname.replace(/\/$/, "").endsWith("/embed") }),
 		mdx(),
 		cards({ width: 1200, height: 630, format: "jpeg", quality: 85 }),
+		stableCardCache(),
 	],
 
 	markdown: {

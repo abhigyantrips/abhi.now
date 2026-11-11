@@ -1,34 +1,23 @@
 ---
-import { Font } from "astro:assets";
+import DocumentHead from "./document-head.astro";
 import { ClientRouter } from "astro:transitions";
 import type { SocialImage } from "@/types";
-
 interface Props {
 	title: string;
 	description: string;
 	image?: SocialImage;
 	rssFeed?: { title: string; path: string };
 }
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-const { title, description, image, rssFeed } = Astro.props;
-const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
 ---
 
-<!-- Global Metadata -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/png" href="/favicon.png" />
-<meta name="generator" content={Astro.generator} />
-
-<!-- Font Imports -->
-<Font cssVariable="--font-gummy" />
-
+<DocumentHead {...Astro.props} />
 <!-- Annu Analytics -->
 <script is:inline>
 	(() => {
 		const load = () => {
+			try {
+				if (localStorage.getItem("annu.disabled") === "true") return;
+			} catch {}
 			const s = document.createElement("script");
 			s.src = "https://annu.abhi.now/script.js";
 			s.async = true;
@@ -44,147 +33,7 @@ const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
 	})();
 </script>
 
-<!-- Animation Styles -->
-<style is:global>
-	@keyframes slideInFromBottom {
-		from {
-			opacity: 0;
-			transform: translateY(30%);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes slideToTop {
-		from {
-			opacity: 1;
-			transform: translateY(0);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(-30%);
-		}
-	}
-
-	@keyframes fadeScaleDown {
-		from {
-			opacity: 1;
-			transform: scale(1);
-		}
-		to {
-			opacity: 0;
-			transform: scale(0.8);
-		}
-	}
-
-	@keyframes slideOutToBottom {
-		from {
-			opacity: 1;
-			transform: translateY(0);
-		}
-		to {
-			opacity: 0;
-			transform: translateY(30%);
-		}
-	}
-
-	@keyframes slideInFromTop {
-		from {
-			opacity: 0;
-			transform: translateY(-30%);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-</style>
-
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-
-<!-- RelMeAuth/IndieAuth Tags -->
-<link href="mailto:contact@abhi.now" rel="me" />
-<link href="mailto:hire@abhi.now" rel="me" />
-<link href="https://github.com/abhigyantrips" rel="me" />
-<link href="https://gitlab.com/abhigyantrips" rel="me" />
-<link href="https://indieauth.com/auth" rel="authorization_endpoint" />
-
-<!-- WebMention Tags -->
-<link rel="pingback" href="https://webmention.io/abhi.now/xmlrpc" />
-<link rel="webmention" href="https://webmention.io/abhi.now/webmention" />
-
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={imageURL} />
-{
-	image && (
-		<>
-			<meta property="og:image:width" content={String(image.width)} />
-			<meta property="og:image:height" content={String(image.height)} />
-			<meta property="og:image:type" content={image.type} />
-		</>
-	)
-}
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={imageURL} />
-
-<!-- Sitemap -->
-<link rel="sitemap" href="/sitemap-index.xml" />
-
-<!-- RSS Feed -->
-{
-	rssFeed && (
-		<link
-			rel="alternate"
-			type="application/rss+xml"
-			title={rssFeed.title}
-			href={new URL(rssFeed.path, Astro.site)}
-		/>
-	)
-}
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title="abhigyan trips's 'now' archives."
-	href={new URL("/before/feed.xml", Astro.site)}
-/>
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title="abhigyan trips's blog."
-	href={new URL("/blog/feed.xml", Astro.site)}
-/>
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title="abhigyan trips's sticky notes."
-	href={new URL("/snippets/feed.xml", Astro.site)}
-/>
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title="abhigyan trips's weeknotes."
-	href={new URL("/weeknotes/feed.xml", Astro.site)}
-/>
-
 <ClientRouter />
-
 <!-- Global Theme Script -->
 <script is:inline>
 	function getThemePreference() {
@@ -208,24 +57,28 @@ const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
 	});
 </script>
 
-<!-- Theme Toggle Script (module, runs once, re-binds on every navigation) -->
-<script>
-	function setupThemeToggle() {
-		const toggle = document.getElementById("theme-toggle");
+<!-- Theme toggle and system-theme listener: standalone pages only. -->
+<script is:inline>
+	(() => {
+		if (window.__abhiThemeSetup) return;
+		window.__abhiThemeSetup = true;
+		function setupThemeToggle() {
+			const toggle = document.getElementById("theme-toggle");
 
-		toggle?.addEventListener("click", () => {
-			const isDark = document.documentElement.classList.contains("dark");
-			const newTheme = isDark ? "light" : "dark";
-			localStorage.setItem("theme", newTheme);
-			document.documentElement.classList.toggle("dark", !isDark);
-		});
-	}
-
-	document.addEventListener("astro:page-load", setupThemeToggle);
-
-	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-		if (!localStorage.getItem("theme")) {
-			document.documentElement.classList.toggle("dark", e.matches);
+			toggle?.addEventListener("click", () => {
+				const isDark = document.documentElement.classList.contains("dark");
+				const newTheme = isDark ? "light" : "dark";
+				localStorage.setItem("theme", newTheme);
+				document.documentElement.classList.toggle("dark", !isDark);
+			});
 		}
-	});
+
+		document.addEventListener("astro:page-load", setupThemeToggle);
+
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+			if (!localStorage.getItem("theme")) {
+				document.documentElement.classList.toggle("dark", e.matches);
+			}
+		});
+	})();
 </script>

@@ -1,0 +1,168 @@
+---
+import { Font } from "astro:assets";
+import type { SocialImage } from "@/types";
+
+interface Props {
+	canonicalPath?: string;
+	title: string;
+	description: string;
+	image?: SocialImage;
+	rssFeed?: { title: string; path: string };
+}
+
+const canonicalURL = new URL(
+	Astro.props.canonicalPath ? `${Astro.props.canonicalPath}/` : Astro.url.pathname,
+	Astro.site
+);
+
+const { title, description, image, rssFeed, canonicalPath } = Astro.props;
+const imageURL = new URL(image?.src ?? "/og-image.png", Astro.url);
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Font Imports -->
+<Font cssVariable="--font-gummy" />
+
+<!-- Animation Styles -->
+<style is:global>
+	@keyframes slideInFromBottom {
+		from {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideToTop {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+	}
+
+	@keyframes fadeScaleDown {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(0.8);
+		}
+	}
+
+	@keyframes slideOutToBottom {
+		from {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		to {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+	}
+
+	@keyframes slideInFromTop {
+		from {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- RelMeAuth/IndieAuth Tags -->
+<link href="mailto:contact@abhi.now" rel="me" />
+<link href="mailto:hire@abhi.now" rel="me" />
+<link href="https://github.com/abhigyantrips" rel="me" />
+<link href="https://gitlab.com/abhigyantrips" rel="me" />
+<link href="https://indieauth.com/auth" rel="authorization_endpoint" />
+
+<!-- WebMention Tags -->
+<link rel="pingback" href="https://webmention.io/abhi.now/xmlrpc" />
+<link rel="webmention" href="https://webmention.io/abhi.now/webmention" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalPath ? canonicalURL : Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+{
+	image && (
+		<>
+			<meta property="og:image:width" content={String(image.width)} />
+			<meta property="og:image:height" content={String(image.height)} />
+			<meta property="og:image:type" content={image.type} />
+		</>
+	)
+}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalPath ? canonicalURL : Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={imageURL} />
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- RSS Feed -->
+{
+	rssFeed && (
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title={rssFeed.title}
+			href={new URL(rssFeed.path, Astro.site)}
+		/>
+	)
+}
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's 'now' archives."
+	href={new URL("/before/feed.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's blog."
+	href={new URL("/blog/feed.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's sticky notes."
+	href={new URL("/snippets/feed.xml", Astro.site)}
+/>
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's weeknotes."
+	href={new URL("/weeknotes/feed.xml", Astro.site)}
+/>

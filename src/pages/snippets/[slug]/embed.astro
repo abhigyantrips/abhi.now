@@ -1,0 +1,23 @@
+---
+import { getSnippetFeed } from "@/lib/snippets";
+import View from "./_view.astro";
+import { getCollection } from "astro:content";
+import { getEmbedBuildContext } from "@/lib/embed-cache";
+export async function getStaticPaths() {
+	const { page, cacheKey } = await getEmbedBuildContext();
+	const feed = await getSnippetFeed();
+	const entries = await getCollection("snippetCollections");
+	return entries.map((collection) => ({
+		params: { slug: collection.data.permalink },
+		props: { collection, embed: page(`/snippets/${collection.data.permalink}`) },
+		cacheKey: cacheKey([
+			collection,
+			...feed
+				.filter(({ post }) => post.data.collection.id === collection.id)
+				.map(({ post }) => post),
+		]),
+	}));
+}
+---
+
+<View {...Astro.props} />

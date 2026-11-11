@@ -11,13 +11,18 @@ import "@/styles/global.css";
 import "@/styles/prose.css";
 
 export async function getStaticPaths() {
+	const tagDigests = new Map((await getCollection("tags")).map((tag) => [tag.id, tag.digest]));
 	const posts = await getCollection("blog", ({ data }) =>
 		import.meta.env.DEV ? true : data.published
 	);
 	return posts.map((post) => ({
 		params: { id: post.id },
 		props: { post },
-		cacheKey: String(post.digest),
+		cacheKey: JSON.stringify([
+			post.digest,
+			new Date().getFullYear(),
+			...(post.data.tags ?? []).map((tag) => [tag.id, tagDigests.get(tag.id)]),
+		]),
 	}));
 }
 

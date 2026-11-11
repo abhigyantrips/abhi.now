@@ -1,4 +1,5 @@
 ---
+import EmbedHead from "@/components/embed-head.astro";
 import BaseHead from "@/components/base-head.astro";
 import Container from "@/components/container.astro";
 import EvilEye from "@/components/evil-eye.astro";
@@ -9,27 +10,44 @@ import "@/styles/global.css";
 import "@/styles/prose.css";
 import Footer from "@/components/footer.astro";
 
+interface Props {
+	embed?: import("@/lib/embed-policy").EmbedPage;
+}
 const aboutRoute = ROUTES.find((r) => r.PATH === "/whoami" || r.NAME === "whoami");
 
 if (!aboutRoute) {
 	throw new Error(`Route "/whoami" not found in ROUTES`);
 }
+const { embed } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-embed={embed && "computer"} data-embed-scope={embed?.scope}>
 	<head>
-		<BaseHead title={`${aboutRoute.NAME} | ${SITE.TITLE}`} description={aboutRoute.DESCRIPTION} />
+		{
+			embed ? (
+				<EmbedHead
+					embed={embed}
+					title={`${aboutRoute.NAME} | ${SITE.TITLE}`}
+					description={aboutRoute.DESCRIPTION}
+				/>
+			) : (
+				<BaseHead
+					title={`${aboutRoute.NAME} | ${SITE.TITLE}`}
+					description={aboutRoute.DESCRIPTION}
+				/>
+			)
+		}
 	</head>
 	<body class="font-gummy">
-		<Header section={aboutRoute.NAME} />
+		{!embed && <Header section={aboutRoute.NAME} />}
 		<main
 			class="flex min-h-[calc(100vh-(--spacing(48)))] flex-1 flex-col"
 			transition:animate={slideFromBottom}
 		>
 			<Container size="md">
 				<div
-					class="flex flex-col pt-48"
+					class={embed ? "flex flex-col pt-8" : "flex flex-col pt-48"}
 					style={`--route-color-light: ${aboutRoute.COLOR.LIGHT}; --route-color-dark: ${aboutRoute.COLOR.DARK};`}
 				>
 					<div class="flex flex-col space-x-6 md:flex-row">

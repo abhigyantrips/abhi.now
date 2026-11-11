@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 		return {
 			params: { year, week },
 			props: { note },
-			cacheKey: String(note.digest),
+			cacheKey: JSON.stringify([note.digest, new Date().getFullYear()]),
 		};
 	});
 }

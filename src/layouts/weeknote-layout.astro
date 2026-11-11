@@ -1,4 +1,5 @@
 ---
+import EmbedHead from "@/components/embed-head.astro";
 import BaseHead from "@/components/base-head.astro";
 import Container from "@/components/container.astro";
 import Footer from "@/components/footer.astro";
@@ -11,6 +12,7 @@ import "@/styles/global.css";
 import "@/styles/prose.css";
 
 type Props = {
+	embed?: import("@/lib/embed-policy").EmbedPage;
 	title: string;
 	description: string;
 	fromDate: Date;
@@ -29,22 +31,34 @@ const [key, ...rest] = title.split(" ");
 const restTitle = rest.join(" ");
 
 const monthColor = getMonthColor(fromDate);
+const { embed } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-embed={embed && "computer"} data-embed-scope={embed?.scope}>
 	<head>
-		<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} image={image} />
+		{
+			embed ? (
+				<EmbedHead
+					embed={embed}
+					title={`${title} | ${SITE.TITLE}`}
+					description={description}
+					image={image}
+				/>
+			) : (
+				<BaseHead title={`${title} | ${SITE.TITLE}`} description={description} image={image} />
+			)
+		}
 	</head>
 	<body class="font-gummy">
-		<Header section="weeknotes" />
+		{!embed && <Header section="weeknotes" />}
 		<main
 			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
 			transition:animate={slideFromBottom}
 		>
 			<Container size="md">
 				<div
-					class="h-entry flex flex-col pt-24 md:pt-48"
+					class={embed ? "h-entry flex flex-col pt-8" : "h-entry flex flex-col pt-24 md:pt-48"}
 					style={`--month-color-light: ${monthColor.light}; --month-color-dark: ${monthColor.dark};`}
 				>
 					<div class="flex flex-col gap-1">
@@ -114,11 +128,18 @@ const monthColor = getMonthColor(fromDate);
 </html>
 
 <script>
-	document.addEventListener("astro:page-load", () => {
+	function setupPdf() {
+		const button = document.getElementById("download-pdf");
+		if (!button || button.dataset.pdfReady) return;
+		button.dataset.pdfReady = "true";
 		document.getElementById("download-pdf")?.addEventListener("click", () => {
 			window.print();
 		});
-	});
+	}
+	document.addEventListener("astro:page-load", setupPdf);
+	if (document.readyState === "loading")
+		document.addEventListener("DOMContentLoaded", setupPdf, { once: true });
+	else setupPdf();
 </script>
 
 <style>

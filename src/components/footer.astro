@@ -92,7 +92,9 @@ const showWhoamiEvilEye =
 	function setupScrollToTop() {
 		const scrollBtn = document.getElementById("scroll-to-top");
 
-		scrollBtn?.addEventListener("click", () => {
+		if (!scrollBtn || scrollBtn.dataset.scrollReady) return;
+		scrollBtn.dataset.scrollReady = "true";
+		scrollBtn.addEventListener("click", () => {
 			window.scrollTo({
 				top: 0,
 				behavior: "smooth",
@@ -133,4 +135,11 @@ const showWhoamiEvilEye =
 
 	document.addEventListener("astro:page-load", setupScrollToTop);
 	document.addEventListener("astro:page-load", setupEvilEyeDock);
+	function setupFooter() {
+		setupScrollToTop();
+		setupEvilEyeDock();
+	}
+	if (document.readyState === "loading")
+		document.addEventListener("DOMContentLoaded", setupFooter, { once: true });
+	else setupFooter();
 </script>
