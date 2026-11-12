@@ -1,0 +1,59 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import { formatReadingTime } from "@now/lib/utils";
+import { getMonthColor } from "@now/lib/month-colors";
+import { extractFirstImage, formatWeeknoteDateRange } from "@now/lib/weeknote-preview";
+import { renderEntryHtml } from "@now/lib/content-html";
+import { renderCard } from "astro-cards/runtime";
+import WeeknoteLayout from "@now/layouts/weeknote-layout.astro";
+
+export async function getStaticPaths() {
+	const notes = await getCollection("weeknotes");
+	return notes.map((note) => {
+		const [year, week] = note.id.split("/");
+		return {
+			params: { year, week },
+			props: { note },
+			cacheKey: JSON.stringify([note.digest, new Date().getFullYear()]),
+		};
+	});
+}
+
+interface Props {
+	note: CollectionEntry<"weeknotes">;
+}
+const { note } = Astro.props;
+const { Content } = await render(note);
+const readingTime = formatReadingTime(note.body ?? "");
+const [id, ...title] = note.data.title.split(" ");
+const image = await (async () => {
+	const html = note.rendered?.html ?? (await renderEntryHtml(note));
+	return renderCard("weeknote", {
+		id,
+		title: title.join(" "),
+		readingTime,
+		monthColor: getMonthColor(note.data.fromDate).dark,
+		dateRange: formatWeeknoteDateRange(note.data.fromDate, note.data.toDate),
+		imageUrl: await extractFirstImage(html, note.filePath),
+	});
+})().catch((cause: unknown) => {
+	throw new Error(
+		`Cannot generate weeknote preview for "${note.id}": ${cause instanceof Error ? cause.message : cause}. Check src/cards/weeknote.astro, the first Markdown image, and the Sour Gummy Fonts API configuration.`,
+		{ cause }
+	);
+});
+---
+
+<WeeknoteLayout
+	title={note.data.title}
+	description={note.data.description}
+	fromDate={note.data.fromDate}
+	toDate={note.data.toDate}
+	postUrl={`/weeknotes/${note.id}`}
+	readingTime={readingTime}
+	image={image}
+>
+	<article class="e-content prose-content">
+		<Content />
+	</article>
+</WeeknoteLayout>

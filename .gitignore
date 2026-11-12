@@ -31,3 +31,18 @@ slopdocs/
 .dev.vars*
 !.dev.vars.example
 !.env.example
+
+# Workspace build/runtime state
+**/dist/
+**/.astro/
+**/.wrangler/
+**/node_modules/
+**/.env*
+**/.dev.vars*
+!**/.env.example
+!**/.dev.vars.example
+content/.obsidian/
+content/.stfolder/
+
+# Computer copies shared presentation assets for development and production.
+apps/computer/public/now-assets/

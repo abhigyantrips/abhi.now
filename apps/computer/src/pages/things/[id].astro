@@ -1,0 +1,45 @@
+---
+import ReadingLayout from "@/layouts/reading-layout.astro";
+import TagGroups from "@/components/tag-groups.astro";
+import { mdxComponents } from "@/lib/mdx";
+import { formatReadingTime } from "@/lib/utils";
+import { getEntries } from "astro:content";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("things", ({ data }) => data.published);
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const tech = await getEntries(post.data.tech || []);
+const fields = await getEntries(post.data.fields || []);
+---
+
+<ReadingLayout
+	post={{
+		title: post.data.title,
+		description: post.data.description,
+		date: post.data.date.toLocaleString("en-DB", {
+			day: "numeric",
+			month: "long",
+			year: "numeric",
+		}),
+		readingTime: formatReadingTime(post.body ?? ""),
+		url: `/things/${post.id}`,
+	}}
+>
+	<TagGroups
+		groups={[
+			{ label: "Tech", entries: tech, hrefPrefix: "/tech" },
+			{ label: "Fields", entries: fields, hrefPrefix: "/fields" },
+		]}
+	/>
+	<article class="e-content prose-content">
+		<Content components={mdxComponents} />
+	</article>
+</ReadingLayout>

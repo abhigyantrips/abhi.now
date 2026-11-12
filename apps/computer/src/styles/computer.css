@@ -1,0 +1,218 @@
+.computer {
+	--ink: var(--color-text);
+	--paper: var(--color-bg);
+	--hover: var(--color-hover);
+	--line: var(--color-line);
+	--muted: var(--color-text-muted);
+	--bevel-light:
+		inset 0 2px 5px rgb(255 255 255 / 80%), inset 2px 0 8px rgb(255 255 255 / 35%),
+		inset 0 -5px 12px color-mix(in srgb, #665c54 22%, transparent),
+		inset -2px 0 6px color-mix(in srgb, #665c54 10%, transparent);
+	--bevel-dark:
+		inset 0 2px 5px color-mix(in srgb, #ebdbb2 18%, transparent),
+		inset 2px 0 8px color-mix(in srgb, #ebdbb2 7%, transparent), inset 0 -5px 12px rgb(0 0 0 / 45%),
+		inset -2px 0 6px rgb(0 0 0 / 20%);
+	--chrome-bevel: var(--bevel-light);
+	--inverse-bevel: var(--bevel-dark);
+	margin: 0;
+	min-height: 100dvh;
+	background: var(--paper) url("/wallpaper.jpg") center / cover no-repeat fixed;
+	color: var(--ink);
+	font-family: var(--font-mono), monospace;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.computer .bg-white {
+	background-color: var(--paper);
+}
+.computer .border-black {
+	border-color: var(--ink);
+}
+.computer .border-neutral-200 {
+	border-color: var(--line);
+}
+.computer .text-neutral-600 {
+	color: var(--muted);
+}
+
+/* The desktop chrome shares the taskbar's raised, softly beveled surface. */
+.computer :is(.taskbar, .launcher, .window-header, .control-panel) {
+	background-color: var(--paper);
+	box-shadow: var(--chrome-bevel);
+}
+
+html[data-theme="dark"] .computer {
+	--chrome-bevel: var(--bevel-dark);
+	--inverse-bevel: var(--bevel-light);
+}
+
+.computer [hidden] {
+	display: none !important;
+}
+.computer button {
+	color: inherit;
+}
+.computer button,
+.computer a {
+	-webkit-tap-highlight-color: transparent;
+}
+.computer button:focus-visible,
+.computer a:focus-visible,
+.computer input:focus-visible {
+	outline: 2px solid var(--ink);
+	outline-offset: 2px;
+}
+.computer input::placeholder {
+	color: var(--muted);
+	opacity: 1;
+}
+.computer .application:hover {
+	color: var(--ink);
+}
+.computer .application:hover,
+#journal-back:hover {
+	background: var(--hover);
+}
+.window-controls button:hover {
+	background: var(--ink);
+	color: var(--paper);
+}
+.window-header h2:focus {
+	outline: none;
+}
+.journal-entry:hover {
+	background: var(--hover);
+	color: var(--ink);
+}
+.journal-entry {
+	overflow-wrap: anywhere;
+}
+.search-result:hover {
+	background: var(--hover);
+	color: var(--ink);
+}
+.search-result {
+	color: var(--ink);
+	text-decoration: none;
+	overflow-wrap: anywhere;
+}
+
+.computer #app-search,
+.computer #search-retry {
+	background-color: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+
+#app-search::-webkit-search-cancel-button {
+	filter: grayscale(1);
+}
+
+/* Application links use ordinary document navigation. */
+.computer :where(.application, .favorite, [data-taskbar], #start) {
+	color: inherit;
+	text-decoration: none;
+}
+.computer .favorite {
+	color: #fffaed;
+	text-shadow: 0 1px 2px rgb(0 0 0 / 75%);
+}
+.computer .favorite:is(:hover, :focus-visible, :active, [aria-current="page"]) {
+	background: var(--hover);
+	color: var(--ink);
+	text-shadow: none;
+}
+.computer [data-taskbar]:is(:hover, [aria-current="page"]) {
+	background: color-mix(in srgb, var(--ink) 10%, transparent);
+	color: var(--ink);
+}
+.computer [data-taskbar-divider]::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1px;
+	height: 1.5rem;
+	background: color-mix(in srgb, var(--ink) 35%, transparent);
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+.computer #start {
+	display: flex;
+	background: color-mix(in srgb, var(--ink) 15%, transparent);
+	color: var(--ink);
+	box-shadow: var(--chrome-bevel);
+}
+.computer #start[aria-expanded="false"]:hover {
+	background: color-mix(in srgb, var(--ink) 20%, transparent);
+}
+.computer #start[aria-expanded="true"] {
+	background: var(--ink);
+	color: var(--paper);
+	box-shadow: var(--inverse-bevel);
+}
+.computer :is(#start, [data-taskbar], #control-panel-toggle):focus-visible {
+	outline-offset: -3px;
+}
+
+.computer #control-panel-toggle:hover,
+.computer #control-panel-toggle[aria-expanded="true"] {
+	background: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+
+.computer .control-panel {
+	position: fixed;
+	inset: auto 1rem 6rem auto;
+	width: min(20rem, calc(100vw - 2rem));
+	max-height: calc(100dvh - 7rem);
+	margin: 0;
+	padding: 1rem;
+	border: 0;
+	border-radius: 0.75rem;
+	overflow-y: auto;
+	color: var(--ink);
+	font: inherit;
+}
+
+.computer .control-toggle {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	min-height: 3rem;
+	width: 100%;
+	padding: 0.75rem;
+	border: 0;
+	border-radius: 0.5rem;
+	background: color-mix(in srgb, var(--ink) 7%, transparent);
+	color: var(--ink);
+	font: inherit;
+	font-size: 0.875rem;
+	text-align: left;
+}
+.computer .control-toggle:hover:not(:disabled) {
+	background: color-mix(in srgb, var(--ink) 15%, transparent);
+}
+.computer .control-toggle[aria-pressed="true"] {
+	background: var(--ink);
+	color: var(--paper);
+}
+.computer .control-toggle[aria-pressed="true"]:hover {
+	background: color-mix(in srgb, var(--ink) 90%, var(--paper));
+}
+.computer .control-toggle:disabled {
+	opacity: 0.5;
+}
+.control-toggle svg {
+	flex-shrink: 0;
+}
+.control-state {
+	margin-left: auto;
+	font-size: 0.75rem;
+}
+.control-status {
+	margin-top: 0.75rem;
+	color: var(--muted);
+	font-size: 0.75rem;
+}
+.control-status:empty {
+	display: none;
+}

@@ -1,0 +1,222 @@
+---
+import ComputerIcon from "@/components/computer-icon.astro";
+import TagGroups from "@/components/tag-groups.astro";
+import { getCollection } from "astro:content";
+import "@/styles/global.css";
+
+const apps = [
+	{ id: "journal", title: "Journal" },
+	{ id: "blog", title: "Blog" },
+	{ id: "weeknotes", title: "Weeknotes" },
+	{ id: "projects", title: "Projects" },
+	{ id: "experiments", title: "Experiments" },
+	{ id: "settings", title: "Settings" },
+	{ id: "snippets", title: "Snippets" },
+	{ id: "colophon", title: "Colophon" },
+	{ id: "launcher", title: "Applications" },
+] as const;
+
+const tech = await getCollection("tech", ({ id }) => ["astro", "docker", "react"].includes(id));
+const fields = await getCollection("fields", ({ id }) =>
+	["self-hosting", "web-security"].includes(id)
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>Gruvbox Plus icon and cursor study</title>
+	</head>
+	<body>
+		<main>
+			<label class="search">
+				<span class="sr-only">Search applications</span>
+				<input type="search" placeholder="Search applications" autocomplete="off" />
+			</label>
+			<div class="apps" aria-label="Example application icons">
+				{
+					apps.map((app) => (
+						<button type="button" class="app" data-name={app.title} aria-pressed="false">
+							<ComputerIcon name={app.id} />
+							<span>{app.title}</span>
+						</button>
+					))
+				}
+			</div>
+			<p class="empty" hidden>No matching applications.</p>
+			<p class="sr-only" id="selection" aria-live="polite"></p>
+			<section class="cursors" aria-label="Cursor states">
+				<div class="cursor-sample">
+					<ComputerIcon name="cursor" />
+					<span>Default</span>
+				</div>
+				<button type="button" class="cursor-sample" id="click-test">
+					<ComputerIcon name="click" />
+					<span>Clickable</span>
+				</button>
+				<button type="button" class="cursor-sample" id="busy-test" aria-busy="false">
+					<ComputerIcon name="busy" />
+					<span>Test hourglass</span>
+				</button>
+			</section>
+			<TagGroups
+				groups={[
+					{ label: "Technologies", entries: tech, hrefPrefix: "/tech" },
+					{ label: "Fields", entries: fields, hrefPrefix: "/fields" },
+				]}
+			/>
+			<p class="credit">
+				Application icons: <a href="https://github.com/SylEleuth/gruvbox-plus-icon-pack"
+					>Gruvbox Plus by SylEleuth and contributors</a
+				> · <a href="/icons/gruvbox-plus/LICENSE.txt">GPL 3.0</a>. Cursor artwork by <a
+					href="https://www.streamlinehq.com/icons/plump-remix-free"
+					target="_blank"
+					rel="noopener">Streamline</a
+				>
+				· <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener"
+					>CC BY 4.0</a
+				>
+			</p>
+		</main>
+		<script>
+			const search = document.querySelector<HTMLInputElement>('input[type="search"]')!;
+			const apps = Array.from(document.querySelectorAll<HTMLButtonElement>(".app"));
+			const selection = document.querySelector<HTMLElement>("#selection")!;
+			const empty = document.querySelector<HTMLElement>(".empty")!;
+			search.addEventListener("input", () => {
+				const query = search.value.trim().toLocaleLowerCase();
+				for (const app of apps) app.hidden = !app.dataset.name!.toLocaleLowerCase().includes(query);
+				empty.hidden = apps.some((app) => !app.hidden);
+			});
+			for (const app of apps)
+				app.addEventListener("click", () => {
+					for (const other of apps) other.setAttribute("aria-pressed", String(other === app));
+					selection.textContent = `${app.dataset.name} selected`;
+				});
+			document.querySelector("#click-test")!.addEventListener("click", (event) => {
+				const target = event.currentTarget as HTMLButtonElement;
+				target.querySelector("span")!.textContent = "Clicked";
+			});
+			const busy = document.querySelector<HTMLButtonElement>("#busy-test")!;
+			busy.addEventListener("click", () => {
+				if (busy.getAttribute("aria-busy") === "true") return;
+				busy.setAttribute("aria-busy", "true");
+				busy.querySelector("span")!.textContent = "Testing…";
+				// A deliberate cursor test; production busy states follow real pending work.
+				setTimeout(() => {
+					busy.setAttribute("aria-busy", "false");
+					busy.querySelector("span")!.textContent = "Test hourglass";
+				}, 1500);
+			});
+		</script>
+	</body>
+</html>
+
+<style>
+	:global(body) {
+		margin: 0;
+		color: var(--foreground, #171717);
+		font-family: var(--font-mono, monospace);
+	}
+	main {
+		max-width: 728px;
+		margin: 24px auto;
+	}
+	.search {
+		display: block;
+	}
+	.search input {
+		width: 100%;
+		padding: 12px 0;
+		border: 0;
+		border-bottom: 1px solid var(--border, #d4d4d4);
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		font-size: 13px;
+	}
+	.apps {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 12px;
+		padding: 28px 0;
+	}
+	.app {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+		padding: 10px 0;
+		color: inherit;
+		background: transparent;
+		border: 0;
+		border-bottom: 2px solid transparent;
+		font: inherit;
+		font-size: 11px;
+	}
+	.app :global(.computer-icon) {
+		width: 64px;
+		height: 64px;
+	}
+	.app[aria-pressed="true"] {
+		border-color: currentColor;
+	}
+	.app:hover :global(.computer-icon) {
+		transform: translateY(-2px);
+	}
+	.cursors {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 12px;
+		padding: 16px 0;
+		margin-bottom: 24px;
+		border-block: 1px solid var(--border, #d4d4d4);
+	}
+	.cursor-sample {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		padding: 12px 0;
+		border: 0;
+		background: transparent;
+		color: inherit;
+		font: inherit;
+		font-size: 11px;
+	}
+	.cursor-sample :global(svg) {
+		width: 28px;
+		height: 28px;
+		flex: none;
+	}
+	.credit,
+	.empty {
+		margin-top: 20px;
+		color: var(--muted-foreground, #737373);
+		font-size: 10px;
+	}
+	:global([hidden]) {
+		display: none !important;
+	}
+	:global(:focus-visible) {
+		outline: 2px solid var(--ring, #171717);
+		outline-offset: 5px;
+	}
+	@media (max-width: 520px) {
+		.apps {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.cursor-sample {
+			flex-direction: column;
+			gap: 8px;
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.app:hover :global(.computer-icon) {
+			transform: none;
+		}
+	}
+</style>

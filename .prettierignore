@@ -11,3 +11,26 @@ dist
 build
 node_modules
 worker-configuration.d.ts
+
+# Generated tooling/runtime state, including future workspace apps.
+**/.astro/
+**/.wrangler/
+**/dist/
+**/build/
+**/node_modules/
+**/worker-configuration.d.ts
+.hooks/
+.env*
+.dev.vars*
+
+# Authored content is published as written; formatting can change MDX/HTML whitespace.
+src/content/
+content/**/*.md
+content/**/*.mdx
+content/**/*.json
+
+# Generated migration baseline; keep the capture script's output reproducible.
+docs/now-coverage.json
+
+apps/*/public/
+apps/*/content/

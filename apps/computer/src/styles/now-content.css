@@ -1,0 +1,14 @@
+@import "../../../../content/prose.css";
+@reference "./global.css";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@source "../../../now/src";
+@source "../../../../content";
+.now-content {
+	font-family: var(--font-gummy), sans-serif;
+}
+
+@media (any-pointer: fine) {
+	.now-content :is(a[href], button, summary, [role="button"], .cursor-pointer) {
+		cursor: var(--cursor-click) !important;
+	}
+}

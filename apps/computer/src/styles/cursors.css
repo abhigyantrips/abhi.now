@@ -1,0 +1,67 @@
+/* Streamline Plump Remix Free, CC BY 4.0. See /credits and public/cursors/README.md. */
+@media (any-pointer: fine) {
+	:root {
+		--cursor-default: url("/cursors/cursor.svg") 4 4, url("/cursors/cursor.png") 4 4, default;
+		--cursor-click: url("/cursors/click.svg") 13 9, url("/cursors/click.png") 13 9, pointer;
+		--cursor-busy: url("/cursors/busy.svg") 16 16, url("/cursors/busy.png") 16 16, progress;
+	}
+
+	:root[data-theme="dark"] {
+		--cursor-default:
+			url("/cursors/cursor-dark.svg") 4 4, url("/cursors/cursor-dark.png") 4 4, default;
+		--cursor-click:
+			url("/cursors/click-dark.svg") 13 9, url("/cursors/click-dark.png") 13 9, pointer;
+		--cursor-busy:
+			url("/cursors/busy-dark.svg") 16 16, url("/cursors/busy-dark.png") 16 16, progress;
+	}
+
+	html,
+	body {
+		cursor: var(--cursor-default);
+	}
+
+	:where(
+		a[href],
+		button,
+		summary,
+		select,
+		[role="button"],
+		[role="link"],
+		input[type="button"],
+		input[type="submit"],
+		input[type="reset"],
+		input[type="checkbox"],
+		input[type="radio"],
+		input[type="range"],
+		.cursor-pointer
+	) {
+		cursor: var(--cursor-click);
+	}
+
+	:where(
+		input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not(
+				[type="radio"]
+			):not([type="range"]):not([type="color"]):not([type="file"]):not([type="image"]):not(
+				[type="hidden"]
+			),
+		textarea,
+		[contenteditable="true"],
+		.cursor-text
+	) {
+		cursor: text;
+	}
+
+	:where(:disabled, [aria-disabled="true"]) {
+		cursor: not-allowed;
+	}
+
+	/* Apply to the region doing asynchronous work, rather than blocking the shell. */
+	:where([aria-busy="true"], [aria-busy="true"] *, .cursor-progress, .cursor-wait) {
+		cursor: var(--cursor-busy);
+	}
+
+	html[data-navigation-loading],
+	html[data-navigation-loading] * {
+		cursor: var(--cursor-busy);
+	}
+}

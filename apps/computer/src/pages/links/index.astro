@@ -1,0 +1,76 @@
+---
+import PageLayout from "@/layouts/page-layout.astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+
+import "@/styles/prose.css";
+
+let entries = await getCollection("links");
+// Sort by publish date descending
+entries = entries.sort((a, b) => {
+	const dateA = new Date(a.data.date!);
+	const dateB = new Date(b.data.date!);
+	return dateB.getTime() - dateA.getTime();
+});
+
+// Helper function to format date
+function formatDate(date: Date | string) {
+	const isoString = typeof date === "string" ? date : date.toISOString();
+	return isoString.slice(0, 10);
+}
+
+// Helper function to extract time
+function formatTime(date: Date | string) {
+	if (date && typeof date === "object" && "toISOString" in date) {
+		return date.toISOString().slice(11, 16);
+	}
+	if (typeof date === "string") {
+		const match = date.match(/T(\d{2}:\d{2})/);
+		return match ? match[1] : "";
+	}
+	return "";
+}
+---
+
+<PageLayout
+	title="My Links"
+	description="Pages/sites I've found cool, or am archiving to get back to later."
+>
+	<div class="h-feed flex flex-col gap-4">
+		<span class="p-name hidden">abhigyan trips's tech links</span>
+		{
+			entries.map(async (post: any) => {
+				const { Content } = await render(post);
+				const dateStr = formatDate(post.data.date);
+				const timeStr = formatTime(post.data.date);
+
+				return (
+					<div
+						id={post.id}
+						class="link-entry h-entry flex min-w-0 flex-row items-start bg-black/5 p-5"
+					>
+						<div class="flex min-w-0 flex-1 flex-col gap-3">
+							<div class="e-content prose-content prose-sm min-w-0 md:prose-base">
+								<a href={post.data.link.url} class="p-name font-bold">
+									{post.data.link.title}
+								</a>
+								<Content />
+							</div>
+							<div class="flex items-center justify-between">
+								<time
+									class="dt-published text-left text-sm text-gray-500"
+									datetime={post.data.date}
+								>
+									{dateStr + ", " + timeStr}
+								</time>
+								<a class="cursor-pointer text-sm text-gray-500" href={`/links/${post.id}`}>
+									#{post.data.title || post.id}
+								</a>
+							</div>
+						</div>
+					</div>
+				);
+			})
+		}
+	</div>
+</PageLayout>

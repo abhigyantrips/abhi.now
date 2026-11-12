@@ -1,0 +1,29 @@
+---
+import PageLayout from "@/layouts/page-layout.astro";
+import { getCollection } from "astro:content";
+
+const entries = await getCollection("things", ({ data }) => data.published);
+
+entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<PageLayout
+	title="My Things"
+	description="List of blog posts and such, some of which lead back to my main site."
+>
+	<div class="h-feed grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-2">
+		<span class="p-name col-span-2 hidden">abhigyan trips's tech things</span>
+		{
+			entries.map((post: any) => (
+				<div class="h-entry contents">
+					<time class="dt-published text-sm text-gray-500" datetime={post.data.date.toISOString()}>
+						{post.data.date.toISOString().slice(0, 10)}
+					</time>
+					<a class="p-name u-url" href={`/things/${post.id}`}>
+						<span>{post.data.title}</span>
+					</a>
+				</div>
+			))
+		}
+	</div>
+</PageLayout>

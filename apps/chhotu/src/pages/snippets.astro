@@ -1,0 +1,281 @@
+---
+import Layout from "../layouts/Layout.astro";
+export const prerender = true;
+---
+
+<Layout title="new snippet. | chhotu">
+	<header class="flex flex-wrap items-center justify-between gap-4 px-6 py-6 lg:px-8">
+		<a href="/" class="flex items-center gap-2 text-2xl"
+			><span>chhotu</span><span class="text-(--color-text-muted)" aria-hidden="true">/</span><span
+				>new snippet.</span
+			></a
+		>
+		<div
+			class="grid h-5 w-16 shrink-0 items-center justify-items-end text-sm text-(--color-text-muted)"
+		>
+			<a href="/login" id="sign-in" class="underline underline-offset-3">sign in</a>
+			<button type="button" id="sign-out" class="underline underline-offset-3" hidden
+				>sign out</button
+			>
+		</div>
+	</header>
+	<main class="editor-width min-h-[calc(100svh-11rem)] pt-6 pb-16 md:pt-12" id="main-content">
+		<h1 class="sr-only">new snippet.</h1>
+		<span id="connection-status" class="notice mb-6 block text-sm" role="status" hidden></span>
+		<button
+			type="button"
+			id="install"
+			class="mb-6 block text-sm text-(--color-text-muted) underline underline-offset-3"
+			hidden>install chhotu ↙</button
+		>
+		<div id="success" class="notice mb-6" role="status" hidden></div>
+		<form id="snippet-form" class="flex flex-col gap-7">
+			<div>
+				<div class="mb-2 flex items-center justify-between gap-4">
+					<label for="collection" class="text-(--color-text-muted)">put it where?</label><button
+						type="button"
+						id="add-collection"
+						class="text-sm text-(--color-accent)">+ new collection</button
+					>
+				</div>
+				<div class="relative">
+					<select
+						id="collection"
+						name="collection"
+						class="field collection-select"
+						required
+						aria-describedby="collection-description"
+						><option value="">choose a collection…</option></select
+					>
+					<span
+						class="icon collection-chevron"
+						style="--icon-url: url(/icons/arrow-single-up.svg)"
+						aria-hidden="true"></span>
+				</div>
+				<p id="collection-description" class="mt-2 text-sm text-(--color-text-muted)"></p>
+				<button
+					type="button"
+					id="refresh-collections"
+					class="mt-2 text-sm text-(--color-text-muted) underline underline-offset-3"
+					hidden>refresh collections</button
+				>
+			</div>
+			<fieldset
+				id="new-collection"
+				class="rounded-lg border border-(--color-text-muted)/30 p-5"
+				hidden
+			>
+				<legend class="px-2 text-(--color-accent)">a new home for your posts</legend>
+				<div class="flex flex-col gap-4">
+					<div>
+						<label for="collection-type" class="field-label">type</label>
+						<select id="collection-type" class="field"
+							><option value="text">Text</option><option value="photos">Photos</option></select
+						>
+					</div>
+					<div>
+						<label for="collection-name" class="field-label">name</label><input
+							id="collection-name"
+							class="field"
+							maxlength="120"
+							placeholder="little observations"
+						/>
+					</div>
+					<div>
+						<label for="collection-permalink" class="field-label">permalink</label><input
+							id="collection-permalink"
+							class="field"
+							pattern="[a-z0-9]+(-[a-z0-9]+)*"
+							maxlength="80"
+							placeholder="little-observations"
+							autocapitalize="none"
+							spellcheck="false"
+						/><p class="mt-2 text-sm text-(--color-text-muted)">
+							abhi.now/snippets/<span id="permalink-preview">little-observations</span>
+						</p>
+					</div>
+					<div>
+						<label for="collection-description-input" class="field-label">description</label
+						><textarea
+							id="collection-description-input"
+							class="field"
+							rows="2"
+							maxlength="500"
+							placeholder="small things i’d otherwise forget."></textarea>
+					</div>
+				</div>
+			</fieldset>
+			<div>
+				<div class="mb-2 flex items-center justify-between gap-4">
+					<label for="datetime" class="text-(--color-text-muted)">when?</label><button
+						type="button"
+						id="use-now"
+						class="text-sm text-(--color-accent)">right now</button
+					>
+				</div>
+				<input
+					type="datetime-local"
+					id="datetime"
+					name="datetime"
+					class="field"
+					step="1"
+					required
+					aria-describedby="timezone"
+				/>
+				<p id="timezone" class="mt-2 text-sm text-(--color-text-muted)"></p>
+			</div>
+			<fieldset id="photo-fields" hidden disabled class="flex flex-col gap-4">
+				<legend class="field-label">one photo</legend>
+				<input
+					id="photo"
+					type="file"
+					accept="image/jpeg,image/png"
+					class="field"
+					aria-describedby="photo-help"
+				/>
+				<p id="photo-help" class="text-sm text-(--color-text-muted)">
+					JPEG or PNG · up to 10 MiB and 4 megapixels. Your photo keeps its shape.
+				</p>
+				<img id="photo-preview" class="block h-auto w-full rounded-lg" alt="" hidden />
+				<p id="photo-filename" class="text-sm text-(--color-text-muted)"></p>
+				<label for="image-alt" class="field-label">image description</label>
+				<textarea
+					id="image-alt"
+					class="field"
+					rows="3"
+					maxlength="4000"
+					placeholder="describe what’s in the photo for someone who can’t see it."></textarea>
+			</fieldset>
+			<div>
+				<div class="mb-3 flex items-center justify-between gap-4">
+					<label id="body-label" for="body" class="text-(--color-text-muted)">what?</label>
+					<div
+						class="flex gap-1 rounded-lg bg-(--color-text)/5 p-1"
+						role="group"
+						aria-label="editor view"
+					>
+						<button type="button" id="write-tab" class="editor-tab active" aria-pressed="true"
+							>write</button
+						><button type="button" id="preview-tab" class="editor-tab" aria-pressed="false"
+							>preview</button
+						>
+					</div>
+				</div>
+				<textarea
+					id="body"
+					name="body"
+					class="field min-h-72 resize-y leading-relaxed"
+					rows="10"
+					maxlength="100000"
+					required
+					placeholder="what’s on your mind?"
+					aria-describedby="draft-status"></textarea>
+				<section
+					id="preview"
+					class="prose min-h-72 rounded-lg bg-(--color-text)/10 p-6"
+					aria-label="Markdown preview"
+					hidden
+				>
+				</section>
+				<div class="mt-3 flex items-center justify-between gap-4 text-sm text-(--color-text-muted)">
+					<span id="draft-status" role="status">Markdown welcome.</span><span id="word-count"
+						>0 words</span
+					>
+				</div>
+			</div>
+			<div id="publish-error" class="notice error" role="alert" hidden></div>
+			<div
+				class="flex flex-wrap items-center justify-between gap-4 border-t border-(--color-text-muted)/30 pt-6"
+			>
+				<button type="button" id="clear-draft" class="button draft-action text-(--color-text-muted)"
+					>clear draft</button
+				>
+				<button type="submit" id="publish" class="button button-primary draft-action" disabled
+					><span id="publish-label">publish</span></button
+				>
+			</div>
+		</form>
+	</main>
+	<dialog
+		id="clear-dialog"
+		class="m-auto max-w-sm rounded-lg border border-(--color-text-muted)/30 bg-(--color-bg) p-6 text-(--color-text) backdrop:bg-black/60"
+	>
+		<form method="dialog">
+			<h2 class="text-xl">let these words go?</h2><p class="mt-2 text-(--color-text-muted)">
+				this clears the draft saved on this device.
+			</p><div class="mt-6 flex justify-end gap-3">
+				<button class="button" value="cancel">keep writing</button><button
+					class="button button-primary"
+					value="clear">clear draft</button
+				>
+			</div>
+		</form>
+	</dialog>
+	<script src="../scripts/editor.ts"></script>
+</Layout>
+<style>
+	.collection-select {
+		appearance: none;
+		-webkit-appearance: none;
+		padding-right: 3.5rem;
+	}
+	.collection-chevron {
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		width: 1.25rem;
+		height: 1.25rem;
+		transform: translateY(-50%) rotate(180deg);
+		pointer-events: none;
+		color: var(--color-text-muted);
+	}
+	.draft-action {
+		min-height: 40px;
+		padding: 0.375rem 0.75rem;
+	}
+	.editor-tab {
+		min-height: 36px;
+		padding: 0.25rem 0.75rem;
+		border-radius: 0.375rem;
+		color: var(--color-text-muted);
+	}
+	.editor-tab.active {
+		color: var(--color-text);
+		background: #ebdbb21a;
+	}
+</style>
+
+<style>
+	#preview.photo-post {
+		padding: 0;
+		overflow: hidden;
+	}
+	#preview :global(.photo-name) {
+		padding: 0.75rem;
+		margin: 0;
+		font-size: 0.875rem;
+	}
+	#preview :global(.photo-image) {
+		display: block;
+		width: 100%;
+		height: auto;
+		max-width: none;
+		margin: 0;
+		border-radius: 0;
+	}
+	#preview :global(.photo-caption) {
+		padding: 0.75rem 0.75rem 0;
+	}
+	#preview :global(.photo-caption > :first-child) {
+		margin-top: 0;
+	}
+	#preview :global(.photo-caption > :last-child) {
+		margin-bottom: 0;
+	}
+	#preview :global(.photo-date) {
+		padding: 0.75rem;
+		text-align: right;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+</style>

@@ -1,0 +1,32 @@
+---
+import OpinionLayout from "@now/layouts/opinion-layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("opinions");
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<OpinionLayout
+	postTitle={post.data.title}
+	postDescription={post.data.description}
+	postDate={post.data.lastUpdated.toLocaleString("en-IN", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	})}
+	postIcon={post.data.iconUrl}
+	postIconSize={post.data.iconSize}
+	postUrl={`/on/${post.id}`}
+>
+	<article class="e-content prose-content">
+		<Content />
+	</article>
+</OpinionLayout>

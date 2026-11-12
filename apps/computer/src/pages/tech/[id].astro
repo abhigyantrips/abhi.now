@@ -1,0 +1,78 @@
+---
+import PageLayout from "@/layouts/page-layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+	const tags = await getCollection("tech");
+
+	return tags.map((tag) => ({
+		params: { id: tag.id },
+		props: { tag },
+	}));
+}
+
+const { tag } = Astro.props;
+
+function hasReference(refs: { collection: string; id: string }[] | undefined, id: string) {
+	return refs?.some((ref) => ref.id === id) ?? false;
+}
+
+const posts = await getCollection(
+	"things",
+	({ data }) => data.published && hasReference(data.tech, tag.id)
+);
+const links = await getCollection("links", ({ data }) => hasReference(data.tech, tag.id));
+
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+links.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<PageLayout
+	title={tag.data.name}
+	description={tag.data.description}
+	color={tag.data.color}
+	link={tag.data.link}
+	confidence={tag.data.confidence}
+>
+	<div class="flex flex-col gap-10">
+		{
+			posts.length > 0 && (
+				<section class="flex flex-col gap-3">
+					<h2 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase">Posts</h2>
+					<div class="grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-2">
+						{posts.map((post) => (
+							<div class="contents">
+								<time class="text-sm text-gray-500" datetime={post.data.date.toISOString()}>
+									{post.data.date.toISOString().slice(0, 10)}
+								</time>
+								<a href={`/things/${post.id}`}>{post.data.title}</a>
+							</div>
+						))}
+					</div>
+				</section>
+			)
+		}
+		{
+			links.length > 0 && (
+				<section class="flex flex-col gap-3">
+					<h2 class="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase">Links</h2>
+					<div class="grid grid-cols-[auto_1fr] items-baseline gap-x-4 gap-y-2">
+						{links.map((link) => (
+							<div class="contents">
+								<time class="text-sm text-gray-500" datetime={link.data.date.toISOString()}>
+									{link.data.date.toISOString().slice(0, 10)}
+								</time>
+								<a href={`/links/${link.id}`}>{link.data.link.title}</a>
+							</div>
+						))}
+					</div>
+				</section>
+			)
+		}
+		{
+			posts.length === 0 && links.length === 0 && (
+				<p class="text-gray-500">No posts or links use this technology yet.</p>
+			)
+		}
+	</div>
+</PageLayout>

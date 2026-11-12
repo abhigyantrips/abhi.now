@@ -1,0 +1,59 @@
+---
+import ComputerLayout from "@/layouts/computer-layout.astro";
+import Container from "@/components/container.astro";
+
+import "@/styles/global.css";
+import "@/styles/prose.css";
+
+interface Props {
+	post: {
+		title: string;
+		description: string;
+		date: string;
+		readingTime?: string;
+		url: string;
+	};
+}
+
+const { post } = Astro.props;
+---
+
+<ComputerLayout appId="journal" title={post.title} description={post.description}
+	><div class="p-4 md:p-8">
+		<Container size="md">
+			<div class="h-entry flex flex-col pt-4">
+				<div class="flex flex-col gap-2">
+					{
+						(post.date || post.readingTime) && (
+							<div class="flex items-center gap-2 text-sm text-gray-500 uppercase">
+								{post.date && (
+									<time class="dt-published" datetime={post.date}>
+										{post.date}
+									</time>
+								)}
+								{post.date && post.readingTime && <span aria-hidden="true">·</span>}
+								{post.readingTime && <span>{post.readingTime}</span>}
+							</div>
+						)
+					}
+					<h1 class="p-name text-3xl font-semibold">
+						{post.title}
+					</h1>
+					<p class="p-summary text-gray-500">{post.description}</p>
+					{
+						post.url && (
+							<a class="u-url hidden" href={post.url}>
+								{post.title}
+							</a>
+						)
+					}
+					<span class="p-author h-card hidden">
+						<a class="p-name u-url" href="https://abhi.computer/" rel="author">Abhigyan Trips</a>
+					</span>
+				</div>
+				<hr class="my-6 border-t-2 border-gray-300" />
+				<slot />
+			</div>
+		</Container>
+	</div></ComputerLayout
+>

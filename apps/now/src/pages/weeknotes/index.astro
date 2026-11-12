@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@now/layouts/page-layout.astro";
+import WeeknotesView from "@now/components/weeknotes-view.astro";
+
+const entries = await getCollection("weeknotes");
+---
+
+<PageLayout route="/weeknotes">
+	<WeeknotesView entries={entries} isDescending />
+</PageLayout>

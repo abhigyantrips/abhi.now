@@ -1,0 +1,91 @@
+---
+import { Font } from "astro:assets";
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	type?: "website" | "article";
+}
+
+const {
+	title = "Abhigyan's Com-Puu-Tah",
+	description = "abhigyan trips's tech shenanigans.",
+	image = "/logo.svg",
+	type = "website",
+} = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
+---
+
+<Font cssVariable="--font-gummy" preload />
+<Font cssVariable="--font-atkinson" />
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Font Imports -->
+<Font cssVariable="--font-mono" />
+
+<!-- Annu Analytics -->
+<script is:inline>
+	(() => {
+		const load = () => {
+			try {
+				if (localStorage.getItem("annu.disabled") === "true") return;
+			} catch {}
+			const s = document.createElement("script");
+			s.src = "https://annu.abhi.now/script.js";
+			s.async = true;
+			s.dataset.siteId = "560a031f-a25c-4eae-888e-64df7f130d9d";
+			s.dataset.domains = "abhi.computer";
+			s.dataset.heartbeat = "true";
+			s.dataset.performance = "true";
+			s.dataset.links = "true";
+			document.head.appendChild(s);
+		};
+		if (document.readyState === "complete") setTimeout(load, 0);
+		else window.addEventListener("load", load, { once: true });
+	})();
+</script>
+
+<!-- RelMeAuth/IndieAuth Tags -->
+<link href="mailto:contact@abhi.now" rel="me" />
+<link href="mailto:hire@abhi.now" rel="me" />
+<link href="https://github.com/abhigyantrips" rel="me" />
+<link href="https://gitlab.com/abhigyantrips" rel="me" />
+<link href="https://indieauth.com/auth" rel="authorization_endpoint" />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={imageURL} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={imageURL} />
+
+<!-- Sitemap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- RSS Feed -->
+<link
+	rel="alternate"
+	type="application/rss+xml"
+	title="abhigyan trips's tech shenanigans."
+	href={new URL("/rss.xml", Astro.site)}
+/>

@@ -1,42 +1,28 @@
 {
-  "name": "abhi.now",
+  "name": "abhi-workspace",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc",
   "scripts": {
-    "check": "astro check",
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && wrangler dev",
-    "astro": "astro",
-    "deploy": "astro build && wrangler deploy",
-    "cf-typegen": "wrangler types"
-  },
-  "dependencies": {
-    "@astrojs/cloudflare": "^14.3.2",
-    "@astrojs/markdown-satteri": "^0.4.1",
-    "@astrojs/mdx": "^8.0.0",
-    "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.4",
-    "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.1",
-    "astro-cards": "1.0.1",
-    "parse-srcset": "^1.0.2",
-    "parse5": "^8.0.1",
-    "postcss-value-parser": "^4.2.0",
-    "satteri-autolink-paragraphs": "^0.3.0",
-    "satteri-figure": "^0.2.0",
-    "tailwindcss": "^4.1.18"
+    "dev": "pnpm --filter abhi.now dev",
+    "dev:now": "pnpm --filter abhi.now dev",
+    "dev:computer": "pnpm --filter abhi-computer dev --port 4322",
+    "dev:chhotu": "pnpm --filter chhotu dev --port 4323",
+    "build": "pnpm build:now && pnpm build:computer && pnpm build:chhotu",
+    "build:now": "pnpm --filter abhi.now build",
+    "build:computer": "pnpm --filter abhi-computer build",
+    "build:chhotu": "pnpm --filter chhotu build",
+    "check": "pnpm --filter abhi.now check && pnpm --filter abhi-computer check && pnpm --filter chhotu check",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "coverage:now": "python3 scripts/site-coverage.py compare apps/now/dist/client docs/now-coverage.json"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^25.2.1",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.9.3",
-    "wrangler": "^4.129.1"
-  },
-  "packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc"
+    "astro": "^7.3.1"
+  }
 }

@@ -1,0 +1,182 @@
+---
+import BaseHead from "@now/components/base-head.astro";
+import HCard from "@now/components/h-card.astro";
+import { MAIN_ROUTES, SITE, SOCIALS } from "@now/consts";
+
+import "@now/styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={SITE.TITLE} description={SITE.DESCRIPTION} />
+	</head>
+	<body class="relative min-h-screen">
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(18)))] flex-col items-center justify-center gap-12 p-4 md:min-h-screen"
+		>
+			<!-- Name -->
+			<h1 class="font-gummy text-2xl">abhi {""} <i>bole toh</i> {""} now.</h1>
+
+			<!-- Routes content -->
+			<div class="grid grid-cols-2 gap-12 md:grid-cols-4">
+				{
+					MAIN_ROUTES.map((ROUTE) => (
+						<a
+							href={ROUTE.PATH}
+							class="route-link group flex flex-col items-center gap-2 text-center font-gummy decoration-2! underline-offset-3"
+							style={`--hover-color-light: ${ROUTE.COLOR.LIGHT}; --hover-color-dark: ${ROUTE.COLOR.DARK}; --icon-url: url(${ROUTE.ICON});`}
+						>
+							<span
+								class="route-icon size-10 group-hover:scale-110"
+								role="img"
+								aria-label={ROUTE.NAME}
+								transition:name={`icon-${ROUTE.NAME}`}
+							/>
+							{ROUTE.NAME}
+						</a>
+					))
+				}
+			</div>
+		</main>
+		<footer
+			class="absolute right-0 bottom-0 left-0 flex items-center justify-between gap-2 p-8 lg:p-4"
+		>
+			<div class="hidden lg:block">
+				<HCard />
+			</div>
+
+			<!-- Social icons -->
+			<div class="flex gap-5">
+				{
+					SOCIALS.map((SOCIAL) => (
+						<a
+							href={SOCIAL.HREF}
+							class="footer-link font-gummy decoration-2! underline-offset-3 hover:underline"
+							style={`--hover-color-light: ${SOCIAL.COLOR.LIGHT}; --hover-color-dark: ${SOCIAL.COLOR.DARK};`}
+						>
+							{SOCIAL.TEXT}
+						</a>
+					))
+				}
+			</div>
+
+			<!-- Theme toggle -->
+			<button
+				id="theme-toggle"
+				class="theme-toggle flex size-10 cursor-pointer items-center justify-center rounded-full bg-(--color-text) text-(--color-bg) hover:scale-110"
+				aria-label="Toggle Theme"
+			>
+				<span class="sun-icon size-5" style="--icon-url: url(/icons/sunny.svg);"></span>
+				<span class="moon-icon size-5" style="--icon-url: url(/icons/night.svg);"></span>
+			</button>
+		</footer>
+	</body>
+</html>
+
+<style>
+	@keyframes doodle-wobble {
+		0%,
+		100% {
+			transform: rotate(2deg);
+		}
+		14% {
+			transform: rotate(-5deg);
+		}
+		28% {
+			transform: rotate(4deg);
+		}
+		42% {
+			transform: rotate(-3deg);
+		}
+		57% {
+			transform: rotate(6deg);
+		}
+		71% {
+			transform: rotate(-4deg);
+		}
+		85% {
+			transform: rotate(5deg);
+		}
+	}
+
+	.route-icon {
+		display: inline-block;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		transition: background-color 0.1s;
+	}
+
+	.group:hover .route-icon {
+		animation: doodle-wobble 3.33s steps(1) infinite;
+	}
+
+	.route-link {
+		--hover-color: var(--hover-color-light);
+	}
+
+	:global(.dark) .route-link {
+		--hover-color: var(--hover-color-dark);
+	}
+
+	/* On mobile: always show colored labels/icons */
+	@media (max-width: 767px) {
+		.route-link {
+			color: var(--hover-color);
+		}
+	}
+
+	/* On larger screens: color only on hover */
+	@media (min-width: 768px) {
+		.route-link:hover {
+			color: var(--hover-color);
+			text-decoration: underline;
+		}
+	}
+
+	.footer-link {
+		--hover-color: var(--hover-color-light);
+	}
+
+	:global(.dark) .footer-link {
+		--hover-color: var(--hover-color-dark);
+	}
+
+	.footer-link:hover {
+		color: var(--hover-color);
+		text-decoration: underline;
+	}
+
+	/* Theme toggle styles */
+	.theme-toggle .sun-icon,
+	.theme-toggle .moon-icon {
+		display: inline-block;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
+	.theme-toggle .sun-icon {
+		display: block;
+	}
+	.theme-toggle .moon-icon {
+		display: none;
+	}
+	:global(.dark) .theme-toggle .sun-icon {
+		display: none;
+	}
+	:global(.dark) .theme-toggle .moon-icon {
+		display: block;
+	}
+</style>

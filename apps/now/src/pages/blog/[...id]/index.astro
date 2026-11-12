@@ -1,0 +1,77 @@
+---
+import { getCollection, getEntries, render, type CollectionEntry } from "astro:content";
+import { formatBlogDate, formatReadingTime } from "@now/lib/utils";
+import { extractOpeningHtml } from "@now/lib/blog-preview";
+import { renderEntryHtml } from "@now/lib/content-html";
+import { renderCard } from "astro-cards/runtime";
+import ReadingLayout from "@now/layouts/reading-layout.astro";
+
+export async function getStaticPaths() {
+	const tagDigests = new Map((await getCollection("tags")).map((tag) => [tag.id, tag.digest]));
+	const posts = await getCollection("blog", ({ data }) =>
+		import.meta.env.DEV ? true : data.published
+	);
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+		cacheKey: JSON.stringify([
+			post.digest,
+			new Date().getFullYear(),
+			...(post.data.tags ?? []).map((tag) => [tag.id, tagDigests.get(tag.id)]),
+		]),
+	}));
+}
+
+interface Props {
+	post: CollectionEntry<"blog">;
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const tags = await getEntries(post.data.tags || []);
+const date = formatBlogDate(post.data.date);
+const readingTime = formatReadingTime(post.body ?? "");
+
+// MDX entries render at runtime rather than storing HTML in the collection.
+const html = post.rendered?.html ?? (await renderEntryHtml(post));
+
+const image = await renderCard("blog", {
+	title: post.data.title,
+	description: post.data.description,
+	date,
+	readingTime,
+	openingHtml: extractOpeningHtml(html),
+}).catch((cause: unknown) => {
+	throw new Error(
+		`Cannot render blog preview for "${post.id}". Check src/cards/blog.astro and the Sour Gummy Fonts API configuration.`,
+		{ cause }
+	);
+});
+---
+
+<ReadingLayout
+	route="/blog"
+	image={image}
+	post={{
+		title: post.data.title,
+		description: post.data.description,
+		date,
+		readingTime,
+		url: `/blog/${post.id}`,
+	}}
+>
+	<article class="e-content prose-content">
+		<Content />
+		<div class="not-prose flex items-center justify-start gap-2 font-gummy tracking-wider">
+			{
+				tags.map((tag) => (
+					<abbr
+						title={tag.data.description}
+						class="p-category cursor-help rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text)/75 no-underline transition-colors duration-150"
+					>
+						#{tag.id}
+					</abbr>
+				))
+			}
+		</div>
+	</article>
+</ReadingLayout>

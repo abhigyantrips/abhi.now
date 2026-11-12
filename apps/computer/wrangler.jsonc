@@ -1,0 +1,27 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+
+	"name": "abhi-computer",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+
+	"compatibility_date": "2026-06-13",
+	"compatibility_flags": ["global_fetch_strictly_public"],
+
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS",
+	},
+
+	"observability": {
+		"enabled": true,
+	},
+
+	"preview_urls": false,
+	"workers_dev": false,
+	"routes": [
+		{
+			"pattern": "abhi.computer",
+			"custom_domain": true,
+		},
+	],
+}

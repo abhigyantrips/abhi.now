@@ -1,0 +1,5052 @@
+{
+  "pages": {
+    "/404.html": {
+      "canonical": [
+        "https://abhi.now/404/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/ai/": {
+      "canonical": [
+        "https://abhi.now/on/ai"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/before/1771781793/": {
+      "canonical": [
+        "https://abhi.now/before/1771781793/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/before/1789112933/": {
+      "canonical": [
+        "https://abhi.now/before/1789112933/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/before/": {
+      "canonical": [
+        "https://abhi.now/before/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/a-cantontment-road/": {
+      "canonical": [
+        "https://abhi.now/blog/a-cantontment-road/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/a-cantontment-road/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/a-cantontment-road/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/a-caring-guide-for-pp/": {
+      "canonical": [
+        "https://abhi.now/blog/a-caring-guide-for-pp/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/a-caring-guide-for-pp/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/a-caring-guide-for-pp/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/a-prayer-for-the-cockroaches/": {
+      "canonical": [
+        "https://abhi.now/blog/a-prayer-for-the-cockroaches/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/a-prayer-for-the-cockroaches/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/a-prayer-for-the-cockroaches/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/an-ode-to-hospitality/": {
+      "canonical": [
+        "https://abhi.now/blog/an-ode-to-hospitality/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/an-ode-to-hospitality/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/an-ode-to-hospitality/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/battle-of-the-chai-premixes/": {
+      "canonical": [
+        "https://abhi.now/blog/battle-of-the-chai-premixes/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/battle-of-the-chai-premixes/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/battle-of-the-chai-premixes/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/calm-technologies/": {
+      "canonical": [
+        "https://abhi.now/blog/calm-technologies/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/calm-technologies/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/calm-technologies/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/capri-sun/": {
+      "canonical": [
+        "https://abhi.now/blog/capri-sun/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/capri-sun/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/capri-sun/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/death-of-the-plants/": {
+      "canonical": [
+        "https://abhi.now/blog/death-of-the-plants/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/death-of-the-plants/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/death-of-the-plants/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/decompressing-it-all/": {
+      "canonical": [
+        "https://abhi.now/blog/decompressing-it-all/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/decompressing-it-all/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/decompressing-it-all/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/favourite-art-from-october-10/": {
+      "canonical": [
+        "https://abhi.now/blog/favourite-art-from-october-10/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/favourite-art-from-october-10/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/favourite-art-from-october-10/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/husk-of-a-rainbow/": {
+      "canonical": [
+        "https://abhi.now/blog/husk-of-a-rainbow/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/husk-of-a-rainbow/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/husk-of-a-rainbow/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/": {
+      "canonical": [
+        "https://abhi.now/blog/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/instagram-instants/": {
+      "canonical": [
+        "https://abhi.now/blog/instagram-instants/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/instagram-instants/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/instagram-instants/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/my-love-for-naive-design/": {
+      "canonical": [
+        "https://abhi.now/blog/my-love-for-naive-design/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/my-love-for-naive-design/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/my-love-for-naive-design/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/nepali-sikka/": {
+      "canonical": [
+        "https://abhi.now/blog/nepali-sikka/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/nepali-sikka/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/nepali-sikka/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/paneer-cheese-sandwich/": {
+      "canonical": [
+        "https://abhi.now/blog/paneer-cheese-sandwich/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/paneer-cheese-sandwich/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/paneer-cheese-sandwich/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/please-introduce-yourself/": {
+      "canonical": [
+        "https://abhi.now/blog/please-introduce-yourself/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/please-introduce-yourself/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/please-introduce-yourself/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/sunsets/": {
+      "canonical": [
+        "https://abhi.now/blog/sunsets/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/sunsets/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/sunsets/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/thank-you-thank-you/": {
+      "canonical": [
+        "https://abhi.now/blog/thank-you-thank-you/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/thank-you-thank-you/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/thank-you-thank-you/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/thank-you-welcome/": {
+      "canonical": [
+        "https://abhi.now/blog/thank-you-welcome/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/thank-you-welcome/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/thank-you-welcome/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/the-origin-of-pog/": {
+      "canonical": [
+        "https://abhi.now/blog/the-origin-of-pog/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/the-origin-of-pog/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/the-origin-of-pog/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/the-perfect-chai/": {
+      "canonical": [
+        "https://abhi.now/blog/the-perfect-chai/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/the-perfect-chai/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/the-perfect-chai/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/the-right-place/": {
+      "canonical": [
+        "https://abhi.now/blog/the-right-place/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/the-right-place/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/the-right-place/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/to-my-college-juniors/": {
+      "canonical": [
+        "https://abhi.now/blog/to-my-college-juniors/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/to-my-college-juniors/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/to-my-college-juniors/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/blog/why-i-write/": {
+      "canonical": [
+        "https://abhi.now/blog/why-i-write/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/blog/why-i-write/plaintext/": {
+      "canonical": [
+        "https://abhi.now/blog/why-i-write/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/iff/": {
+      "canonical": [
+        "https://abhi.now/iff/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/": {
+      "canonical": [
+        "https://abhi.now/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/now/": {
+      "canonical": [
+        "https://abhi.now/now/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/on/ai/": {
+      "canonical": [
+        "https://abhi.now/on/ai/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/on/anti-vision/": {
+      "canonical": [
+        "https://abhi.now/on/anti-vision/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/opinions/": {
+      "canonical": [
+        "https://abhi.now/opinions/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/people/": {
+      "canonical": [
+        "https://abhi.now/people/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/": {
+      "canonical": [
+        "https://abhi.now/projects/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/personal/butternaan/": {
+      "canonical": [
+        "https://abhi.now/projects/personal/butternaan/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/personal/cube-bots/": {
+      "canonical": [
+        "https://abhi.now/projects/personal/cube-bots/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/personal/tab-closer/": {
+      "canonical": [
+        "https://abhi.now/projects/personal/tab-closer/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/personal/uwuifier/": {
+      "canonical": [
+        "https://abhi.now/projects/personal/uwuifier/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/personal/zengram/": {
+      "canonical": [
+        "https://abhi.now/projects/personal/zengram/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/accreditation/": {
+      "canonical": [
+        "https://abhi.now/projects/university/accreditation/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/club/": {
+      "canonical": [
+        "https://abhi.now/projects/university/club/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/helpdesk/": {
+      "canonical": [
+        "https://abhi.now/projects/university/helpdesk/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/nss-mobile/": {
+      "canonical": [
+        "https://abhi.now/projects/university/nss-mobile/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/open-house/": {
+      "canonical": [
+        "https://abhi.now/projects/university/open-house/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/playlistify/": {
+      "canonical": [
+        "https://abhi.now/projects/university/playlistify/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/safeqr/": {
+      "canonical": [
+        "https://abhi.now/projects/university/safeqr/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/stegnet/": {
+      "canonical": [
+        "https://abhi.now/projects/university/stegnet/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/projects/university/visualcss/": {
+      "canonical": [
+        "https://abhi.now/projects/university/visualcss/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/resume/": {
+      "canonical": [
+        "https://abhi.now/resume/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/snippets/folders/": {
+      "canonical": [
+        "https://abhi.now/snippets/folders/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/snippets/": {
+      "canonical": [
+        "https://abhi.now/snippets/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/snippets/iwcb/": {
+      "canonical": [
+        "https://abhi.now/snippets/iwcb/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's overheard @ iwcb.",
+          "href": "https://abhi.now/snippets/iwcb/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/snippets/quotes/": {
+      "canonical": [
+        "https://abhi.now/snippets/quotes/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's saved quotes.",
+          "href": "https://abhi.now/snippets/quotes/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/snippets/thoughts/": {
+      "canonical": [
+        "https://abhi.now/snippets/thoughts/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's my own words.",
+          "href": "https://abhi.now/snippets/thoughts/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/10/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/10/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/10/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/10/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/11/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/11/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/11/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/11/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/12/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/12/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/12/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/12/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/13/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/13/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/13/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/13/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/14/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/14/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/14/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/14/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/15/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/15/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/15/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/15/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/16/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/16/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/16/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/16/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/17/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/17/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/17/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/17/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/18/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/18/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/18/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/18/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/19/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/19/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/19/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/19/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/20/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/20/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/20/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/20/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/21/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/21/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/21/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/21/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/22/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/22/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/22/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/22/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/23/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/23/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/23/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/23/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/24/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/24/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/24/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/24/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/25/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/25/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/25/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/25/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/26/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/26/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/26/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/26/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/27/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/27/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/27/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/27/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/28/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/28/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/28/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/28/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/29/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/29/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/29/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/29/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/30/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/30/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/30/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/30/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/31/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/31/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/31/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/31/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/32/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/32/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/32/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/32/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/33/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/33/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/33/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/33/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/34/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/34/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/34/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/34/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/35/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/35/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/35/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/35/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/36/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/36/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/36/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/36/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/37/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/37/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/37/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/37/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/38/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/38/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/38/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/38/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/39/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/39/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/39/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/39/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/40/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/40/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/40/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/40/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/41/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/41/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/41/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/41/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/42/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/42/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/42/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/42/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/43/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/43/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/43/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/43/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/2026/44/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/44/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/weeknotes/2026/44/plaintext/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/2026/44/plaintext/"
+      ],
+      "robots": [],
+      "feed_links": []
+    },
+    "/weeknotes/": {
+      "canonical": [
+        "https://abhi.now/weeknotes/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/whoami/a-badmaash-bacha/": {
+      "canonical": [
+        "https://abhi.now/whoami/a-badmaash-bacha/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/whoami/a-college-student/": {
+      "canonical": [
+        "https://abhi.now/whoami/a-college-student/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/whoami/a-software-developer/": {
+      "canonical": [
+        "https://abhi.now/whoami/a-software-developer/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/whoami/an-army-brat/": {
+      "canonical": [
+        "https://abhi.now/whoami/an-army-brat/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    },
+    "/whoami/": {
+      "canonical": [
+        "https://abhi.now/whoami/"
+      ],
+      "robots": [],
+      "feed_links": [
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's 'now' archives.",
+          "href": "https://abhi.now/before/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's blog.",
+          "href": "https://abhi.now/blog/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's sticky notes.",
+          "href": "https://abhi.now/snippets/feed.xml"
+        },
+        {
+          "rel": "alternate",
+          "type": "application/rss+xml",
+          "title": "abhigyan trips's weeknotes.",
+          "href": "https://abhi.now/weeknotes/feed.xml"
+        }
+      ]
+    }
+  },
+  "xml": {
+    "/before/feed.xml": {
+      "sha256": "259964f36f3d667aebac935484d9af1ac8ece46f4ee040e351e33cd27601ac8f",
+      "items": [
+        {
+          "link": "https://abhi.now/before/1771781793/",
+          "guid": "https://abhi.now/before/1771781793/",
+          "title": "Snapshot #1771781793",
+          "pubDate": "Sun, 22 Feb 2026 17:36:33 GMT"
+        },
+        {
+          "link": "https://abhi.now/before/1789112933/",
+          "guid": "https://abhi.now/before/1789112933/",
+          "title": "Snapshot #1789112933",
+          "pubDate": "Fri, 11 Sep 2026 07:48:53 GMT"
+        }
+      ]
+    },
+    "/blog/feed.xml": {
+      "sha256": "b791bb9e1e94ac4f505ade32df16a77115f28b0cf37e060613564e526d4b13fb",
+      "items": [
+        {
+          "link": "https://abhi.now/blog/a-cantontment-road/",
+          "guid": "https://abhi.now/blog/a-cantontment-road/",
+          "title": "A Cantonment Road",
+          "pubDate": "Fri, 18 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/a-caring-guide-for-pp/",
+          "guid": "https://abhi.now/blog/a-caring-guide-for-pp/",
+          "title": "A Caring Guide for PP",
+          "pubDate": "Sat, 18 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/a-prayer-for-the-cockroaches/",
+          "guid": "https://abhi.now/blog/a-prayer-for-the-cockroaches/",
+          "title": "A Prayer for the Cockroaches",
+          "pubDate": "Sun, 19 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/an-ode-to-hospitality/",
+          "guid": "https://abhi.now/blog/an-ode-to-hospitality/",
+          "title": "An Ode to Hospitality",
+          "pubDate": "Sat, 04 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/battle-of-the-chai-premixes/",
+          "guid": "https://abhi.now/blog/battle-of-the-chai-premixes/",
+          "title": "Battle of the Chai Premixes",
+          "pubDate": "Sat, 03 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/calm-technologies/",
+          "guid": "https://abhi.now/blog/calm-technologies/",
+          "title": "Calm Technologies That Excite Me",
+          "pubDate": "Thu, 23 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/capri-sun/",
+          "guid": "https://abhi.now/blog/capri-sun/",
+          "title": "Capri-Sun, or Something Like It",
+          "pubDate": "Mon, 18 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/death-of-the-plants/",
+          "guid": "https://abhi.now/blog/death-of-the-plants/",
+          "title": "Death of the Plants",
+          "pubDate": "Thu, 02 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/decompressing-it-all/",
+          "guid": "https://abhi.now/blog/decompressing-it-all/",
+          "title": "Decompressing It All",
+          "pubDate": "Fri, 04 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/favourite-art-from-october-10/",
+          "guid": "https://abhi.now/blog/favourite-art-from-october-10/",
+          "title": "My Favourite Art from October 10",
+          "pubDate": "Fri, 16 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/husk-of-a-rainbow/",
+          "guid": "https://abhi.now/blog/husk-of-a-rainbow/",
+          "title": "Husk of a Rainbow",
+          "pubDate": "Sat, 25 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/instagram-instants/",
+          "guid": "https://abhi.now/blog/instagram-instants/",
+          "title": "Instagram Instants",
+          "pubDate": "Thu, 04 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/my-love-for-naive-design/",
+          "guid": "https://abhi.now/blog/my-love-for-naive-design/",
+          "title": "My Love for Naïve Design",
+          "pubDate": "Sun, 25 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/nepali-sikka/",
+          "guid": "https://abhi.now/blog/nepali-sikka/",
+          "title": "Nepali Sikka",
+          "pubDate": "Fri, 28 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/paneer-cheese-sandwich/",
+          "guid": "https://abhi.now/blog/paneer-cheese-sandwich/",
+          "title": "Paneer Cheese Sandwich",
+          "pubDate": "Wed, 01 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/please-introduce-yourself/",
+          "guid": "https://abhi.now/blog/please-introduce-yourself/",
+          "title": "\"Please Introduce Yourself\"",
+          "pubDate": "Wed, 15 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/sunsets/",
+          "guid": "https://abhi.now/blog/sunsets/",
+          "title": "Sunsets",
+          "pubDate": "Sat, 12 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/thank-you-thank-you/",
+          "guid": "https://abhi.now/blog/thank-you-thank-you/",
+          "title": "Thank You, Thank You",
+          "pubDate": "Tue, 11 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/thank-you-welcome/",
+          "guid": "https://abhi.now/blog/thank-you-welcome/",
+          "title": "Thank You, Welcome",
+          "pubDate": "Wed, 09 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/the-origin-of-pog/",
+          "guid": "https://abhi.now/blog/the-origin-of-pog/",
+          "title": "The Origin Story of Pog",
+          "pubDate": "Thu, 09 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/the-perfect-chai/",
+          "guid": "https://abhi.now/blog/the-perfect-chai/",
+          "title": "The Perfect Chai",
+          "pubDate": "Sun, 05 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/the-right-place/",
+          "guid": "https://abhi.now/blog/the-right-place/",
+          "title": "The Right Place",
+          "pubDate": "Sat, 07 Feb 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/to-my-college-juniors/",
+          "guid": "https://abhi.now/blog/to-my-college-juniors/",
+          "title": "To, My College Juniors",
+          "pubDate": "Tue, 29 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/why-i-write/",
+          "guid": "https://abhi.now/blog/why-i-write/",
+          "title": "Why I Write",
+          "pubDate": "Tue, 20 Oct 2026 00:00:00 GMT"
+        }
+      ]
+    },
+    "/indieweb.xml": {
+      "sha256": "f2794b757944789cbb085ba8c1a2df3e117ed11cf573801f343d809f2f070e5e",
+      "items": [
+        {
+          "link": "https://abhi.now/weeknotes/2026/44/",
+          "guid": "https://abhi.now/weeknotes/2026/44/",
+          "title": "(#2026-W44) ganne ka juice and halloween game nights",
+          "pubDate": "Mon, 02 Nov 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/43/",
+          "guid": "https://abhi.now/weeknotes/2026/43/",
+          "title": "(#2026-W43) hello hello, can you hear me?",
+          "pubDate": "Tue, 27 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/my-love-for-naive-design/",
+          "guid": "https://abhi.now/blog/my-love-for-naive-design/",
+          "title": "My Love for Naïve Design",
+          "pubDate": "Sun, 25 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/why-i-write/",
+          "guid": "https://abhi.now/blog/why-i-write/",
+          "title": "Why I Write",
+          "pubDate": "Tue, 20 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/42/",
+          "guid": "https://abhi.now/weeknotes/2026/42/",
+          "title": "(#2026-W42) chai garam pumping kam (+ extras)",
+          "pubDate": "Mon, 19 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/favourite-art-from-october-10/",
+          "guid": "https://abhi.now/blog/favourite-art-from-october-10/",
+          "title": "My Favourite Art from October 10",
+          "pubDate": "Fri, 16 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/41/",
+          "guid": "https://abhi.now/weeknotes/2026/41/",
+          "title": "(#2026-W41) ikea, air conditoning and hope",
+          "pubDate": "Thu, 15 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/40/",
+          "guid": "https://abhi.now/weeknotes/2026/40/",
+          "title": "(#2026-W40) conferences, meetups, marathis and matcha",
+          "pubDate": "Thu, 08 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/39/",
+          "guid": "https://abhi.now/weeknotes/2026/39/",
+          "title": "(#2026-W39) far from home, far from hugs",
+          "pubDate": "Mon, 05 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/battle-of-the-chai-premixes/",
+          "guid": "https://abhi.now/blog/battle-of-the-chai-premixes/",
+          "title": "Battle of the Chai Premixes",
+          "pubDate": "Sat, 03 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/to-my-college-juniors/",
+          "guid": "https://abhi.now/blog/to-my-college-juniors/",
+          "title": "To, My College Juniors",
+          "pubDate": "Tue, 29 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/38/",
+          "guid": "https://abhi.now/weeknotes/2026/38/",
+          "title": "(#2026-W38) maps, comics, birbal and stickers",
+          "pubDate": "Fri, 25 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/a-cantontment-road/",
+          "guid": "https://abhi.now/blog/a-cantontment-road/",
+          "title": "A Cantonment Road",
+          "pubDate": "Fri, 18 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/37/",
+          "guid": "https://abhi.now/weeknotes/2026/37/",
+          "title": "(#2026-W37) writing, coding, reading, repeat!",
+          "pubDate": "Tue, 15 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/sunsets/",
+          "guid": "https://abhi.now/blog/sunsets/",
+          "title": "Sunsets",
+          "pubDate": "Sat, 12 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/before/1789112933/",
+          "guid": "https://abhi.now/before/1789112933/",
+          "title": "Snapshot #1789112933",
+          "pubDate": "Fri, 11 Sep 2026 07:48:53 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/thank-you-welcome/",
+          "guid": "https://abhi.now/blog/thank-you-welcome/",
+          "title": "Thank You, Welcome",
+          "pubDate": "Wed, 09 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/36/",
+          "guid": "https://abhi.now/weeknotes/2026/36/",
+          "title": "(#2026-W36) cool cars and meetups after dark",
+          "pubDate": "Tue, 08 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/decompressing-it-all/",
+          "guid": "https://abhi.now/blog/decompressing-it-all/",
+          "title": "Decompressing It All",
+          "pubDate": "Fri, 04 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/35/",
+          "guid": "https://abhi.now/weeknotes/2026/35/",
+          "title": "(#2026-W35) corpo rites and rakhi ties",
+          "pubDate": "Tue, 01 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/nepali-sikka/",
+          "guid": "https://abhi.now/blog/nepali-sikka/",
+          "title": "Nepali Sikka",
+          "pubDate": "Fri, 28 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/34/",
+          "guid": "https://abhi.now/weeknotes/2026/34/",
+          "title": "(#2026-W34) work and sleep and work and sleep",
+          "pubDate": "Mon, 24 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/33/",
+          "guid": "https://abhi.now/weeknotes/2026/33/",
+          "title": "(#2026-W33) flights, friends and slam books",
+          "pubDate": "Sun, 23 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/thank-you-thank-you/",
+          "guid": "https://abhi.now/blog/thank-you-thank-you/",
+          "title": "Thank You, Thank You",
+          "pubDate": "Tue, 11 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/32/",
+          "guid": "https://abhi.now/weeknotes/2026/32/",
+          "title": "(#2026-W32) ghar ka khaana and dil ki shaanti",
+          "pubDate": "Sat, 08 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/31/",
+          "guid": "https://abhi.now/weeknotes/2026/31/",
+          "title": "(#2026-W31) loitering around lakes + other vellapanti",
+          "pubDate": "Sat, 01 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/30/",
+          "guid": "https://abhi.now/weeknotes/2026/30/",
+          "title": "(#2026-W30) cockroaches win and college completes",
+          "pubDate": "Sat, 25 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/calm-technologies/",
+          "guid": "https://abhi.now/blog/calm-technologies/",
+          "title": "Calm Technologies That Excite Me",
+          "pubDate": "Thu, 23 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/a-prayer-for-the-cockroaches/",
+          "guid": "https://abhi.now/blog/a-prayer-for-the-cockroaches/",
+          "title": "A Prayer for the Cockroaches",
+          "pubDate": "Sun, 19 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/29/",
+          "guid": "https://abhi.now/weeknotes/2026/29/",
+          "title": "(#2026-W29) onboarding, protesting and doomscrolling",
+          "pubDate": "Sat, 18 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/28/",
+          "guid": "https://abhi.now/weeknotes/2026/28/",
+          "title": "(#2026-W28) work dinners and work farewells",
+          "pubDate": "Sat, 11 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/the-origin-of-pog/",
+          "guid": "https://abhi.now/blog/the-origin-of-pog/",
+          "title": "The Origin Story of Pog",
+          "pubDate": "Thu, 09 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/27/",
+          "guid": "https://abhi.now/weeknotes/2026/27/",
+          "title": "(#2026-W27) swimming, dunes and website updates",
+          "pubDate": "Sat, 04 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/death-of-the-plants/",
+          "guid": "https://abhi.now/blog/death-of-the-plants/",
+          "title": "Death of the Plants",
+          "pubDate": "Thu, 02 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/paneer-cheese-sandwich/",
+          "guid": "https://abhi.now/blog/paneer-cheese-sandwich/",
+          "title": "Paneer Cheese Sandwich",
+          "pubDate": "Wed, 01 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/26/",
+          "guid": "https://abhi.now/weeknotes/2026/26/",
+          "title": "(#2026-W26) cafe hopping and a jackfruit",
+          "pubDate": "Sat, 27 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/25/",
+          "guid": "https://abhi.now/weeknotes/2026/25/",
+          "title": "(#2026-W25) ice creams, samosas and placements",
+          "pubDate": "Sat, 20 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/24/",
+          "guid": "https://abhi.now/weeknotes/2026/24/",
+          "title": "(#2026-W24) cucumber, tomato, daman and diu",
+          "pubDate": "Sat, 13 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/23/",
+          "guid": "https://abhi.now/weeknotes/2026/23/",
+          "title": "(#2026-W23) calendar changes and muscoth halwa",
+          "pubDate": "Sat, 06 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/instagram-instants/",
+          "guid": "https://abhi.now/blog/instagram-instants/",
+          "title": "Instagram Instants",
+          "pubDate": "Thu, 04 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/22/",
+          "guid": "https://abhi.now/weeknotes/2026/22/",
+          "title": "(#2026-W22) THE INDIEWEBCLUB ANNIVERSARY",
+          "pubDate": "Sat, 30 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/21/",
+          "guid": "https://abhi.now/weeknotes/2026/21/",
+          "title": "(#2026-W21) delhi heat and cyberdecks",
+          "pubDate": "Sat, 23 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/capri-sun/",
+          "guid": "https://abhi.now/blog/capri-sun/",
+          "title": "Capri-Sun, or Something Like It",
+          "pubDate": "Mon, 18 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/20/",
+          "guid": "https://abhi.now/weeknotes/2026/20/",
+          "title": "(#2026-W20) city libraries and craft stores",
+          "pubDate": "Sat, 16 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/19/",
+          "guid": "https://abhi.now/weeknotes/2026/19/",
+          "title": "(#2026-W19) clouds, froyo and carnatic fusion",
+          "pubDate": "Sat, 09 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/18/",
+          "guid": "https://abhi.now/weeknotes/2026/18/",
+          "title": "(#2026-W18) DEKHO BAARISH HO RAHI HAIII",
+          "pubDate": "Sat, 02 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/husk-of-a-rainbow/",
+          "guid": "https://abhi.now/blog/husk-of-a-rainbow/",
+          "title": "Husk of a Rainbow",
+          "pubDate": "Sat, 25 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/17/",
+          "guid": "https://abhi.now/weeknotes/2026/17/",
+          "title": "(#2026-W17) poems, flowers and romanticized nights",
+          "pubDate": "Sat, 25 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/a-caring-guide-for-pp/",
+          "guid": "https://abhi.now/blog/a-caring-guide-for-pp/",
+          "title": "A Caring Guide for PP",
+          "pubDate": "Sat, 18 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/16/",
+          "guid": "https://abhi.now/weeknotes/2026/16/",
+          "title": "(#2026-W16) COLOR COLOR COLOR",
+          "pubDate": "Sat, 18 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/please-introduce-yourself/",
+          "guid": "https://abhi.now/blog/please-introduce-yourself/",
+          "title": "\"Please Introduce Yourself\"",
+          "pubDate": "Wed, 15 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/15/",
+          "guid": "https://abhi.now/weeknotes/2026/15/",
+          "title": "(#2026-W15) smart crows and car shows",
+          "pubDate": "Sat, 11 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/the-perfect-chai/",
+          "guid": "https://abhi.now/blog/the-perfect-chai/",
+          "title": "The Perfect Chai",
+          "pubDate": "Sun, 05 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/an-ode-to-hospitality/",
+          "guid": "https://abhi.now/blog/an-ode-to-hospitality/",
+          "title": "An Ode to Hospitality",
+          "pubDate": "Sat, 04 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/14/",
+          "guid": "https://abhi.now/weeknotes/2026/14/",
+          "title": "(#2026-W14) birthdays, breweries and blr metro",
+          "pubDate": "Sat, 04 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/13/",
+          "guid": "https://abhi.now/weeknotes/2026/13/",
+          "title": "(#2026-W13) labubus and ryan gosling",
+          "pubDate": "Sat, 28 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/12/",
+          "guid": "https://abhi.now/weeknotes/2026/12/",
+          "title": "(#2026-W12) bombay and poha",
+          "pubDate": "Sat, 21 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/11/",
+          "guid": "https://abhi.now/weeknotes/2026/11/",
+          "title": "(#2026-W11) dog bites and conspiracies",
+          "pubDate": "Sat, 14 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/10/",
+          "guid": "https://abhi.now/weeknotes/2026/10/",
+          "title": "(#2026-W10) holi and 'rang barse'",
+          "pubDate": "Sat, 07 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/before/1771781793/",
+          "guid": "https://abhi.now/before/1771781793/",
+          "title": "Snapshot #1771781793",
+          "pubDate": "Sun, 22 Feb 2026 17:36:33 GMT"
+        },
+        {
+          "link": "https://abhi.now/blog/the-right-place/",
+          "guid": "https://abhi.now/blog/the-right-place/",
+          "title": "The Right Place",
+          "pubDate": "Sat, 07 Feb 2026 00:00:00 GMT"
+        }
+      ]
+    },
+    "/sitemap-0.xml": {
+      "sha256": "c016939c38aeb03e6b1fd70099e3e0342fde125eb39a12efae975f18b03e8ecd",
+      "locations": [
+        "https://abhi.now/",
+        "https://abhi.now/ai/",
+        "https://abhi.now/before/",
+        "https://abhi.now/before/1771781793/",
+        "https://abhi.now/before/1789112933/",
+        "https://abhi.now/blog/",
+        "https://abhi.now/blog/a-cantontment-road/",
+        "https://abhi.now/blog/a-cantontment-road/plaintext/",
+        "https://abhi.now/blog/a-caring-guide-for-pp/",
+        "https://abhi.now/blog/a-caring-guide-for-pp/plaintext/",
+        "https://abhi.now/blog/a-prayer-for-the-cockroaches/",
+        "https://abhi.now/blog/a-prayer-for-the-cockroaches/plaintext/",
+        "https://abhi.now/blog/an-ode-to-hospitality/",
+        "https://abhi.now/blog/an-ode-to-hospitality/plaintext/",
+        "https://abhi.now/blog/battle-of-the-chai-premixes/",
+        "https://abhi.now/blog/battle-of-the-chai-premixes/plaintext/",
+        "https://abhi.now/blog/calm-technologies/",
+        "https://abhi.now/blog/calm-technologies/plaintext/",
+        "https://abhi.now/blog/capri-sun/",
+        "https://abhi.now/blog/capri-sun/plaintext/",
+        "https://abhi.now/blog/death-of-the-plants/",
+        "https://abhi.now/blog/death-of-the-plants/plaintext/",
+        "https://abhi.now/blog/decompressing-it-all/",
+        "https://abhi.now/blog/decompressing-it-all/plaintext/",
+        "https://abhi.now/blog/favourite-art-from-october-10/",
+        "https://abhi.now/blog/favourite-art-from-october-10/plaintext/",
+        "https://abhi.now/blog/husk-of-a-rainbow/",
+        "https://abhi.now/blog/husk-of-a-rainbow/plaintext/",
+        "https://abhi.now/blog/instagram-instants/",
+        "https://abhi.now/blog/instagram-instants/plaintext/",
+        "https://abhi.now/blog/my-love-for-naive-design/",
+        "https://abhi.now/blog/my-love-for-naive-design/plaintext/",
+        "https://abhi.now/blog/nepali-sikka/",
+        "https://abhi.now/blog/nepali-sikka/plaintext/",
+        "https://abhi.now/blog/paneer-cheese-sandwich/",
+        "https://abhi.now/blog/paneer-cheese-sandwich/plaintext/",
+        "https://abhi.now/blog/please-introduce-yourself/",
+        "https://abhi.now/blog/please-introduce-yourself/plaintext/",
+        "https://abhi.now/blog/sunsets/",
+        "https://abhi.now/blog/sunsets/plaintext/",
+        "https://abhi.now/blog/thank-you-thank-you/",
+        "https://abhi.now/blog/thank-you-thank-you/plaintext/",
+        "https://abhi.now/blog/thank-you-welcome/",
+        "https://abhi.now/blog/thank-you-welcome/plaintext/",
+        "https://abhi.now/blog/the-origin-of-pog/",
+        "https://abhi.now/blog/the-origin-of-pog/plaintext/",
+        "https://abhi.now/blog/the-perfect-chai/",
+        "https://abhi.now/blog/the-perfect-chai/plaintext/",
+        "https://abhi.now/blog/the-right-place/",
+        "https://abhi.now/blog/the-right-place/plaintext/",
+        "https://abhi.now/blog/to-my-college-juniors/",
+        "https://abhi.now/blog/to-my-college-juniors/plaintext/",
+        "https://abhi.now/blog/why-i-write/",
+        "https://abhi.now/blog/why-i-write/plaintext/",
+        "https://abhi.now/iff/",
+        "https://abhi.now/now/",
+        "https://abhi.now/on/ai/",
+        "https://abhi.now/on/anti-vision/",
+        "https://abhi.now/opinions/",
+        "https://abhi.now/people/",
+        "https://abhi.now/projects/",
+        "https://abhi.now/projects/personal/butternaan/",
+        "https://abhi.now/projects/personal/cube-bots/",
+        "https://abhi.now/projects/personal/tab-closer/",
+        "https://abhi.now/projects/personal/uwuifier/",
+        "https://abhi.now/projects/personal/zengram/",
+        "https://abhi.now/projects/university/accreditation/",
+        "https://abhi.now/projects/university/club/",
+        "https://abhi.now/projects/university/helpdesk/",
+        "https://abhi.now/projects/university/nss-mobile/",
+        "https://abhi.now/projects/university/open-house/",
+        "https://abhi.now/projects/university/playlistify/",
+        "https://abhi.now/projects/university/safeqr/",
+        "https://abhi.now/projects/university/stegnet/",
+        "https://abhi.now/projects/university/visualcss/",
+        "https://abhi.now/resume/",
+        "https://abhi.now/snippets/",
+        "https://abhi.now/snippets/folders/",
+        "https://abhi.now/snippets/iwcb/",
+        "https://abhi.now/snippets/quotes/",
+        "https://abhi.now/snippets/thoughts/",
+        "https://abhi.now/weeknotes/",
+        "https://abhi.now/weeknotes/2026/10/",
+        "https://abhi.now/weeknotes/2026/10/plaintext/",
+        "https://abhi.now/weeknotes/2026/11/",
+        "https://abhi.now/weeknotes/2026/11/plaintext/",
+        "https://abhi.now/weeknotes/2026/12/",
+        "https://abhi.now/weeknotes/2026/12/plaintext/",
+        "https://abhi.now/weeknotes/2026/13/",
+        "https://abhi.now/weeknotes/2026/13/plaintext/",
+        "https://abhi.now/weeknotes/2026/14/",
+        "https://abhi.now/weeknotes/2026/14/plaintext/",
+        "https://abhi.now/weeknotes/2026/15/",
+        "https://abhi.now/weeknotes/2026/15/plaintext/",
+        "https://abhi.now/weeknotes/2026/16/",
+        "https://abhi.now/weeknotes/2026/16/plaintext/",
+        "https://abhi.now/weeknotes/2026/17/",
+        "https://abhi.now/weeknotes/2026/17/plaintext/",
+        "https://abhi.now/weeknotes/2026/18/",
+        "https://abhi.now/weeknotes/2026/18/plaintext/",
+        "https://abhi.now/weeknotes/2026/19/",
+        "https://abhi.now/weeknotes/2026/19/plaintext/",
+        "https://abhi.now/weeknotes/2026/20/",
+        "https://abhi.now/weeknotes/2026/20/plaintext/",
+        "https://abhi.now/weeknotes/2026/21/",
+        "https://abhi.now/weeknotes/2026/21/plaintext/",
+        "https://abhi.now/weeknotes/2026/22/",
+        "https://abhi.now/weeknotes/2026/22/plaintext/",
+        "https://abhi.now/weeknotes/2026/23/",
+        "https://abhi.now/weeknotes/2026/23/plaintext/",
+        "https://abhi.now/weeknotes/2026/24/",
+        "https://abhi.now/weeknotes/2026/24/plaintext/",
+        "https://abhi.now/weeknotes/2026/25/",
+        "https://abhi.now/weeknotes/2026/25/plaintext/",
+        "https://abhi.now/weeknotes/2026/26/",
+        "https://abhi.now/weeknotes/2026/26/plaintext/",
+        "https://abhi.now/weeknotes/2026/27/",
+        "https://abhi.now/weeknotes/2026/27/plaintext/",
+        "https://abhi.now/weeknotes/2026/28/",
+        "https://abhi.now/weeknotes/2026/28/plaintext/",
+        "https://abhi.now/weeknotes/2026/29/",
+        "https://abhi.now/weeknotes/2026/29/plaintext/",
+        "https://abhi.now/weeknotes/2026/30/",
+        "https://abhi.now/weeknotes/2026/30/plaintext/",
+        "https://abhi.now/weeknotes/2026/31/",
+        "https://abhi.now/weeknotes/2026/31/plaintext/",
+        "https://abhi.now/weeknotes/2026/32/",
+        "https://abhi.now/weeknotes/2026/32/plaintext/",
+        "https://abhi.now/weeknotes/2026/33/",
+        "https://abhi.now/weeknotes/2026/33/plaintext/",
+        "https://abhi.now/weeknotes/2026/34/",
+        "https://abhi.now/weeknotes/2026/34/plaintext/",
+        "https://abhi.now/weeknotes/2026/35/",
+        "https://abhi.now/weeknotes/2026/35/plaintext/",
+        "https://abhi.now/weeknotes/2026/36/",
+        "https://abhi.now/weeknotes/2026/36/plaintext/",
+        "https://abhi.now/weeknotes/2026/37/",
+        "https://abhi.now/weeknotes/2026/37/plaintext/",
+        "https://abhi.now/weeknotes/2026/38/",
+        "https://abhi.now/weeknotes/2026/38/plaintext/",
+        "https://abhi.now/weeknotes/2026/39/",
+        "https://abhi.now/weeknotes/2026/39/plaintext/",
+        "https://abhi.now/weeknotes/2026/40/",
+        "https://abhi.now/weeknotes/2026/40/plaintext/",
+        "https://abhi.now/weeknotes/2026/41/",
+        "https://abhi.now/weeknotes/2026/41/plaintext/",
+        "https://abhi.now/weeknotes/2026/42/",
+        "https://abhi.now/weeknotes/2026/42/plaintext/",
+        "https://abhi.now/weeknotes/2026/43/",
+        "https://abhi.now/weeknotes/2026/43/plaintext/",
+        "https://abhi.now/weeknotes/2026/44/",
+        "https://abhi.now/weeknotes/2026/44/plaintext/",
+        "https://abhi.now/whoami/",
+        "https://abhi.now/whoami/a-badmaash-bacha/",
+        "https://abhi.now/whoami/a-college-student/",
+        "https://abhi.now/whoami/a-software-developer/",
+        "https://abhi.now/whoami/an-army-brat/"
+      ]
+    },
+    "/sitemap-index.xml": {
+      "sha256": "5e9a56dacc0c7fb53d84d9dbd46fa28a76e60d7d53adc45b163e076fc21f9e39",
+      "locations": [
+        "https://abhi.now/sitemap-0.xml"
+      ]
+    },
+    "/snippets/feed.xml": {
+      "sha256": "33455c8bf09a49a4c7c5617fec7ba08addcef864ea6dab520caf4b9a17575c61",
+      "items": [
+        {
+          "link": "https://abhi.now/snippets#1794069199",
+          "guid": "https://abhi.now/snippets#1794069199",
+          "title": "saved quotes · #1794069199",
+          "pubDate": "Sat, 07 Nov 2026 16:33:19 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1794066120",
+          "guid": "https://abhi.now/snippets#1794066120",
+          "title": "overheard @ iwcb · #1794066120",
+          "pubDate": "Sat, 07 Nov 2026 15:42:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1794043020",
+          "guid": "https://abhi.now/snippets#1794043020",
+          "title": "overheard @ iwcb · #1794043020",
+          "pubDate": "Sat, 07 Nov 2026 09:17:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1793706911",
+          "guid": "https://abhi.now/snippets#1793706911",
+          "title": "saved quotes · #1793706911",
+          "pubDate": "Tue, 03 Nov 2026 11:55:11 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1793014380",
+          "guid": "https://abhi.now/snippets#1793014380",
+          "title": "overheard @ iwcb · #1793014380",
+          "pubDate": "Mon, 26 Oct 2026 11:33:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1792399020",
+          "guid": "https://abhi.now/snippets#1792399020",
+          "title": "overheard @ iwcb · #1792399020",
+          "pubDate": "Mon, 19 Oct 2026 08:37:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1792240500",
+          "guid": "https://abhi.now/snippets#1792240500",
+          "title": "overheard @ iwcb · #1792240500",
+          "pubDate": "Sat, 17 Oct 2026 12:35:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1792238340",
+          "guid": "https://abhi.now/snippets#1792238340",
+          "title": "overheard @ iwcb · #1792238340",
+          "pubDate": "Sat, 17 Oct 2026 11:59:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1792227960",
+          "guid": "https://abhi.now/snippets#1792227960",
+          "title": "overheard @ iwcb · #1792227960",
+          "pubDate": "Sat, 17 Oct 2026 09:06:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1792151760",
+          "guid": "https://abhi.now/snippets#1792151760",
+          "title": "overheard @ iwcb · #1792151760",
+          "pubDate": "Fri, 16 Oct 2026 11:56:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1791695700",
+          "guid": "https://abhi.now/snippets#1791695700",
+          "title": "overheard @ iwcb · #1791695700",
+          "pubDate": "Sun, 11 Oct 2026 05:15:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1788863373",
+          "guid": "https://abhi.now/snippets#1788863373",
+          "title": "my own words · #1788863373",
+          "pubDate": "Tue, 08 Sep 2026 10:29:33 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1788722116",
+          "guid": "https://abhi.now/snippets#1788722116",
+          "title": "my own words · #1788722116",
+          "pubDate": "Sun, 06 Sep 2026 19:15:16 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1788598800",
+          "guid": "https://abhi.now/snippets#1788598800",
+          "title": "overheard @ iwcb · #1788598800",
+          "pubDate": "Sat, 05 Sep 2026 09:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1783423260",
+          "guid": "https://abhi.now/snippets#1783423260",
+          "title": "saved quotes · #1783423260",
+          "pubDate": "Tue, 07 Jul 2026 11:21:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1783423168",
+          "guid": "https://abhi.now/snippets#1783423168",
+          "title": "saved quotes · #1783423168",
+          "pubDate": "Tue, 07 Jul 2026 11:19:28 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1782415313",
+          "guid": "https://abhi.now/snippets#1782415313",
+          "title": "saved quotes · #1782415313",
+          "pubDate": "Thu, 25 Jun 2026 19:21:53 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1779644220",
+          "guid": "https://abhi.now/snippets#1779644220",
+          "title": "my own words · #1779644220",
+          "pubDate": "Sun, 24 May 2026 17:37:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1768006980",
+          "guid": "https://abhi.now/snippets#1768006980",
+          "title": "my own words · #1768006980",
+          "pubDate": "Sat, 10 Jan 2026 01:03:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1763955540",
+          "guid": "https://abhi.now/snippets#1763955540",
+          "title": "my own words · #1763955540",
+          "pubDate": "Mon, 24 Nov 2025 03:39:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1762821660",
+          "guid": "https://abhi.now/snippets#1762821660",
+          "title": "saved quotes · #1762821660",
+          "pubDate": "Tue, 11 Nov 2025 00:41:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1762562940",
+          "guid": "https://abhi.now/snippets#1762562940",
+          "title": "my own words · #1762562940",
+          "pubDate": "Sat, 08 Nov 2025 00:49:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1762211820",
+          "guid": "https://abhi.now/snippets#1762211820",
+          "title": "my own words · #1762211820",
+          "pubDate": "Mon, 03 Nov 2025 23:17:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1761987600",
+          "guid": "https://abhi.now/snippets#1761987600",
+          "title": "overheard @ iwcb · #1761987600",
+          "pubDate": "Sat, 01 Nov 2025 09:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1753374360",
+          "guid": "https://abhi.now/snippets#1753374360",
+          "title": "my own words · #1753374360",
+          "pubDate": "Thu, 24 Jul 2025 16:26:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1753358520",
+          "guid": "https://abhi.now/snippets#1753358520",
+          "title": "saved quotes · #1753358520",
+          "pubDate": "Thu, 24 Jul 2025 12:02:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1752187440",
+          "guid": "https://abhi.now/snippets#1752187440",
+          "title": "my own words · #1752187440",
+          "pubDate": "Thu, 10 Jul 2025 22:44:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1752186780",
+          "guid": "https://abhi.now/snippets#1752186780",
+          "title": "saved quotes · #1752186780",
+          "pubDate": "Thu, 10 Jul 2025 22:33:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1751925840",
+          "guid": "https://abhi.now/snippets#1751925840",
+          "title": "saved quotes · #1751925840",
+          "pubDate": "Mon, 07 Jul 2025 22:04:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1744735440",
+          "guid": "https://abhi.now/snippets#1744735440",
+          "title": "my own words · #1744735440",
+          "pubDate": "Tue, 15 Apr 2025 16:44:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1742060880",
+          "guid": "https://abhi.now/snippets#1742060880",
+          "title": "my own words · #1742060880",
+          "pubDate": "Sat, 15 Mar 2025 17:48:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1741566780",
+          "guid": "https://abhi.now/snippets#1741566780",
+          "title": "my own words · #1741566780",
+          "pubDate": "Mon, 10 Mar 2025 00:33:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1734830640",
+          "guid": "https://abhi.now/snippets#1734830640",
+          "title": "my own words · #1734830640",
+          "pubDate": "Sun, 22 Dec 2024 01:24:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1727787060",
+          "guid": "https://abhi.now/snippets#1727787060",
+          "title": "saved quotes · #1727787060",
+          "pubDate": "Tue, 01 Oct 2024 12:51:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1711191420",
+          "guid": "https://abhi.now/snippets#1711191420",
+          "title": "my own words · #1711191420",
+          "pubDate": "Sat, 23 Mar 2024 10:57:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets#1682300220",
+          "guid": "https://abhi.now/snippets#1682300220",
+          "title": "my own words · #1682300220",
+          "pubDate": "Mon, 24 Apr 2023 01:37:00 GMT"
+        }
+      ]
+    },
+    "/snippets/iwcb/feed.xml": {
+      "sha256": "71a6664dac0ab5b614687373338ef7a6da65e26154d7661bace028a5fad4ab4f",
+      "items": [
+        {
+          "link": "https://abhi.now/snippets/iwcb#1794066120",
+          "guid": "https://abhi.now/snippets/iwcb#1794066120",
+          "title": "overheard @ iwcb · #1794066120",
+          "pubDate": "Sat, 07 Nov 2026 15:42:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1794043020",
+          "guid": "https://abhi.now/snippets/iwcb#1794043020",
+          "title": "overheard @ iwcb · #1794043020",
+          "pubDate": "Sat, 07 Nov 2026 09:17:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1793014380",
+          "guid": "https://abhi.now/snippets/iwcb#1793014380",
+          "title": "overheard @ iwcb · #1793014380",
+          "pubDate": "Mon, 26 Oct 2026 11:33:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1792399020",
+          "guid": "https://abhi.now/snippets/iwcb#1792399020",
+          "title": "overheard @ iwcb · #1792399020",
+          "pubDate": "Mon, 19 Oct 2026 08:37:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1792240500",
+          "guid": "https://abhi.now/snippets/iwcb#1792240500",
+          "title": "overheard @ iwcb · #1792240500",
+          "pubDate": "Sat, 17 Oct 2026 12:35:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1792238340",
+          "guid": "https://abhi.now/snippets/iwcb#1792238340",
+          "title": "overheard @ iwcb · #1792238340",
+          "pubDate": "Sat, 17 Oct 2026 11:59:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1792227960",
+          "guid": "https://abhi.now/snippets/iwcb#1792227960",
+          "title": "overheard @ iwcb · #1792227960",
+          "pubDate": "Sat, 17 Oct 2026 09:06:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1792151760",
+          "guid": "https://abhi.now/snippets/iwcb#1792151760",
+          "title": "overheard @ iwcb · #1792151760",
+          "pubDate": "Fri, 16 Oct 2026 11:56:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1791695700",
+          "guid": "https://abhi.now/snippets/iwcb#1791695700",
+          "title": "overheard @ iwcb · #1791695700",
+          "pubDate": "Sun, 11 Oct 2026 05:15:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1788598800",
+          "guid": "https://abhi.now/snippets/iwcb#1788598800",
+          "title": "overheard @ iwcb · #1788598800",
+          "pubDate": "Sat, 05 Sep 2026 09:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/iwcb#1761987600",
+          "guid": "https://abhi.now/snippets/iwcb#1761987600",
+          "title": "overheard @ iwcb · #1761987600",
+          "pubDate": "Sat, 01 Nov 2025 09:00:00 GMT"
+        }
+      ]
+    },
+    "/snippets/quotes/feed.xml": {
+      "sha256": "f3e834d616c85779a750e160290122548c198ac01ced88dbbac3c8fa253968c0",
+      "items": [
+        {
+          "link": "https://abhi.now/snippets/quotes#1794069199",
+          "guid": "https://abhi.now/snippets/quotes#1794069199",
+          "title": "saved quotes · #1794069199",
+          "pubDate": "Sat, 07 Nov 2026 16:33:19 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1793706911",
+          "guid": "https://abhi.now/snippets/quotes#1793706911",
+          "title": "saved quotes · #1793706911",
+          "pubDate": "Tue, 03 Nov 2026 11:55:11 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1783423260",
+          "guid": "https://abhi.now/snippets/quotes#1783423260",
+          "title": "saved quotes · #1783423260",
+          "pubDate": "Tue, 07 Jul 2026 11:21:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1783423168",
+          "guid": "https://abhi.now/snippets/quotes#1783423168",
+          "title": "saved quotes · #1783423168",
+          "pubDate": "Tue, 07 Jul 2026 11:19:28 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1782415313",
+          "guid": "https://abhi.now/snippets/quotes#1782415313",
+          "title": "saved quotes · #1782415313",
+          "pubDate": "Thu, 25 Jun 2026 19:21:53 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1762821660",
+          "guid": "https://abhi.now/snippets/quotes#1762821660",
+          "title": "saved quotes · #1762821660",
+          "pubDate": "Tue, 11 Nov 2025 00:41:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1753358520",
+          "guid": "https://abhi.now/snippets/quotes#1753358520",
+          "title": "saved quotes · #1753358520",
+          "pubDate": "Thu, 24 Jul 2025 12:02:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1752186780",
+          "guid": "https://abhi.now/snippets/quotes#1752186780",
+          "title": "saved quotes · #1752186780",
+          "pubDate": "Thu, 10 Jul 2025 22:33:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1751925840",
+          "guid": "https://abhi.now/snippets/quotes#1751925840",
+          "title": "saved quotes · #1751925840",
+          "pubDate": "Mon, 07 Jul 2025 22:04:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/quotes#1727787060",
+          "guid": "https://abhi.now/snippets/quotes#1727787060",
+          "title": "saved quotes · #1727787060",
+          "pubDate": "Tue, 01 Oct 2024 12:51:00 GMT"
+        }
+      ]
+    },
+    "/snippets/thoughts/feed.xml": {
+      "sha256": "d5b14c50d0736012127b3c5669abff16c24fb50e5d071f58aadc8cab7943a867",
+      "items": [
+        {
+          "link": "https://abhi.now/snippets/thoughts#1788863373",
+          "guid": "https://abhi.now/snippets/thoughts#1788863373",
+          "title": "my own words · #1788863373",
+          "pubDate": "Tue, 08 Sep 2026 10:29:33 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1788722116",
+          "guid": "https://abhi.now/snippets/thoughts#1788722116",
+          "title": "my own words · #1788722116",
+          "pubDate": "Sun, 06 Sep 2026 19:15:16 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1779644220",
+          "guid": "https://abhi.now/snippets/thoughts#1779644220",
+          "title": "my own words · #1779644220",
+          "pubDate": "Sun, 24 May 2026 17:37:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1768006980",
+          "guid": "https://abhi.now/snippets/thoughts#1768006980",
+          "title": "my own words · #1768006980",
+          "pubDate": "Sat, 10 Jan 2026 01:03:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1763955540",
+          "guid": "https://abhi.now/snippets/thoughts#1763955540",
+          "title": "my own words · #1763955540",
+          "pubDate": "Mon, 24 Nov 2025 03:39:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1762562940",
+          "guid": "https://abhi.now/snippets/thoughts#1762562940",
+          "title": "my own words · #1762562940",
+          "pubDate": "Sat, 08 Nov 2025 00:49:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1762211820",
+          "guid": "https://abhi.now/snippets/thoughts#1762211820",
+          "title": "my own words · #1762211820",
+          "pubDate": "Mon, 03 Nov 2025 23:17:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1753374360",
+          "guid": "https://abhi.now/snippets/thoughts#1753374360",
+          "title": "my own words · #1753374360",
+          "pubDate": "Thu, 24 Jul 2025 16:26:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1752187440",
+          "guid": "https://abhi.now/snippets/thoughts#1752187440",
+          "title": "my own words · #1752187440",
+          "pubDate": "Thu, 10 Jul 2025 22:44:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1744735440",
+          "guid": "https://abhi.now/snippets/thoughts#1744735440",
+          "title": "my own words · #1744735440",
+          "pubDate": "Tue, 15 Apr 2025 16:44:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1742060880",
+          "guid": "https://abhi.now/snippets/thoughts#1742060880",
+          "title": "my own words · #1742060880",
+          "pubDate": "Sat, 15 Mar 2025 17:48:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1741566780",
+          "guid": "https://abhi.now/snippets/thoughts#1741566780",
+          "title": "my own words · #1741566780",
+          "pubDate": "Mon, 10 Mar 2025 00:33:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1734830640",
+          "guid": "https://abhi.now/snippets/thoughts#1734830640",
+          "title": "my own words · #1734830640",
+          "pubDate": "Sun, 22 Dec 2024 01:24:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1711191420",
+          "guid": "https://abhi.now/snippets/thoughts#1711191420",
+          "title": "my own words · #1711191420",
+          "pubDate": "Sat, 23 Mar 2024 10:57:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/snippets/thoughts#1682300220",
+          "guid": "https://abhi.now/snippets/thoughts#1682300220",
+          "title": "my own words · #1682300220",
+          "pubDate": "Mon, 24 Apr 2023 01:37:00 GMT"
+        }
+      ]
+    },
+    "/weeknotes/feed.xml": {
+      "sha256": "11c10a3a9a6100d48738a7f1d3455119de04bfe34b958fb38ad92d3aa3a8eebe",
+      "items": [
+        {
+          "link": "https://abhi.now/weeknotes/2026/10/",
+          "guid": "https://abhi.now/weeknotes/2026/10/",
+          "title": "(#2026-W10) holi and 'rang barse'",
+          "pubDate": "Sat, 07 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/11/",
+          "guid": "https://abhi.now/weeknotes/2026/11/",
+          "title": "(#2026-W11) dog bites and conspiracies",
+          "pubDate": "Sat, 14 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/12/",
+          "guid": "https://abhi.now/weeknotes/2026/12/",
+          "title": "(#2026-W12) bombay and poha",
+          "pubDate": "Sat, 21 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/13/",
+          "guid": "https://abhi.now/weeknotes/2026/13/",
+          "title": "(#2026-W13) labubus and ryan gosling",
+          "pubDate": "Sat, 28 Mar 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/14/",
+          "guid": "https://abhi.now/weeknotes/2026/14/",
+          "title": "(#2026-W14) birthdays, breweries and blr metro",
+          "pubDate": "Sat, 04 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/15/",
+          "guid": "https://abhi.now/weeknotes/2026/15/",
+          "title": "(#2026-W15) smart crows and car shows",
+          "pubDate": "Sat, 11 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/16/",
+          "guid": "https://abhi.now/weeknotes/2026/16/",
+          "title": "(#2026-W16) COLOR COLOR COLOR",
+          "pubDate": "Sat, 18 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/17/",
+          "guid": "https://abhi.now/weeknotes/2026/17/",
+          "title": "(#2026-W17) poems, flowers and romanticized nights",
+          "pubDate": "Sat, 25 Apr 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/18/",
+          "guid": "https://abhi.now/weeknotes/2026/18/",
+          "title": "(#2026-W18) DEKHO BAARISH HO RAHI HAIII",
+          "pubDate": "Sat, 02 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/19/",
+          "guid": "https://abhi.now/weeknotes/2026/19/",
+          "title": "(#2026-W19) clouds, froyo and carnatic fusion",
+          "pubDate": "Sat, 09 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/20/",
+          "guid": "https://abhi.now/weeknotes/2026/20/",
+          "title": "(#2026-W20) city libraries and craft stores",
+          "pubDate": "Sat, 16 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/21/",
+          "guid": "https://abhi.now/weeknotes/2026/21/",
+          "title": "(#2026-W21) delhi heat and cyberdecks",
+          "pubDate": "Sat, 23 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/22/",
+          "guid": "https://abhi.now/weeknotes/2026/22/",
+          "title": "(#2026-W22) THE INDIEWEBCLUB ANNIVERSARY",
+          "pubDate": "Sat, 30 May 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/23/",
+          "guid": "https://abhi.now/weeknotes/2026/23/",
+          "title": "(#2026-W23) calendar changes and muscoth halwa",
+          "pubDate": "Sat, 06 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/24/",
+          "guid": "https://abhi.now/weeknotes/2026/24/",
+          "title": "(#2026-W24) cucumber, tomato, daman and diu",
+          "pubDate": "Sat, 13 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/25/",
+          "guid": "https://abhi.now/weeknotes/2026/25/",
+          "title": "(#2026-W25) ice creams, samosas and placements",
+          "pubDate": "Sat, 20 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/26/",
+          "guid": "https://abhi.now/weeknotes/2026/26/",
+          "title": "(#2026-W26) cafe hopping and a jackfruit",
+          "pubDate": "Sat, 27 Jun 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/27/",
+          "guid": "https://abhi.now/weeknotes/2026/27/",
+          "title": "(#2026-W27) swimming, dunes and website updates",
+          "pubDate": "Sat, 04 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/28/",
+          "guid": "https://abhi.now/weeknotes/2026/28/",
+          "title": "(#2026-W28) work dinners and work farewells",
+          "pubDate": "Sat, 11 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/29/",
+          "guid": "https://abhi.now/weeknotes/2026/29/",
+          "title": "(#2026-W29) onboarding, protesting and doomscrolling",
+          "pubDate": "Sat, 18 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/30/",
+          "guid": "https://abhi.now/weeknotes/2026/30/",
+          "title": "(#2026-W30) cockroaches win and college completes",
+          "pubDate": "Sat, 25 Jul 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/31/",
+          "guid": "https://abhi.now/weeknotes/2026/31/",
+          "title": "(#2026-W31) loitering around lakes + other vellapanti",
+          "pubDate": "Sat, 01 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/32/",
+          "guid": "https://abhi.now/weeknotes/2026/32/",
+          "title": "(#2026-W32) ghar ka khaana and dil ki shaanti",
+          "pubDate": "Sat, 08 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/33/",
+          "guid": "https://abhi.now/weeknotes/2026/33/",
+          "title": "(#2026-W33) flights, friends and slam books",
+          "pubDate": "Sun, 23 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/34/",
+          "guid": "https://abhi.now/weeknotes/2026/34/",
+          "title": "(#2026-W34) work and sleep and work and sleep",
+          "pubDate": "Mon, 24 Aug 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/35/",
+          "guid": "https://abhi.now/weeknotes/2026/35/",
+          "title": "(#2026-W35) corpo rites and rakhi ties",
+          "pubDate": "Tue, 01 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/36/",
+          "guid": "https://abhi.now/weeknotes/2026/36/",
+          "title": "(#2026-W36) cool cars and meetups after dark",
+          "pubDate": "Tue, 08 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/37/",
+          "guid": "https://abhi.now/weeknotes/2026/37/",
+          "title": "(#2026-W37) writing, coding, reading, repeat!",
+          "pubDate": "Tue, 15 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/38/",
+          "guid": "https://abhi.now/weeknotes/2026/38/",
+          "title": "(#2026-W38) maps, comics, birbal and stickers",
+          "pubDate": "Fri, 25 Sep 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/39/",
+          "guid": "https://abhi.now/weeknotes/2026/39/",
+          "title": "(#2026-W39) far from home, far from hugs",
+          "pubDate": "Mon, 05 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/40/",
+          "guid": "https://abhi.now/weeknotes/2026/40/",
+          "title": "(#2026-W40) conferences, meetups, marathis and matcha",
+          "pubDate": "Thu, 08 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/41/",
+          "guid": "https://abhi.now/weeknotes/2026/41/",
+          "title": "(#2026-W41) ikea, air conditoning and hope",
+          "pubDate": "Thu, 15 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/42/",
+          "guid": "https://abhi.now/weeknotes/2026/42/",
+          "title": "(#2026-W42) chai garam pumping kam (+ extras)",
+          "pubDate": "Mon, 19 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/43/",
+          "guid": "https://abhi.now/weeknotes/2026/43/",
+          "title": "(#2026-W43) hello hello, can you hear me?",
+          "pubDate": "Tue, 27 Oct 2026 00:00:00 GMT"
+        },
+        {
+          "link": "https://abhi.now/weeknotes/2026/44/",
+          "guid": "https://abhi.now/weeknotes/2026/44/",
+          "title": "(#2026-W44) ganne ka juice and halloween game nights",
+          "pubDate": "Mon, 02 Nov 2026 00:00:00 GMT"
+        }
+      ]
+    }
+  },
+  "retiring_embed_pages": [
+    "/blog/a-cantontment-road/embed/",
+    "/blog/a-caring-guide-for-pp/embed/",
+    "/blog/a-prayer-for-the-cockroaches/embed/",
+    "/blog/an-ode-to-hospitality/embed/",
+    "/blog/battle-of-the-chai-premixes/embed/",
+    "/blog/calm-technologies/embed/",
+    "/blog/capri-sun/embed/",
+    "/blog/death-of-the-plants/embed/",
+    "/blog/decompressing-it-all/embed/",
+    "/blog/embed/",
+    "/blog/favourite-art-from-october-10/embed/",
+    "/blog/husk-of-a-rainbow/embed/",
+    "/blog/instagram-instants/embed/",
+    "/blog/my-love-for-naive-design/embed/",
+    "/blog/nepali-sikka/embed/",
+    "/blog/paneer-cheese-sandwich/embed/",
+    "/blog/please-introduce-yourself/embed/",
+    "/blog/sunsets/embed/",
+    "/blog/thank-you-thank-you/embed/",
+    "/blog/thank-you-welcome/embed/",
+    "/blog/the-origin-of-pog/embed/",
+    "/blog/the-perfect-chai/embed/",
+    "/blog/the-right-place/embed/",
+    "/blog/to-my-college-juniors/embed/",
+    "/blog/why-i-write/embed/",
+    "/snippets/embed/",
+    "/snippets/folders/embed/",
+    "/snippets/iwcb/embed/",
+    "/snippets/quotes/embed/",
+    "/snippets/thoughts/embed/",
+    "/weeknotes/2026/10/embed/",
+    "/weeknotes/2026/11/embed/",
+    "/weeknotes/2026/12/embed/",
+    "/weeknotes/2026/13/embed/",
+    "/weeknotes/2026/14/embed/",
+    "/weeknotes/2026/15/embed/",
+    "/weeknotes/2026/16/embed/",
+    "/weeknotes/2026/17/embed/",
+    "/weeknotes/2026/18/embed/",
+    "/weeknotes/2026/19/embed/",
+    "/weeknotes/2026/20/embed/",
+    "/weeknotes/2026/21/embed/",
+    "/weeknotes/2026/22/embed/",
+    "/weeknotes/2026/23/embed/",
+    "/weeknotes/2026/24/embed/",
+    "/weeknotes/2026/25/embed/",
+    "/weeknotes/2026/26/embed/",
+    "/weeknotes/2026/27/embed/",
+    "/weeknotes/2026/28/embed/",
+    "/weeknotes/2026/29/embed/",
+    "/weeknotes/2026/30/embed/",
+    "/weeknotes/2026/31/embed/",
+    "/weeknotes/2026/32/embed/",
+    "/weeknotes/2026/33/embed/",
+    "/weeknotes/2026/34/embed/",
+    "/weeknotes/2026/35/embed/",
+    "/weeknotes/2026/36/embed/",
+    "/weeknotes/2026/37/embed/",
+    "/weeknotes/2026/38/embed/",
+    "/weeknotes/2026/39/embed/",
+    "/weeknotes/2026/40/embed/",
+    "/weeknotes/2026/41/embed/",
+    "/weeknotes/2026/42/embed/",
+    "/weeknotes/2026/43/embed/",
+    "/weeknotes/2026/44/embed/",
+    "/weeknotes/embed/",
+    "/whoami/a-badmaash-bacha/embed/",
+    "/whoami/a-college-student/embed/",
+    "/whoami/a-software-developer/embed/",
+    "/whoami/an-army-brat/embed/",
+    "/whoami/embed/"
+  ],
+  "source_commit": "7669369fe2895b88a0b0dc2b8ebb85d5abf67a41",
+  "source_status": ""
+}

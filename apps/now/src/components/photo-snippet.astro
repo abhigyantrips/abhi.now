@@ -1,0 +1,66 @@
+---
+import { formatSnippetDate } from "@now/lib/snippets";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+	id: string;
+	data: Extract<CollectionEntry<"snippets">["data"], { type: "photos" }>;
+	collection: CollectionEntry<"snippetCollections">;
+	feedPath: string;
+	hasCaption: boolean;
+}
+
+const { id, data, collection, feedPath, hasCaption } = Astro.props;
+const { publishedDate, publishedTime } = formatSnippetDate(data.date);
+---
+
+<article
+	id={id}
+	class="photo-post h-entry w-full min-w-0 scroll-mt-6 overflow-hidden rounded-lg bg-(--color-text)/10 shadow-[0_1px_2px_rgb(0_0_0_/_0.08),0_3px_10px_rgb(0_0_0_/_0.045)] md:w-3/5 dark:shadow-[0_1px_3px_rgb(0_0_0_/_0.24),0_3px_10px_rgb(0_0_0_/_0.15)] md:[&:nth-child(even_of_.photo-post)]:self-end md:[&:nth-child(odd_of_.photo-post)]:self-start"
+>
+	<header class="px-3 py-2 text-left wrap-anywhere">
+		<a
+			href={`/snippets/${collection.data.permalink}`}
+			class="decoration-2 underline-offset-3 hover:underline"
+		>
+			@{collection.data.name}
+		</a>
+	</header>
+	<span class="p-name sr-only">{collection.data.name} · #{id}</span>
+	<div class="e-content">
+		<div class="relative">
+			<Image
+				src={data.image}
+				alt={data.imageAlt}
+				widths={[320, 480, 640, 960]}
+				sizes="(min-width: 768px) 27rem, calc(100vw - 2.5rem)"
+				loading="lazy"
+				decoding="async"
+				class="u-photo block h-auto w-full"
+			/>
+			<span
+				aria-hidden="true"
+				class="pointer-events-none absolute inset-0 shadow-[inset_0_3px_6px_rgb(0_0_0_/_0.16),inset_0_-2px_4px_rgb(0_0_0_/_0.10)] dark:shadow-[inset_0_3px_6px_rgb(0_0_0_/_0.26),inset_0_-2px_4px_rgb(0_0_0_/_0.18)]"
+			></span>
+		</div>
+		{
+			hasCaption && (
+				<div class="prose max-w-none px-3 pt-3 text-left wrap-anywhere text-(--color-text) dark:prose-invert prose-headings:text-(--color-text) prose-a:text-(--color-text) prose-a:decoration-(--color-text-muted) prose-a:underline-offset-3 prose-a:hover:bg-(--color-text) prose-a:hover:text-(--color-bg) prose-strong:font-semibold prose-strong:text-(--color-text) prose-em:text-(--color-text) [&>:first-child]:mt-0 [&>:last-child]:mb-0">
+					<slot />
+				</div>
+			)
+		}
+	</div>
+	<footer class="px-3 py-3 text-right text-sm text-(--color-text-muted)">
+		<a
+			class="u-url decoration-2 underline-offset-3 hover:underline"
+			href={`${feedPath}#${id}`}
+			aria-label={`link to post #${id}`}
+		>
+			<time class="dt-published" datetime={data.date.toISOString()}>
+				{publishedDate}, {publishedTime}
+			</time>
+		</a>
+	</footer>
+</article>

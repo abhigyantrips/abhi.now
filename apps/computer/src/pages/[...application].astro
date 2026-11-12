@@ -1,0 +1,131 @@
+---
+import ComputerLayout from "@/layouts/computer-layout.astro";
+import { getNowPages } from "@/lib/now-content";
+import type { ApplicationId } from "@/data/applications";
+import { getCollection, render } from "astro:content";
+import SnippetFeed from "@now/components/snippet-feed.astro";
+import { Content as Whoami } from "@content/whoami/index.mdx";
+import "@/styles/now-content.css";
+export async function getStaticPaths() {
+	return [
+		...(await getNowPages()).map((page) => ({
+			params: { application: page.path.slice(1) },
+			props: page,
+		})),
+		{
+			params: { application: "settings" },
+			props: { path: "/settings", app: "settings", entry: null },
+		},
+	];
+}
+const { path, app, entry } = Astro.props;
+const canonical = `https://abhi.now${path}`;
+const collection =
+	app === "blog"
+		? "blog"
+		: app === "weeknotes"
+			? "weeknotes"
+			: app === "projects"
+				? "projects"
+				: null;
+const entries =
+	!entry && collection
+		? await getCollection(collection, ({ data }) => !("published" in data) || data.published)
+		: [];
+entries.sort(
+	(a, b) =>
+		("date" in b.data
+			? b.data.date.getTime()
+			: "fromDate" in b.data
+				? b.data.fromDate.getTime()
+				: b.data.startDate.getTime()) -
+		("date" in a.data
+			? a.data.date.getTime()
+			: "fromDate" in a.data
+				? a.data.fromDate.getTime()
+				: a.data.startDate.getTime())
+);
+const Content =
+	entry && entry.collection !== "snippetCollections" ? (await render(entry)).Content : null;
+const folders = app === "snippets" ? await getCollection("snippetCollections") : [];
+---
+
+<ComputerLayout appId={app as ApplicationId}>
+	{
+		app === "settings" ? (
+			<div class="p-8">
+				<>
+					<h1>Settings</h1>
+					<p>Wallpaper settings will live here.</p>
+				</>
+			</div>
+		) : (
+			<>
+				<div class="browser-bar flex items-center justify-between gap-4 border-b border-neutral-200 px-4 py-2 text-sm">
+					<>
+						<span data-native-url class="truncate text-neutral-600">
+							{canonical}
+						</span>
+						<a data-native-open href={canonical} target="_blank" rel="noopener noreferrer">
+							Open ↗
+						</a>
+					</>
+				</div>
+				<div class="now-content mx-auto max-w-3xl p-6 md:p-10" data-now-content={app}>
+					<h1 class="mb-6 text-3xl font-semibold">
+						{entry ? ("name" in entry.data ? entry.data.name : entry.data.title) : app}
+					</h1>
+					{Content && (
+						<article class="prose-content">
+							<Content />
+						</article>
+					)}
+					{app === "whoami" && !entry && (
+						<article class="prose-content">
+							<Whoami />
+						</article>
+					)}
+					{collection && !entry && (
+						<ul class="space-y-3">
+							{entries.map((post) => (
+								<li>
+									<a href={`/${app}/${post.id}`}>{post.data.title}</a>
+								</li>
+							))}
+						</ul>
+					)}
+					{app === "snippets" && (
+						<>
+							<nav class="mb-6 flex flex-wrap gap-4">
+								<a href="/snippets">Latest</a>
+								<a href="/snippets/folders">Folders</a>
+								{folders.map((folder) => (
+									<a href={`/snippets/${folder.data.permalink}`}>{folder.data.name}</a>
+								))}
+							</nav>
+							{path !== "/snippets/folders" && <SnippetFeed collectionId={entry?.id} />}
+						</>
+					)}
+				</div>
+			</>
+		)
+	}
+</ComputerLayout>
+
+<script>
+	function updateNativeAddress() {
+		const address = document.querySelector<HTMLElement>("[data-native-url]");
+		const open = document.querySelector<HTMLAnchorElement>("[data-native-open]");
+		if (!address || !open) return;
+		const canonical = new URL(
+			location.pathname + location.search + location.hash,
+			"https://abhi.now"
+		);
+		address.textContent = canonical.href;
+		open.href = canonical.href;
+	}
+	document.addEventListener("astro:page-load", updateNativeAddress);
+	window.addEventListener("hashchange", updateNativeAddress);
+	window.addEventListener("popstate", updateNativeAddress);
+	updateNativeAddress();
+</script>

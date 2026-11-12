@@ -22,6 +22,24 @@
       "options": {
         "parser": "astro"
       }
+    },
+    {
+      "files": ["apps/now/**/*"],
+      "options": {
+        "tailwindStylesheet": "./apps/now/src/styles/global.css"
+      }
+    },
+    {
+      "files": ["apps/computer/**/*"],
+      "options": {
+        "tailwindStylesheet": "./apps/computer/src/styles/global.css"
+      }
+    },
+    {
+      "files": ["apps/chhotu/**/*"],
+      "options": {
+        "tailwindStylesheet": "./apps/chhotu/src/styles/global.css"
+      }
     }
   ]
 }

@@ -1,0 +1,46 @@
+---
+import ComputerLayout from "@/layouts/computer-layout.astro";
+import { getCollection } from "astro:content";
+const [things, links] = await Promise.all([
+	getCollection("things", ({ data }) => data.published),
+	getCollection("links"),
+]);
+const entries = [
+	...things.map(({ id, data }) => ({
+		title: data.title,
+		date: data.date,
+		href: `/things/${id}`,
+		type: "Thing",
+	})),
+	...links.map(({ id, data }) => ({
+		title: data.link.title,
+		date: data.date,
+		href: `/links/${id}`,
+		type: "Link",
+	})),
+].sort((a, b) => b.date.getTime() - a.date.getTime());
+---
+
+<ComputerLayout appId="journal" title="Tinkering Journal"
+	><div class="journal min-h-0 flex-1 overflow-y-auto p-4 md:p-6 lg:p-8" data-journal-list>
+		<h3 class="mb-8 text-2xl font-medium tracking-tight">Tinkering Journal</h3>
+		<div class="journal-entries max-w-5xl">
+			{
+				entries.map((entry) => (
+					<a
+						class="journal-entry grid grid-cols-1 items-baseline gap-1 border-b border-neutral-200 py-4 no-underline md:grid-cols-[6rem_1fr_3rem] md:gap-4"
+						href={entry.href}
+						data-content-app="journal"
+						data-content-title={entry.title}
+					>
+						<time class="text-sm text-neutral-600" datetime={entry.date.toISOString()}>
+							{entry.date.toISOString().slice(0, 10)}
+						</time>
+						<span>{entry.title}</span>
+						<span class="hidden text-right text-sm text-neutral-600 md:block">{entry.type}</span>
+					</a>
+				))
+			}
+		</div>
+	</div></ComputerLayout
+>

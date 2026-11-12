@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import "./cursors.css";
+@plugin "@tailwindcss/typography";
+
+@theme {
+	--font-mono: var(--font-mono);
+	--color-black: var(--color-text);
+	--color-white: var(--color-bg);
+	--color-gray-200: var(--color-line);
+	--color-gray-300: var(--color-line);
+	--color-gray-500: var(--color-text-muted);
+	--color-gray-600: var(--color-text-muted);
+	--color-neutral-200: var(--color-line);
+	--color-neutral-600: var(--color-text-muted);
+	--color-zinc-800: var(--color-text);
+}
+
+:root {
+	color-scheme: light;
+	--color-bg: #fffaed;
+	--color-text: #3c3836;
+	--color-text-muted: #665c54;
+	--color-hover: color-mix(in srgb, var(--color-text) 6%, var(--color-bg));
+	--color-line: color-mix(in srgb, var(--color-text-muted) 20%, var(--color-bg));
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--color-bg: #1d2021;
+	--color-text: #ebdbb2;
+	--color-text-muted: #a89984;
+}
+
+html {
+	background-color: var(--color-bg);
+	color: var(--color-text);
+}
+
+a {
+	@apply underline underline-offset-3 hover:bg-black hover:text-white hover:no-underline;
+}
+
+.navbar-logo > g[mask] > rect {
+	transition: fill 50ms ease;
+}
+
+.logo-link:hover .navbar-logo > g[mask] > rect,
+.logo-link:focus-visible .navbar-logo > g[mask] > rect {
+	fill: var(--color-bg);
+}
+
+.hn {
+	line-height: unset;
+}

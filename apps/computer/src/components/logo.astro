@@ -1,0 +1,13 @@
+---
+import logoSvg from "../../public/logo.svg?raw";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const svg = logoSvg.replace("<svg", `<svg class="${className ?? ""}"`);
+---
+
+<Fragment set:html={svg} />

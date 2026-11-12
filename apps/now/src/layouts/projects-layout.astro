@@ -1,0 +1,79 @@
+---
+import BaseHead from "@now/components/base-head.astro";
+import Container from "@now/components/container.astro";
+import Footer from "@now/components/footer.astro";
+import Header from "@now/components/header.astro";
+import { slideFromBottom } from "@now/lib/transitions";
+import { ROUTES, SITE } from "@now/consts";
+import "@now/styles/global.css";
+import "@now/styles/prose.css";
+
+type Props = {
+	postTitle: string;
+	postDescription: string;
+	postStartDate?: Date;
+	postEndDate?: Date;
+	postUrl?: string;
+};
+
+const { postTitle, postDescription, postStartDate, postEndDate, postUrl } = Astro.props;
+const projectsRoute = ROUTES.find((r) => r.PATH === "/projects" || r.NAME === "/projects");
+
+if (!projectsRoute) {
+	throw new Error(`Route "/projects" not found in ROUTES`);
+}
+
+function formatDateToMonth(d: Date) {
+	return d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+}
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`${postTitle.toLowerCase()} | ${SITE.TITLE}`} description={postDescription} />
+	</head>
+	<body class="font-gummy">
+		<Header section={projectsRoute.NAME} />
+		<main
+			class="flex min-h-[calc(100vh-(--spacing(56)))] flex-1 flex-col pb-12 md:pb-36"
+			transition:animate={slideFromBottom}
+		>
+			<Container size="md">
+				<div class="h-entry flex flex-col pt-24 md:pt-48">
+					<div class="flex flex-col gap-2">
+						{
+							postStartDate && postEndDate && (
+								<span class="text-sm text-(--color-text-muted) uppercase">
+									<time datetime={postStartDate.toISOString()}>
+										{formatDateToMonth(postStartDate)}
+									</time>
+									&#8594;
+									<time datetime={postEndDate.toISOString()}>{formatDateToMonth(postEndDate)}</time>
+								</span>
+							)
+						}
+						<h1 class="p-name text-3xl font-semibold">
+							{postTitle}
+						</h1>
+						<p class="p-summary text-(--color-text-muted)">{postDescription}</p>
+						{
+							postUrl && (
+								<a class="u-url hidden" href={postUrl}>
+									{postTitle}
+								</a>
+							)
+						}
+						<span class="p-author h-card hidden">
+							<a class="p-name u-url" href={SITE.URL} rel="author">{SITE.AUTHOR}</a>
+						</span>
+					</div>
+					<hr class="my-8 border-t border-(--color-text-muted)/50" />
+					<slot />
+				</div>
+			</Container>
+		</main>
+
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,133 @@
+---
+import ComputerLayout from "@/layouts/computer-layout.astro";
+import Container from "@/components/container.astro";
+
+import "@/styles/global.css";
+
+interface Props {
+	title: string;
+	description: string;
+	color?: string;
+	link?: string;
+	confidence?: number;
+	metaTitle?: string;
+	metaDescription?: string;
+}
+
+const { title, description, color, link, confidence, metaTitle, metaDescription } = Astro.props;
+
+const confidenceColors = ["#991b1b", "#c2410c", "#ca8a04", "#65a30d", "#15803d"];
+const activeConfidenceColor = confidenceColors[(confidence ?? 1) - 1];
+---
+
+<ComputerLayout
+	appId="journal"
+	title={metaTitle ?? title}
+	description={metaDescription ?? description}
+	><div class="p-4 md:p-8">
+		<Container size="md">
+			<div class="flex flex-col gap-2 pt-4">
+				{
+					(color || typeof confidence === "number") && (
+						<div class="flex items-start justify-between">
+							{color && (
+								<span
+									class="tag-archive-accent"
+									style={`--tag-color: ${color}`}
+									aria-hidden="true"
+								/>
+							)}
+							{typeof confidence === "number" && (
+								<div
+									class="flex flex-col items-end gap-1.5"
+									aria-label={`Confidence: ${confidence} out of 5`}
+								>
+									<span class="text-[10px] font-semibold tracking-[0.18em] text-gray-500 uppercase">
+										Confidence
+									</span>
+									<div class="flex gap-1.5">
+										{Array.from({ length: 5 }, (_, i) => {
+											const filled = i < confidence;
+											const isFirst = i === 0;
+											const isLast = i === 4;
+
+											return (
+												<div
+													class:list={["h-6 w-5", !filled && "bg-gray-200"]}
+													style={{
+														backgroundColor: filled ? activeConfidenceColor : undefined,
+														clipPath: isFirst
+															? "polygon(18% 0, 100% 0, 100% 100%, 0 100%, 0 18%)"
+															: isLast
+																? "polygon(0 0, 100% 0, 100% 82%, 82% 100%, 0 100%)"
+																: undefined,
+													}}
+												/>
+											);
+										})}
+									</div>
+								</div>
+							)}
+						</div>
+					)
+				}
+				<div class="flex items-center gap-2">
+					<h1 class="text-3xl font-bold">{title}</h1>
+					{
+						link && (
+							<a class="mt-1.5 size-6 text-black" href={link} aria-label={`Open ${title} website`}>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+									<>
+										<rect width="256" height="256" fill="none" />
+										<line
+											x1="64"
+											y1="192"
+											x2="192"
+											y2="64"
+											fill="none"
+											stroke="currentColor"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="16"
+										/>
+										<polyline
+											points="88 64 192 64 192 168"
+											fill="none"
+											stroke="currentColor"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="16"
+										/>
+									</>
+								</svg>
+							</a>
+						)
+					}
+				</div>
+				<p class="text-gray-600">{description}</p>
+			</div>
+			<hr class="my-6 border-t-2 border-gray-300" />
+			<slot />
+		</Container>
+	</div></ComputerLayout
+>
+<style>
+	.tag-archive-accent {
+		background: var(--tag-color);
+		display: block;
+		height: 0.25rem;
+		margin-bottom: 0.75rem;
+		width: 4rem;
+	}
+
+	.external-link-button:hover {
+		background: var(--tag-color, var(--color-text));
+		color: white;
+		text-decoration: none;
+	}
+
+	.external-link-button svg {
+		height: 1.1rem;
+		width: 1.1rem;
+	}
+</style>

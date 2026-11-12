@@ -1,0 +1,406 @@
+---
+import PageLayout from "@now/layouts/page-layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getEntries } from "astro:content";
+import { getCollection } from "astro:content";
+
+const projects: CollectionEntry<"projects">[] = await getCollection("projects");
+const places: string[] = [...new Set(projects.flatMap((project) => project.data.place || []))];
+const tags: CollectionEntry<"tags">[] = [
+	...new Map(
+		(await getEntries(projects.flatMap((project) => project.data.tags || []))).map((tag) => [
+			tag.id,
+			tag,
+		])
+	).values(),
+];
+
+const now = new Date();
+
+projects.sort((a, b) => {
+	const aEnd = a.data.endDate ?? now;
+	const bEnd = b.data.endDate ?? now;
+	if (aEnd.getTime() !== bEnd.getTime()) return bEnd.getTime() - aEnd.getTime();
+	return (b.data.startDate?.getTime() ?? 0) - (a.data.startDate?.getTime() ?? 0);
+});
+
+function formatDateToMonth(d: Date) {
+	return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
+
+function numberToWords(n: number): string {
+	const words = [
+		"zero",
+		"one",
+		"two",
+		"three",
+		"four",
+		"five",
+		"six",
+		"seven",
+		"eight",
+		"nine",
+		"ten",
+	];
+	return words[n] ?? String(n);
+}
+---
+
+<PageLayout route="/projects">
+	<div class="flex flex-col gap-6">
+		<div class="flex flex-col gap-1.5">
+			<p class="text-sm text-(--color-text-muted) uppercase">Places</p>
+			<form class="flex flex-wrap items-center gap-1.5" id="place-filter">
+				{
+					places.map((place) => (
+						<label class="inline-flex cursor-pointer items-center">
+							<input
+								autocomplete="off"
+								type="radio"
+								name="place"
+								value={place}
+								class="place-option peer sr-only"
+							/>
+							<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-150 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
+								@{place}
+							</span>
+						</label>
+					))
+				}
+				<button
+					type="reset"
+					id="clear-place-filter"
+					class="cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-150 hover:bg-red-800 hover:text-white"
+					><span class="text-lg leading-0">/</span>clear-place</button
+				>
+			</form>
+		</div>
+		<div class="flex flex-col gap-1.5">
+			<p class="text-sm text-(--color-text-muted) uppercase">Tags</p>
+			<form class="flex flex-wrap items-center gap-1.5" id="tags-filter">
+				{
+					tags.map((tag) => (
+						<label class="inline-flex cursor-pointer items-center">
+							<input
+								autocomplete="off"
+								type="checkbox"
+								value={tag.id}
+								class="tag-checkbox peer sr-only"
+							/>
+							<span class="rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm transition-colors duration-150 peer-checked:bg-(--color-text) peer-checked:text-(--color-bg)">
+								<i>
+									#&thinsp;<span class="not-italic">{tag.id.split("/")[1]}</span>
+								</i>
+							</span>
+						</label>
+					))
+				}<button
+					type="reset"
+					id="clear-tags-filter"
+					class="cursor-pointer rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text) transition-colors duration-150 hover:bg-red-800 hover:text-white"
+					><span class="text-lg leading-0">/</span>clear-tags</button
+				>
+			</form>
+		</div>
+		<div class="flex flex-col gap-4" id="projects-list">
+			{
+				projects.map((project) => (
+					<div
+						class="project-card group relative flex flex-col items-center gap-1 rounded-2xl bg-(--color-text)/10 p-4 md:gap-2"
+						style={`--route-color-light: #3C3836; --route-color-dark: #EBDBB2;`}
+						data-place={project.data.place}
+						data-tags={project.data.tags?.map((t) => t.id).join(" ") ?? ""}
+					>
+						<a
+							href={`/projects/${project.id}`}
+							aria-label={project.data.title}
+							data-astro-prefetch
+							class="absolute inset-0 z-0 cursor-pointer rounded-2xl focus-visible:ring-2 focus-visible:ring-(--color-text) focus-visible:outline-none"
+						/>
+						<div class="flex w-full items-start justify-between">
+							<div class="flex w-full items-start gap-3">
+								<div class="aspect-square rounded-lg bg-(--color-text)/90 p-1">
+									<div
+										class="route-icon-display size-10 shrink-0"
+										style={`-webkit-mask: url(${project.data.iconUrl}) no-repeat center; mask: url(${project.data.iconUrl}) no-repeat center; -webkit-mask-size: calc(var(--spacing) * ${project.data.iconSize}); mask-size: calc(var(--spacing) * ${project.data.iconSize});`}
+										role="img"
+										aria-label={project.data.title}
+									/>
+								</div>
+								<div class="flex flex-col items-start pt-1 md:pt-0">
+									<span class="p-name u-url">{project.data.title}</span>
+									<div class="flex items-center gap-1 text-(--color-text-muted)">
+										<time datetime={project.data.startDate.toISOString()}>
+											{formatDateToMonth(project.data.startDate)}
+										</time>
+										<span>&mdash;</span>
+										<time datetime={project.data.endDate.toISOString()}>
+											{formatDateToMonth(project.data.endDate)}
+										</time>
+									</div>
+								</div>
+							</div>
+							<div class="flex gap-2">
+								{project.data.links && project.data.links.length > 0 && (
+									<div class="relative z-10">
+										<button
+											class="open-links-btn cursor-zoom-in rounded-full bg-(--color-text)/10 px-3 py-1 text-sm whitespace-nowrap transition-colors duration-150 hover:bg-(--color-text)/20"
+											data-dialog={`links-${project.id.replaceAll("/", "-")}`}
+										>
+											{numberToWords(project.data.links.length)}{" "}
+											{project.data.links.length === 1 ? "link" : "links"}
+										</button>
+										<dialog
+											id={`links-${project.id.replaceAll("/", "-")}`}
+											class="links-dialog m-auto w-full max-w-md rounded-3xl border border-(--color-text)/15 bg-(--color-bg) p-0 text-(--color-text) backdrop:bg-black/50 backdrop:backdrop-blur-sm"
+										>
+											<div class="relative p-6">
+												<div class="absolute top-6 right-6">
+													<form method="dialog">
+														<button
+															class="flex size-8 cursor-pointer items-center justify-center rounded-full bg-(--color-text)/10 text-(--color-text) transition-colors hover:bg-(--color-text)/20"
+															aria-label="Close"
+														>
+															<svg
+																width="16"
+																height="16"
+																viewBox="0 0 24 24"
+																fill="none"
+																stroke="currentColor"
+																stroke-width="2"
+																stroke-linecap="round"
+																stroke-linejoin="round"
+															>
+																<path d="M18 6L6 18" />
+																<path d="M6 6l12 12" />
+															</svg>
+														</button>
+													</form>
+												</div>
+												<h2 class="mb-8 pr-10 text-2xl font-semibold">{project.data.title}</h2>
+												<ul class="flex flex-col gap-2">
+													{project.data.links.map((link) => (
+														<li>
+															<a
+																href={link.url}
+																target="_blank"
+																rel="noopener noreferrer"
+																class="flex items-center gap-3 rounded-xl bg-(--color-text)/10 py-2.5 pr-4 pl-2.5 text-sm transition-colors hover:bg-(--color-text)/20"
+															>
+																<div class="aspect-square rounded-md bg-(--color-text)/90 p-1.5">
+																	<div
+																		class="route-icon-display size-5 shrink-0"
+																		style={`-webkit-mask: url(${link.icon || "/icons/folder-empty.svg"}) no-repeat center; mask: url(${link.icon || "/icons/folder-empty.svg"}) no-repeat center; -webkit-mask-size: contain; mask-size: contain;`}
+																		role="img"
+																		aria-label={link.label}
+																	/>
+																</div>
+																<span class="text-lg">{link.label}</span>
+															</a>
+														</li>
+													))}
+												</ul>
+											</div>
+										</dialog>
+									</div>
+								)}
+							</div>
+						</div>
+
+						<div class="w-full">
+							<span class="line-clamp-2 text-sm text-(--color-text-muted)">
+								{project.data.description}
+							</span>
+						</div>
+
+						<div class="flex w-full items-center justify-start gap-1 select-none">
+							<span class="rounded-full bg-(--color-bg)/50 px-2 pt-0.5 pb-1 text-sm text-(--color-text)/70">
+								@{project.data.place}
+							</span>
+							{project.data.tags?.map((tag) => (
+								<span class="rounded-full bg-(--color-bg)/50 px-2 pt-0.5 pb-1 text-sm text-(--color-text)/70">
+									<i>
+										#&thinsp;<span class="not-italic">{tag.id.split("/")[1]}</span>
+									</i>
+								</span>
+							))}
+							<div class="relative flex flex-1 items-center justify-center opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+								<div class="h-0.5 w-full rounded bg-(--color-text-muted) pr-1" />
+								<span
+									class="chevron-icon absolute right-0 size-4 shrink-0 pt-1 text-(--color-text-muted)"
+									style="--icon-url: url(/icons/chevrons-right.svg);"
+								/>
+							</div>
+						</div>
+					</div>
+				))
+			}
+
+			<div
+				id="empty-state"
+				class="hidden rounded-2xl border border-dashed border-(--color-text)/60 p-8 text-center text-(--color-text)/60"
+			>
+				Your project filters are too ambitious, my friend.<br />Try selecting fewer categories (or
+				none at all) to see some projects!
+			</div>
+		</div>
+	</div>
+</PageLayout>
+
+<style>
+	@keyframes doodle-wobble {
+		0%,
+		100% {
+			transform: rotate(2deg);
+		}
+		14% {
+			transform: rotate(-5deg);
+		}
+		28% {
+			transform: rotate(4deg);
+		}
+		42% {
+			transform: rotate(-3deg);
+		}
+		57% {
+			transform: rotate(6deg);
+		}
+		71% {
+			transform: rotate(-4deg);
+		}
+		85% {
+			transform: rotate(5deg);
+		}
+	}
+
+	.route-icon-display {
+		background-color: var(--route-color-dark);
+	}
+
+	:global(.dark) .route-icon-display {
+		background-color: var(--route-color-light);
+	}
+
+	.group:hover .route-icon-display {
+		animation: doodle-wobble 3.33s steps(1) infinite;
+	}
+
+	.chevron-icon {
+		display: inline-block;
+		background-color: currentColor;
+		-webkit-mask-image: var(--icon-url);
+		mask-image: var(--icon-url);
+		-webkit-mask-size: contain;
+		mask-size: contain;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+	}
+
+	.links-dialog[open] {
+		animation: links-pop 0.2s ease-out;
+	}
+
+	.links-dialog[open]::backdrop {
+		animation: links-backdrop 0.2s ease-out;
+	}
+
+	@keyframes links-pop {
+		from {
+			opacity: 0;
+			transform: scale(0.95) translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1) translateY(0);
+		}
+	}
+
+	@keyframes links-backdrop {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	/* Clear button visibility via :has() */
+	#clear-place-filter,
+	#clear-tags-filter {
+		display: none;
+	}
+
+	#place-filter:has(input:checked) #clear-place-filter {
+		display: inline-block;
+	}
+
+	#tags-filter:has(input:checked) #clear-tags-filter {
+		display: inline-block;
+	}
+</style>
+
+<style
+	is:inline
+	set:html={`
+	/* Place filter rules */
+	${places
+		.map(
+			(place) => `
+	body:has(#place-filter input[value="${place}"]:checked) .project-card:not([data-place="${place}"]) {
+		display: none;
+	}`
+		)
+		.join("")}
+
+	/* Tag filter rules (AND logic: each checked tag hides cards missing it) */
+	${tags
+		.map(
+			(tag) => `
+	body:has(#tags-filter input[value="${tag.id}"]:checked) .project-card:not([data-tags~="${tag.id}"]) {
+		display: none;
+	}`
+		)
+		.join("")}
+`}
+></style>
+
+<script>
+	function setupProjectsPage() {
+		const placeFilter = document.getElementById("place-filter");
+		const tagsFilter = document.getElementById("tags-filter");
+		const projectsList = document.getElementById("projects-list");
+		const emptyState = document.getElementById("empty-state");
+
+		if (!projectsList) return;
+
+		function updateEmptyState() {
+			const anyVisible = Array.from(
+				projectsList!.querySelectorAll<HTMLElement>(".project-card")
+			).some((card) => card.offsetParent !== null);
+			emptyState?.classList.toggle("hidden", anyVisible);
+		}
+
+		placeFilter?.addEventListener("change", updateEmptyState);
+		tagsFilter?.addEventListener("change", updateEmptyState);
+		placeFilter?.addEventListener("reset", () => queueMicrotask(updateEmptyState));
+		tagsFilter?.addEventListener("reset", () => queueMicrotask(updateEmptyState));
+
+		document.querySelectorAll<HTMLButtonElement>(".open-links-btn").forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				e.preventDefault();
+				const dialog = document.getElementById(btn.dataset.dialog!) as HTMLDialogElement;
+				dialog?.showModal();
+			});
+		});
+
+		document.querySelectorAll<HTMLDialogElement>(".links-dialog").forEach((dialog) => {
+			dialog.addEventListener("click", (e) => {
+				if (e.target === dialog) dialog.close();
+			});
+		});
+	}
+
+	document.addEventListener("astro:page-load", setupProjectsPage);
+</script>

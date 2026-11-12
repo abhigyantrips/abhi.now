@@ -1,0 +1,47 @@
+---
+import ReadingLayout from "@now/layouts/reading-layout.astro";
+import { formatReadingTime } from "@now/lib/utils";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("before");
+	return posts.map((post) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<ReadingLayout
+	route="/before"
+	post={{
+		title: post.data.title,
+		description: post.data.description,
+		date: post.data.date.toLocaleString("en-DB", {
+			day: "numeric",
+			weekday: "long",
+			month: "long",
+			year: "numeric",
+		}),
+		readingTime: formatReadingTime(post.body ?? ""),
+		url: `/before/${post.id}`,
+	}}
+>
+	{
+		post.data.heroImage && (
+			<Image
+				src={post.data.heroImage}
+				alt={`Hero image for archive #${post.id}`}
+				class="mt-4 mb-8 w-full rounded-xl border border-(--color-text-muted)/20"
+			/>
+		)
+	}
+	<article class="e-content prose-content">
+		<span><strong>Written On:</strong> {post.data.date.toLocaleString("en-IN")}</span>
+		<Content />
+	</article>
+</ReadingLayout>

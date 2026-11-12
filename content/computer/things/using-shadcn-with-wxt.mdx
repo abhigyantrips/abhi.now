@@ -1,0 +1,68 @@
+---
+title: Using shadcn/ui with WXT
+description: Description
+date: 2026-06-19
+published: false
+tech:
+  - shadcn
+  - wxt
+  - react
+fields:
+  - frontend
+  - browser-extensions
+---
+
+I love [shadcn/ui](https://ui.shadcn.com). I've used it across multiple projects, and it has made component modularity easier for me in multiple cases.
+
+If you haven't started a WXT project already, you can do so now.
+
+```bash
+pnpm dlx wxt@latest init
+```
+
+We're using the official shadcn/ui project here, so we'll go ahead with the `react` template and `pnpm` as the package manager.
+
+WXT works with [any frontend framework which has a Vite plugin](https://wxt.dev/guide/essentials/frontend-frameworks.html). This basically translates to WXT using Vite under-the-hood, which is good news for us because [TailwindCSS](https://tailwindcss.com) has a [Vite plugin](https://tailwindcss.com/docs/installation/using-vite) we can directly integrate.
+
+Start with installing the necessary dependencies for TailwindCSS.
+
+```bash
+pnpm install tailwindcss @tailwindcss/vite
+```
+
+Then, add the Vite plugin to your existing WXT config.
+
+```ts "wxt.config.ts"
+import { defineConfig } from "wxt";
+
+import tailwindcss from "@tailwindcss/vite";
+
+// See https://wxt.dev/api/config.html
+export default defineConfig({
+	modules: ["@wxt-dev/module-react"],
+
+	vite: () => ({
+		plugins: [tailwindcss()],
+	}),
+});
+```
+
+Now, this is where we start following Shadcn's [manual installation for shadcn/ui](https://ui.shadcn.com/docs/installation/manual). Start by installing the list of dependencies.
+
+```bash
+pnpm add shadcn class-variance-authority clsx tailwind-merge lucide-react tw-animate-css
+```
+
+Configure the import alias as you would in a web project. I'm assuming you will use an `src/` directory, which will also require you to set `srcDir: 'src'` in `wxt.config.ts` according to the documentation.
+
+```json "tsconfig.json" {5-7}
+{
+	"extends": "./.wxt/tsconfig.json",
+	"compilerOptions": {
+		// ...
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
+}
+```

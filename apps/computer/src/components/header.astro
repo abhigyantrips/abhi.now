@@ -1,0 +1,18 @@
+---
+import Logo from "@/components/logo.astro";
+---
+
+<header
+	class="flex w-full flex-col items-start justify-between space-y-4 p-6 md:flex-row md:items-center md:space-y-0 md:pr-8 md:pl-7"
+>
+	<a href="/" class="logo-link no-underline! md:p-1">
+		<Logo class="navbar-logo h-5 w-auto" />
+	</a>
+
+	<div class="flex items-center space-x-6">
+		<a href="/links" class="uppercase">Links</a>
+		<a href="/things" class="uppercase">Things</a>
+		<a href="https://github.com/abhigyantrips/skills" class="uppercase">Agents</a>
+		<a href="https://abhi.now/projects" class="uppercase">Works</a>
+	</div>
+</header>

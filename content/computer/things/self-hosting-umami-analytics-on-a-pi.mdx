@@ -1,0 +1,140 @@
+---
+title: Self-Hosting Umami Analytics on a Pi
+description: Attempting (and maybe succeeding) on hosting the anonymous analytics solution on my Raspberry Pi.
+date: 2026-08-07
+tech:
+  - docker
+  - cloudflare
+fields:
+  - self-hosting
+  - infrastructure
+---
+
+Analytics are cool. This is something I only discovered recently, since I assumed visitor and event metrics were only meant for marketing teams to track. It wasn't until I wanted to add a visitor count to this blog that I decided to look further, and have gathered many thoughts about it since.
+
+That's for another post though. For now, I'll just cover the setup process I went through.
+
+### The Setup
+
+I'm working with a [Raspberry Pi 4B](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/specifications/) with 4GB RAM. I run multiple [Docker Compose](https://docs.docker.com/compose/) containers simultaneously for different self-hosted software. These containers are exposed to their respective subdomains via [Cloudflare Tunnels](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), which routes all requests to [Traefik](https://doc.traefik.io/traefik/) to proxy into the respective containers.
+
+### The Choice
+
+I knew I wanted the analytics solution to be, above all else, anonymous. I just want to see the number go up. That paired with something I can self-host left me with two main options -- [Plausible](https://plausible.io/) and [Umami](https://umami.is/).
+
+![Homepage of Umami Analytics.](./images/self-hosting-umami-analytics-on-a-pi-01.png)
+
+I chose Umami, since it's much more lightweight (and has stuck under 300MB of RAM usage for three websites, over a month).
+
+### The Config
+
+Here's the Docker Compose configuration Umami provides.
+
+```yaml "docker-compose.yml"
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:latest
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      APP_SECRET: replace-me-with-a-random-string
+    depends_on:
+      db:
+        condition: service_healthy
+    init: true
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  umami-db-data:
+```
+
+I added custom Traefik labels; to enable the service, assign a router through a hostname, and attach the internal port of the load balancer.
+
+Umami [also mentions](https://docs.umami.is/docs/bypass-ad-blockers) that ad blockers with agressive filtering may try to block default script names, so even subdomains just including the word `analytics` can possibly get blocked. I've attempted to bypass this by having a different subdomain and script name (through [environment variables](https://docs.umami.is/docs/environment-variables)), which I'll leave for you to find as an easter egg. :)
+
+Here's the configuration I finally used.
+
+```yml "docker-compose.yml"
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:latest
+    environment:
+      DATABASE_URL: postgresql://give:you-up@db:5432/never-gonna
+      APP_SECRET: replace-me-with-a-random-string
+      TRACKER_SCRIPT_NAME: custom.js        # custom script name
+    depends_on:
+      db:
+        condition: service_healthy
+    init: true
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    labels:                                 # custom traefik labels
+      - "traefik.enable=true"
+      - "traefik.http.routers.umami.rule=Host(`custom.abhi.now`)"
+      - "traefik.http.routers.umami.entrypoints=web"
+      - "traefik.http.services.umami.loadbalancer.server.port=3000"
+    networks:
+      - proxy
+      - default
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: never-gonna
+      POSTGRES_USER: give
+      POSTGRES_PASSWORD: you-up
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  umami-db-data:
+
+networks:                                   # custom network proxy
+  proxy:
+    external: true
+```
+
+After this, it was just a matter of deploying through `docker compose up` and configuring the subdomain on Cloudflare Tunnels.
+
+### The Experience
+
+Adding sites and connecting them was as simple as mentioning their domain and adding the corresponding scriptlet to my website's metadata. After that, Umami just starts receiving requests and gathering metrics.
+
+```html
+<head>
+  <script defer src="https://custom.abhi.now/custom.js" data-website-id="a-random-uuid" data-domains="abhi.now"></script>
+</head>
+```
+
+The instance has been running for a month, and the only real issue I've faced is that the site sometimes the site returns a `504 Gateway Time-out` error. I haven't been able to pinpoint the exact reason, but I believe it's because [Prisma (the ORM)](https://www.prisma.io/orm) shuts down from inactivity and takes too long to cold-restart.
+
+My current speculation is that I can fix this by changing the healthcheck to something that queries the database, hence keeping querying active. But this isn't something I've yet looked into. I'm happy to receive further input on this!
