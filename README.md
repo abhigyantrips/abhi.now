@@ -66,16 +66,33 @@ frameworks as part of consolidation.
 
 ## Cloudflare rollout
 
-Keep all three existing Workers and domain bindings. In each Worker's Git build
-settings use this repository and the **repository root** as the build directory:
+Keep all three existing Workers and domain bindings. In each Worker's Settings >
+Build, connect `abhigyantrips/abhi.now` with production branch `main`. Set the root
+directory to the application's directory so Cloudflare finds its Wrangler config:
 
-| Worker / domain                   | Build command         | Deploy command                                     |
-| --------------------------------- | --------------------- | -------------------------------------------------- |
-| `website` / `abhi.now`            | `pnpm build:now`      | `pnpm --filter abhi.now exec wrangler deploy`      |
-| `abhi-computer` / `abhi.computer` | `pnpm build:computer` | `pnpm --filter abhi-computer exec wrangler deploy` |
-| `chhotu` / `chhotu.abhi.now`      | `pnpm build:chhotu`   | `pnpm --filter chhotu exec wrangler deploy`        |
+| Worker / domain                   | Root directory  |
+| --------------------------------- | --------------- |
+| `abhi-now` / `abhi.now`           | `apps/now`      |
+| `abhi-computer` / `abhi.computer` | `apps/computer` |
+| `chhotu` / `chhotu.abhi.now`      | `apps/chhotu`   |
 
-Use `pnpm install --frozen-lockfile` as the install command. Include these watch
+For all three, use this build command:
+
+```sh
+pnpm --dir ../.. install --frozen-lockfile && pnpm build
+```
+
+Use `pnpm exec wrangler deploy` as the deploy command. Set build variables
+`SKIP_DEPENDENCY_INSTALL=true` (the build command installs the workspace explicitly)
+and `NODE_VERSION=24`. The root `packageManager` field pins pnpm 10.29.3. Keep
+runtime bindings and secrets on their existing Workers, including Chhotu's OAuth
+credentials and session secret; its `APP_ORIGIN` remains `https://chhotu.abhi.now`.
+
+These app roots supersede the earlier repository-root dashboard recommendation.
+See Cloudflare's [monorepo setup](https://developers.cloudflare.com/workers/ci-cd/builds/advanced-setups/)
+and [custom dependency installation](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/#skip-dependency-install).
+
+Include these watch
 paths for both readers: `content/**`, their own `apps/<name>/**`,
 `apps/now/**` for Computer, `package.json`,
 `pnpm-lock.yaml`, and `pnpm-workspace.yaml`. Chhotu watches `apps/chhotu/**` and

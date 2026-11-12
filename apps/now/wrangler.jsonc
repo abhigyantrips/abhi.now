@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "website",
+	"name": "abhi-now",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"compatibility_date": "2025-09-27",
 	"compatibility_flags": ["global_fetch_strictly_public"],
