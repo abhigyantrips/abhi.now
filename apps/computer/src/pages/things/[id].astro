@@ -30,7 +30,7 @@ const fields = await getEntries(post.data.fields || []);
 			year: "numeric",
 		}),
 		readingTime: formatReadingTime(post.body ?? ""),
-		url: `/things/${post.id}`,
+		url: `/things/${post.id}/`,
 	}}
 >
 	<TagGroups

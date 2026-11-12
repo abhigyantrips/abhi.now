@@ -56,6 +56,7 @@ const processor = {
 export default defineConfig({
 	site: "https://abhi.computer",
 	output: "static",
+	trailingSlash: "always",
 
 	session: {
 		driver: {

@@ -1,0 +1,146 @@
+---
+import ComputerIcon from "@/components/computer-icon.astro";
+import Logo from "@/components/logo.astro";
+import { applications, type ApplicationId } from "@/data/applications";
+interface Props {
+	appId?: ApplicationId;
+}
+const { appId } = Astro.props;
+---
+
+<div class="fixed inset-4 flex flex-col gap-4">
+	<div class="flex min-h-0 flex-1 gap-4">
+		<main class="workspace min-w-0 flex-1" aria-label="Desktop">
+			<slot />
+		</main>
+		<nav
+			class="favorites flex w-16 shrink-0 flex-col gap-4 overflow-y-auto md:w-24"
+			aria-label="Favorite applications"
+			transition:persist="desktop-favorites"
+		>
+			{
+				applications.map(
+					(app) =>
+						"favoriteLabel" in app && (
+							<a
+								href={app.path}
+								data-open-app={app.id}
+								data-astro-prefetch="viewport"
+								aria-current={app.id === appId ? "page" : undefined}
+								class="favorite flex min-h-24 shrink-0 flex-col items-center justify-center gap-3 rounded-lg p-2 text-sm"
+							>
+								<>
+									<ComputerIcon name={app.id} class="size-10" />
+									<span>{app.favoriteLabel}</span>
+								</>
+							</a>
+						)
+				)
+			}
+		</nav>
+	</div>
+	<footer
+		transition:persist="desktop-taskbar"
+		class="taskbar flex h-16 shrink-0 items-center rounded-xl bg-white"
+	>
+		<a
+			href={Astro.url.pathname === "/" ? "/desktop/" : "/"}
+			id="start"
+			class="flex shrink-0 items-center justify-center self-stretch rounded-l-xl px-3 sm:px-4"
+			aria-expanded={Astro.url.pathname === "/"}
+			aria-label="Applications"
+			title="Applications"
+			><span aria-hidden="true"><Logo class="block h-auto w-20 sm:w-36" /></span></a
+		>
+		<nav
+			class="open-applications flex min-w-0 flex-1 self-stretch overflow-x-auto"
+			aria-label="Open applications"
+		>
+			{
+				applications.map((app) => (
+					<a
+						href={app.path}
+						class="relative flex shrink-0 items-center justify-center px-4"
+						data-taskbar={app.id}
+						data-astro-prefetch="viewport"
+						aria-pressed="false"
+						aria-label={app.title}
+						title={app.title}
+						hidden
+					>
+						<ComputerIcon name={app.id} class="size-8 shrink-0" />
+					</a>
+				))
+			}
+		</nav>
+		<button
+			id="control-panel-toggle"
+			type="button"
+			class="shrink-0 self-stretch rounded-r-xl px-4 text-right text-sm uppercase tabular-nums"
+			popovertarget="control-panel"
+			aria-controls="control-panel"
+			aria-expanded="false"
+			aria-haspopup="dialog"
+			aria-label="Open control panel"
+		>
+			<time id="clock" class="clock" aria-label="Local date and time">
+				<span data-clock-date class="block"></span>
+				<span data-clock-time class="block"></span>
+			</time>
+		</button>
+	</footer>
+</div>
+<section
+	id="control-panel"
+	transition:persist="desktop-control-panel"
+	class="control-panel"
+	popover="auto"
+	role="dialog"
+	aria-labelledby="control-panel-title"
+>
+	<h2 id="control-panel-title" class="mb-4 text-sm font-medium">Control panel</h2>
+	<div class="flex flex-col gap-2">
+		<button id="theme-toggle" type="button" class="control-toggle" aria-pressed="false">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+				><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"></circle><path
+					d="M12 3a9 9 0 0 1 0 18Z"
+					fill="currentColor"></path></svg
+			>
+			<span>Dark mode</span><span data-control-state class="control-state" aria-hidden="true"
+				>Off</span
+			>
+		</button>
+		<button id="analytics-toggle" type="button" class="control-toggle" aria-pressed="false">
+			<svg
+				width="20"
+				height="20"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				aria-hidden="true"><path d="M4 20V10m8 10V4m8 16v-7"></path></svg
+			>
+			<span>Analytics</span><span data-control-state class="control-state" aria-hidden="true"
+				>Off</span
+			>
+		</button>
+		<button id="fullscreen-toggle" type="button" class="control-toggle" aria-pressed="false">
+			<svg
+				width="20"
+				height="20"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"></path></svg
+			>
+			<span>Fullscreen</span><span data-control-state class="control-state" aria-hidden="true"
+				>Off</span
+			>
+		</button>
+	</div>
+	<p data-control-status class="control-status" role="status" aria-live="polite"></p>
+</section>

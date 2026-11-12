@@ -15,14 +15,14 @@ export async function getSearchIndex(): Promise<SearchEntry[]> {
 		...things.map(({ id, data }) => ({
 			app: "journal" as const,
 			title: data.title,
-			url: `/things/${id}`,
+			url: `/things/${id}/`,
 			date: data.date.toISOString(),
 			text: "",
 		})),
 		...links.map(({ id, data }) => ({
 			app: "journal" as const,
 			title: data.link.title,
-			url: `/links/${id}`,
+			url: `/links/${id}/`,
 			date: data.date.toISOString(),
 			text: "",
 		})),

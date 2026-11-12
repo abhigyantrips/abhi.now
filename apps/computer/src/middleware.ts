@@ -37,7 +37,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 				const path = url.pathname.replace(/\/$/, "") || "/";
 				if (node.tagName === "a" && attr.name === "href") {
 					if (paths.has(path) && path.split("/")[1] === scope)
-						attr.value = path + url.search + url.hash;
+						attr.value = `${path === "/" ? "/" : `${path}/`}${url.search}${url.hash}`;
 					else {
 						attr.value = url.href;
 						set(node, "target", "_blank");

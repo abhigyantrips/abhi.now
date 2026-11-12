@@ -9,21 +9,21 @@ export async function GET() {
 		title: "abhigyan trips's tech shenanigans",
 		description: "my place to post about cool links and tech things.",
 		site: "https://abhi.computer/",
-		trailingSlash: false,
+		trailingSlash: true,
 		items: [
 			...links.map((link) => ({
 				title: link.data.link.title,
 				description: link.body,
 				pubDate: link.data.date,
 				categories: ["link"],
-				link: `/links/${link.id}`,
+				link: `/links/${link.id}/`,
 			})),
 			...things.map((thing) => ({
 				title: thing.data.title,
 				description: thing.data.description,
 				pubDate: thing.data.date,
 				categories: ["thing"],
-				link: `/things/${thing.id}`,
+				link: `/things/${thing.id}/`,
 			})),
 		].sort((a, b) => (b.pubDate?.getTime() ?? 0) - (a.pubDate?.getTime() ?? 0)),
 	});

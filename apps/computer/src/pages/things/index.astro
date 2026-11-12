@@ -19,7 +19,7 @@ entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 					<time class="dt-published text-sm text-gray-500" datetime={post.data.date.toISOString()}>
 						{post.data.date.toISOString().slice(0, 10)}
 					</time>
-					<a class="p-name u-url" href={`/things/${post.id}`}>
+					<a class="p-name u-url" href={`/things/${post.id}/`}>
 						<span>{post.data.title}</span>
 					</a>
 				</div>

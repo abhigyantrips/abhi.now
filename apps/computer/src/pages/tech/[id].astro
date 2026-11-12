@@ -45,7 +45,7 @@ links.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 								<time class="text-sm text-gray-500" datetime={post.data.date.toISOString()}>
 									{post.data.date.toISOString().slice(0, 10)}
 								</time>
-								<a href={`/things/${post.id}`}>{post.data.title}</a>
+								<a href={`/things/${post.id}/`}>{post.data.title}</a>
 							</div>
 						))}
 					</div>
@@ -62,7 +62,7 @@ links.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 								<time class="text-sm text-gray-500" datetime={link.data.date.toISOString()}>
 									{link.data.date.toISOString().slice(0, 10)}
 								</time>
-								<a href={`/links/${link.id}`}>{link.data.link.title}</a>
+								<a href={`/links/${link.id}/`}>{link.data.link.title}</a>
 							</div>
 						))}
 					</div>

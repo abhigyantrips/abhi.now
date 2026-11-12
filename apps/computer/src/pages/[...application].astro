@@ -89,7 +89,7 @@ const folders = app === "snippets" ? await getCollection("snippetCollections") :
 						<ul class="space-y-3">
 							{entries.map((post) => (
 								<li>
-									<a href={`/${app}/${post.id}`}>{post.data.title}</a>
+									<a href={`/${app}/${post.id}/`}>{post.data.title}</a>
 								</li>
 							))}
 						</ul>
@@ -97,10 +97,10 @@ const folders = app === "snippets" ? await getCollection("snippetCollections") :
 					{app === "snippets" && (
 						<>
 							<nav class="mb-6 flex flex-wrap gap-4">
-								<a href="/snippets">Latest</a>
-								<a href="/snippets/folders">Folders</a>
+								<a href="/snippets/">Latest</a>
+								<a href="/snippets/folders/">Folders</a>
 								{folders.map((folder) => (
-									<a href={`/snippets/${folder.data.permalink}`}>{folder.data.name}</a>
+									<a href={`/snippets/${folder.data.permalink}/`}>{folder.data.name}</a>
 								))}
 							</nav>
 							{path !== "/snippets/folders" && <SnippetFeed collectionId={entry?.id} />}

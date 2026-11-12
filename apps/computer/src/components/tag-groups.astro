@@ -28,7 +28,7 @@ const groups = Astro.props.groups.filter((group) => group.entries.length > 0);
 						{group.entries.map((tag) => (
 							<a
 								class="tag-pill p-category"
-								href={`${group.hrefPrefix}/${tag.id}`}
+								href={`${group.hrefPrefix}/${tag.id}/`}
 								title={tag.data.description}
 								style={`--tag-color: ${tag.data.color}`}
 							>

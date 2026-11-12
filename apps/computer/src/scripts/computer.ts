@@ -5,74 +5,22 @@ import {
 } from "astro:transitions/client";
 import { applications, type ApplicationId } from "../data/applications";
 import { normalizeSearch, searchEntries, type SearchEntry } from "../lib/search";
-import { initializeControlPanel } from "./control-panel";
+import { initializeDesktopShell, validApplicationId as validId } from "./desktop-shell";
 
-function initializeComputer() {
+// Keep the downloaded index across launcher visits; page cleanup only cancels UI updates.
+let indexPromise: Promise<SearchEntry[]> | undefined;
+
+function initializePage() {
 	if (!document.body.classList.contains("computer")) return;
 	const controller = new AbortController();
-	initializeControlPanel(controller.signal);
 	const cleanups: (() => void)[] = [];
-	const storageKey = "abhi.computer.open-applications";
-	const pathsKey = "abhi.computer.application-paths";
 	const search = document.querySelector<HTMLInputElement>("#app-search");
-	const active = document.body.dataset.app;
-	const validId = (id: unknown): id is ApplicationId => applications.some((app) => app.id === id);
-	let opened: ApplicationId[] = [];
-	let paths: Record<string, string> = {};
-	try {
-		const stored: unknown = JSON.parse(localStorage.getItem(storageKey) ?? "[]");
-		if (Array.isArray(stored)) opened = [...new Set(stored.filter(validId))];
-		const saved: unknown = JSON.parse(localStorage.getItem(pathsKey) ?? "{}");
-		if (saved && typeof saved === "object" && !Array.isArray(saved)) {
-			for (const [id, path] of Object.entries(saved)) {
-				if (
-					!validId(id) ||
-					typeof path !== "string" ||
-					!path.startsWith("/") ||
-					path.startsWith("//")
-				)
-					continue;
-				const pathname = new URL(path, location.origin).pathname;
-				const owned =
-					id === "journal"
-						? /^\/(journal|things|links|tech|fields)(\/|$)/.test(pathname)
-						: pathname === `/${id}` || pathname.startsWith(`/${id}/`);
-				if (owned) paths[id] = path;
-			}
-		}
-	} catch {
-		/* Storage is optional. */
-	}
-	function save() {
-		try {
-			localStorage.setItem(storageKey, JSON.stringify(opened));
-			localStorage.setItem(pathsKey, JSON.stringify(paths));
-		} catch {}
-	}
-	opened = opened.slice(-5);
-	if (validId(active)) {
-		if (!opened.includes(active)) opened.push(active);
-		paths[active] = location.pathname + location.search + location.hash;
-	}
-	opened = opened.slice(-5);
-	for (const id of Object.keys(paths)) if (!opened.includes(id as ApplicationId)) delete paths[id];
-	save();
-	for (const task of document.querySelectorAll<HTMLAnchorElement>("[data-taskbar]")) {
-		const id = task.dataset.taskbar;
-		if (!validId(id)) continue;
-		task.hidden = !opened.includes(id);
-		task.style.order = String(opened.indexOf(id));
-		task.toggleAttribute("data-taskbar-divider", opened.indexOf(id) > 0);
-		task.href = paths[id] ?? applications.find((app) => app.id === id)!.path;
-		if (id === active) task.setAttribute("aria-current", "page");
-		task.removeAttribute("aria-pressed");
-	}
-	document.querySelector("[data-close]")?.addEventListener("click", () => {
-		opened = opened.filter((id) => id !== active);
-		if (active) delete paths[active];
-		save();
-		void navigate("/desktop");
-	});
+	document
+		.querySelector("[data-close]")
+		?.addEventListener("click", () => shell?.closeActiveApplication(), {
+			signal: controller.signal,
+		});
+
 	function open(id: ApplicationId) {
 		void navigate(applications.find((app) => app.id === id)!.path);
 	}
@@ -84,7 +32,7 @@ function initializeComputer() {
 					event.key === "Escape" &&
 					!document.querySelector("#control-panel")?.matches(":popover-open")
 				)
-					void navigate("/desktop");
+					void navigate("/desktop/");
 			},
 			{ signal: controller.signal }
 		);
@@ -93,7 +41,6 @@ function initializeComputer() {
 		const resultList = document.querySelector<HTMLElement>("#search-results")!;
 		const status = document.querySelector<HTMLElement>("#search-status")!;
 		const retry = document.querySelector<HTMLButtonElement>("#search-retry")!;
-		let indexPromise: Promise<SearchEntry[]> | undefined;
 		let queryVersion = 0;
 		let searchTimer: ReturnType<typeof setTimeout>;
 		cleanups.push(() => {
@@ -102,7 +49,7 @@ function initializeComputer() {
 		});
 
 		function loadIndex() {
-			return (indexPromise ??= fetch("/search-index.json", { signal: controller.signal })
+			return (indexPromise ??= fetch("/search-index.json")
 				.then(async (response) => {
 					if (!response.ok) throw new Error("Search index unavailable");
 					const entries: unknown = await response.json();
@@ -162,7 +109,7 @@ function initializeComputer() {
 					anchor.href =
 						entry.app === "journal"
 							? entry.url
-							: new URL(entry.url).pathname + new URL(entry.url).hash;
+							: new URL(entry.url).pathname.replace(/\/?$/, "/") + new URL(entry.url).hash;
 					anchor.dataset.contentApp = entry.app;
 					anchor.dataset.contentTitle = entry.title;
 					const meta = document.createElement("span");
@@ -207,22 +154,6 @@ function initializeComputer() {
 			}
 		});
 	}
-	function updateClock() {
-		const now = new Date();
-		const clock = document.querySelector<HTMLTimeElement>("#clock")!;
-		clock.dateTime = now.toISOString();
-		clock.querySelector("[data-clock-date]")!.textContent =
-			`${now.toLocaleDateString("en-GB", { day: "numeric", month: "long" })}, ${now.getFullYear()}`;
-		clock.querySelector("[data-clock-time]")!.textContent = now.toLocaleTimeString(undefined, {
-			hour: "2-digit",
-			minute: "2-digit",
-		});
-		clock.title = `${now.toLocaleDateString(undefined, { dateStyle: "full" })} (${Intl.DateTimeFormat().resolvedOptions().timeZone})`;
-	}
-
-	updateClock();
-	const clockInterval = setInterval(updateClock, 1000);
-	cleanups.push(() => clearInterval(clockInterval));
 
 	return () => {
 		controller.abort();
@@ -230,7 +161,18 @@ function initializeComputer() {
 	};
 }
 
-let dispose: (() => void) | undefined;
+let disposePage: (() => void) | undefined;
+let shell: ReturnType<typeof initializeDesktopShell> | undefined;
+let shellElement: Element | null = null;
+function syncShell() {
+	const element = document.querySelector(".taskbar");
+	if (element !== shellElement) {
+		shell?.dispose();
+		shell = element ? initializeDesktopShell() : undefined;
+		shellElement = element;
+	}
+	shell?.sync();
+}
 let navigationId = 0;
 function clearNavigationCursor() {
 	delete document.documentElement.dataset.navigationLoading;
@@ -257,8 +199,8 @@ document.addEventListener("astro:before-preparation", (event) => {
 	};
 });
 document.addEventListener("astro:before-swap", (event) => {
-	dispose?.();
-	dispose = undefined;
+	disposePage?.();
+	disposePage = undefined;
 	const incoming = (event as TransitionBeforeSwapEvent).newDocument;
 	incoming.documentElement.dataset.theme = document.documentElement.dataset.theme ?? "light";
 	incoming.documentElement.classList.toggle(
@@ -269,9 +211,11 @@ document.addEventListener("astro:before-swap", (event) => {
 		incoming.documentElement.dataset.navigationLoading = "true";
 	}
 });
+document.addEventListener("astro:after-swap", syncShell);
 document.addEventListener("astro:page-load", () => {
 	clearNavigationCursor();
-	dispose?.();
-	dispose = initializeComputer();
+	disposePage?.();
+	syncShell();
+	disposePage = initializePage();
 });
 window.addEventListener("pageshow", clearNavigationCursor);

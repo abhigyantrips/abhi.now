@@ -9,13 +9,13 @@ const entries = [
 	...things.map(({ id, data }) => ({
 		title: data.title,
 		date: data.date,
-		href: `/things/${id}`,
+		href: `/things/${id}/`,
 		type: "Thing",
 	})),
 	...links.map(({ id, data }) => ({
 		title: data.link.title,
 		date: data.date,
-		href: `/links/${id}`,
+		href: `/links/${id}/`,
 		type: "Link",
 	})),
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
