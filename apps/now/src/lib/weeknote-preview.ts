@@ -4,6 +4,7 @@ import { parseFragment, type DefaultTreeAdapterMap } from "parse5";
 const images = import.meta.glob<{ default: ImageMetadata }>([
 	"/src/**/*.{avif,gif,jpeg,jpg,png,svg,webp}",
 	"../../../../content/**/*.{avif,gif,jpeg,jpg,png,svg,webp}",
+	"!../../../../content/computer/**",
 ]);
 
 type Node = DefaultTreeAdapterMap["childNode"];

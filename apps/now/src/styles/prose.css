@@ -1,2 +1,7 @@
-@import "./global.css";
+/* Keep this Tailwind entry independent of global.css to preserve cascade order. */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "../../../../content";
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "../../../../content/prose.css";
