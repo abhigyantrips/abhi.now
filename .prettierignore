@@ -29,8 +29,5 @@ content/**/*.md
 content/**/*.mdx
 content/**/*.json
 
-# Generated migration baseline; keep the capture script's output reproducible.
-docs/now-coverage.json
-
 apps/*/public/
 apps/*/content/

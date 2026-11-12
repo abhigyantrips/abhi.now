@@ -10,7 +10,7 @@ apps/computer/  abhi.computer — desktop and native content windows
 apps/chhotu/    chhotu.abhi.now — authenticated publishing Worker and PWA
 content/        shared Markdown/MDX, images, schemas, loaders, prose utilities
 content/computer/  existing journal, links, tech and fields
-scripts/        coverage comparison and image-processing Git hook
+scripts/        image-processing Git hook
 ```
 
 Install with `pnpm install --frozen-lockfile` from this directory. The root
@@ -28,7 +28,6 @@ relevant application's ignored `.env` / `.dev.vars` files.
 | `pnpm check`                                                   | Diagnostics for all three apps                                    |
 | `pnpm --filter chhotu test`                                    | Publishing, API, offline draft and image tests                    |
 | `pnpm --filter abhi-computer test`                             | Computer's search tests                                           |
-| `pnpm coverage:now`                                            | Compare built Now output to the pre-migration baseline            |
 | `pnpm format` / `pnpm format:check`                            | Write / check Prettier formatting                                 |
 
 Chhotu's background development-server instructions are in
@@ -112,19 +111,12 @@ require refreshing; concurrency protection has not been relaxed. During cutover,
 stop publishing through the old Worker until the new code and paths are live.
 A successful commit continues to be reported separately from deployment success.
 
-## Migration checks and formatting
-
-`docs/now-coverage.json` is the immutable pre-migration baseline: 158 non-embed HTML
-pages, 157 sitemap URLs, eight feed endpoints and two sitemap endpoints. It records
-71 retiring embed paths separately. After building Now, `pnpm coverage:now` checks
-page paths, canonical/robots/feed-link metadata and complete parsed XML content,
-including item bodies and metadata. Do not recapture it to hide migration changes.
-It does not replace visual, interaction or deployed-header checks.
+## Formatting
 
 Prettier remains the formatter for the three Astro apps, with their existing
 Astro, TypeScript import-organizer and Tailwind plugins. Tailwind sorting uses each
-app's stylesheet. Shared authored content, public assets, generated outputs and
-the baseline are excluded from bulk formatting. Oxfmt delegates Astro/MDX to
+app's stylesheet. Shared authored content, public assets and generated outputs are excluded from
+bulk formatting. Oxfmt delegates Astro/MDX to
 Prettier and cannot load the existing import-organizer plugin; consolidating does
 not require changing formatting behavior. See [Oxfmt language support](https://oxc.rs/docs/guide/usage/formatter/language-support)
 and [plugin limitations](https://oxc.rs/docs/guide/usage/formatter/unsupported-features).

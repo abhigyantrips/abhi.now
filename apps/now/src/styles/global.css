@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Authored MDX lives outside this app's automatic source scan. */
+@source "../../../../content";
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @utility container {

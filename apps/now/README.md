@@ -50,9 +50,8 @@ Astro, TypeScript import-organizer, and Tailwind plugins. Tailwind sorting reads
 `apps/now/src/styles/global.css` for this site's custom utilities and theme.
 
 Authored files in the shared root `content/` directory,
-public assets, generated files, and the migration coverage baseline are excluded
+public assets and generated files are excluded
 from bulk formatting. This keeps published Markdown/MDX and its whitespace intact.
-Python utilities are outside Prettier's supported languages.
 
 Prettier remains the chosen formatter for this repository. Oxfmt provides native
 formatting for JS/TS and several other languages, built-in import sorting, and

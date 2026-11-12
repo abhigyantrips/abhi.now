@@ -1,8 +1,6 @@
 @import "../../../../content/prose.css";
 @reference "./global.css";
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-@source "../../../now/src";
-@source "../../../../content";
 .now-content {
 	font-family: var(--font-gummy), sans-serif;
 }

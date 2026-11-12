@@ -2,6 +2,10 @@
 @import "./cursors.css";
 @plugin "@tailwindcss/typography";
 
+/* Generate utilities in the stylesheet that imports Tailwind itself. */
+@source "../../../../content";
+@source "../../../now/src";
+
 @theme {
 	--font-mono: var(--font-mono);
 	--color-black: var(--color-text);
