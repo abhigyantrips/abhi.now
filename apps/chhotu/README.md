@@ -105,10 +105,7 @@ Signing out deletes the browser session. To revoke the underlying OAuth grant, u
 
 ```sh
 pnpm check
-pnpm test
 pnpm build
 ```
-
-Tests cover token encryption and tampering, session expiry and account restrictions, OAuth state consumption and PKCE, mutation origins, timezone conversion, Unicode content, collection creation, duplicate timestamps/permalinks, branch races, retry recovery, incomplete GitHub trees, signature reporting, photo validation, binary round-tripping, safe frontmatter quoting, bounded upload reads, and image draft recovery across failed publishes and reloads. GitHub requests in tests are mocked; they never create live commits.
 
 `pnpm build` runs `astro build`, writing the Worker to `dist/server` and public assets to `dist/client`. The `@vite-pwa/astro` integration generates the manifest, service worker, and Workbox runtime in `dist/client`. `pnpm preview` serves the production build with Cloudflare's runtime; unlike development, this enables service-worker testing.

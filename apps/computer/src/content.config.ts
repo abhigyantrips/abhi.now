@@ -80,5 +80,24 @@ const fields = defineCollection({
 	}),
 });
 
+// Underscore-prefixed JSON files are templates, not calendar entries.
+const events = defineCollection({
+	loader: glob({
+		base: "../../content/computer/events",
+		pattern: "**/[^_]*.json",
+	}),
+	schema: z
+		.object({
+			name: z.string().trim().min(1),
+			fromDate: z.coerce.date(),
+			toDate: z.coerce.date(),
+			link: z.url().refine((value) => /^https?:\/\//.test(value), "Use an HTTP or HTTPS link"),
+		})
+		.refine((event) => event.toDate >= event.fromDate, {
+			message: "toDate must be on or after fromDate",
+			path: ["toDate"],
+		}),
+});
+
 import { collections as shared } from "../../../content/collections";
-export const collections = { ...shared, things, links, tech, fields };
+export const collections = { ...shared, things, links, tech, fields, events };

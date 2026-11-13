@@ -4,6 +4,7 @@ import { getNowPages } from "@/lib/now-content";
 import type { ApplicationId } from "@/data/applications";
 import { getCollection, render } from "astro:content";
 import SnippetFeed from "@now/components/snippet-feed.astro";
+import WeeknoteCalendar from "@/components/weeknote-calendar.astro";
 import { Content as Whoami } from "@content/whoami/index.mdx";
 import "@/styles/now-content.css";
 export async function getStaticPaths() {
@@ -59,6 +60,11 @@ const folders = app === "snippets" ? await getCollection("snippetCollections") :
 					<p>Wallpaper settings will live here.</p>
 				</>
 			</div>
+		) : app === "weeknotes" && !entry ? (
+			<WeeknoteCalendar
+				entries={await getCollection("weeknotes")}
+				events={await getCollection("events")}
+			/>
 		) : (
 			<>
 				<div class="browser-bar flex items-center justify-between gap-4 border-b border-neutral-200 px-4 py-2 text-sm">
@@ -72,6 +78,14 @@ const folders = app === "snippets" ? await getCollection("snippetCollections") :
 					</>
 				</div>
 				<div class="now-content mx-auto max-w-3xl p-6 md:p-10" data-now-content={app}>
+					{app === "weeknotes" && entry && "fromDate" in entry.data && (
+						<a
+							class="mb-6 inline-block text-sm"
+							href={`/weeknotes/#month=${entry.data.fromDate.toISOString().slice(0, 7)}`}
+						>
+							← Calendar
+						</a>
+					)}
 					<h1 class="mb-6 text-3xl font-semibold">
 						{entry ? ("name" in entry.data ? entry.data.name : entry.data.title) : app}
 					</h1>

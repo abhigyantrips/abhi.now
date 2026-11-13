@@ -21,8 +21,8 @@ shared Now content uses Now's Sätteri renderer. Shared prose styling and local
 copies of presentation assets preserve article typography without importing Now's
 full document layout or its global preference scripts.
 
-Run `pnpm --filter abhi-computer check` and `pnpm --filter abhi-computer test`
-from the repository root. See the root [README](../../README.md) for Cloudflare
+Run `pnpm --filter abhi-computer check` from the repository root.
+See the root [README](../../README.md) for Cloudflare
 build settings, watch paths, and independent deployment commands.
 
 Internal page links use trailing slashes to match Astro’s static directory output
@@ -37,3 +37,13 @@ each swap. Workspace listeners and search UI use a separate disposable page
 lifecycle in `computer.ts`. The search index is fetched once per document, and
 visible desktop app links prefetch their destinations. Astro still fetches page
 HTML and handles head/style/script updates during navigation.
+
+The Weeknotes calendar also displays the `events` collection as Attended Events.
+Add one JSON file per event in `content/computer/events/`, with `name`, `fromDate`,
+`toDate`, and `link` fields. Copy `_example.json` to a descriptive filename such as
+`conference-2026.json` and replace its values; filenames starting with `_` are
+excluded from the collection. Dates use `YYYY-MM-DD`, both endpoints are included,
+and a single-day event uses the same date for both. The end date must be on or after
+the start date, and links must use HTTP or HTTPS. Event links open in a new tab.
+The calendar includes all months covered by either collection; sidebar checkboxes
+show or hide each calendar.

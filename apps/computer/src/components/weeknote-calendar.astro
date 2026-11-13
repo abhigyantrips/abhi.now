@@ -1,0 +1,241 @@
+---
+import type { CollectionEntry } from "astro:content";
+import {
+	calendarMonths,
+	dateKey,
+	monthDate,
+	monthKey,
+	monthWeeks,
+	weekSegment,
+} from "@/lib/weeknote-calendar";
+import "@/styles/weeknote-calendar.css";
+
+interface Props {
+	entries: CollectionEntry<"weeknotes">[];
+	events: CollectionEntry<"events">[];
+}
+const { entries, events } = Astro.props;
+const notes = [...entries].sort((a, b) => a.data.fromDate.getTime() - b.data.fromDate.getTime());
+const calendarEntries = [
+	...notes.map((note) => {
+		const match = note.data.title.match(/^\(([^)]+)\)\s*(.*)$/);
+		return {
+			kind: "weeknotes",
+			number: match?.[1],
+			name: match?.[2] ?? note.data.title,
+			title: note.data.title,
+			fromDate: note.data.fromDate,
+			toDate: note.data.toDate,
+			href: `/weeknotes/${note.id}/`,
+		};
+	}),
+	...events.map((event) => ({
+		kind: "events",
+		number: undefined,
+		name: event.data.name,
+		title: event.data.name,
+		fromDate: event.data.fromDate,
+		toDate: event.data.toDate,
+		href: event.data.link,
+	})),
+].sort((a, b) => a.fromDate.getTime() - b.fromDate.getTime());
+const first = calendarEntries[0]?.fromDate;
+const last = calendarEntries.length
+	? new Date(Math.max(...calendarEntries.map((entry) => entry.toDate.getTime())))
+	: null;
+const months = first && last ? calendarMonths(first, last) : [];
+const latest = months.at(-1);
+const years = [...new Set(months.map((month) => month.slice(0, 4)))];
+const monthName = (month: string, format: "long" | "short" = "long") =>
+	monthDate(month).toLocaleDateString("en-US", { month: format, timeZone: "UTC" });
+const fullDate = (date: Date) =>
+	date.toLocaleDateString("en-US", {
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+		timeZone: "UTC",
+	});
+const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+---
+
+<section
+	class="weeknote-calendar"
+	data-weeknote-calendar
+	aria-label="Weeknotes and attended events calendar"
+>
+	<aside class="calendar-sidebar" aria-label="Calendar archive">
+		<div class="calendar-sidebar-heading">Calendars</div>
+		<div class="calendar-sources">
+			<label class="calendar-source">
+				<input
+					class="calendar-source-check"
+					type="checkbox"
+					data-calendar-source="weeknotes"
+					checked
+				/>
+				<span>Weeknotes</span>
+			</label>
+			<label class="calendar-source calendar-source-attended">
+				<input
+					class="calendar-source-check"
+					type="checkbox"
+					data-calendar-source="events"
+					checked
+				/>
+				<span>Attended Events</span>
+			</label>
+		</div>
+		<nav class="calendar-archive" aria-label="Choose a month">
+			{
+				years.map((year) => (
+					<div class="calendar-year">
+						<h2>{year}</h2>
+						<div class="calendar-months">
+							{months
+								.filter((month) => month.startsWith(year))
+								.map((month) => (
+									<a
+										href={`#month=${month}`}
+										data-calendar-month={month}
+										aria-current={month === latest ? "date" : undefined}
+									>
+										{monthName(month, "short")}
+									</a>
+								))}
+						</div>
+					</div>
+				))
+			}
+		</nav>
+		<div class="calendar-sidebar-footer">
+			<span>{notes.length} weeknotes</span>
+			<span>{events.length} attended events</span>
+			{
+				first && last && (
+					<span>
+						{monthName(monthKey(first), "short")} {first.getUTCFullYear()} –{" "}
+						{monthName(monthKey(last), "short")} {last.getUTCFullYear()}
+					</span>
+				)
+			}
+		</div>
+	</aside>
+	<div class="calendar-main">
+		<header class="calendar-toolbar">
+			<h1 data-calendar-heading aria-live="polite">
+				{
+					latest ? (
+						<>
+							{monthName(latest)} <span>{latest.slice(0, 4)}</span>
+						</>
+					) : (
+						"Weeknotes"
+					)
+				}
+			</h1>
+			<nav class="calendar-controls" aria-label="Month navigation">
+				<button
+					type="button"
+					data-calendar-step="-1"
+					aria-label="Previous month"
+					disabled={months.length < 2}
+					><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10 3-5 5 5 5"></path></svg></button
+				>
+				<button type="button" data-calendar-latest disabled={months.length === 0}>Latest</button>
+				<button type="button" data-calendar-step="1" aria-label="Next month" disabled
+					><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"></path></svg></button
+				>
+			</nav>
+		</header>
+		<div class="calendar-scroll">
+			<div class="calendar-weekdays" aria-hidden="true">
+				{
+					weekdays.map((day) => (
+						<span>
+							<>
+								<span class="calendar-weekday-full">{day}</span>
+								<span class="calendar-weekday-short">{day.slice(0, 3)}</span>
+							</>
+						</span>
+					))
+				}
+			</div>
+			{
+				months.map((month) => (
+					<section
+						class="calendar-month"
+						data-calendar-panel={month}
+						data-month-name={monthName(month)}
+						aria-label={`${monthName(month)} ${month.slice(0, 4)}`}
+						hidden={month !== latest}
+					>
+						{monthWeeks(month).map((week) => (
+							<div class="calendar-week">
+								<div class="calendar-days">
+									{week.map((day) => (
+										<div
+											class:list={[
+												"calendar-day",
+												{
+													"calendar-day-outside": monthKey(day) !== month,
+													"calendar-weekend": [0, 6].includes(day.getUTCDay()),
+												},
+											]}
+										>
+											<time datetime={dateKey(day)} aria-label={fullDate(day)}>
+												{day.getUTCDate()}
+											</time>
+										</div>
+									))}
+								</div>
+								<div class="calendar-events">
+									{calendarEntries.map((entry) => {
+										const segment = weekSegment(week, entry.fromDate, entry.toDate);
+										if (!segment) return null;
+										const label = `${entry.title}, ${fullDate(entry.fromDate)} – ${fullDate(entry.toDate)}`;
+										return (
+											<a
+												class:list={[
+													"calendar-event",
+													{
+														"calendar-event-continues-before":
+															dateKey(entry.fromDate) < dateKey(week[0]),
+														"calendar-event-continues-after":
+															dateKey(entry.toDate) > dateKey(week[6]),
+													},
+												]}
+												data-calendar-kind={entry.kind}
+												href={entry.href}
+												target={entry.kind === "events" ? "_blank" : undefined}
+												rel={entry.kind === "events" ? "noopener noreferrer" : undefined}
+												style={`grid-column: ${segment.column} / span ${segment.span}`}
+												title={label}
+												aria-label={label}
+											>
+												{entry.number && (
+													<strong class="calendar-event-number">{entry.number}</strong>
+												)}
+												<span class="calendar-event-title">{entry.name}</span>
+											</a>
+										);
+									})}
+								</div>
+							</div>
+						))}
+					</section>
+				))
+			}
+			{
+				months.length === 0 && (
+					<p class="calendar-empty">No weeknotes or events yet. Check back soon.</p>
+				)
+			}
+		</div>
+	</div>
+</section>
+
+<script>
+	import { initializeWeeknoteCalendar } from "@/scripts/weeknote-calendar";
+	document.addEventListener("astro:page-load", initializeWeeknoteCalendar);
+	initializeWeeknoteCalendar();
+</script>

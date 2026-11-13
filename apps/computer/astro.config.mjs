@@ -66,6 +66,8 @@ export default defineConfig({
 
 	adapter: cloudflare({
 		imageService: "cloudflare",
+		// Static content routes use Astro's Node renderer in development and at build time.
+		prerenderEnvironment: "node",
 	}),
 
 	fonts: [

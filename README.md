@@ -26,8 +26,6 @@ relevant application's ignored `.env` / `.dev.vars` files.
 | `pnpm build`                                                   | Build all three apps independently                                |
 | `pnpm build:now` / `pnpm build:computer` / `pnpm build:chhotu` | Build one app                                                     |
 | `pnpm check`                                                   | Diagnostics for all three apps                                    |
-| `pnpm --filter chhotu test`                                    | Publishing, API, offline draft and image tests                    |
-| `pnpm --filter abhi-computer test`                             | Computer's search tests                                           |
 | `pnpm format` / `pnpm format:check`                            | Write / check Prettier formatting                                 |
 
 Chhotu's background development-server instructions are in
