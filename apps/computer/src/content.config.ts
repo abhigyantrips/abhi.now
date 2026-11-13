@@ -2,7 +2,7 @@ import { glob } from "astro/loaders";
 
 import { z } from "astro/zod";
 
-import { globWithParser } from "@/lib/parsers";
+import { globWithParser } from "@content/loaders";
 import { defineCollection, reference } from "astro:content";
 
 const things = defineCollection({
