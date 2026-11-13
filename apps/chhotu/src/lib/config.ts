@@ -1,6 +1,6 @@
 export const OWNER = "abhigyantrips";
 export const OWNER_ID = 28886624;
-export const REPO = "abhi.now";
+export const REPO = "web";
 export const BRANCH = "main";
 export const CONTENT_ROOT = "content/snippets";
 export const SESSION_SECONDS = 60 * 60 * 24 * 7;

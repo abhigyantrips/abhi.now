@@ -1,5 +1,6 @@
 import DOMPurify from "dompurify";
 import { marked } from "marked";
+import { OWNER, REPO } from "../lib/config";
 import { readDraft, storeDraft } from "../lib/draft-store";
 import { epochFromLocal, localDateTime, slugify } from "../lib/editor-utils";
 import type { Collection, PublishedCommit } from "../lib/github";
@@ -139,7 +140,7 @@ async function clearSavedDraft() {
 }
 function showError(message: string, link?: string) {
 	errorBox.replaceChildren(document.createTextNode(message));
-	if (link && link.startsWith("https://github.com/abhigyantrips/abhi.now/")) {
+	if (link && link.startsWith(`https://github.com/${OWNER}/${REPO}/`)) {
 		const a = document.createElement("a");
 		a.href = link;
 		a.textContent = " check on GitHub ↗";

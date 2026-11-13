@@ -66,7 +66,7 @@ frameworks as part of consolidation.
 ## Cloudflare rollout
 
 Keep all three existing Workers and domain bindings. In each Worker's Settings >
-Build, connect `abhigyantrips/abhi.now` with production branch `main`. Set the root
+Build, connect `abhigyantrips/web` with production branch `main`. Set the root
 directory to the application's directory so Cloudflare finds its Wrangler config:
 
 | Worker / domain                   | Root directory  |
@@ -101,7 +101,7 @@ Changing these hosted Git settings and deploying remain rollout steps; local
 migration does not modify the Cloudflare account.
 
 Switch Chhotu to this repository when deploying its new Worker. It still commits
-to `abhigyantrips/abhi.now` on `main`, now under `content/snippets`. Its endpoints,
+to `abhigyantrips/web` on `main`, now under `content/snippets`. Its endpoints,
 PWA origin/identity, authentication, draft format, atomic commits, duplicate and
 retry recovery, and expected-HEAD checks are preserved. Installed editors submit
 collection IDs and content, not repository paths, so the updated server supplies

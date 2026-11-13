@@ -2,7 +2,7 @@
 
 A small, installable publisher for [abhi.now](https://abhi.now). Astro, Tailwind, Cloudflare Workers, Sour Gummy, and the main site's icons and dark palette.
 
-The home screen is `choose.` with a single snippets icon. The snippets editor loads the real collections from `abhigyantrips/abhi.now`, accepts Markdown and a phone-local datetime, and publishes directly to `main`.
+The home screen is `choose.` with a single snippets icon. The snippets editor loads the real collections from `abhigyantrips/web`, accepts Markdown and a phone-local datetime, and publishes directly to `main`.
 
 ## What publishing does
 

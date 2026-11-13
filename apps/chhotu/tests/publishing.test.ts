@@ -150,7 +150,7 @@ function mockGitHub(
 			data = [
 				{
 					sha: "b".repeat(40),
-					html_url: "https://github.com/abhigyantrips/abhi.now/commit/b",
+					html_url: "https://github.com/abhigyantrips/web/commit/b",
 					commit: {
 						message: `content(snippet): #${input.epoch}\n\nChhotu-Publish-Id: ${options.recovered ? input.requestId : "somebody-else"}`,
 						verification: { verified: true, reason: "valid" },
@@ -165,7 +165,7 @@ function mockGitHub(
 							createCommitOnBranch: {
 								commit: {
 									oid: "b".repeat(40),
-									url: "https://github.com/abhigyantrips/abhi.now/commit/b",
+									url: "https://github.com/abhigyantrips/web/commit/b",
 									signature: {
 										isValid: options.verified ?? true,
 										state: "VALID",
@@ -194,7 +194,7 @@ test("uses a single atomic GraphQL commit with the exact headline and expected h
 		assert.equal(commits.length, 1);
 		const payload = JSON.parse(String(commits[0].init?.body)).variables.input;
 		assert.deepEqual(payload.branch, {
-			repositoryNameWithOwner: "abhigyantrips/abhi.now",
+			repositoryNameWithOwner: "abhigyantrips/web",
 			branchName: "main",
 		});
 		assert.equal(payload.message.headline, `content(snippet): #${input.epoch}`);

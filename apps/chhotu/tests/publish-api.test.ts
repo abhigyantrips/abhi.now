@@ -93,7 +93,7 @@ test("photo request above the old cap publishes one commit; invalid images and a
 					createCommitOnBranch: {
 						commit: {
 							oid: "b".repeat(40),
-							url: "https://github.com/abhigyantrips/abhi.now/commit/b",
+							url: "https://github.com/abhigyantrips/web/commit/b",
 							signature: null,
 						},
 					},

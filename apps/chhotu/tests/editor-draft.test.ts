@@ -47,7 +47,7 @@ test("photo draft survives a failed publish and reload, reuses its request ID, a
 				return Response.json({
 					recovered: true,
 					commit: {
-						url: "https://github.com/abhigyantrips/abhi.now/commit/b",
+						url: "https://github.com/abhigyantrips/web/commit/b",
 						signature: { isValid: true },
 					},
 				});
