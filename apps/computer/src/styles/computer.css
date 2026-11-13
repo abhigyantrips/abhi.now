@@ -122,6 +122,10 @@ html[data-theme="dark"] .computer {
 	color: var(--ink);
 	box-shadow: var(--chrome-bevel);
 }
+.computer .start-mark {
+	background-color: currentColor;
+	mask: url("/favicon.svg") center / contain no-repeat;
+}
 .computer #start[aria-expanded="false"]:hover {
 	background: color-mix(in srgb, var(--ink) 20%, transparent);
 }
@@ -201,6 +205,8 @@ html[data-theme="dark"] .computer {
 .computer .clock {
 	writing-mode: vertical-rl;
 	text-orientation: sideways;
+	text-align: end;
+	line-height: 1.8;
 	white-space: nowrap;
 }
 
