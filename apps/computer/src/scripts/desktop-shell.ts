@@ -8,70 +8,59 @@ export const validApplicationId = (id: unknown): id is ApplicationId =>
 export function initializeDesktopShell() {
 	const controller = new AbortController();
 	initializeControlPanel(controller.signal);
-	const storageKey = "abhi.computer.open-applications";
-	const pathsKey = "abhi.computer.application-paths";
-	const validId = validApplicationId;
-	let opened: ApplicationId[] = [];
-	let paths: Record<string, string> = {};
-	try {
-		const stored: unknown = JSON.parse(localStorage.getItem(storageKey) ?? "[]");
-		if (Array.isArray(stored)) opened = [...new Set(stored.filter(validId))];
-		const saved: unknown = JSON.parse(localStorage.getItem(pathsKey) ?? "{}");
-		if (saved && typeof saved === "object" && !Array.isArray(saved)) {
-			for (const [id, path] of Object.entries(saved)) {
-				if (
-					!validId(id) ||
-					typeof path !== "string" ||
-					!path.startsWith("/") ||
-					path.startsWith("//")
-				)
-					continue;
-				const pathname = new URL(path, location.origin).pathname;
-				const owned =
-					id === "journal"
-						? /^\/(journal|things|links|tech|fields)(\/|$)/.test(pathname)
-						: pathname === `/${id}` || pathname.startsWith(`/${id}/`);
-				if (owned) {
-					const url = new URL(path, location.origin);
-					url.pathname = `${url.pathname.replace(/\/$/, "")}/`;
-					paths[id] = url.pathname + url.search + url.hash;
-				}
-			}
-		}
-	} catch {
-		/* Storage is optional. */
+	let tooltipTarget: HTMLElement | undefined;
+	function hideTooltip() {
+		document.querySelector<HTMLElement>("#app-tooltip")!.hidden = true;
+		tooltipTarget?.removeAttribute("aria-describedby");
+		tooltipTarget = undefined;
 	}
-	function save() {
-		try {
-			localStorage.setItem(storageKey, JSON.stringify(opened));
-			localStorage.setItem(pathsKey, JSON.stringify(paths));
-		} catch {}
+	function showTooltip(event: Event) {
+		const target = (event.target as Element).closest<HTMLElement>("[data-app-title]");
+		if (!target) return;
+		if (target === tooltipTarget) return;
+		hideTooltip();
+		const tooltip = document.querySelector<HTMLElement>("#app-tooltip")!;
+		tooltip.querySelector("[data-tooltip-title]")!.textContent = target.dataset.appTitle!;
+		tooltip.querySelector("[data-tooltip-description]")!.textContent =
+			target.dataset.appDescription!;
+		tooltip.hidden = false;
+		const bounds = target.getBoundingClientRect();
+		const left = target.hasAttribute("data-taskbar")
+			? bounds.left - tooltip.offsetWidth - 8
+			: bounds.left + (bounds.width - tooltip.offsetWidth) / 2;
+		tooltip.style.left = `${Math.max(16, Math.min(left, innerWidth - tooltip.offsetWidth - 16))}px`;
+		tooltip.style.top = `${Math.max(16, Math.min(bounds.top, innerHeight - tooltip.offsetHeight - 16))}px`;
+		target.setAttribute("aria-describedby", "app-tooltip");
+		tooltipTarget = target;
 	}
+	for (const type of ["pointerover", "focusin"]) {
+		document.addEventListener(type, showTooltip, { signal: controller.signal });
+	}
+	for (const type of ["pointerout", "focusout"]) {
+		document.addEventListener(
+			type,
+			(event) => {
+				if (!tooltipTarget?.contains((event as FocusEvent).relatedTarget as Node | null))
+					hideTooltip();
+			},
+			{ signal: controller.signal }
+		);
+	}
+	document.addEventListener("scroll", hideTooltip, { capture: true, signal: controller.signal });
+	document.addEventListener(
+		"keydown",
+		(event) => {
+			if (event.key === "Escape") hideTooltip();
+		},
+		{ signal: controller.signal }
+	);
 
 	function sync() {
+		hideTooltip();
 		const active = document.body.dataset.app;
-		if (validId(active)) {
-			if (!opened.includes(active)) opened.push(active);
-			paths[active] = location.pathname + location.search + location.hash;
-		}
-		opened = opened.slice(-5);
-		for (const id of Object.keys(paths))
-			if (!opened.includes(id as ApplicationId)) delete paths[id];
-		save();
 		for (const task of document.querySelectorAll<HTMLAnchorElement>("[data-taskbar]")) {
-			const id = task.dataset.taskbar;
-			if (!validId(id)) continue;
-			task.hidden = !opened.includes(id);
-			task.style.order = String(opened.indexOf(id));
-			task.toggleAttribute("data-taskbar-divider", opened.indexOf(id) > 0);
-			task.href = paths[id] ?? applications.find((app) => app.id === id)!.path;
-			if (id === active) task.setAttribute("aria-current", "page");
+			if (task.dataset.taskbar === active) task.setAttribute("aria-current", "page");
 			else task.removeAttribute("aria-current");
-			task.removeAttribute("aria-pressed");
-		}
-		for (const favorite of document.querySelectorAll<HTMLElement>("[data-open-app]")) {
-			if (favorite.dataset.openApp === active) favorite.setAttribute("aria-current", "page");
-			else favorite.removeAttribute("aria-current");
 		}
 		const start = document.querySelector<HTMLAnchorElement>("#start")!;
 		const launcherOpen = location.pathname === "/";
@@ -80,10 +69,6 @@ export function initializeDesktopShell() {
 	}
 
 	function closeActiveApplication() {
-		const active = document.body.dataset.app;
-		opened = opened.filter((id) => id !== active);
-		if (active) delete paths[active];
-		save();
 		void navigate("/desktop/");
 	}
 	function updateClock() {

@@ -29,6 +29,8 @@ import { applications } from "@/data/applications";
 							class="application flex min-h-32 flex-col items-center justify-center gap-4 rounded-lg p-4 text-center"
 							href={app.path}
 							data-search={app.title.toLowerCase()}
+							data-app-title={app.title}
+							data-app-description={app.description}
 						>
 							<ComputerIcon name={app.id} class="size-16" />
 							<span>{app.title}</span>

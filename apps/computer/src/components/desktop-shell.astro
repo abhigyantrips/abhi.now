@@ -1,6 +1,5 @@
 ---
 import ComputerIcon from "@/components/computer-icon.astro";
-import Logo from "@/components/logo.astro";
 import { applications, type ApplicationId } from "@/data/applications";
 interface Props {
 	appId?: ApplicationId;
@@ -8,75 +7,46 @@ interface Props {
 const { appId } = Astro.props;
 ---
 
-<div class="fixed inset-4 flex flex-col gap-4">
-	<div class="flex min-h-0 flex-1 gap-4">
-		<main class="workspace min-w-0 flex-1" aria-label="Desktop">
-			<slot />
-		</main>
-		<nav
-			class="favorites flex w-16 shrink-0 flex-col gap-4 overflow-y-auto md:w-24"
-			aria-label="Favorite applications"
-			transition:persist="desktop-favorites"
-		>
-			{
-				applications.map(
-					(app) =>
-						"favoriteLabel" in app && (
-							<a
-								href={app.path}
-								data-open-app={app.id}
-								data-astro-prefetch="viewport"
-								aria-current={app.id === appId ? "page" : undefined}
-								class="favorite flex min-h-24 shrink-0 flex-col items-center justify-center gap-3 rounded-lg p-2 text-sm"
-							>
-								<>
-									<ComputerIcon name={app.id} class="size-10" />
-									<span>{app.favoriteLabel}</span>
-								</>
-							</a>
-						)
-				)
-			}
-		</nav>
-	</div>
+<div class="desktop-shell fixed inset-4 flex gap-4">
+	<main class="workspace min-h-0 min-w-0 flex-1" aria-label="Desktop">
+		<slot />
+	</main>
 	<footer
 		transition:persist="desktop-taskbar"
-		class="taskbar flex h-16 shrink-0 items-center rounded-xl bg-white"
+		class="taskbar flex w-16 shrink-0 flex-col items-stretch rounded-xl bg-white"
 	>
 		<a
 			href={Astro.url.pathname === "/" ? "/desktop/" : "/"}
 			id="start"
-			class="flex shrink-0 items-center justify-center self-stretch rounded-l-xl px-3 sm:px-4"
+			class="flex h-16 shrink-0 items-center justify-center rounded-t-xl p-3"
 			aria-expanded={Astro.url.pathname === "/"}
 			aria-label="Applications"
-			title="Applications"
-			><span aria-hidden="true"><Logo class="block h-auto w-20 sm:w-36" /></span></a
+			title="Applications"><ComputerIcon name="launcher" class="size-8" /></a
 		>
-		<nav
-			class="open-applications flex min-w-0 flex-1 self-stretch overflow-x-auto"
-			aria-label="Open applications"
-		>
+		<nav class="top-links flex min-h-0 flex-1 flex-col overflow-y-auto" aria-label="Top links">
 			{
-				applications.map((app) => (
-					<a
-						href={app.path}
-						class="relative flex shrink-0 items-center justify-center px-4"
-						data-taskbar={app.id}
-						data-astro-prefetch="viewport"
-						aria-pressed="false"
-						aria-label={app.title}
-						title={app.title}
-						hidden
-					>
-						<ComputerIcon name={app.id} class="size-8 shrink-0" />
-					</a>
-				))
+				applications
+					.filter((app) => "topLink" in app)
+					.map((app) => (
+						<a
+							href={app.path}
+							class="flex min-h-16 shrink-0 items-center justify-center"
+							data-taskbar={app.id}
+							data-astro-prefetch="viewport"
+							data-app-title={app.title}
+							data-app-description={app.description}
+							aria-current={app.id === appId ? "page" : undefined}
+							aria-label={app.title}
+						>
+							<ComputerIcon name={app.id} class="size-8" />
+						</a>
+					))
 			}
 		</nav>
 		<button
 			id="control-panel-toggle"
 			type="button"
-			class="shrink-0 self-stretch rounded-r-xl px-4 text-right text-sm uppercase tabular-nums"
+			class="flex shrink-0 items-center justify-center rounded-b-xl py-4 text-sm uppercase tabular-nums"
 			popovertarget="control-panel"
 			aria-controls="control-panel"
 			aria-expanded="false"
@@ -89,6 +59,10 @@ const { appId } = Astro.props;
 			</time>
 		</button>
 	</footer>
+</div>
+<div id="app-tooltip" class="app-tooltip" role="tooltip" hidden>
+	<strong data-tooltip-title></strong>
+	<span data-tooltip-description></span>
 </div>
 <section
 	id="control-panel"

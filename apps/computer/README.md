@@ -27,13 +27,13 @@ build settings, watch paths, and independent deployment commands.
 
 Internal page links use trailing slashes to match Astro’s static directory output
 and Cloudflare’s canonical URLs. This includes desktop shortcuts, shared-content
-links, search results, and remembered application paths; asset URLs are unchanged.
+links and search results; asset URLs are unchanged.
 
 The desktop shell lives in `src/components/desktop-shell.astro`. Named Astro
-persistence boundaries retain favorites, the taskbar (including the clock), and
+persistence boundaries retain the right-hand taskbar (including the clock) and
 the control panel across navigation. `src/scripts/desktop-shell.ts` initializes
-those controls once, then synchronizes active links and remembered app paths after
-each swap. Workspace listeners and search UI use a separate disposable page
+those controls once, then synchronizes active links after each swap. The taskbar
+shows fixed top links; app visits and paths are not saved. Workspace listeners and search UI use a separate disposable page
 lifecycle in `computer.ts`. The search index is fetched once per document, and
 visible desktop app links prefetch their destinations. Astro still fetches page
 HTML and handles head/style/script updates during navigation.

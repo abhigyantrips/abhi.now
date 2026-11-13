@@ -108,33 +108,13 @@ html[data-theme="dark"] .computer {
 }
 
 /* Application links use ordinary document navigation. */
-.computer :where(.application, .favorite, [data-taskbar], #start) {
+.computer :where(.application, [data-taskbar], #start) {
 	color: inherit;
 	text-decoration: none;
-}
-.computer .favorite {
-	color: #fffaed;
-	text-shadow: 0 1px 2px rgb(0 0 0 / 75%);
-}
-.computer .favorite:is(:hover, :focus-visible, :active, [aria-current="page"]) {
-	background: var(--hover);
-	color: var(--ink);
-	text-shadow: none;
 }
 .computer [data-taskbar]:is(:hover, [aria-current="page"]) {
 	background: color-mix(in srgb, var(--ink) 10%, transparent);
 	color: var(--ink);
-}
-.computer [data-taskbar-divider]::before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 1px;
-	height: 1.5rem;
-	background: color-mix(in srgb, var(--ink) 35%, transparent);
-	transform: translateY(-50%);
-	pointer-events: none;
 }
 .computer #start {
 	display: flex;
@@ -161,9 +141,9 @@ html[data-theme="dark"] .computer {
 
 .computer .control-panel {
 	position: fixed;
-	inset: auto 1rem 6rem auto;
-	width: min(20rem, calc(100vw - 2rem));
-	max-height: calc(100dvh - 7rem);
+	inset: auto 6rem 1rem auto;
+	width: min(20rem, calc(100vw - 7rem));
+	max-height: calc(100dvh - 2rem);
 	margin: 0;
 	padding: 1rem;
 	border: 0;
@@ -215,4 +195,34 @@ html[data-theme="dark"] .computer {
 }
 .control-status:empty {
 	display: none;
+}
+
+/* Sideways text reads downward, with the bottoms of the glyphs facing left. */
+.computer .clock {
+	writing-mode: vertical-rl;
+	text-orientation: sideways;
+	white-space: nowrap;
+}
+
+.computer .app-tooltip {
+	position: fixed;
+	z-index: 10;
+	width: max-content;
+	max-width: min(18rem, calc(100vw - 7rem));
+	padding: 0.75rem 1rem;
+	border: 1px solid var(--line);
+	border-radius: 0.5rem;
+	background: var(--paper);
+	color: var(--ink);
+	box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+	font-size: 0.75rem;
+	pointer-events: none;
+}
+.computer .app-tooltip strong,
+.computer .app-tooltip span {
+	display: block;
+}
+.computer .app-tooltip span {
+	margin-top: 0.25rem;
+	color: var(--muted);
 }
