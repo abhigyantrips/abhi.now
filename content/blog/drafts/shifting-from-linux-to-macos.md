@@ -5,7 +5,21 @@ date: 2026-10-24
 published: false
 ---
 
-I got a call from IT yesterday that I had been dreading for weeks. "Your laptop is ready to be picked up," they told me. I slowly, begrudgingly made my way to the cubicle that had a huge stack of boxes -- white, with pristine black apples on them -- and was handed over my new MacBook with its MagSafe charger. With this, using macOS was now my inescapable fate.
+When I first wrote this post, it was a rant. A lengthy one, going on about how limited macOS is and how stupid every single design choice is. It was a Linux tinkerer crashing out because he was used to the freedom of doing and customizing anything and everything on his system, to the point of sometimes corrupting his OS and having to re-install it from scratch.
+
+I'm still that tinkering kid and I'm still quite annoyed, but I think I've found enough things to like about the MacBook (plus enough third-party apps that make the experience comfortable) that I'm fine, for now. This is just me documenting what made this new OS comfortable for me, and create a new but familiar home.
+
+This post is dedicated to Accessibility Services, which -- apart from opening up software use to persons with disabilities -- make even the most locked down systems somewhat customizable for the general public.
+
+### The First Day
+
+Oh boy, it was hell.
+
+### Touchpad & Mice
+
+The touchpad on the MacBook has completely spoiled me. "Your laptop is ready to be picked up," they told me. I slowly, begrudgingly made my way to the cubicle that had a huge stack of boxes -- white, with pristine black apples on them -- and was handed over my new MacBook with its MagSafe charger. With this, using macOS was now my inescapable fate.
+
+# Old
 
 I have heard Apple software being referred to as "a walled garden". Apple users have told me that -- once I get used to the software -- the experience is _great_. But I'm coming to this place from Arch Linux, literally the most malleable operating system _and_ its best[^1] distribution to exist.
 
