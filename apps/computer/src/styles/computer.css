@@ -232,3 +232,88 @@ html[data-theme="dark"] .computer {
 	margin-top: 0.25rem;
 	color: var(--muted);
 }
+
+/* Shared desktop motion: fast feedback, longer spatial changes. */
+.computer {
+	--motion-fast: 110ms;
+	--motion-surface: 180ms;
+	--motion-exit: 130ms;
+	--motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.computer #launcher {
+	position: fixed;
+	inset: 2rem 7rem 2rem 2rem;
+	z-index: 20;
+	box-shadow:
+		var(--chrome-bevel),
+		0 12px 40px rgb(0 0 0 / 20%);
+	width: auto;
+	height: auto;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	color: var(--ink);
+	font: inherit;
+}
+.computer #launcher:not([open]) {
+	display: none;
+}
+.computer
+	:is(
+		.application,
+		[data-taskbar],
+		#start,
+		.window-controls > *,
+		.control-toggle,
+		#control-panel-toggle
+	) {
+	transition:
+		background-color var(--motion-fast) var(--motion-ease),
+		color var(--motion-fast) var(--motion-ease),
+		transform var(--motion-fast) var(--motion-ease);
+}
+.computer :is(.application, [data-taskbar], #start, .window-controls > *, .control-toggle):active {
+	transform: scale(0.96);
+}
+.computer .window-controls a:hover {
+	background: var(--hover);
+}
+.computer [data-taskbar] {
+	position: relative;
+}
+.computer [data-taskbar][data-session="open"]::after,
+.computer [data-taskbar][data-session="minimized"]::after {
+	content: "";
+	position: absolute;
+	left: 3px;
+	top: calc(50% - 3px);
+	width: 3px;
+	height: 6px;
+	border-radius: 2px;
+	background: var(--ink);
+}
+.computer [data-taskbar][data-session="minimized"]::after {
+	opacity: 0.4;
+}
+.computer #app-tooltip {
+	z-index: 30;
+	inset: auto;
+	margin: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+	.computer *,
+	.computer *::backdrop {
+		animation-duration: 0ms !important;
+		transition-duration: 0ms !important;
+	}
+}
+@media (max-width: 640px) {
+	.computer #launcher {
+		inset: 1rem 6rem 1rem 1rem;
+	}
+	.computer #launcher .application {
+		padding: 0.5rem;
+	}
+}

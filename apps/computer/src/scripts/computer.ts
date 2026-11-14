@@ -1,5 +1,4 @@
 import {
-	navigate,
 	type TransitionBeforePreparationEvent,
 	type TransitionBeforeSwapEvent,
 } from "astro:transitions/client";
@@ -7,35 +6,17 @@ import { applications, type ApplicationId } from "../data/applications";
 import { normalizeSearch, searchEntries, type SearchEntry } from "../lib/search";
 import { initializeDesktopShell, validApplicationId as validId } from "./desktop-shell";
 
-// Keep the downloaded index across launcher visits; page cleanup only cancels UI updates.
+// Launcher DOM, search state and its downloaded index survive content navigation.
 let indexPromise: Promise<SearchEntry[]> | undefined;
 
-function initializePage() {
+function initializeLauncherSearch() {
 	if (!document.body.classList.contains("computer")) return;
 	const controller = new AbortController();
 	const cleanups: (() => void)[] = [];
 	const search = document.querySelector<HTMLInputElement>("#app-search");
-	document
-		.querySelector("[data-close]")
-		?.addEventListener("click", () => shell?.closeActiveApplication(), {
-			signal: controller.signal,
-		});
-
 	function open(id: ApplicationId) {
-		void navigate(applications.find((app) => app.id === id)!.path);
+		void shell?.activate(id);
 	}
-	if (search)
-		document.addEventListener(
-			"keydown",
-			(event) => {
-				if (
-					event.key === "Escape" &&
-					!document.querySelector("#control-panel")?.matches(":popover-open")
-				)
-					void navigate("/desktop/");
-			},
-			{ signal: controller.signal }
-		);
 	if (search) {
 		const resultSection = document.querySelector<HTMLElement>("#post-results")!;
 		const resultList = document.querySelector<HTMLElement>("#search-results")!;
@@ -138,7 +119,7 @@ function initializePage() {
 		});
 		retry.addEventListener("click", () => updateSearch(++queryVersion));
 		search.addEventListener("keydown", async (event) => {
-			if (event.key !== "Enter") return;
+			if (event.key !== "Enter" || event.isComposing) return;
 			event.preventDefault();
 			const query = normalizeSearch(search.value.trim());
 			const terms = query.split(/\s+/).filter(Boolean);
@@ -161,14 +142,16 @@ function initializePage() {
 	};
 }
 
-let disposePage: (() => void) | undefined;
+let disposeSearch: (() => void) | undefined;
 let shell: ReturnType<typeof initializeDesktopShell> | undefined;
 let shellElement: Element | null = null;
 function syncShell() {
 	const element = document.querySelector(".taskbar");
 	if (element !== shellElement) {
+		disposeSearch?.();
 		shell?.dispose();
 		shell = element ? initializeDesktopShell() : undefined;
+		disposeSearch = element ? initializeLauncherSearch() : undefined;
 		shellElement = element;
 	}
 	shell?.sync();
@@ -199,8 +182,7 @@ document.addEventListener("astro:before-preparation", (event) => {
 	};
 });
 document.addEventListener("astro:before-swap", (event) => {
-	disposePage?.();
-	disposePage = undefined;
+	shell?.remember();
 	const incoming = (event as TransitionBeforeSwapEvent).newDocument;
 	incoming.documentElement.dataset.theme = document.documentElement.dataset.theme ?? "light";
 	incoming.documentElement.classList.toggle(
@@ -214,8 +196,7 @@ document.addEventListener("astro:before-swap", (event) => {
 document.addEventListener("astro:after-swap", syncShell);
 document.addEventListener("astro:page-load", () => {
 	clearNavigationCursor();
-	disposePage?.();
 	syncShell();
-	disposePage = initializePage();
+	shell?.pageLoaded();
 });
 window.addEventListener("pageshow", clearNavigationCursor);

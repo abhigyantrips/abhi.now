@@ -30,13 +30,35 @@ and Cloudflare’s canonical URLs. This includes desktop shortcuts, shared-conte
 links and search results; asset URLs are unchanged.
 
 The desktop shell lives in `src/components/desktop-shell.astro`. Named Astro
-persistence boundaries retain the right-hand taskbar (including the clock) and
-the control panel across navigation. `src/scripts/desktop-shell.ts` initializes
-those controls once, then synchronizes active links after each swap. The taskbar
-shows fixed top links; app visits and paths are not saved. Workspace listeners and search UI use a separate disposable page
-lifecycle in `computer.ts`. The search index is fetched once per document, and
-visible desktop app links prefetch their destinations. Astro still fetches page
-HTML and handles head/style/script updates during navigation.
+persistence boundaries retain the taskbar, launcher, tooltip and control panel.
+`desktop-shell.ts` owns desktop commands and navigation lifecycle coordination;
+`desktop-state.ts` owns per-application sessions. Switching apps resumes the last
+URL (including calendar month), content scroll position and checkbox filters.
+Minimize retains a session; close removes it. Sessions are saved in versioned
+`sessionStorage` within this tab, with an in-memory fallback if storage is blocked.
+Article content still renders through Astro and ClientRouter; inactive apps are
+not kept mounted and arbitrary MDX widget state is not serialized.
+
+The launcher is a persistent, nonmodal dialog over the workspace. Opening it makes
+the workspace inert while keeping taskbar commands accessible. It focuses search,
+supports arrow-key selection and Escape dismissal, restores focus on dismissal,
+and retains its query across app navigation. The `/` route opens it on direct
+entry; toggling it locally does not add browser history entries. Content navigation
+and app switches use normal ClientRouter history; Back/Forward revisit those URLs.
+Modified clicks retain ordinary link behavior.
+
+`motion.ts` provides interruptible surface animations and presence lifecycles.
+Launcher and tooltip exit animations finish before hiding their surfaces; new
+requests supersede running animations. Tooltips use a 400ms pointer hover delay
+and a short warm period when moving between icons; keyboard focus shows them
+immediately. Windows animate on app entry, minimize, restore and close, while
+same-app content navigation keeps its chrome steady. CSS motion tokens live in
+`computer.css`; reduced-motion preferences remove spatial animation durations.
+The search index is fetched once per document, and taskbar links prefetch their
+destinations. Astro handles page HTML, head, style and script updates.
+
+Run the state-model tests with `node --test tests/desktop-state.test.ts` from this
+application directory (Node 22.18+ supports the TypeScript test files directly).
 
 The Weeknotes calendar also displays the `events` collection as Attended Events.
 Add one JSON file per event in `content/computer/events/`, with `name`, `fromDate`,
