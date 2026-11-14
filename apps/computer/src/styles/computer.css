@@ -242,7 +242,7 @@ html[data-theme="dark"] .computer {
 }
 .computer #launcher {
 	position: fixed;
-	inset: 2rem 7rem 2rem 2rem;
+	inset: 1rem 6rem 1rem 1rem;
 	z-index: 20;
 	box-shadow:
 		var(--chrome-bevel),
@@ -310,9 +310,6 @@ html[data-theme="dark"] .computer {
 	}
 }
 @media (max-width: 640px) {
-	.computer #launcher {
-		inset: 1rem 6rem 1rem 1rem;
-	}
 	.computer #launcher .application {
 		padding: 0.5rem;
 	}

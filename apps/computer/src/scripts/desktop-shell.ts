@@ -65,8 +65,14 @@ export function initializeDesktopShell() {
 				const left = target.hasAttribute("data-taskbar")
 					? bounds.left - tooltip.offsetWidth - 8
 					: bounds.left + (bounds.width - tooltip.offsetWidth) / 2;
+				const below = bounds.bottom + 8;
+				const top = target.hasAttribute("data-taskbar")
+					? bounds.top
+					: below + tooltip.offsetHeight <= innerHeight - 16
+						? below
+						: bounds.top - tooltip.offsetHeight - 8;
 				tooltip.style.left = `${Math.max(16, Math.min(left, innerWidth - tooltip.offsetWidth - 16))}px`;
-				tooltip.style.top = `${Math.max(16, Math.min(bounds.top, innerHeight - tooltip.offsetHeight - 16))}px`;
+				tooltip.style.top = `${Math.max(16, Math.min(top, innerHeight - tooltip.offsetHeight - 16))}px`;
 				target.setAttribute("aria-describedby", "app-tooltip");
 				void tooltipPresence.set(true);
 			},
