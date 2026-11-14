@@ -1,5 +1,8 @@
+/* Use the same independent typography entry and shared prose rules as now. */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@source "../../../../content";
 @import "../../../../content/prose.css";
-@reference "./global.css";
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 .now-content {
 	font-family: var(--font-gummy), sans-serif;
@@ -8,5 +11,78 @@
 @media (any-pointer: fine) {
 	.now-content :is(a[href], button, summary, [role="button"], .cursor-pointer) {
 		cursor: var(--cursor-click) !important;
+	}
+}
+
+/* Match now's base reading size rather than inheriting the desktop's 15px. */
+.now-reading {
+	font-size: 1rem;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* These code treatments are part of now's global stylesheet. */
+.now-content .prose code::before,
+.now-content .prose code::after {
+	content: none !important;
+}
+
+.now-content .prose code {
+	font-size: 0.85em !important;
+	font-weight: 500;
+	padding: 0.2em 0.4em;
+	border-radius: 0.25rem;
+	background-color: rgba(150, 150, 150, 0.2);
+	color: inherit;
+}
+
+@media print {
+	@page {
+		margin: 1.5cm;
+	}
+
+	body:has(.now-reading) {
+		background: var(--color-bg);
+	}
+
+	body:has(.now-reading)
+		:is(.taskbar, .window-header, .browser-bar, #launcher, #control-panel, #app-tooltip) {
+		display: none !important;
+	}
+
+	body:has(.now-reading)
+		:is(.desktop-shell, .workspace, .application-window, [data-application-content]) {
+		position: static;
+		display: block;
+		height: auto;
+		overflow: visible;
+		box-shadow: none;
+	}
+
+	.now-reading .h-entry {
+		padding-top: 0 !important;
+	}
+
+	.now-reading .h-entry,
+	.now-reading .h-entry *:not(figure, ul, ol, li, blockquote, blockquote *) {
+		max-width: 100% !important;
+		padding-inline: 0 !important;
+	}
+
+	.now-reading blockquote {
+		border-left-color: #3c3836 !important;
+	}
+
+	.now-reading :is(figure, img) {
+		break-inside: avoid;
+	}
+
+	.now-reading figure {
+		max-width: 60% !important;
+		margin-inline: auto;
+	}
+
+	.now-reading figure img {
+		max-width: 100% !important;
 	}
 }

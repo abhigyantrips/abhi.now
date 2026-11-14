@@ -6,7 +6,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 	const response = await next();
 	if (!response.headers.get("content-type")?.includes("text/html")) return response;
 	const scope = context.url.pathname.split("/")[1];
-	if (!["blog", "weeknotes", "snippets", "whoami", "projects"].includes(scope)) return response;
+	if (!["blog", "weeknotes", "snippets", "projects"].includes(scope)) return response;
 	const paths = new Set((await getNowPages()).map((page) => page.path));
 	const document = parse(await response.text());
 	const walk = (node: DefaultTreeAdapterMap["node"], inside = false) => {
@@ -43,7 +43,10 @@ export const onRequest = defineMiddleware(async (context, next) => {
 						set(node, "target", "_blank");
 						set(node, "rel", "noopener noreferrer");
 					}
-				} else if (!path.startsWith("/_astro/") && !path.startsWith("/cdn-cgi/"))
+				} else if (
+					// Astro serves generated assets and source images from its own endpoints.
+					!/^\/(?:_astro|_image|@fs|@id|cdn-cgi|now-assets)(?:\/|$)/.test(path)
+				)
 					attr.value = `/now-assets${url.pathname}${url.search}${url.hash}`;
 			}
 		}

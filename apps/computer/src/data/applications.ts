@@ -3,7 +3,7 @@ export const applications = [
 		id: "journal",
 		description: "Notes on tinkering, discoveries, and things worth keeping.",
 		path: "/journal/",
-		title: "Tinkering Journal",
+		title: "Lab Notebook",
 		topLink: true,
 	},
 	{
@@ -36,13 +36,6 @@ export const applications = [
 		path: "/snippets/",
 		title: "Snippets",
 		url: "https://abhi.now/snippets",
-	},
-	{
-		id: "whoami",
-		description: "A little about me and what I do.",
-		path: "/whoami/",
-		title: "Whoami",
-		url: "https://abhi.now/whoami",
 	},
 	{
 		id: "settings",

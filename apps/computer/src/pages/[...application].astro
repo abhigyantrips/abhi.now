@@ -3,9 +3,9 @@ import ComputerLayout from "@/layouts/computer-layout.astro";
 import { getNowPages } from "@/lib/now-content";
 import type { ApplicationId } from "@/data/applications";
 import { getCollection, render } from "astro:content";
-import SnippetFeed from "@now/components/snippet-feed.astro";
+import Snippets from "@/components/snippets.astro";
 import WeeknoteCalendar from "@/components/weeknote-calendar.astro";
-import { Content as Whoami } from "@content/whoami/index.mdx";
+import NowReading from "@/components/now-reading.astro";
 import "@/styles/now-content.css";
 export async function getStaticPaths() {
 	return [
@@ -48,7 +48,6 @@ entries.sort(
 );
 const Content =
 	entry && entry.collection !== "snippetCollections" ? (await render(entry)).Content : null;
-const folders = app === "snippets" ? await getCollection("snippetCollections") : [];
 ---
 
 <ComputerLayout appId={app as ApplicationId}>
@@ -67,60 +66,46 @@ const folders = app === "snippets" ? await getCollection("snippetCollections") :
 			/>
 		) : (
 			<>
-				<div class="browser-bar flex items-center justify-between gap-4 border-b border-neutral-200 px-4 py-2 text-sm">
-					<>
-						<span data-native-url class="truncate text-neutral-600">
-							{canonical}
-						</span>
-						<a data-native-open href={canonical} target="_blank" rel="noopener noreferrer">
-							Open ↗
-						</a>
-					</>
-				</div>
-				<div class="now-content mx-auto max-w-3xl p-6 md:p-10" data-now-content={app}>
-					{app === "weeknotes" && entry && "fromDate" in entry.data && (
-						<a
-							class="mb-6 inline-block text-sm"
-							href={`/weeknotes/#month=${entry.data.fromDate.toISOString().slice(0, 7)}`}
-						>
-							← Calendar
-						</a>
-					)}
-					<h1 class="mb-6 text-3xl font-semibold">
-						{entry ? ("name" in entry.data ? entry.data.name : entry.data.title) : app}
-					</h1>
-					{Content && (
-						<article class="prose-content">
-							<Content />
-						</article>
-					)}
-					{app === "whoami" && !entry && (
-						<article class="prose-content">
-							<Whoami />
-						</article>
-					)}
-					{collection && !entry && (
-						<ul class="space-y-3">
-							{entries.map((post) => (
-								<li>
-									<a href={`/${app}/${post.id}/`}>{post.data.title}</a>
-								</li>
-							))}
-						</ul>
-					)}
-					{app === "snippets" && (
+				{app !== "snippets" && (
+					<div class="browser-bar flex items-center justify-between gap-4 border-b border-neutral-200 px-4 py-2 text-sm">
 						<>
-							<nav class="mb-6 flex flex-wrap gap-4">
-								<a href="/snippets/">Latest</a>
-								<a href="/snippets/folders/">Folders</a>
-								{folders.map((folder) => (
-									<a href={`/snippets/${folder.data.permalink}/`}>{folder.data.name}</a>
-								))}
-							</nav>
-							{path !== "/snippets/folders" && <SnippetFeed collectionId={entry?.id} />}
+							<span data-native-url class="truncate text-neutral-600">
+								{canonical}
+							</span>
+							<a data-native-open href={canonical} target="_blank" rel="noopener noreferrer">
+								Open ↗
+							</a>
 						</>
-					)}
-				</div>
+					</div>
+				)}
+				{app === "snippets" ? (
+					<Snippets
+						collection={entry?.collection === "snippetCollections" ? entry : undefined}
+						directory={path === "/snippets/folders"}
+					/>
+				) : entry && (entry.collection === "blog" || entry.collection === "weeknotes") ? (
+					<NowReading entry={entry}>{Content && <Content />}</NowReading>
+				) : (
+					<div class="now-content mx-auto max-w-3xl p-6 md:p-10" data-now-content={app}>
+						<h1 class="mb-6 text-3xl font-semibold">
+							{entry ? ("name" in entry.data ? entry.data.name : entry.data.title) : app}
+						</h1>
+						{Content && (
+							<article class="prose-content">
+								<Content />
+							</article>
+						)}
+						{collection && !entry && (
+							<ul class="space-y-3">
+								{entries.map((post) => (
+									<li>
+										<a href={`/${app}/${post.id}/`}>{post.data.title}</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</div>
+				)}
 			</>
 		)
 	}

@@ -47,10 +47,6 @@
 		"source": "gruvbox-plus",
 		"image": "/icons/gruvbox-plus/colophon.svg"
 	},
-	"whoami": {
-		"source": "gruvbox-plus",
-		"image": "/icons/gruvbox-plus/whoami.svg"
-	},
 	"launcher": {
 		"source": "gruvbox-plus",
 		"image": "/icons/gruvbox-plus/launcher.svg"

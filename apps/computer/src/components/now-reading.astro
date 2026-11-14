@@ -1,0 +1,167 @@
+---
+import Container from "@/components/container.astro";
+import { getEntries, type CollectionEntry } from "astro:content";
+import { getMonthColor } from "@now/lib/month-colors";
+import { formatBlogDate, formatReadingTime } from "@now/lib/utils";
+
+interface Props {
+	entry: CollectionEntry<"blog"> | CollectionEntry<"weeknotes">;
+}
+
+const { entry } = Astro.props;
+const note = entry.collection === "weeknotes" ? entry : null;
+const post = entry.collection === "blog" ? entry : null;
+const [key, ...rest] = entry.data.title.split(" ");
+const monthColor = note ? getMonthColor(note.data.fromDate) : null;
+const readingTime = formatReadingTime(entry.body ?? "");
+const postUrl = `/${entry.collection}/${entry.id}`;
+const tags = post ? await getEntries(post.data.tags ?? []) : [];
+---
+
+<div class="now-content now-reading pb-12 md:pb-36" data-now-content={entry.collection}>
+	<Container size="md">
+		<div
+			class="h-entry flex flex-col pt-24 md:pt-48"
+			style={monthColor &&
+				`--month-color-light: ${monthColor.light}; --month-color-dark: ${monthColor.dark};`}
+		>
+			<div class:list={["flex flex-col", note ? "gap-1" : "gap-2"]}>
+				{
+					note ? (
+						<div class="flex items-center gap-2">
+							<span class="weeknote-key font-semibold" aria-hidden="true">
+								{key}
+							</span>
+							<span class="text-(--color-text-muted)" aria-hidden="true">
+								·
+							</span>
+							<span class="text-(--color-text-muted) uppercase">{readingTime}</span>
+						</div>
+					) : (
+						post && (
+							<div class="flex items-center gap-2 text-sm text-(--color-text-muted) uppercase">
+								<time class="dt-published" datetime={post.data.date.toISOString()}>
+									{formatBlogDate(post.data.date)}
+								</time>
+								<span aria-hidden="true">·</span>
+								<span>{readingTime}</span>
+							</div>
+						)
+					)
+				}
+				<h1 class="p-name text-3xl font-semibold">
+					{
+						note ? (
+							<>
+								<span class="hidden">{key}</span>
+								{rest.join(" ")}
+							</>
+						) : (
+							entry.data.title
+						)
+					}
+				</h1>
+				<p class="p-summary text-(--color-text-muted)">{entry.data.description}</p>
+				{
+					note && (
+						<>
+							<time class="dt-start hidden" datetime={note.data.fromDate.toISOString()}>
+								{note.data.fromDate.toDateString()}
+							</time>
+							<time class="dt-end hidden" datetime={note.data.toDate.toISOString()}>
+								{note.data.toDate.toDateString()}
+							</time>
+						</>
+					)
+				}
+				<a class="u-url hidden" href={postUrl}>{entry.data.title}</a>
+				<span class="p-author h-card hidden">
+					<a class="p-name u-url" href="https://abhi.now" rel="author">Abhigyan Trips</a>
+				</span>
+			</div>
+			<hr class="mt-4 border-t-2 border-dashed border-(--color-text-muted)/50" />
+			<div class="not-prose mt-4 flex justify-start gap-2">
+				<button
+					data-reading-pdf
+					class="pdf-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm"
+				>
+					<span
+						class="pdf-btn-icon size-4 shrink-0"
+						style="--icon-url: url(/icons/paper-clip-2.svg)"
+						aria-hidden="true"></span>
+					Download PDF
+				</button>
+				<a
+					href={`https://abhi.now${postUrl}/plaintext`}
+					class="pdf-btn inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm no-underline"
+				>
+					<span
+						class="pdf-btn-icon size-4 shrink-0"
+						style="--icon-url: url(/icons/left-align.svg)"
+						aria-hidden="true"></span>
+					Show Plaintext Version
+				</a>
+			</div>
+			<article class="e-content prose-content">
+				<slot />
+				{
+					post && (
+						<div class="not-prose flex items-center justify-start gap-2 tracking-wider">
+							{tags.map((tag) => (
+								<abbr
+									title={tag.data.description}
+									class="p-category cursor-help rounded-lg bg-(--color-text)/10 px-3 py-1 text-sm text-(--color-text)/75 no-underline transition-colors duration-150"
+								>
+									#{tag.id}
+								</abbr>
+							))}
+						</div>
+					)
+				}
+			</article>
+		</div>
+	</Container>
+</div>
+
+<style>
+	.pdf-btn {
+		background-color: color-mix(in srgb, var(--color-text) 10%, transparent);
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+		cursor: pointer;
+		border: none;
+	}
+	.pdf-btn:hover {
+		background-color: color-mix(in srgb, var(--color-text) 18%, transparent);
+		color: var(--color-text);
+	}
+	.pdf-btn-icon {
+		display: inline-block;
+		background-color: currentColor;
+		mask: var(--icon-url) no-repeat center / contain;
+		-webkit-mask: var(--icon-url) no-repeat center / contain;
+	}
+	.weeknote-key {
+		color: var(--month-color-light);
+	}
+	:global(.dark) .weeknote-key {
+		color: var(--month-color-dark);
+	}
+	@media print {
+		.pdf-btn {
+			display: none !important;
+		}
+	}
+</style>
+
+<script>
+	function setupReadingPdf() {
+		const button = document.querySelector<HTMLButtonElement>("[data-reading-pdf]");
+		if (!button || button.dataset.pdfReady) return;
+		button.dataset.pdfReady = "true";
+		button.addEventListener("click", () => window.print());
+	}
+	document.addEventListener("astro:page-load", setupReadingPdf);
+	setupReadingPdf();
+</script>

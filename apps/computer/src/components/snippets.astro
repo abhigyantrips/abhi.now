@@ -1,0 +1,314 @@
+---
+import homeIcon from "@/assets/icons/lucide/house.svg?raw";
+import linkIcon from "@/assets/icons/lucide/link.svg?raw";
+import { formatSnippetDate, getSnippetFeed } from "@now/lib/snippets";
+import { Image } from "astro:assets";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import "@/styles/snippets.css";
+
+interface Props {
+	collection?: CollectionEntry<"snippetCollections">;
+	directory?: boolean;
+}
+
+const { collection: profile, directory = false } = Astro.props;
+const [collections, feed] = await Promise.all([
+	getCollection("snippetCollections"),
+	getSnippetFeed(),
+]);
+const counts = new Map<string, number>();
+for (const { collection } of feed) {
+	counts.set(collection.id, (counts.get(collection.id) ?? 0) + 1);
+}
+const postCount = (id: string) => {
+	const count = counts.get(id) ?? 0;
+	return `${count} ${count === 1 ? "post" : "posts"}`;
+};
+const avatars = new Map(
+	await Promise.all(
+		collections.map(async ({ data: { permalink } }) => {
+			const digest = await crypto.subtle.digest(
+				"SHA-256",
+				new TextEncoder().encode(`snippets-avatar:${permalink}`)
+			);
+			const seed = Array.from(new Uint8Array(digest), (byte) =>
+				byte.toString(16).padStart(2, "0")
+			).join("");
+			return [permalink, `https://api.dicebear.com/10.x/cutouts/svg?seed=${seed}`] as const;
+		})
+	)
+);
+const avatar = (slug: string) => avatars.get(slug);
+const profileUrl = (collection: CollectionEntry<"snippetCollections">) =>
+	`/snippets/${collection.data.permalink}/`;
+const rssUrl = (collection: CollectionEntry<"snippetCollections">) =>
+	`https://abhi.now/snippets/${collection.data.permalink}/feed.xml`;
+const entries = await Promise.all(
+	(directory ? [] : feed.filter(({ collection }) => !profile || collection.id === profile.id)).map(
+		async ({ post, collection }) => ({
+			post,
+			collection,
+			Content: (await render(post)).Content,
+			...formatSnippetDate(post.data.date),
+		})
+	)
+);
+---
+
+<div class="now-content snippets-platform" data-now-content="snippets">
+	<section class="snippets-timeline" aria-label={profile ? profile.data.name : "Mixed feed"}>
+		{
+			(profile || directory) && (
+				<nav class="snippets-navigation" aria-label="Snippets navigation">
+					<a class="snippets-home" href="/snippets/">
+						<Fragment set:html={homeIcon} />
+						<span>Go Home</span>
+					</a>
+					{!directory && (
+						<a class="snippets-mobile-collections" href="/snippets/folders/">
+							View all collections
+						</a>
+					)}
+				</nav>
+			)
+		}
+		{
+			!profile && (
+				<header class:list={["snippets-heading", { "snippets-welcome": !directory }]}>
+					{directory ? (
+						<>
+							<h1>Collections</h1>
+							<p class="snippets-heading-count">{collections.length} collections</p>
+						</>
+					) : (
+						<>
+							<h1 class="sr-only">Snippets</h1>
+							<p class="snippets-intro">
+								These snippets are a bunch of different thoughts I've had and quotes I've saved,
+								across different collections of folders that you can peruse.
+							</p>
+							<p class="snippets-heading-count">
+								There are currently {feed.length} posts across {collections.length} collections.
+							</p>
+							<a class="snippets-mobile-collections" href="/snippets/folders/">
+								View all collections
+							</a>
+						</>
+					)}
+				</header>
+			)
+		}
+		{
+			profile && (
+				<header class="snippets-profile">
+					<div class="snippets-profile-top">
+						<img
+							class="snippets-avatar snippets-avatar-large"
+							src={avatar(profile.data.permalink)}
+							alt=""
+							width="80"
+							height="80"
+						/>
+						<a
+							class="snippets-follow"
+							href={rssUrl(profile)}
+							aria-label={`Follow ${profile.data.name} via RSS`}
+						>
+							Follow
+						</a>
+					</div>
+					<div class="snippets-profile-identity">
+						<h1>{profile.data.name}</h1>
+						<p class="snippets-handle">@{profile.data.permalink}</p>
+					</div>
+					<p class="snippets-profile-description">{profile.data.description}</p>
+					<p class="snippets-count">{postCount(profile.id)}</p>
+				</header>
+			)
+		}
+		{
+			directory ? (
+				<ul class="snippets-directory">
+					{collections.map((collection) => (
+						<li class="snippets-user">
+							<a
+								class="snippets-avatar-link"
+								href={profileUrl(collection)}
+								aria-label={`View ${collection.data.name}'s profile`}
+							>
+								<img
+									class="snippets-avatar"
+									src={avatar(collection.data.permalink)}
+									alt=""
+									width="44"
+									height="44"
+									loading="lazy"
+								/>
+							</a>
+							<div class="snippets-user-info">
+								<a class="snippets-username" href={profileUrl(collection)}>
+									{collection.data.name}
+								</a>
+								<p class="snippets-count">{postCount(collection.id)}</p>
+								<p class="snippets-description">{collection.data.description}</p>
+							</div>
+							<a
+								class="snippets-follow"
+								href={rssUrl(collection)}
+								aria-label={`Follow ${collection.data.name} via RSS`}
+							>
+								Follow
+							</a>
+						</li>
+					))}
+				</ul>
+			) : (
+				<div class="h-feed">
+					<span class="p-name sr-only">{profile?.data.name ?? "All snippets"}</span>
+					{entries.map(({ post, collection, Content, publishedDate, publishedTime }) => (
+						<article class="snippets-post h-entry" id={post.id}>
+							<a
+								class="snippets-avatar-link"
+								href={profileUrl(collection)}
+								aria-label={`View ${collection.data.name}'s profile`}
+							>
+								<img
+									class="snippets-avatar"
+									src={avatar(collection.data.permalink)}
+									alt=""
+									width="44"
+									height="44"
+									loading="lazy"
+								/>
+							</a>
+							<header class="snippets-post-header">
+								<div class="snippets-post-author">
+									<a class="snippets-username p-author" href={profileUrl(collection)}>
+										{collection.data.name}
+									</a>
+									<span class="snippets-handle">@{collection.data.permalink}</span>
+								</div>
+								<button
+									class="snippets-copy"
+									type="button"
+									data-snippet-link={`${profile ? profileUrl(profile) : "/snippets/"}#${post.id}`}
+									aria-label="Copy link to snippet"
+									title="Copy link to snippet"
+								>
+									<Fragment set:html={linkIcon} />
+									<span class="snippets-copy-feedback" aria-live="polite" />
+								</button>
+							</header>
+							<div class="snippets-post-main">
+								<span class="p-name sr-only">
+									{collection.data.name} · #{post.id}
+								</span>
+								<div class="e-content snippets-post-body prose-content">
+									{post.data.type === "photos" && (
+										<Image
+											src={post.data.image}
+											alt={post.data.imageAlt}
+											widths={[320, 480, 640, 960]}
+											sizes="(min-width: 1000px) 540px, calc(100vw - 100px)"
+											loading="lazy"
+											decoding="async"
+											class="u-photo snippets-photo"
+										/>
+									)}
+									<Content />
+								</div>
+								<footer class="snippets-post-footer">
+									<a
+										class="u-url"
+										href={`${profile ? profileUrl(profile) : "/snippets/"}#${post.id}`}
+										aria-label={`Link to post from ${publishedDate} at ${publishedTime}`}
+									>
+										<time class="dt-published" datetime={post.data.date.toISOString()}>
+											{publishedDate} · {publishedTime}
+										</time>
+									</a>
+								</footer>
+							</div>
+						</article>
+					))}
+					{entries.length === 0 && <p class="snippets-empty">No posts yet.</p>}
+				</div>
+			)
+		}
+	</section>
+	<aside class="snippets-sidebar" aria-labelledby="snippets-collections-title">
+		<div class="snippets-sidebar-heading">
+			<h2 id="snippets-collections-title">Collections</h2>
+			<a class="snippets-view-all" href="/snippets/folders/">(View all)</a>
+		</div>
+		<ul>
+			{
+				collections.map((collection) => (
+					<li class="snippets-user">
+						<a
+							class="snippets-avatar-link"
+							href={profileUrl(collection)}
+							aria-label={`View ${collection.data.name}'s profile`}
+							aria-current={profile?.id === collection.id ? "page" : undefined}
+						>
+							<img
+								class="snippets-avatar"
+								src={avatar(collection.data.permalink)}
+								alt=""
+								width="44"
+								height="44"
+								loading="lazy"
+							/>
+						</a>
+						<div class="snippets-user-info">
+							<a
+								class="snippets-username"
+								href={profileUrl(collection)}
+								aria-current={profile?.id === collection.id ? "page" : undefined}
+							>
+								{collection.data.name}
+							</a>
+							<p class="snippets-count">{postCount(collection.id)}</p>
+						</div>
+						<a
+							class="snippets-follow"
+							href={rssUrl(collection)}
+							aria-label={`Follow ${collection.data.name} via RSS`}
+						>
+							Follow
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<p class="snippets-sidebar-note">Follow a collection with your RSS reader.</p>
+		<a class="snippets-avatar-credit" href="https://www.dicebear.com/styles/cutouts/"
+			>Avatars by DiceBear</a
+		>
+	</aside>
+</div>
+
+<script>
+	document.addEventListener("click", async (event) => {
+		const button =
+			event.target instanceof Element
+				? event.target.closest<HTMLButtonElement>("button[data-snippet-link]")
+				: null;
+		if (!button || button.disabled) return;
+		const path = button.dataset.snippetLink;
+		const feedback = button.querySelector<HTMLElement>(".snippets-copy-feedback");
+		if (!path || !feedback) return;
+		button.disabled = true;
+		try {
+			await navigator.clipboard.writeText(new URL(path, window.location.origin).href);
+			feedback.textContent = "Copied!";
+		} catch {
+			feedback.textContent = "Couldn't copy. Try again.";
+		} finally {
+			button.disabled = false;
+			window.setTimeout(() => {
+				feedback.textContent = "";
+			}, 2500);
+		}
+	});
+</script>
