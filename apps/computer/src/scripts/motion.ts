@@ -1,5 +1,13 @@
 // One interruptible animation per surface. Reversals start at the rendered pose.
 const animations = new WeakMap<HTMLElement, Animation>();
+
+export function cssTimeToMilliseconds(value: string, fallback: number) {
+	const match = value.trim().match(/^(\d*\.?\d+)(ms|s)$/);
+	if (!match) return fallback;
+	const milliseconds = Number(match[1]) * (match[2] === "s" ? 1000 : 1);
+	return Number.isFinite(milliseconds) ? milliseconds : fallback;
+}
+
 export async function animateSurface(
 	element: HTMLElement,
 	keyframes: Keyframe[],
@@ -16,9 +24,10 @@ export async function animateSurface(
 	const milliseconds =
 		typeof duration === "number"
 			? duration
-			: parseFloat(
-					style.getPropertyValue(duration === "enter" ? "--motion-surface" : "--motion-exit")
-				) || (duration === "enter" ? 180 : 130);
+			: cssTimeToMilliseconds(
+					style.getPropertyValue(duration === "enter" ? "--motion-surface" : "--motion-exit"),
+					duration === "enter" ? 180 : 130
+				);
 	const animation = element.animate(keyframes, {
 		duration: matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : milliseconds,
 		easing: style.getPropertyValue("--motion-ease").trim() || "ease-out",

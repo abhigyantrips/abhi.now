@@ -57,7 +57,7 @@ same-app content navigation keeps its chrome steady. CSS motion tokens live in
 The search index is fetched once per document, and taskbar links prefetch their
 destinations. Astro handles page HTML, head, style and script updates.
 
-Run the state-model tests with `node --test tests/desktop-state.test.ts` from this
+Run the state-model and motion tests with `node --test tests/*.test.ts` from this
 application directory (Node 22.18+ supports the TypeScript test files directly).
 
 The Weeknotes calendar also displays the `events` collection as Attended Events.
