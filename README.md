@@ -56,10 +56,12 @@ remain. Computer copies Now's public presentation assets into its generated
 `public/now-assets/` directory in development and builds; it never fetches Now's
 rendered public HTML. Prose utilities are shared in `content/prose.css`.
 
-The readers use Now's existing Astro 7.3.1 integration versions to compile shared
-components consistently. Chhotu retains its own Astro 7.4.0 runtime. The merged
-lockfile preserves existing resolved dependency graphs rather than upgrading
-frameworks as part of consolidation.
+All three apps use Astro 7.4.11 and shared Astro integration and Tailwind versions
+from the catalog in `pnpm-workspace.yaml`. Each app declares the packages it uses
+with `catalog:`; update their shared versions in the catalog and regenerate
+`pnpm-lock.yaml`. Astro belongs to the apps, not the workspace root.
+Computer still imports Now's configuration and components directly, so a filtered
+Computer install must include both `abhi-computer...` and `abhi.now...`.
 
 ## Cloudflare rollout
 

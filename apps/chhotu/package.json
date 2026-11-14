@@ -15,19 +15,19 @@
     "cf-typegen": "astro sync && wrangler types .astro/worker-configuration.d.ts --strict-vars=false --include-runtime=false"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.4.0",
-    "@tailwindcss/typography": "^0.5.20",
-    "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.4.0",
+    "@astrojs/cloudflare": "catalog:",
+    "@tailwindcss/typography": "catalog:",
+    "@tailwindcss/vite": "catalog:",
+    "astro": "catalog:",
     "dompurify": "^3.4.17",
     "fast-png": "^8.0.0",
     "image-size": "^2.0.4",
     "jpeg-js": "^0.4.4",
     "marked": "^18.1.1",
-    "tailwindcss": "^4.3.3"
+    "tailwindcss": "catalog:"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "catalog:",
     "@types/node": "^26.6.5",
     "@vite-pwa/astro": "^1.2.0",
     "prettier": "^3.9.10",
@@ -37,7 +37,7 @@
     "typescript": "^6.0.3",
     "vite-plugin-pwa": "^1.3.0",
     "workbox-window": "^7.4.1",
-    "wrangler": "^4.151.1"
+    "wrangler": "catalog:"
   },
   "private": true,
   "packageManager": "pnpm@10.29.3"
